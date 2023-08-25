@@ -51,7 +51,7 @@
     #(discord-canary.override { nss = nss_latest; })
     spotify
     bitwarden
-    whatsapp-for-linux
+    #whatsapp-for-linux
     # ---- edit ----
     gimp
     onlyoffice-bin
@@ -65,7 +65,7 @@
     cherrytree
     texstudio
     # ---- utils ----
-    gnome.gnome-software
+    #gnome.gnome-software
     libsForQt5.discover
     flatpak
     github-desktop
