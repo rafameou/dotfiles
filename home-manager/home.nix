@@ -59,12 +59,14 @@
     hunspell
     hunspellDicts.pt_BR
     strawberry
-    mpv
+    #mpv
+    haruna
     #texlive.combined.scheme-small
     (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng;})
     cherrytree
     texstudio
     # ---- utils ----
+    albert
     #gnome.gnome-software
     libsForQt5.discover
     flatpak
@@ -75,7 +77,7 @@
     nicotine-plus
     qbittorrent
     neovim
-    neovim-qt
+    #neovim-qt
     unar
     unzip
     zip
