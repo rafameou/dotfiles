@@ -55,20 +55,22 @@
     # ---- edit ----
     gimp
     onlyoffice-bin
-    libreoffice-qt
+    libreoffice
     hunspell
     hunspellDicts.pt_BR
     strawberry
+    celluloid
     #mpv
-    haruna
+    #haruna
     #texlive.combined.scheme-small
     (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng;})
     cherrytree
     texstudio
     # ---- utils ----
-    albert
-    #gnome.gnome-software
-    libsForQt5.discover
+    #albert
+    gnome.gnome-software
+    gnome.gnome-tweaks
+    #libsForQt5.discover
     flatpak
     github-desktop
     vscode-with-extensions
@@ -88,7 +90,25 @@
     # ---- extra ----
     nixos-icons
     mesa-demos
+    # ---- gnome extensions ----
+    gnomeExtensions.runcat
+    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.openweather
   ];
+
+  dconf.settings = {
+    "org/gnome/shell" = {
+      disable-user-extensions = false;
+      enabled-extensions = [
+        "runcat@kolesnikov.se"
+        "trayIconsReloaded@selfmade.pl"
+        "openweather-extension@jenslody.de"
+      ];
+    };
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:minimize,maximize,close";
+    };
+  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;

@@ -20,9 +20,9 @@
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     # NixOS configuration entrypoint
-    # Available through 'nixos-rebuild --flake .#rmeoua515-nixos'
+    # Available through 'nixos-rebuild --flake .#chikorita'
     nixosConfigurations = {
-      rmeoua515-nixos = nixpkgs.lib.nixosSystem {
+      chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main nixos configuration file <
         modules = [ ./nixos/configuration.nix ];
@@ -30,9 +30,9 @@
     };
 
     # Standalone home-manager configuration entrypoint
-    # Available through 'home-manager --flake .#rafameou@rmeoua515-nixos'
+    # Available through 'home-manager --flake .#rafameou@chikorita'
     homeConfigurations = {
-      "rafameou@rmeoua515-nixos" = home-manager.lib.homeManagerConfiguration {
+      "rafameou@chikorita" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
         # > Our main home-manager configuration file <
