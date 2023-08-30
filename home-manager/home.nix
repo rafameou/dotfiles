@@ -70,6 +70,7 @@
     #albert
     gnome.gnome-software
     gnome.gnome-tweaks
+    gnome.dconf-editor
     #libsForQt5.discover
     flatpak
     github-desktop
@@ -98,6 +99,7 @@
 
   dconf.settings = {
     "org/gnome/shell" = {
+      favorite-apps = [];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
@@ -107,6 +109,13 @@
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
+    };
+    "org/gnome/desktop/interface" = {
+      clock-show-seconds = true;
+      show-battery-percentage = true;
+    };
+    "org/gnome/desktop/peripherals/touchpad" = {
+      tap-to-click = true;
     };
   };
 
