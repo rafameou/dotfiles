@@ -93,8 +93,9 @@
     mesa-demos
     # ---- gnome extensions ----
     gnomeExtensions.runcat
-    gnomeExtensions.tray-icons-reloaded
+    gnomeExtensions.appindicator
     gnomeExtensions.openweather
+    gnomeExtensions.alphabetical-app-grid
   ];
 
   dconf.settings = {
@@ -103,8 +104,9 @@
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
-        "trayIconsReloaded@selfmade.pl"
+        "appindicatorsupport@rgcjonas.gmail.com"
         "openweather-extension@jenslody.de"
+	"AlphabeticalAppGrid@stuarthayhurst"
       ];
     };
     "org/gnome/desktop/wm/preferences" = {
@@ -116,6 +118,12 @@
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
+    };
+    "org/gtk/settings/file-chooser" = {
+      sort-directories-first = true;
+    };
+    "org/gtk/gtk4/settings/file-chooser" = {
+      sort-directories-first = true;
     };
   };
 
