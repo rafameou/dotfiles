@@ -75,7 +75,7 @@
     flatpak
     github-desktop
     vscode-with-extensions
-    geogebra5
+    geogebra
     octaveFull
     nicotine-plus
     qbittorrent
