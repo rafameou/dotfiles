@@ -152,11 +152,14 @@
     git
     vim
     home-manager
-  #  wget
+    #  wget
   ];
 
   #dconf
   programs.dconf.enable = true;
+
+  #"open with dedicated graphics card" on gnome
+  services.switcherooControl.enable = true;
 
   # trimm
   services.fstrim = {

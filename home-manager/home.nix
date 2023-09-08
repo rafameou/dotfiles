@@ -96,18 +96,41 @@
     gnomeExtensions.appindicator
     gnomeExtensions.openweather
     gnomeExtensions.alphabetical-app-grid
+    gnomeExtensions.favourites-in-appgrid 
+    gnomeExtensions.todotxt
   ];
 
   dconf.settings = {
     "org/gnome/shell" = {
-      favorite-apps = [];
+      favorite-apps = [
+        "vivaldi-stable.desktop"
+        "google-chrome.desktop"
+        "thunderbird.desktop"
+        "org.gnome.Nautilus.desktop"
+        "cherrytree.desktop"
+        "org.telegram.desktop.desktop"
+        "discord.desktop"
+        "vivaldi-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop" #whatsapp
+        "vivaldi-akpamiohjfcnimfljfndmaldlcfphjmp-Default.desktop" #instagram
+        "vivaldi-jneocipojkkahfcibhjaiilegofacenn-Default.desktop" #duolingo
+        "spotify.desktop"
+        "bitwarden.desktop"
+        "org.gnome.Console.desktop"
+        "gnome-system-monitor.desktop"
+        "github-desktop.desktop"
+      ];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
         "appindicatorsupport@rgcjonas.gmail.com"
         "openweather-extension@jenslody.de"
 	"AlphabeticalAppGrid@stuarthayhurst"
+	"favourites-in-appgrid@harshadgavali.gitlab.org"
+	"todo.txt@bart.libert.gmail.com"
       ];
+    };
+    "org/gnome/desktop/app-folders" = {
+      folder-children = []; #pior implementacao de pasta 2011-2023
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
