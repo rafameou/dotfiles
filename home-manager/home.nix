@@ -150,6 +150,12 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme = "gnome";
+    style.name = "adwaita";
+  };
+
   # Enable home-manager and git
   programs.home-manager.enable = true;
   #programs.git.enable = true;
