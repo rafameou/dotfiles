@@ -1,4 +1,10 @@
 # Personal NixOS Flake
+
+```sh
+sudo nixos-rebuild --flake .#hostname switch |& nom
+home-manager --flake .#username@hostname switch |& nom
+```
+
 ## To-do list
 - Config neovim.
 - Home-manager as nixos module.
