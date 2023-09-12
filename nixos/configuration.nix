@@ -154,8 +154,8 @@
     vim
     home-manager
     nix-output-monitor
-    qgnomeplatform
-    qgnomeplatform-qt6
+    #qgnomeplatform
+    #qgnomeplatform-qt6
     #  wget
   ];
 

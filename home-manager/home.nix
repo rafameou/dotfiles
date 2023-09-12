@@ -98,6 +98,11 @@
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.favourites-in-appgrid 
     gnomeExtensions.todotxt
+    # ---- themes ----
+    libsForQt5.qt5.qtwayland          
+    qt6.qtwayland
+    adwaita-qt
+    adwaita-qt6
   ];
 
   dconf.settings = {
@@ -152,8 +157,8 @@
 
   qt = {
     enable = true;
-    platformTheme = "gnome";
-    style.name = "adwaita";
+    #platformTheme = "gnome";
+    #style.name = "adwaita";
   };
 
   # Enable home-manager and git
