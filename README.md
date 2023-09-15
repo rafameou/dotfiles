@@ -1,8 +1,8 @@
 # Personal NixOS Flake
 
 ```sh
-sudo nixos-rebuild --flake .#hostname switch |& nom
-home-manager --flake .#username@hostname switch |& nom
+sudo nixos-rebuild --flake .#$(hostname) switch |& nom
+home-manager --flake .#$(whoami)@$(hostname) switch |& nom
 ```
 
 ## To-do list

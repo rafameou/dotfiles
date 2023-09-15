@@ -10,6 +10,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     # ./nvim.nix
+    ./mod/gnome.nix
   ];
 
   nixpkgs = {
@@ -48,10 +49,8 @@
     thunderbird
     tdesktop
     (discord.override { nss = nss_latest; })
-    #(discord-canary.override { nss = nss_latest; })
     spotify
     bitwarden
-    #whatsapp-for-linux
     # ---- edit ----
     gimp
     onlyoffice-bin
@@ -59,28 +58,18 @@
     hunspell
     hunspellDicts.pt_BR
     strawberry
-    celluloid
-    #mpv
-    #haruna
-    #texlive.combined.scheme-small
+    celluloid #mpv
     (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng;})
     cherrytree
     texstudio
     # ---- utils ----
-    #albert
-    gnome.gnome-software
-    gnome.gnome-tweaks
-    gnome.dconf-editor
-    #libsForQt5.discover
     flatpak
     github-desktop
-    vscode-with-extensions
     geogebra
     octaveFull
     nicotine-plus
     qbittorrent
     neovim
-    #neovim-qt
     unar
     unzip
     zip
@@ -91,75 +80,7 @@
     # ---- extra ----
     nixos-icons
     mesa-demos
-    # ---- gnome extensions ----
-    gnomeExtensions.runcat
-    gnomeExtensions.appindicator
-    gnomeExtensions.openweather
-    gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.favourites-in-appgrid 
-    gnomeExtensions.todotxt
-    # ---- themes ----
-    libsForQt5.qt5.qtwayland          
-    qt6.qtwayland
-    adwaita-qt
-    adwaita-qt6
   ];
-
-  dconf.settings = {
-    "org/gnome/shell" = {
-      favorite-apps = [
-        "vivaldi-stable.desktop"
-        "google-chrome.desktop"
-        "thunderbird.desktop"
-        "org.gnome.Nautilus.desktop"
-        "cherrytree.desktop"
-        "org.telegram.desktop.desktop"
-        "discord.desktop"
-        "vivaldi-hnpfjngllnobngcgfapefoaidbinmjnm-Default.desktop" #whatsapp
-        "vivaldi-akpamiohjfcnimfljfndmaldlcfphjmp-Default.desktop" #instagram
-        "vivaldi-jneocipojkkahfcibhjaiilegofacenn-Default.desktop" #duolingo
-        "spotify.desktop"
-        "bitwarden.desktop"
-        "org.gnome.Console.desktop"
-        "gnome-system-monitor.desktop"
-        "github-desktop.desktop"
-      ];
-      disable-user-extensions = false;
-      enabled-extensions = [
-        "runcat@kolesnikov.se"
-        "appindicatorsupport@rgcjonas.gmail.com"
-        "openweather-extension@jenslody.de"
-	"AlphabeticalAppGrid@stuarthayhurst"
-	"favourites-in-appgrid@harshadgavali.gitlab.org"
-	"todo.txt@bart.libert.gmail.com"
-      ];
-    };
-    "org/gnome/desktop/app-folders" = {
-      folder-children = []; #pior implementacao de pasta 2011-2023
-    };
-    "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:minimize,maximize,close";
-    };
-    "org/gnome/desktop/interface" = {
-      clock-show-seconds = true;
-      show-battery-percentage = true;
-    };
-    "org/gnome/desktop/peripherals/touchpad" = {
-      tap-to-click = true;
-    };
-    "org/gtk/settings/file-chooser" = {
-      sort-directories-first = true;
-    };
-    "org/gtk/gtk4/settings/file-chooser" = {
-      sort-directories-first = true;
-    };
-  };
-
-  qt = {
-    enable = true;
-    #platformTheme = "gnome";
-    #style.name = "adwaita";
-  };
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
