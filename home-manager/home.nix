@@ -77,6 +77,8 @@
     htop
     # ---- games ----
     easyrpg-player
+    crispy-doom
+    prboom-plus
     # ---- extra ----
     nixos-icons
     mesa-demos
