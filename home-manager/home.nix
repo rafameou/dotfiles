@@ -9,8 +9,11 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
     ./mod/gnome.nix
+    ./mod/internet.nix
+    ./mod/util.nix
+    ./mod/edit.nix
+    ./mod/games.nix
   ];
 
   nixpkgs = {
@@ -39,50 +42,6 @@
     username = "rafameou";
     homeDirectory = "/home/rafameou";
   };
-
-  # Add stuff for your user as you see fit:
-  # programs.neovim.enable = true;
-  home.packages = with pkgs; [
-    # ---- internet ----
-    vivaldi
-    google-chrome
-    thunderbird
-    tdesktop
-    (discord.override { nss = nss_latest; })
-    spotify
-    bitwarden
-    # ---- edit ----
-    gimp
-    onlyoffice-bin
-    libreoffice
-    hunspell
-    hunspellDicts.pt_BR
-    strawberry
-    celluloid #mpv
-    (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng;})
-    cherrytree
-    texstudio
-    # ---- utils ----
-    flatpak
-    github-desktop
-    geogebra
-    octaveFull
-    nicotine-plus
-    qbittorrent
-    neovim
-    unar
-    unzip
-    zip
-    xsane
-    htop
-    # ---- games ----
-    easyrpg-player
-    crispy-doom
-    prboom-plus
-    # ---- extra ----
-    nixos-icons
-    mesa-demos
-  ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
