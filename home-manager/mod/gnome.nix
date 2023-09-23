@@ -12,6 +12,9 @@
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.favourites-in-appgrid
     gnomeExtensions.todotxt
+    gnomeExtensions.hot-edge
+    gnomeExtensions.caffeine
+    gnomeExtensions.activate_gnome
     # ---- gnome fixes ----
     adwaita-qt
     adwaita-qt6
@@ -52,6 +55,8 @@
 	"AlphabeticalAppGrid@stuarthayhurst"
 	"favourites-in-appgrid@harshadgavali.gitlab.org"
 	"todo.txt@bart.libert.gmail.com"
+	"hotedge@jonathan.jdoda.ca"
+	"caffeine@patapon.info"
       ];
     };
     "org/gnome/desktop/app-folders" = {
