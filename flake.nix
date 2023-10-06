@@ -1,4 +1,4 @@
-5{
+{
   description = "Your new nix config";
 
   inputs = {
