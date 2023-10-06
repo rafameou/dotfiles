@@ -7,7 +7,7 @@
     hunspell
     hunspellDicts.pt_BR
     strawberry
-    celluloid #mpv
+    mpv
     (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng;})
     cherrytree
     texstudio

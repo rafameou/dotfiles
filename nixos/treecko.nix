@@ -6,11 +6,10 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./chikorita-hw.nix
+      ./treecko-hw.nix
       ./mod/boot.nix
       ./mod/nix.nix
       ./mod/desktop.nix
-      ./mod/nvidia-hell.nix
       ./mod/ssd.nix
       ./mod/time.nix
       ./mod/user.nix
@@ -19,10 +18,9 @@
   networking.hostName = "chikorita"; # Define your hostname.
 
   # ... changes to only this sytem
-  # GNOME
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.desktopManager.gnome.flashback.enableMetacity = true;
+  # Enable the MATE Desktop Environment.
+  services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.desktopManager.mate.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

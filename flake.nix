@@ -1,4 +1,4 @@
-{
+5{
   description = "Your new nix config";
 
   inputs = {
@@ -23,6 +23,10 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ ./nixos/chikorita.nix ];
       };
+      treecko = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        modules = [ ./nixos/treecko.nix ];
+      };
     };
 
     homeConfigurations = {
@@ -30,6 +34,11 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ ./home-manager/home.nix ];
+      };
+      "rafameou@treecko" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        modules = [ ./home-manager/treecko-home.nix ];
       };
     };
   };
