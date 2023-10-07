@@ -15,12 +15,15 @@
       ./mod/user.nix
     ];
 
-  networking.hostName = "chikorita"; # Define your hostname.
+  networking.hostName = "treecko"; # Define your hostname.
 
   # ... changes to only this sytem
   # Enable the MATE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.mate.enable = true;
+
+  # enable geoclue2 services
+  services.geoclue2.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

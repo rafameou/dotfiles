@@ -2,10 +2,14 @@
 {
   home.packages = with pkgs; [
     gnome.gnome-software
-    gnome.dconf-editorb
+    gnome.dconf-editor
     mate.mate-tweak
     mate.mate-icon-theme-faenza
+    networkmanagerapplet
   ];
+
+  services.redshift.enable = true;
+  services.redshift.provider = "geoclue2";
 
   qt = {
     enable = true;
@@ -13,16 +17,19 @@
     #style.name = "adwaita";
   };
 
-  /*dconf.settings = {
+  dconf.settings = {
     "org/mate/panel/menubar" = {
-      icon-theme = "start-here";
+      icon-theme = "nix-snowflake";
     };
-    "org/mate/desktop/interface" = {
-      gtk-theme = "TraditionalOk";
-      icon-theme = "mate";
+    "org/mate/panel/objects/clock/prefs" = {
+      show-seconds = true;
     };
-    "org/mate/marco/general" = {
-      theme = "Spidey";
-    };
-  };*/s
+    #"org/mate/desktop/interface" = {
+    #  gtk-theme = "TraditionalOk";
+    #  icon-theme = "mate";
+    #};
+    #"org/mate/marco/general" = {
+    #  theme = "Spidey";
+    #};
+  };
 }
