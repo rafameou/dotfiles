@@ -3,16 +3,19 @@
   home.packages = with pkgs; [
     gnome.gnome-software
     gnome.dconf-editor
-    mate.mate-tweak
-    mate.mate-icon-theme-faenza
+    
     networkmanagerapplet
+
+    xfce.xfce4-eyes-plugin
+    xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-notes-plugin
 
     arc-theme
     arc-icon-theme
     cinnamon.mint-themes
-    mate.mate-icon-theme-faenza
-    theme-jade1
-    iconpack-jade
+    #mate.mate-icon-theme-faenza
+    #theme-jade1
+    #iconpack-jade
     cinnamon.mint-x-icons
   ];
 
@@ -26,12 +29,12 @@
   };
 
   dconf.settings = {
-    "org/mate/panel/menubar" = {
-      icon-theme = "nix-snowflake";
-    };
-    "org/mate/panel/objects/clock/prefs" = {
-      show-seconds = true;
-    };
+    #"org/mate/panel/menubar" = {
+    #  icon-theme = "nix-snowflake";
+    #};
+    #"org/mate/panel/objects/clock/prefs" = {
+    #  show-seconds = true;
+    #};
     #"org/mate/desktop/interface" = {
     #  gtk-theme = "TraditionalOk";
     #  icon-theme = "mate";
