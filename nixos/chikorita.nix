@@ -10,6 +10,7 @@
       ./mod/boot.nix
       ./mod/nix.nix
       ./mod/desktop.nix
+      ./mod/pipewire.nix
       ./mod/nvidia-hell.nix
       ./mod/ssd.nix
       ./mod/time.nix

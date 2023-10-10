@@ -6,10 +6,6 @@
     
     networkmanagerapplet
 
-    xfce.xfce4-eyes-plugin
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-notes-plugin
-
     arc-theme
     arc-icon-theme
     cinnamon.mint-themes

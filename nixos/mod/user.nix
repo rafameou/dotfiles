@@ -10,7 +10,7 @@
   users.users.rafameou = {
     isNormalUser = true;
     description = "Rafael Mazzutti";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "audio" "networkmanager" "wheel" ];
   };
 
   # List packages installed in system profile. To search, run:
