@@ -3,16 +3,19 @@
   home.packages = with pkgs; [
     gnome.gnome-software
     gnome.dconf-editor
+    gnome.file-roller
+
+    galculator
+    libsForQt5.okular
     
     networkmanagerapplet
 
     arc-theme
     arc-icon-theme
     cinnamon.mint-themes
-    #mate.mate-icon-theme-faenza
-    #theme-jade1
-    #iconpack-jade
     cinnamon.mint-x-icons
+    zuki-themes
+    greybird
   ];
 
   services.redshift.enable = true;
