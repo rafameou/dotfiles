@@ -11,6 +11,7 @@
       ./mod/nix.nix
       ./mod/desktop.nix
       ./mod/kde.nix
+      ./mod/pipewire.nix
       ./mod/ssd.nix
       ./mod/time.nix
       ./mod/user.nix
