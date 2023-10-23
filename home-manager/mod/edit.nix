@@ -6,6 +6,8 @@
     libreoffice
     hunspell
     hunspellDicts.pt_BR
+    corefonts
+    vistafonts
     strawberry
     mpv
     (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng;})
@@ -13,4 +15,19 @@
     texstudio
     gnome-latex
   ];
+
+  programs.vscode = {
+  enable = true;
+  extensions = with pkgs.vscode-extensions; [
+    vscodevim.vim
+    ms-vscode.cpptools
+    ms-vscode.makefile-tools
+    ms-vscode.cmake-tools
+    daohong-emilio.yash
+    redhat.java
+    redhat.vscode-xml
+    redhat.vscode-yaml
+    bbenoist.nix
+  ];
+};
 }

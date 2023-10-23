@@ -9,6 +9,7 @@
       ./treecko-hw.nix
       ./mod/boot.nix
       ./mod/nix.nix
+      ./mod/bluetooth.nix
       ./mod/desktop.nix
       ./mod/kde.nix
       ./mod/pipewire.nix
