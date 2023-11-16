@@ -13,6 +13,7 @@
     unzip
     zip
     xsane
+    remmina
     htop
     nixos-icons
     mesa-demos

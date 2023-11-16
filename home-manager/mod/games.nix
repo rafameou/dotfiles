@@ -4,6 +4,6 @@
     easyrpg-player
     crispy-doom
     prboom-plus
-    steam
+    #steam
   ];
 }

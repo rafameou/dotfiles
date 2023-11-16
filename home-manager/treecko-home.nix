@@ -10,6 +10,7 @@
 
     # You can also split up your configuration and import pieces of it here:
     ./mod/kde.nix
+    ./mod/sway.nix
     ./mod/internet.nix
     ./mod/util.nix
     ./mod/edit.nix
