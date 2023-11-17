@@ -40,6 +40,10 @@
   };
 
   services.fwupd.enable = true;
+  
+  #sway.nix
+  security.polkit.enable = true;
+  security.pam.services.swaylock = {};
 
   # enable geoclue2 services
   services.geoclue2.enable = true;

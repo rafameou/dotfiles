@@ -5,16 +5,99 @@
     playerctl
     foot
     networkmanagerapplet
+
+    swaybg
+    swaylock
+    cliphist
+    wl-clipboard
+    grim
+    slurp
+    wofi
+
+    font-awesome
   ];
+
+  #services.playerctld.enable = true;
+
+  services.swayidle = {
+    enable = true;
+    systemdTarget = "sway-session.target";
+    timeouts = [
+      { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
+      { timeout = 600; command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
+                       resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
+    ];
+    events = [
+      { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
+    ];
+  };
+
+  services.mako = {
+    enable = true;
+    actions = true;
+    anchor = "top-right";
+    icons = true;
+    defaultTimeout = 7000; # 7s
+    ignoreTimeout = true;
+  };
+
+  services.gammastep = {
+    enable = true;
+    provider = "geoclue2";
+    tray = true;
+    settings.general = {
+      fade = "1";
+      adjustment-method = "wayland";
+    };
+    temperature = {
+      day   = 5500;
+      night = 2700;
+    };
+  };
 
   wayland.windowManager.sway = {
     enable = true;
     config = rec {
       modifier = "Mod4";
-      # Use kitty as default terminal
+      menu = "${pkgs.wofi}/bin/wofi --show=drun --insensitive --allow-images --hide-scroll | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       terminal = "foot"; 
+      #screenlock = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
+      input = {
+        "type:keyboard" = {
+          xkb_layout = "br";
+          xkb_model = "abnt2";
+          xkb_variant = "thinkpad";
+          xkb_numlock = "disabled";
+      	};
+      };
+      focus = {
+        followMouse = true;
+        wrapping = "no";
+        mouseWarping = true;
+        newWindow = "smart";
+      };
+      #workspaceAutoBackAndForth = true;
+      #workspaceLayout = "default";
+      gaps = rec {
+        smartBorders = "on";
+        smartGaps = true;
+        inner = 4;
+        outer = -inner;
+      };
+      /*floating = {
+        border = 2;
+        titlebar = true;
+      };
+      window = {
+        border = 2;
+        titlebar = false;
+        hideEdgeBorders = "none";
+        commands = [ ];
+      };*/
       startup = [
-        {command = "nm-applet --indicator";}
+        {command = "--no-startup-id nm-applet --indicator";}
+        {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
+	{command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -i ~/back"; }
       ];
       keybindings = lib.mkOptionDefault {
         #"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -34,13 +117,37 @@
 
         "XF86MonBrightnessUp"   = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
+
+        "Print"          = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy";
       };
     };
+    extraSessionCommands = ''
+      [ -e $HOME/.zshenv ] && . $HOME/.zshenv
+      [ -e $HOME/.profile ] && . $HOME/.profile
+
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+      export CLUTTER_BACKEND="wayland"
+      export XDG_SESSION_TYPE="wayland"
+
+      # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+      # For flatpak to be able to use PATH programs
+      sh -c "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service" &
+      '';
+
+    systemd.enable = true;
+    wrapperFeatures.gtk = true;
+    xwayland = true;
   };
 
   # https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/waybar.nix
   wayland.windowManager.sway.config.bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
-  
+
   programs.waybar = {
     enable = true;
     settings = [{
@@ -50,7 +157,7 @@
       spacing = 5;
 
       modules-left   = [ "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" ];
-      modules-center = [ "sway/window" ];
+      #modules-center = [ "sway/window" ];
       modules-right  = [ "tray" "idle_inhibitor" "pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "keyboard-state" "sway/language" "battery" "battery#bat2" "clock" ];
 
       "sway/workspaces" = {
@@ -141,6 +248,7 @@
       "battery#bat2" = {
           bat = "BAT2";
       };
+
 
       network = {
           format-wifi = "{essid} ({signalStrength}%) ";

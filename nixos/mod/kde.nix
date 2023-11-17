@@ -1,8 +1,8 @@
 { inputs, lib, config, pkgs, ... }:
 {
   #Enable KDE
-  #services.xserver.displayManager.startx.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
+  services.xserver.displayManager.startx.enable = true;
+  #services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
   #services.xserver.desktopManager.lxqt.enable = true;
   services.xserver.displayManager.defaultSession = "plasmawayland";
