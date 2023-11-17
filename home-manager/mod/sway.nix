@@ -17,7 +17,17 @@
     dolphin
     ark 
     gwenview
+
+    libsForQt5.qt5ct
+    libsForQt5.qt5.qtwayland
+    qt6.qtwayland
+    qt6Packages.qt6ct
+
+    breeze-icons
   ];
+
+  qt.enable = true;
+  qt.platformTheme = "qtct";
 
   #services.playerctld.enable = true;
 
