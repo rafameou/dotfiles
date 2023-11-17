@@ -138,8 +138,6 @@
 
       # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
       dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-      systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
-      systemctl --user mask xdg-desktop-portal-gnome
 
       # For flatpak to be able to use PATH programs
       sh -c "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service" &

@@ -11,7 +11,7 @@
       ./mod/nix.nix
       ./mod/bluetooth.nix
       ./mod/desktop.nix
-      ./mod/kde.nix
+      ./mod/sway.nix
       ./mod/pipewire.nix
       ./mod/ssd.nix
       ./mod/time.nix

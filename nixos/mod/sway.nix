@@ -15,8 +15,8 @@
   # flatpak
   services.dbus.enable = true;
   xdg.portal = {
-    enable = true;
+  #  enable = true;
     wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  #  extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 }
