@@ -21,6 +21,17 @@
   # ... changes to only this sytem
   networking.hostName = "treecko"; # Define your hostname.
 
+  #esc + v + esc ou ctrl + v + esc
+  environment.etc."issue".text = ''
+[1;32m<<< Bem-Vindo a \n! >>[0m
+NixOS com GNU/Linux \r (\m)
+
+[1;36mHoje é \d, agora sao \t e voce esta na \l[0m
+Caso voce tenha encontrado esse computador sozinho aleatoriamente por ai, contate: 
++55 (42) 9 8402-6139 (telefone, whatsapp ou telegram) ou rafaelmazz22@gmail.com
+
+'';
+  
   boot.kernelParams = [ "amd_pstate=guided" ];
 
   services.power-profiles-daemon.enable = false;
@@ -40,15 +51,13 @@
   };
 
   services.fwupd.enable = true;
-  
-  #sway.nix
-  security.polkit.enable = true;
-  security.pam.services.swaylock = {};
 
   # enable geoclue2 services
   services.geoclue2.enable = true;
 
   services.zerotierone.enable = true;
+
+  #console.keyMap = "br-thinkpad";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

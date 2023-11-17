@@ -1,12 +1,7 @@
 { inputs, lib, config, pkgs, ... }:
 {
-  #Enable KDE
-  #services.xserver.displayManager.startx.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
-  #services.xserver.desktopManager.lxqt.enable = true;
-  services.xserver.displayManager.defaultSession = "plasmawayland";
-  
+  services.xserver.displayManager.startx.enable = true;
+
   #Enable Keyring for stuff like github-desktop
   services.gnome.gnome-keyring.enable = true;
 
@@ -14,9 +9,14 @@
       gnome.seahorse
   ];
 
+  security.polkit.enable = true;
+  security.pam.services.swaylock = {};
+
   # flatpak
+  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
+    wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 }

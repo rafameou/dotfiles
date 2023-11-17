@@ -14,6 +14,7 @@
     cherrytree
     texstudio
     gnome-latex
+    okular
   ];
 
   programs.vscode = {

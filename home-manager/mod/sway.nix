@@ -14,7 +14,9 @@
     slurp
     wofi
 
-    font-awesome
+    dolphin
+    ark 
+    gwenview
   ];
 
   #services.playerctld.enable = true;
@@ -60,6 +62,7 @@
     config = rec {
       modifier = "Mod4";
       menu = "${pkgs.wofi}/bin/wofi --show=drun --insensitive --allow-images --hide-scroll | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+      bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
       terminal = "foot"; 
       #screenlock = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
       input = {
@@ -97,7 +100,7 @@
       startup = [
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
-	{command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -i ~/back"; }
+	    {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -i ~/back"; }
       ];
       keybindings = lib.mkOptionDefault {
         #"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -135,6 +138,8 @@
 
       # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
       dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+      systemctl --user import-environment XDG_SESSION_TYPE XDG_CURRENT_DESKTOP
+      systemctl --user mask xdg-desktop-portal-gnome
 
       # For flatpak to be able to use PATH programs
       sh -c "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service" &
@@ -146,7 +151,6 @@
   };
 
   # https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/waybar.nix
-  wayland.windowManager.sway.config.bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
 
   programs.waybar = {
     enable = true;

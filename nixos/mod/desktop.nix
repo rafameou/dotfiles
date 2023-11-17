@@ -6,7 +6,7 @@
   # Configure keymap in X11
   services.xserver = {
     layout = "br";
-    xkbVariant = "";
+    #xkbVariant = "";
   };
 
   #dconf
@@ -14,12 +14,13 @@
 
   services.onedrive.enable = true;
 
-  # flatpak
+  /*# flatpak
+  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };
+  };*/
 
   services.flatpak.enable = true;
 
@@ -29,6 +30,7 @@
     roboto
     nerdfonts
     inter
+    font-awesome
   ];
 
   # Enable touchpad support (enabled default in most desktopManager).
