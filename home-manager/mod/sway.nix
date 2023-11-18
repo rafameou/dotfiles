@@ -77,10 +77,10 @@
       #screenlock = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
       input = {
         "type:keyboard" = {
-          xkb_layout = "br";
-          xkb_model = "abnt2";
-          xkb_variant = "thinkpad";
-          xkb_numlock = "disabled";
+          xkb_layout = "br,br";
+          xkb_model = "abnt2,abnt2";
+          xkb_variant = ",thinkpad";
+          xkb_numlock = "enabled,disabled";
       	};
       };
       focus = {
@@ -150,7 +150,7 @@
       dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
       # For flatpak to be able to use PATH programs
-      sh -c "systemctl --user import-environment PATH && systemctl --user restart xdg-desktop-portal.service" &
+      sh -c "systemctl --user import-environment PATH #&& systemctl --user restart xdg-desktop-portal.service" &
       '';
 
     systemd.enable = true;
