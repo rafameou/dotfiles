@@ -16,6 +16,7 @@
       ./mod/ssd.nix
       ./mod/time.nix
       ./mod/user.nix
+      ./mod/distrobox.nix
     ];
 
   # ... changes to only this sytem
