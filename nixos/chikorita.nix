@@ -34,6 +34,12 @@ Caso voce tenha encontrado esse computador sozinho aleatoriamente por ai, contat
 
 '';
 
+  fileSystems."/mnt/Extra" =
+  { 
+    device = "/dev/disk/by-uuid/41785370-fb0f-4504-81a2-d9bf1b895fb5";
+    fsType = "ext4";
+  };
+
   # enable geoclue2 services
   services.geoclue2.enable = true;
 

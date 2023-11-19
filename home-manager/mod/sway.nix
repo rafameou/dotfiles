@@ -14,20 +14,43 @@
     slurp
     wofi
 
-    dolphin
+    #dolphin
     ark 
-    gwenview
+    #gwenview
+
+    imv
+
+    lxqt.pcmanfm-qt
+    #lxqt.lximage-qt
+    lxqt.pavucontrol-qt
+    lxqt.qps
 
     libsForQt5.qt5ct
     libsForQt5.qt5.qtwayland
     qt6.qtwayland
     qt6Packages.qt6ct
 
+    libsForQt5.oxygen
+    libsForQt5.oxygen-sounds
+    libsForQt5.oxygen-icons5
+
+    udiskie
+
     breeze-icons
   ];
 
   qt.enable = true;
   qt.platformTheme = "qtct";
+
+  home.pointerCursor = {
+    name = "phinger-cursors";
+    package = pkgs.phinger-cursors;
+    #size = 16;
+    x11.enable = true;
+    gtk.enable = true;
+  };
+
+  #services.udisks2.enable = true;
 
   #services.playerctld.enable = true;
 
@@ -91,12 +114,12 @@
       };
       #workspaceAutoBackAndForth = true;
       #workspaceLayout = "default";
-      gaps = rec {
+      /*gaps = rec {
         smartBorders = "on";
         smartGaps = true;
         inner = 4;
         outer = -inner;
-      };
+      };*/
       /*floating = {
         border = 2;
         titlebar = true;
@@ -110,7 +133,8 @@
       startup = [
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
-	    {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -i ~/back"; }
+        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -i ~/back"; }
+	{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
       ];
       keybindings = lib.mkOptionDefault {
         #"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -140,6 +164,7 @@
 
       export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland
+      export QT_QPA_PLATFORMTHEME=qt5ct
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       export _JAVA_AWT_WM_NONREPARENTING=1
       export MOZ_ENABLE_WAYLAND=1
@@ -287,7 +312,7 @@
               car = "";
               default = ["" "" ""];
           };
-          on-click = "pavucontrol";
+          on-click = "pavucontrol-qt";
       };
     }];
 

@@ -9,14 +9,16 @@
       gnome.seahorse
   ];
 
+  services.udisks2.enable = true;
+
   security.polkit.enable = true;
   security.pam.services.swaylock = {};
 
   # flatpak
   services.dbus.enable = true;
-  #xdg.portal = {
-  #  enable = true;
-  #  wlr.enable = true;
+  xdg.portal = {
+    #enable = true;
+    wlr.enable = true;
     #extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
-  #};
+  };
 }

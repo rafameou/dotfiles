@@ -1,5 +1,4 @@
 { inputs, lib, config, pkgs, ... }:
-/*
 let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
     export __NV_PRIME_RENDER_OFFLOAD=1
@@ -8,16 +7,17 @@ let
     export __VK_LAYER_NV_optimus=NVIDIA_only
     exec "$@"
   '';
-*/
+in
 {
   #"open with dedicated graphics card" on gnome
   services.switcherooControl.enable = true;
 
-  /*
+  
   # nvidia prime
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.prime = {
-    offload.enable = true;
+    #offload.enable = true;
+    sync.enable = true;
 
     # Bus ID of the Intel GPU. You can find it using lspci, either under 3D or VGA
     intelBusId = "PCI:0:2:0";
@@ -25,5 +25,4 @@ let
     # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
     nvidiaBusId = "PCI:1:0:0";
   };
-  */
 }
