@@ -120,7 +120,7 @@
         inner = 4;
         outer = -inner;
       };*/
-      /*floating = {
+      floating = {
         border = 2;
         titlebar = true;
       };
@@ -129,7 +129,7 @@
         titlebar = false;
         hideEdgeBorders = "none";
         commands = [ ];
-      };*/
+      };
       startup = [
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
