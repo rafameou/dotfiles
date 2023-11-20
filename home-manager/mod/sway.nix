@@ -186,6 +186,15 @@
     xwayland = true;
   };
 
+  programs.foot = {
+    enable = true;
+    settings = {
+      colors = {
+        alpha = 0.9;
+      };
+    };
+  };
+
   # https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/waybar.nix
 
   programs.waybar = {
