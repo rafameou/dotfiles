@@ -12,7 +12,8 @@
     wl-clipboard
     grim
     slurp
-    wofi
+    #wofi
+    fuzzel
 
     #dolphin
     ark 
@@ -94,7 +95,8 @@
     enable = true;
     config = rec {
       modifier = "Mod4";
-      menu = "${pkgs.wofi}/bin/wofi --show=drun --insensitive --allow-images --hide-scroll | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+      #menu = "${pkgs.wofi}/bin/wofi --show=drun --insensitive --allow-images --hide-scroll | ${pkgs.findutils}/bin/xargs swaymsg exec --";
+      menu = "${pkgs.fuzzel}/bin/fuzzel | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
       terminal = "foot"; 
       #screenlock = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
@@ -104,6 +106,7 @@
           xkb_model = "abnt2,abnt2";
           xkb_variant = ",thinkpad";
           xkb_numlock = "enabled,disabled";
+	  xkb_options = "grp:alt_shift_toggle";
       	};
       };
       focus = {
