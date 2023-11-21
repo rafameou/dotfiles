@@ -36,6 +36,7 @@
     libsForQt5.oxygen-icons5
 
     udiskie
+    android-file-transfer
 
     breeze-icons
   ];
@@ -392,18 +393,19 @@
 
       #workspaces button:hover {
           /*background: rgba(0, 0, 0, 0.2);*/
-	  background: linear-gradient(180deg, rgba(100,114,125,1) 0%, rgba(0,0,0,1) 100%);
+	  background: linear-gradient(180deg, rgba(100,114,125,0.9) 0%, rgba(0,0,0,0.9) 100%);
       }
 
       #workspaces button.focused {
           /*background-color: #64727D;
           box-shadow: inset 0 -3px #ffffff;*/
-	  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(35,40,45,1) 100%);
+	  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(120,120,120,0.9) 100%);
 	  color: #000000;
       }
 
       #workspaces button.urgent {
-          background-color: #eb4d4b;
+          /*background-color: #eb4d4b;*/
+	  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(235,77,75,1) 100%);
       }
 
       #mode {
