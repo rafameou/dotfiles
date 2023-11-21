@@ -126,12 +126,12 @@
       };*/
       floating = {
         border = 2;
-        titlebar = true;
+        titlebar = true; #doesnt work
       };
       window = {
         border = 2;
         titlebar = false;
-        hideEdgeBorders = "none";
+        hideEdgeBorders = "smart";
         commands = [ ];
       };
       startup = [
@@ -191,6 +191,7 @@
     enable = true;
     settings = {
       colors = {
+        background=000000;
         alpha = 0.9;
       };
     };
@@ -206,7 +207,7 @@
       height = 25;
       spacing = 5;
 
-      modules-left   = [ "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" ];
+      modules-left   = [ "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "sway/window"];
       #modules-center = [ "sway/window" ];
       modules-right  = [ "tray" "idle_inhibitor" "pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "keyboard-state" "sway/language" "battery" "battery#bat2" "clock" ];
 
