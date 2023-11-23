@@ -5,6 +5,7 @@
     playerctl
     foot
     networkmanagerapplet
+    killall
 
     swaybg
     swaylock
@@ -27,7 +28,9 @@
     lxqt.qps
 
     libsForQt5.qt5ct
+    libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5.qtwayland
+    qt6Packages.qtstyleplugin-kvantum
     qt6.qtwayland
     qt6Packages.qt6ct
 
@@ -35,14 +38,13 @@
     libsForQt5.oxygen-sounds
     libsForQt5.oxygen-icons5
 
+    gnome.adwaita-icon-theme
+
     udiskie
     android-file-transfer
 
     breeze-icons
   ];
-
-  qt.enable = true;
-  qt.platformTheme = "qtct";
 
   home.pointerCursor = {
     name = "phinger-cursors";
@@ -51,6 +53,57 @@
     x11.enable = true;
     gtk.enable = true;
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+  };
+
+  gtk = {
+    enable = true;
+    font = {
+      name = "Inter";
+      #size = 12;
+    };
+    theme = {
+      name = "Vertex-Dark";
+      package = pkgs.theme-vertex;
+    };
+    iconTheme = {
+      name = "Oxygen";
+    };
+    cursorTheme = {
+      name = "phinger-cursors";
+      package = pkgs.phinger-cursors;
+    };
+
+    gtk2.extraConfig = ''
+      gtk-enable-animations=1
+      gtk-primary-button-warps-slider=0
+      gtk-toolbar-style=3
+      gtk-menu-images=1
+      gtk-button-images=1
+    '';
+
+    gtk3.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+      gtk-decoration-layout = "icon:minimize,maximize,close";
+      gtk-enable-animations = true;
+      gtk-menu-images = true;
+      gtk-modules = "colorreload-gtk-module:window-decorations-gtk-module";
+      gtk-primary-button-warps-slider = false;
+      gtk-toolbar-style = 3;
+    };
+
+    gtk4.extraConfig = {
+      gtk-application-prefer-dark-theme = true;
+      gtk-decoration-layout = "icon:minimize,maximize,close";
+      gtk-enable-animations = true;
+      gtk-primary-button-warps-slider = false;
+    };
+  };
+
+  home.sessionVariables.GTK_THEME = "Vertex-Dark";
 
   #services.udisks2.enable = true;
 
@@ -100,7 +153,6 @@
       menu = "${pkgs.fuzzel}/bin/fuzzel | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
       terminal = "foot"; 
-      #screenlock = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
       input = {
         "type:keyboard" = {
           xkb_layout = "br,br";
@@ -160,6 +212,7 @@
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
         "Print"          = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy";
+	"${modifier}+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
       };
     };
     extraSessionCommands = ''
@@ -169,6 +222,7 @@
       export SDL_VIDEODRIVER=wayland
       export QT_QPA_PLATFORM=wayland
       export QT_QPA_PLATFORMTHEME=qt5ct
+      export QT_STYLE_OVERRIDE=kvantum
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
       export _JAVA_AWT_WM_NONREPARENTING=1
       export MOZ_ENABLE_WAYLAND=1
@@ -220,6 +274,11 @@
           "default" = "";
         };
       };
+
+      /*"sway/window" = {
+	icon = true;
+	icon-size = 16;
+      };*/
 
       keyboard-state = {
         numlock = true;
@@ -333,8 +392,8 @@
     style = ''
       * {
           /* `otf-font-awesome` is required to be installed for icons */
-          font-family: Roboto, "Font Awesome 6 Free";
-          font-size: 13px;
+          font-family: Inter, "Font Awesome 6 Free";
+          font-size: 12px;
           border-radius: 5px;
       }
 
@@ -342,7 +401,8 @@
           /*background-color: rgba(43, 48, 59, 0.5);*/
 	  background: linear-gradient(180deg, rgba(70,70,70,0.9) 0%, rgba(0,0,0,0.9) 100%);
           /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
-	  border-bottom: 3px solid rgba(0,0,0,0.9);
+	  /*border-bottom: 3px solid rgba(0,0,0,0.9);
+	  border-top: 1px solid rgba(0,0,0,1);*/
           color: #ffffff;
           transition-property: background-color;
           transition-duration: .5s;
@@ -389,24 +449,27 @@
           padding: 0 5px;
           background-color: transparent;
           color: #ffffff;
-	  border-radius: 50%;
+	  border-radius: 0%;
       }
 
       #workspaces button:hover {
           /*background: rgba(0, 0, 0, 0.2);*/
-	  background: linear-gradient(180deg, rgba(100,114,125,0.9) 0%, rgba(0,0,0,0.9) 100%);
+	  /*background: linear-gradient(180deg, rgba(100,114,125,0.9) 0%, rgba(0,0,0,0.9) 100%);*/
+	  background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
       }
 
       #workspaces button.focused {
-          /*background-color: #64727D;
-          box-shadow: inset 0 -3px #ffffff;*/
-	  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(120,120,120,0.9) 100%);
+          /*background-color: #64727D;*/
+          /*box-shadow: inset 0 -3px #ffffff;*/
+	  background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);
 	  color: #000000;
       }
 
       #workspaces button.urgent {
           /*background-color: #eb4d4b;*/
-	  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(235,77,75,1) 100%);
+	  /*background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(235,77,75,1) 100%);*/
+	  background: radial-gradient(circle, rgba(231,77,75,1) 0%, rgba(0,0,0,0) 100%);
+
       }
 
       #mode {
@@ -437,6 +500,19 @@
       #window,
       #workspaces {
           margin: 0 4px;
+      }
+
+      #window {
+	padding: 0 5px;
+	/*background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(120,120,120,0.5) 100%);*/
+        border: 1px solid rgba(125,125,125,0.9);	
+	background: radial-gradient(circle, rgba(70,70,70,0.9) 0%, rgba(0,0,0,0.9) 100%);
+	color: #ffffff;
+      }
+
+      #waybar.empty #window {
+        border: none;
+	background: none;
       }
 
       /* If workspaces is the leftmost module, omit left margin */

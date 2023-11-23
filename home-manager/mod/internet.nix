@@ -5,7 +5,8 @@
     google-chrome
     thunderbird
     tdesktop
-    (discord.override { nss = nss_latest; })
+    #(discord.override { nss = nss_latest; })
+    webcord
     spotify
     bitwarden
     komikku
