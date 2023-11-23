@@ -39,6 +39,7 @@
     libsForQt5.oxygen-icons5
 
     gnome.adwaita-icon-theme
+    hicolor-icon-theme
 
     udiskie
     android-file-transfer
@@ -247,6 +248,27 @@
       colors = {
         background=000000;
         alpha = 0.9;
+      };
+    };
+  };
+
+  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        icon-theme = "hicolor";
+	font = "Inter";
+      };
+      colors = {
+        background = "000000e6";
+	text = "ffffffff";
+	selection = "464646ff";
+        selection-text = "ffffffff";
+	border = "ffffffff";
+      };
+      border = {
+        width = 1;
+	radius = 0;
       };
     };
   };
