@@ -190,7 +190,7 @@
       startup = [
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
-        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m tile -i ~/back"; }
+        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/back"; }
 	{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
       ];
       keybindings = lib.mkOptionDefault {
@@ -247,7 +247,7 @@
     settings = {
       colors = {
         background=000000;
-        alpha = 0.9;
+        alpha = 0.75;
       };
     };
   };
@@ -279,7 +279,7 @@
     enable = true;
     settings = [{
       layer = "bottom";
-      position = "top";
+      position = "bottom";
       height = 25;
       spacing = 5;
 
@@ -421,7 +421,7 @@
 
       window#waybar {
           /*background-color: rgba(43, 48, 59, 0.5);*/
-	  background: linear-gradient(180deg, rgba(70,70,70,0.9) 0%, rgba(0,0,0,0.9) 100%);
+	  background: linear-gradient(180deg, rgba(70,70,70,0.75) 0%, rgba(0,0,0,0.75) 100%);
           /*border-bottom: 3px solid rgba(100, 114, 125, 0.5);*/
 	  /*border-bottom: 3px solid rgba(0,0,0,0.9);
 	  border-top: 1px solid rgba(0,0,0,1);*/
@@ -527,8 +527,8 @@
       #window {
 	padding: 0 5px;
 	/*background: linear-gradient(180deg, rgba(255,255,255,0.5) 0%, rgba(120,120,120,0.5) 100%);*/
-        border: 1px solid rgba(125,125,125,0.9);	
-	background: radial-gradient(circle, rgba(70,70,70,0.9) 0%, rgba(0,0,0,0.9) 100%);
+        border: 1px solid rgba(125,125,125,0.75);	
+	background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0.5) 100%);
 	color: #ffffff;
       }
 

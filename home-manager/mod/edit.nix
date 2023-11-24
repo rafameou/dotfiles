@@ -12,8 +12,9 @@
     mpv
     (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng;})
     cherrytree
-    texstudio
-    gnome-latex
+    kile 
+    imagemagick
+    ghostscript
     okular
   ];
 
