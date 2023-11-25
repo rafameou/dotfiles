@@ -19,6 +19,10 @@
 
   outputs = { nixpkgs, home-manager, ... }@inputs: {
     nixosConfigurations = {
+      bulbasaur = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        modules = [ ./nixos/bulbasaur.nix ];
+      };
       chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ ./nixos/chikorita.nix ];
@@ -30,6 +34,11 @@
     };
 
     homeConfigurations = {
+      "rafameou@bulbasaur" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        modules = [ ./home-manager/bulbasaur-home.nix ];
+      };
       "rafameou@chikorita" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
@@ -39,7 +48,7 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ ./home-manager/treecko-home.nix ];
-      };
+      }; 
     };
   };
 }
