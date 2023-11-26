@@ -7,12 +7,14 @@
     networkmanagerapplet
     killall
 
+    #swayfx
     swaybg
     swaylock
     cliphist
     wl-clipboard
     grim
     slurp
+    wf-recorder
     #wofi
     fuzzel
 
@@ -106,6 +108,28 @@
 
   home.sessionVariables.GTK_THEME = "Vertex-Dark";
 
+  programs.bash = {
+    enable = true;
+    profileExtra = ''
+      export PATH="$HOME/.local/bin:$PATH" ;
+      if [ "$(tty)" = "/dev/tty1" ]; then
+        export SDL_VIDEODRIVER=wayland ;
+        export QT_QPA_PLATFORM=wayland ;
+        export QT_QPA_PLATFORMTHEME=qt5ct ; 
+        export QT_STYLE_OVERRIDE=kvantum ;
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" ;
+        export _JAVA_AWT_WM_NONREPARENTING=1 ;
+        export MOZ_ENABLE_WAYLAND=1 ;
+        export CLUTTER_BACKEND="wayland" ; 
+        export XDG_SESSION_TYPE="wayland" ;
+
+        # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+        dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK ; 
+        exec sway --unsupported-gpu ;
+      fi
+    '';
+  };
+
   #services.udisks2.enable = true;
 
   #services.playerctld.enable = true;
@@ -148,6 +172,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
+    package = pkgs.swayfx;
     config = rec {
       modifier = "Mod4";
       #menu = "${pkgs.wofi}/bin/wofi --show=drun --insensitive --allow-images --hide-scroll | ${pkgs.findutils}/bin/xargs swaymsg exec --";
@@ -216,26 +241,14 @@
 	"${modifier}+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
       };
     };
-    extraSessionCommands = ''
-      [ -e $HOME/.zshenv ] && . $HOME/.zshenv
-      [ -e $HOME/.profile ] && . $HOME/.profile
-
-      export SDL_VIDEODRIVER=wayland
-      export QT_QPA_PLATFORM=wayland
-      export QT_QPA_PLATFORMTHEME=qt5ct
-      export QT_STYLE_OVERRIDE=kvantum
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
-      export _JAVA_AWT_WM_NONREPARENTING=1
-      export MOZ_ENABLE_WAYLAND=1
-      export CLUTTER_BACKEND="wayland"
-      export XDG_SESSION_TYPE="wayland"
-
-      # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
-      dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
-
-      # For flatpak to be able to use PATH programs
-      sh -c "systemctl --user import-environment PATH #&& systemctl --user restart xdg-desktop-portal.service" &
-      '';
+    #extraSessionCommands = ''
+    extraConfig = ''
+      blur enable
+      blur_xray disable
+      shadows enable
+      corner_radius 10
+      layer_effects "waybar" blur enable; shadows enable
+    '';
 
     systemd.enable = true;
     wrapperFeatures.gtk = true;
