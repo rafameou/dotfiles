@@ -248,6 +248,7 @@
       shadows enable
       corner_radius 10
       layer_effects "waybar" blur enable; shadows enable
+      layer_effects "launcher" blur enable; shadows enable; corner_radius 15
     '';
 
     systemd.enable = true;
@@ -273,11 +274,11 @@
 	font = "Inter";
       };
       colors = {
-        background = "000000e6";
+        background = "0000007d";#e6";
 	text = "ffffffff";
 	selection = "464646ff";
         selection-text = "ffffffff";
-	border = "ffffffff";
+	border = "ffffff00";
       };
       border = {
         width = 1;
