@@ -15,7 +15,10 @@
     kile 
     imagemagick
     ghostscript
-    okular
+    #okular
+    qpdfview
+    speedcrunch
+    notepadqq
   ];
 
   programs.vscode = {
