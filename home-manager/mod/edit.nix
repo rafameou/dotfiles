@@ -17,6 +17,8 @@
     ghostscript
     #okular
     qpdfview
+    zathura
+    gromit-mpx
     speedcrunch
     notepadqq
   ];

@@ -40,6 +40,9 @@ Caso voce tenha encontrado esse computador sozinho aleatoriamente por ai, contat
   services.tlp = {
     enable = true;
     settings = {
+      PLATFORM_PROFILE_ON_BAT = "low-power";
+      PLATFORM_PROFILE_ON_AC = "balance";
+
       CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
       CPU_ENERGY_PERF_POLICY_ON_AC = "balance_performance";
 
