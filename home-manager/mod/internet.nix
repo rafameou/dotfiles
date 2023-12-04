@@ -1,7 +1,8 @@
 { inputs, lib, config, pkgs, ... }:
 {
+  programs.firefox.enable = true;
   home.packages = with pkgs; [
-    vivaldi
+    #vivaldi
     google-chrome
     thunderbird
     tdesktop

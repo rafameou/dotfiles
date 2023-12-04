@@ -52,11 +52,11 @@
 
 			/*(catppuccin-kvantum.override {
 			  accent = "Sky";
-			  variant = "Mocha";
+			  variant = "Frappe";
 			  })*/
 			(catppuccin.override {
-			 accent = "sky";
-			 variant = "mocha";
+			 accent = "green";
+			 variant = "frappe";
 			 themeList = ["kvantum" "waybar"];
 			 })
 	];
@@ -83,19 +83,19 @@
 		theme = {
 #name = "Vertex-Dark";
 #package = pkgs.theme-vertex;
-			name = "Catppuccin-Mocha-Compact-Sky-Dark";
+			name = "Catppuccin-Frappe-Compact-Green-Dark";
 			package = pkgs.catppuccin-gtk.override {
-				accents = [ "sky" ];
+				accents = [ "green" ];
 				size = "compact";
 				tweaks = [ "rimless" ];
-				variant = "mocha";
+				variant = "frappe";
 			};
 		};
 		iconTheme = {
-			name = "Papirus";
+			name = "Papirus-Dark";
 			package = pkgs.catppuccin-papirus-folders.override {
-				accent = "sky";
-				flavor = "mocha";
+				accent = "green";
+				flavor = "frappe";
 			};
 		};
 		cursorTheme = {
@@ -129,7 +129,7 @@
 		};
 	};
 
-	home.sessionVariables.GTK_THEME = "Vertex-Dark";
+	#home.sessionVariables.GTK_THEME = "Vertex-Dark";
 
 	programs.bash = {
 		enable = true;
@@ -140,7 +140,7 @@
 		export QT_QPA_PLATFORM=wayland ;
 		export QT_QPA_PLATFORMTHEME=qt5ct ; 
 		export QT_STYLE_OVERRIDE=kvantum ;
-		export GTK_THEME="Catppuccin-Mocha-Compact-Sky-Dark" ;
+		export GTK_THEME="Catppuccin-Frappe-Compact-Green-Dark" ;
 		export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" ;
 		export _JAVA_AWT_WM_NONREPARENTING=1 ;
 		export MOZ_ENABLE_WAYLAND=1 ;
@@ -287,26 +287,48 @@
 #  background=000000;
 #  alpha = 0.75;
 #};
-#https://github.com/catppuccin/foot/blob/main/catppuccin-mocha.conf
+#https://github.com/catppuccin/foot/blob/main/catppuccin-frappe.conf
 			colors = {
-				foreground="cdd6f4"; # Text
-					background="1e1e2e"; # Base
-					regular0="45475a";   # Surface 1
-					regular1="f38ba8";   # red
-					regular2="a6e3a1";   # green
-					regular3="f9e2af";   # yellow
-					regular4="89b4fa";   # blue
-					regular5="f5c2e7";   # pink
-					regular6="94e2d5";   # teal
-					regular7="bac2de";   # Subtext 1
-					bright0="585b70";    # Surface 2
-					bright1="f38ba8";    # red
-					bright2="a6e3a1";    # green
-					bright3="f9e2af";    # yellow
-					bright4="89b4fa";    # blue
-					bright5="f5c2e7";    # pink
-					bright6="94e2d5";    # teal
-					bright7="a6adc8";   # Subtext 0
+			#dark
+foreground="c6d0f5"; # Text
+background="303446"; # Base
+regular0="51576d";   # Surface 1
+regular1="e78284";   # red
+regular2="a6d189";   # green
+regular3="e5c890";   # yellow
+regular4="8caaee";   # blue
+regular5="f4b8e4";   # pink
+regular6="81c8be";   # teal
+regular7="b5bfe2";   # Subtext 1
+bright0="626880";    # Surface 2
+bright1="e78284";    # red
+bright2="a6d189";    # green
+bright3="e5c890";   # yellow
+bright4="8caaee";    # blue
+bright5="f4b8e4";    # pink
+bright6="81c8be";    # teal
+bright7="a5adce";    # Subtext 0
+#white
+/*
+foreground="4c4f69"; # Text
+background="eff1f5"; # Base
+regular0="5c5f77";   # Subtext 1
+regular1="d20f39";   # red
+regular2="40a02b";   # green
+regular3="df8e1d";   # yellow
+regular4="1e66f5";   # blue
+regular5="ea76cb";   # pink
+regular6="179299";   # teal
+regular7="acb0be";   # Surface 2
+bright0="6c6f85";   # Subtext 0
+bright1="d20f39";    # red
+bright2="40a02b";    # green
+bright3="df8e1d";    # yellow
+bright4="1e66f5";    # blue
+bright5="ea76cb";    # pink
+bright6="179299";    # teal
+bright7="bcc0cc";    # Surface 1
+*/
 					alpha = 0.75;
 			};
 		};
@@ -470,10 +492,13 @@
 				on-click = "pavucontrol-qt";
 			};
 		}];
-
+                #change the import thing to an overlay or smth 
 		style = ''
-			/* for some reason nixos saves the file as macchiato, but it is moccha */
-			@import "${pkgs.catppuccin}/waybar/macchiato.css";
+			@import "${(pkgs.catppuccin.override {
+			 accent = "green";
+			 variant = "frappe";
+			 themeList = ["kvantum" "waybar"];
+			 })}/waybar/frappe.css";
 		* {
 			/* `otf-font-awesome` is required to be installed for icons */
 			font-family: Inter, "Font Awesome 6 Free";
@@ -481,7 +506,10 @@
 		}
 
 		window#waybar {
+		/*dark*/
 background: linear-gradient(180deg, alpha(@base, 0.75) 0%, @base 100%);
+/*white*/
+/*background: linear-gradient(180deg, alpha(@base, 1) 0%, alpha(@base, 0.50) 100%);*/
 color: @text;
        /*transition-property: background-color;
 	 transition-duration: .5s;*/
@@ -515,6 +543,7 @@ border: none;
 			/* Avoid rounded borders under each button name */
 border: none;
 	border-radius: 0;
+	min-width: 0;
 		}
 
 		/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -524,18 +553,19 @@ background: inherit;
        }
 
 #workspaces button {
-padding: 0 5px;
+padding: 0px 5px;
+/*margin: 0px 5px;*/
 	 background-color: transparent;
-color: #ffffff;
+color: alpha(@text, 0.5);
        border-radius: 0%;
 }
 
 #workspaces button:hover {
-color: @sky;
+color: shade(@green, 0.5);
 }
 
 #workspaces button.focused {
-color: @sky;
+color: @green;
 }
 
 #workspaces button.urgent {
@@ -547,29 +577,6 @@ color: @red;
 	border-bottom: 3px solid #ffffff;
 }
 
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#language,
-#window
-#mpd {
-	/*padding: 0 10px;*/
-color: @text;
-       /*border: 1px solid @sky;*/	
-padding: 2px 2px;
-}
 
 #window,
 #workspaces {
@@ -591,11 +598,16 @@ background: none;
 	margin-right: 0;
 }
 
+.modules-right {
+	color: @text;
+	padding: 2px 2px; /* 0 10 */
+}
+
 #temperature.critical,
 #network.disconnected,
 #pulseaudio.muted,
 #battery.critical:not(.charging) {
-color: @sky;
+color: @green;
 }
 
 #tray > .passive {
