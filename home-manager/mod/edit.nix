@@ -10,7 +10,7 @@
     vistafonts
     strawberry
     mpv
-    (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng;})
+    (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng latexmk;})
     cherrytree
     kile 
     imagemagick

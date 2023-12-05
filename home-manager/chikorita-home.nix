@@ -13,6 +13,7 @@
     ./mod/internet.nix
     ./mod/util.nix
     ./mod/edit.nix
+    ./mod/neovim.nix
     ./mod/games.nix
   ];
 
