@@ -8,7 +8,6 @@
     octaveFull
     nicotine-plus
     qbittorrent
-    neovim
     unar
     unzip
     zip
