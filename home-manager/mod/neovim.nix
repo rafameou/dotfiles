@@ -27,6 +27,9 @@
     '';
 
     extraLuaConfig = ''
+      vim.opt.spelllang = 'pt_br';
+      vim.opt.spell = true;
+
       require("catppuccin").setup({
         flavour = "frappe",
         -- transparent_background = true,
@@ -47,7 +50,6 @@
       local lspconfig = require "lspconfig"
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-
       -- clang
       lspconfig.clangd.setup {
         cmd = { "${clang-tools}/bin/clangd" },
@@ -65,6 +67,12 @@
       -- nix
       lspconfig.rnix.setup{
         cmd = { "${rnix-lsp}/bin/rnix-lsp" },
+        capabilities = capabilities,
+      };
+
+      -- go
+      lspconfig.gopls.setup{
+        cmd = { "${gopls}/bin/gopls" },
         capabilities = capabilities,
       };
     '';
