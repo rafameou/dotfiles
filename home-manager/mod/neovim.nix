@@ -20,10 +20,16 @@
       catppuccin-nvim
       /*nix*/
       vim-nix
+      /*latex*/
+      vimtex
     ];
 
     extraConfig = ''
       colorscheme catppuccin-frappe
+
+      filetype plugin indent on
+      syntax enable
+      let g:vimtex_view_method = 'zathura'
     '';
 
     extraLuaConfig = ''
