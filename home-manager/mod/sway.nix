@@ -132,7 +132,7 @@
       export SDL_VIDEODRIVER=wayland ;
       export QT_QPA_PLATFORM=wayland ;
       export QT_QPA_PLATFORMTHEME=qt5ct ; 
-      export QT_STYLE_OVERRIDE=kvantum ;
+      # export QT_STYLE_OVERRIDE=kvantum ;
       export GTK_THEME="Catppuccin-Frappe-Compact-Green-Dark" ;
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" ;
       export _JAVA_AWT_WM_NONREPARENTING=1 ;
