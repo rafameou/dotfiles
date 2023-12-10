@@ -5,7 +5,10 @@
 { inputs, lib, config, pkgs, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
+      # Import home-manager's NixOS module
+      inputs.home-manager.nixosModules.home-manager
+      # Include the results of the hardware scan.
       ./treecko-hw.nix
       ./mod/boot.nix
       ./mod/nix.nix
@@ -18,6 +21,14 @@
       ./mod/user.nix
       ./mod/distrobox.nix
     ];
+
+  home-manager = {
+    extraSpecialArgs = { inherit inputs outputs; };
+    users = {
+      # Import your home-manager configuration
+      rafameou = import ../home-manager/treecko-home.nix;
+    };
+  };
 
   # ... changes to only this sytem
   networking.hostName = "treecko"; # Define your hostname.

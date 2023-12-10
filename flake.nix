@@ -32,23 +32,5 @@
         modules = [ ./nixos/treecko.nix ];
       };
     };
-
-    homeConfigurations = {
-      "rafameou@bulbasaur" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./home-manager/bulbasaur-home.nix ];
-      };
-      "rafameou@chikorita" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./home-manager/chikorita-home.nix ];
-      };
-      "rafameou@treecko" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./home-manager/treecko-home.nix ];
-      }; 
-    };
   };
 }
