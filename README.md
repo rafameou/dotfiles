@@ -2,13 +2,9 @@
 
 ```sh
 sudo nixos-rebuild --flake .#$(hostname) switch |& nom
-home-manager --flake .#$(whoami)@$(hostname) switch |& nom
 ```
 
 ## To-do list
-- Config neovim.
-- Home-manager as nixos module.
-- Gnome favorites and app folders.
 
 ## Places I stole code/info from.
 - https://github.com/Misterio77/nix-starter-configs
