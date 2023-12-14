@@ -17,8 +17,29 @@
   # flatpak
   services.dbus.enable = true;
   xdg.portal = {
-    #enable = true;
+    enable = true;
     wlr.enable = true;
-    #extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
+    config.common.default = "*";
+    /*config = {
+      common = {
+        default = [
+          "wlr"
+        ];
+      };
+      gnome = {
+        default = [
+          "gtk"
+        ];
+        "org.freedesktop.impl.portal.Secret" = [
+          "gnome-keyring"
+        ];
+      };
+      kde = {
+        default = [
+          "kde"
+        ];
+      };
+    };*/
   };
 }

@@ -22,7 +22,7 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };*/
 
-  #services.flatpak.enable = true;
+  services.flatpak.enable = true;
 
   #fonts, move to home maybe
   fonts.fontDir.enable = true;

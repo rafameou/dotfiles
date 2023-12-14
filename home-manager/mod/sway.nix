@@ -141,7 +141,7 @@
                   export XDG_SESSION_TYPE="wayland" ;
 
 # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
-                  dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK ; 
+                  # dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK ; 
                   exec sway --unsupported-gpu ;
                   fi
       '';
@@ -230,6 +230,7 @@
                     commands = [ ];
                   };
                   startup = [
+                    {command = "--no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
                     {command = "--no-startup-id nm-applet --indicator";}
                     {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
                     {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m tile -i ~/back"; } #fill
