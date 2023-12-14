@@ -14,9 +14,9 @@
       # })
 
       (final: prev: {
-        nixpkgs-stable = input.nixpkgs-stable.legacyPackages."${system}";
-        nixpkgs-unstable = intput.nixpkgs-unstable-legacyPackages."${system}";
-        nixpkgs-master = input.nixpkgs-master.legacyPackages."${system}";
+        nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.system};
+        nixpkgs-unstable = inputs.nixpkgs-unstable-legacyPackages.${pkgs.system};
+        nixpkgs-master = inputs.nixpkgs-master.legacyPackages.${pkgs.system};
       })
     ];
     # Configure your nixpkgs instance
