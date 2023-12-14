@@ -35,6 +35,8 @@
     extraLuaConfig = ''
       vim.opt.spelllang = 'pt_br';
       vim.opt.spell = true;
+      -- inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u; --https://castel.dev/post/lecture-notes-1/
+      vim.api.nvim_set_keymap('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', { noremap = true }); 
 
       require("catppuccin").setup({
         flavour = "frappe",
