@@ -12,6 +12,7 @@
       ./treecko-hw.nix
       ./mod/boot.nix
       ./mod/nix.nix
+      ./mod/nixpkgs.nix
       ./mod/bluetooth.nix
       ./mod/desktop.nix
       ./mod/sway.nix
