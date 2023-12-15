@@ -14,6 +14,7 @@
     ./mod/internet.nix
     ./mod/util.nix
     ./mod/edit.nix
+    ./mod/zathura.nix
     ./mod/games.nix
   ];
 

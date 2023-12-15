@@ -102,12 +102,20 @@
         capabilities = capabilities,
       };
       luasnip.add_snippets("tex", {
-        s("\\beg", {t({"\\documentclass{minimal}", "\\begin{document}", "",}), i(1), t({"", "\\end{document}",}), }),
+        s("\\beg", {t({ "\\documentclass[a4paper]{article}", 
+                        "\\usepackage{todonotes}", 
+                        "\\begin{document}", 
+                        "\\section*{ - \\today}", "",}), 
+                        i(1), 
+                        t({"", 
+                        "\\end{document}",}), }),
         
         --text
         s("\\dc", { t("\\documentclass{"), i(1), t("}"), }),
         s("\\bf", { t("\\textbf{"), i(1), t("}"), }),
         s("\\it", { t("\\textit{"), i(1), t("}"), }),
+        s("\\section", { t("\\section{"), i(1), t("}"), }), 
+        s("\\todo", { t("\\todo{"), i(1), t("}"), }), 
 
         -- math
         s("\\frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), }),

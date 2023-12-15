@@ -10,31 +10,15 @@
     vistafonts
     strawberry
     mpv
-    (texlive.combine {inherit (texlive) scheme-small abnt abntex2 collection-langportuguese dvipng latexmk;})
+    (texlive.combine {inherit (texlive) scheme-medium abnt abntex2 collection-langportuguese dvipng latexmk todonotes;})
     cherrytree
     kile 
     imagemagick
     ghostscript
-    #okular
+    /*okular*/
     qpdfview
-    zathura
     gromit-mpx
     speedcrunch
     notepadqq
   ];
-
-  programs.vscode = {
-  enable = true;
-  extensions = with pkgs.vscode-extensions; [
-    vscodevim.vim
-    ms-vscode.cpptools
-    ms-vscode.makefile-tools
-    ms-vscode.cmake-tools
-    daohong-emilio.yash
-    redhat.java
-    redhat.vscode-xml
-    redhat.vscode-yaml
-    bbenoist.nix
-  ];
-};
 }
