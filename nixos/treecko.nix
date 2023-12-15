@@ -6,8 +6,6 @@
 {
   imports =
     [ 
-      # Import home-manager's NixOS module
-      inputs.home-manager.nixosModules.home-manager
       # Include the results of the hardware scan.
       ./treecko-hw.nix
       ./mod/boot.nix
