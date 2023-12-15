@@ -22,41 +22,24 @@
       ./mod/time.nix
       ./mod/user.nix
       ./mod/distrobox.nix
+      ./mod/home-manager.nix
+      ./mod/env.nix
     ];
 
-  
-  home-manager = {
-    extraSpecialArgs = { inherit inputs /*outputs*/; };
-    users = {
-      # Import your home-manager configuration
-      rafameou = import ../home-manager/chikorita-home.nix;
-    };
-  };
-
-  networking.hostName = "chikorita"; # Define your hostname.
+    networking.hostName = "chikorita"; # Define your hostname.
 
   # ... changes to only this sytem
-  #esc + v + esc ou ctrl + v + esc
-  environment.etc."issue".text = ''
-[1;32m<<< Bem-Vindo a \n! >>[0m
-NixOS com GNU/Linux \r (\m)
-
-[1;36mHoje é \d, agora sao \t e voce esta na \l[0m
-Caso voce tenha encontrado esse computador sozinho aleatoriamente por ai, contate: 
-+55 (42) 9 8402-6139 (telefone, whatsapp ou telegram) ou rafaelmazz22@gmail.com
-
-'';
 
   fileSystems."/mnt/Extra" =
-  { 
-    device = "/dev/disk/by-uuid/41785370-fb0f-4504-81a2-d9bf1b895fb5";
-    fsType = "ext4";
-  };
+    { 
+      device = "/dev/disk/by-uuid/41785370-fb0f-4504-81a2-d9bf1b895fb5";
+      fsType = "ext4";
+    };
 
   # enable geoclue2 services
   services.geoclue2.enable = true;
 
-  services.zerotierone.enable = true;
+  /*services.zerotierone.enable = true;*/
 
   virtualisation.libvirtd = {
     enable = true;

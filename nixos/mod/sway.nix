@@ -6,7 +6,7 @@
   services.gnome.gnome-keyring.enable = true;
 
   environment.systemPackages = with pkgs; [
-      gnome.seahorse
+    gnome.seahorse
   ];
 
   services.udisks2.enable = true;
@@ -22,24 +22,24 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
     config.common.default = "*";
     /*config = {
-      common = {
-        default = [
-          "wlr"
-        ];
-      };
-      gnome = {
-        default = [
-          "gtk"
-        ];
-        "org.freedesktop.impl.portal.Secret" = [
-          "gnome-keyring"
-        ];
-      };
-      kde = {
-        default = [
-          "kde"
-        ];
-      };
+    common = {
+    default = [
+    "wlr"
+    ];
+    };
+    gnome = {
+    default = [
+    "gtk"
+    ];
+    "org.freedesktop.impl.portal.Secret" = [
+    "gnome-keyring"
+    ];
+    };
+    kde = {
+    default = [
+    "kde"
+    ];
+    };
     };*/
   };
 }
