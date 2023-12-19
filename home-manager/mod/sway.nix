@@ -136,7 +136,7 @@
       export QT_QPA_PLATFORM=wayland ;
       export QT_QPA_PLATFORMTHEME=qt5ct ; 
       # export QT_STYLE_OVERRIDE=kvantum ;
-      export GTK_THEME="Catppuccin-Frappe-Compact-Green-Dark" ;
+      # export GTK_THEME="Catppuccin-Frappe-Compact-Green-Dark" ;
       export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" ;
       export _JAVA_AWT_WM_NONREPARENTING=1 ;
       export MOZ_ENABLE_WAYLAND=1 ;
@@ -190,7 +190,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.swayfx;
+    /*package = pkgs.swayfx;*/
     config = rec {
       modifier = "Mod4";
       /*menu = "${pkgs.wofi}/bin/wofi --show=drun --insensitive --allow-images --hide-scroll | ${pkgs.findutils}/bin/xargs swaymsg exec --";*/
@@ -261,14 +261,14 @@
       };
     };
     /*extraSessionCommands = ''*/
-    extraConfig = ''
+    /*extraConfig = ''
       blur enable
       blur_xray disable
       shadows enable
       corner_radius 10
       layer_effects "waybar" blur enable; shadows enable
       layer_effects "launcher" blur enable; shadows enable; corner_radius 15
-    '';
+    '';*/
 
     systemd.enable = true;
     wrapperFeatures.gtk = true;
@@ -324,7 +324,7 @@
         bright6="179299";    # teal
         bright7="bcc0cc";    # Surface 1
         */
-        alpha = 0.75;
+        /*alpha = 0.75;*/
       };
     };
   };
@@ -337,7 +337,7 @@
         font = "Inter";
       };
       colors = {
-        background = "0000007d";#e6";
+        background = "303446ff";#7d";#e6";
         text = "ffffffff";
         selection = "464646ff";
         selection-text = "ffffffff";

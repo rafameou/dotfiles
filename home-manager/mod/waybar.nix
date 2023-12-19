@@ -148,8 +148,9 @@
       }
 
       window#waybar {
+        background: @base;
       /*dark*/
-      background: linear-gradient(180deg, alpha(@base, 0.75) 0%, @base 100%);
+      /*background: linear-gradient(180deg, alpha(@base, 0.75) 0%, @base 100%);*/ 
       /*white*/
       /*background: linear-gradient(180deg, alpha(@base, 1) 0%, alpha(@base, 0.50) 100%);*/
       color: @text;
