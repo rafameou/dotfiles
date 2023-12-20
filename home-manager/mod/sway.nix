@@ -205,11 +205,11 @@
           xkb_numlock = "enabled,disabled";
           xkb_options = "grp:alt_shift_toggle";
         };
-        "type:touchpad" = {
+        /*"type:touchpad" = {
           dwt = "enabled";
           tap = "enabled";
           middle_emulation = "enabled";
-        };
+        };*/
       };
       focus = {
         followMouse = true;

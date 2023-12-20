@@ -8,14 +8,14 @@
     [ 
       # Include the results of the hardware scan.
       ./bulbasaur-hw.nix
-      ./mod/boot-grub.nix
+      ./mod/boot.nix
       ./mod/nix.nix
       ./mod/nixpkgs.nix
       ./mod/bluetooth.nix
       ./mod/desktop.nix
       ./mod/sway.nix
       ./mod/pipewire.nix
-      #./mod/ssd.nix
+      ./mod/ssd.nix
       ./mod/time.nix
       ./mod/user.nix
       ./mod/distrobox.nix
