@@ -3,7 +3,6 @@
   programs.firefox.enable = true;
   home.packages = with pkgs; [
     #vivaldi
-    qutebrowser
     google-chrome
     thunderbird
     tdesktop

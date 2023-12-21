@@ -12,6 +12,7 @@
     ../nixos/mod/nixpkgs.nix
     ./mod/sway.nix
     ./mod/internet.nix
+    ./mod/qutebrowser.nix
     ./mod/util.nix
     ./mod/edit.nix
     ./mod/zathura.nix
