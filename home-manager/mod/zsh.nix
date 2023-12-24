@@ -14,18 +14,21 @@
     plugins = with pkgs; [
       {
         name = "zsh-nix-shell";
+        file = "nix-shell.plugin.zsh";
         src = "${zsh-nix-shell}/share/zsh-nix-shell";
       }
       {
         name = "zsh-completions";
+        file = "zsh-completions.plugin.zsh";
         src = "${zsh-completions}/share/zsh-completions";
       }
       {
         name = "zsh-vi-mode";
+        file = "zsh-vi-mode.plugin.zsh";
         src = "${zsh-vi-mode}/share/zsh-vi-mode";
       }
     ];
-    ohMyZsh = {
+    oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
       theme = "dstufft";
