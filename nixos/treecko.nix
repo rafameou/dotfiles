@@ -12,6 +12,7 @@
       ./mod/nix.nix
       ./mod/nixpkgs.nix
       ./mod/bluetooth.nix
+      ./mod/zsh.nix
       ./mod/desktop.nix
       ./mod/sway.nix
       ./mod/pipewire.nix

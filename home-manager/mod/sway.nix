@@ -127,26 +127,25 @@
 
   /*home.sessionVariables.GTK_THEME = "Vertex-Dark";*/
 
-  programs.bash = {
+/*  programs.bash = {
     enable = true;
-    profileExtra = ''
+    profileExtra = ''*/
+    programs.zsh = {
+      loginExtra = ''
       export PATH="$HOME/.local/bin:$PATH" ;
       if [ "$(tty)" = "/dev/tty1" ]; then
-      export SDL_VIDEODRIVER=wayland ;
-      export QT_QPA_PLATFORM=wayland ;
-      export QT_QPA_PLATFORMTHEME=qt5ct ; 
-      # export QT_STYLE_OVERRIDE=kvantum ;
-      # export GTK_THEME="Catppuccin-Frappe-Compact-Green-Dark" ;
-      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" ;
-      export _JAVA_AWT_WM_NONREPARENTING=1 ;
-      export MOZ_ENABLE_WAYLAND=1 ;
-      export CLUTTER_BACKEND="wayland" ; 
-                  export XDG_SESSION_TYPE="wayland" ;
-
-# https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
-                  # dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK ; 
-                  exec sway --unsupported-gpu ;
-                  fi
+        export SDL_VIDEODRIVER=wayland ;
+        export QT_QPA_PLATFORM=wayland ;
+        export QT_QPA_PLATFORMTHEME=qt5ct ; 
+        # export QT_STYLE_OVERRIDE=kvantum ;
+        # export GTK_THEME="Catppuccin-Frappe-Compact-Green-Dark" ;
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" ;
+        export _JAVA_AWT_WM_NONREPARENTING=1 ;
+        export MOZ_ENABLE_WAYLAND=1 ;
+        export CLUTTER_BACKEND="wayland" ; 
+        export XDG_SESSION_TYPE="wayland" ;
+        exec sway --unsupported-gpu ;
+      fi
     '';
   };
 
@@ -236,6 +235,7 @@
         commands = [ ];
       };
       startup = [
+        /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
         {command = "--no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }

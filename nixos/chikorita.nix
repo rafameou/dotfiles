@@ -11,6 +11,7 @@
       ./mod/boot.nix
       ./mod/nix.nix
       ./mod/nixpkgs.nix
+      ./mod/zsh.nix
       ./mod/bluetooth.nix
       ./mod/desktop.nix
       ./mod/sway.nix
