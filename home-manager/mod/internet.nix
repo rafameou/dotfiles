@@ -9,7 +9,7 @@
     #(discord.override { nss = nss_latest; })
     webcord
     spotify
-    pkgs.nixpkgs-master.bitwarden
+    /*pkgs.nixpkgs-master.*/bitwarden
     komikku
   ];
 }

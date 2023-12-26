@@ -66,12 +66,12 @@
       };
 
       cpu = {
-        format = "{usage}% ";
+        format = ":{usage}%";
         tooltip = false;
       };
 
       memory = {
-        format = "{}% ";
+        format = ":{}%";
       };
 
       temperature = {
@@ -79,12 +79,12 @@
         "hwmon-path" = "/sys/class/hwmon/hwmon2/temp1_input";*/
         critical-threshold = 80;
         /* "format-critical" = "{temperatureC}°C {icon}";*/
-        format = "{temperatureC}°C {icon}";
+        format = "{icon}:{temperatureC}°C";
         format-icons = ["" "" ""];
       };
 
       backlight = {
-        format = "{percent}% {icon}";
+        format = "{icon}:{percent}%";
         format-icons = ["" "" "" "" "" "" "" "" ""];
       };
 
@@ -94,10 +94,10 @@
           warning = 30;
           critical = 15;
         };
-        format = "{capacity}% {icon} ";
-        format-charging = "{capacity}%  ";
-        format-plugged = "{capacity}%  ";
-        format-alt = "{time} {icon} ";
+        format = "{icon}:{capacity}% ";
+        format-charging = ":{capacity}% ";
+        format-plugged = ">{capacity}% ";
+        format-alt = "{icon}:{time} ";
         format-icons = ["" "" "" "" ""];
       };
 
@@ -107,20 +107,20 @@
 
 
       network = {
-        format-wifi = "{essid} ({signalStrength}%) ";
-        format-ethernet = "";
+        format-wifi = ":{essid}({signalStrength}%)";
+        format-ethernet = ":{ipaddr}";
         tooltip-format = "{ifname} via {gwaddr} at {ipaddr} ";
-        format-linked = "{ifname} (No IP) ";
-        format-disconnected = "Disconnected ⚠";
+        format-linked = ":{ifname}(No IP)";
+        format-disconnected = "⚠:Disconnected";
       };
 
       pulseaudio = {
         scroll-step = 1;
-        format = "{volume}% {icon}  {format_source}";
-        format-bluetooth = "{volume}% {icon}  {format_source}";
+        format = "{icon}:{volume}%  {format_source}";
+        format-bluetooth = "{icon}:{volume}%   {format_source}";
         format-bluetooth-muted = " {icon}  {format_source}";
         format-muted = "   {format_source}";
-        format-source = "{volume}% ";
+        format-source = ":{volume}%";
         format-source-muted = "";
         format-icons = {
           headphone = "";
