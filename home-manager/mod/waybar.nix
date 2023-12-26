@@ -8,15 +8,15 @@
       height = 25;
       spacing = 5;
 
-      modules-left   = [ "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "sway/window"];
-      /*modules-center = [ "sway/window" ];*/
-      modules-right  = [ "tray" "idle_inhibitor" "pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "keyboard-state" "sway/language" "battery" "battery#bat2" "clock" ];
+      modules-left   = [ "sway/workspaces" "sway/mode" "custom/media" "sway/window"];
+      modules-center = [ "clock" "idle_inhibitor" ];
+      modules-right  = [ "pulseaudio" "network" "cpu" "memory" "backlight" "sway/language" "battery" "battery#bat2" "tray" ];
 
       "sway/workspaces" = {
         all-outputs = true;
         format = "{name}{icon}";
         format-icons = {
-          "urgent" = " ";
+          "urgent" = "!";
           "focused" = "";
           "default" = "";
         };
@@ -27,29 +27,11 @@
       icon-size = 16;
       };*/
 
-      keyboard-state = {
-        numlock = true;
-        capslhock = true;
-        format = "{name}{icon}";
-        format-icons = {
-          locked = "";
-          unlocked = "";
-        };
-      };
-
-      "sway/scratchpad" = {
-        format = "{icon} {count}";
-        show-empty = false;
-        format-icons = ["" ""];
-        tooltip = true;
-        tooltip-format = "{app}: {title}";
-      };
-
       idle_inhibitor = {
         format = "{icon}";
         format-icons = {
-          "activated" = "";
-          "deactivated" = "";
+          "activated" = "o-o";
+          "deactivated" = "zzz";
         };
       };
 
@@ -66,26 +48,16 @@
       };
 
       cpu = {
-        format = ":{usage}%";
+        format = "CPU:{usage}%";
         tooltip = false;
       };
 
       memory = {
-        format = ":{}%";
-      };
-
-      temperature = {
-        /* "thermal-zone" = 2;
-        "hwmon-path" = "/sys/class/hwmon/hwmon2/temp1_input";*/
-        critical-threshold = 80;
-        /* "format-critical" = "{temperatureC}°C {icon}";*/
-        format = "{icon}:{temperatureC}°C";
-        format-icons = ["" "" ""];
+        format = "RAM:{}%";
       };
 
       backlight = {
-        format = "{icon}:{percent}%";
-        format-icons = ["" "" "" "" "" "" "" "" ""];
+        format = "BL:{percent}%";
       };
 
       battery = {
@@ -94,11 +66,10 @@
           warning = 30;
           critical = 15;
         };
-        format = "{icon}:{capacity}% ";
-        format-charging = ":{capacity}% ";
-        format-plugged = ">{capacity}% ";
-        format-alt = "{icon}:{time} ";
-        format-icons = ["" "" "" "" ""];
+        format = "BAT:{capacity}%";
+        format-charging = "BAT:+{capacity}%";
+        format-plugged = "BAT:~{capacity}%";
+        format-alt = "BAT:{time}";
       };
 
       "battery#bat2" = {
@@ -107,30 +78,21 @@
 
 
       network = {
-        format-wifi = ":{essid}({signalStrength}%)";
-        format-ethernet = ":{ipaddr}";
-        tooltip-format = "{ifname} via {gwaddr} at {ipaddr} ";
-        format-linked = ":{ifname}(No IP)";
-        format-disconnected = "⚠:Disconnected";
+        format-wifi = "W:{essid}({signalStrength}%)";
+        format-ethernet = "E:{ipaddr}";
+        tooltip-format = "{ifname} via {gwaddr} at {ipaddr}";
+        format-linked = "E:{ifname}(No IP)";
+        format-disconnected = "W:N/A";
       };
 
       pulseaudio = {
         scroll-step = 1;
-        format = "{icon}:{volume}%  {format_source}";
-        format-bluetooth = "{icon}:{volume}%   {format_source}";
-        format-bluetooth-muted = " {icon}  {format_source}";
-        format-muted = "   {format_source}";
-        format-source = ":{volume}%";
-        format-source-muted = "";
-        format-icons = {
-          headphone = "";
-          hands-free = "";
-          headset = "";
-          phone = "";
-          portable = "";
-          car = "";
-          default = ["" "" ""];
-        };
+        format = "VOL:{volume}% {format_source}";
+        format-bluetooth = "VOL:{volume}% BT {format_source}";
+        format-bluetooth-muted = "VOL:0% BT {format_source}";
+        format-muted = "VOL:0% {format_source}";
+        format-source = "MIC:{volume}%";
+        format-source-muted = "MIC:0%";
         on-click = "pavucontrol-qt";
       };
     }];
@@ -250,7 +212,7 @@
 #network.disconnected,
 #pulseaudio.muted,
 #battery.critical:not(.charging) {
-                    color: @green;
+                    color: @red;
                     }
 
 #tray > .passive {
