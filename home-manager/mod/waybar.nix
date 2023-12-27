@@ -9,8 +9,8 @@
       spacing = 5;
 
       modules-left   = [ "sway/workspaces" "sway/mode" "custom/media" "sway/window"];
-      modules-center = [ "clock" "idle_inhibitor" ];
-      modules-right  = [ "pulseaudio" "network" "cpu" "memory" "backlight" "sway/language" "battery" "battery#bat2" "tray" ];
+      modules-center = [  ];
+      modules-right  = [ "pulseaudio" "network" "cpu" "memory" "backlight" "sway/language" "battery" "battery#bat2" "idle_inhibitor" "clock" "tray" ];
 
       "sway/workspaces" = {
         all-outputs = true;
@@ -27,11 +27,16 @@
       icon-size = 16;
       };*/
 
+      "sway/language" = {
+        format = "[{flag}{variant}]";
+        on-click = "swaymsg input type:keyboard xkb_switch_layout next";
+      };
+
       idle_inhibitor = {
         format = "{icon}";
         format-icons = {
-          "activated" = "o-o";
-          "deactivated" = "zzz";
+          "activated" = "[o-o]";
+          "deactivated" = "[zzz]";
         };
       };
 
@@ -43,21 +48,22 @@
       clock = {
         timezone = lib.mkDefault "America/Sao_Paulo";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-        format = "{:%T %d/%m/%Y}";
+        format = "[{:%T %d/%m/%Y}]";
         interval = 1;
       };
 
       cpu = {
-        format = "CPU:{usage}%";
+        format = "[CPU:{usage}%]";
         tooltip = false;
       };
 
       memory = {
-        format = "RAM:{}%";
+        format = "[RAM:{}%]";
+        format-alt = "[RAM: {used}%]";
       };
 
       backlight = {
-        format = "BL:{percent}%";
+        format = "[BL:{percent}%]";
       };
 
       battery = {
@@ -66,10 +72,10 @@
           warning = 30;
           critical = 15;
         };
-        format = "BAT:{capacity}%";
-        format-charging = "BAT:+{capacity}%";
-        format-plugged = "BAT:~{capacity}%";
-        format-alt = "BAT:{time}";
+        format = "[BAT:{capacity}%]";
+        format-charging = "[BAT:+{capacity}%]";
+        format-plugged = "[BAT:~{capacity}%]";
+        format-alt = "[BAT:{time}]";
       };
 
       "battery#bat2" = {
@@ -78,19 +84,19 @@
 
 
       network = {
-        format-wifi = "W:{essid}({signalStrength}%)";
-        format-ethernet = "E:{ipaddr}";
-        tooltip-format = "{ifname} via {gwaddr} at {ipaddr}";
-        format-linked = "E:{ifname}(No IP)";
-        format-disconnected = "W:N/A";
+        format-wifi = "[W:{essid}({signalStrength}%)]";
+        format-ethernet = "[E:{ipaddr}]";
+        tooltip-format = "[{ifname} via {gwaddr} at {ipaddr}]";
+        format-linked = "[E:{ifname}(No IP)]";
+        format-disconnected = "[W:N/A]";
       };
 
       pulseaudio = {
         scroll-step = 1;
-        format = "VOL:{volume}% {format_source}";
-        format-bluetooth = "VOL:{volume}% BT {format_source}";
-        format-bluetooth-muted = "VOL:0% BT {format_source}";
-        format-muted = "VOL:0% {format_source}";
+        format = "[VOL:{volume}% {format_source}]";
+        format-bluetooth = "[VOL:{volume}% BT {format_source}]";
+        format-bluetooth-muted = "[VOL:0% BT {format_source}]";
+        format-muted = "[VOL:0% {format_source}]";
         format-source = "MIC:{volume}%";
         format-source-muted = "MIC:0%";
         on-click = "pavucontrol-qt";

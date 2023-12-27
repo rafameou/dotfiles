@@ -2,7 +2,7 @@
 {
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    enableCompletion = false;
     syntaxHighlighting.enable = true;
     enableAutosuggestions = true;
     enableVteIntegration = true;
@@ -17,10 +17,15 @@
         file = "nix-shell.plugin.zsh";
         src = "${zsh-nix-shell}/share/zsh-nix-shell";
       }
+      /*{
+      name = "zsh-completions";
+      file = "zsh-completions.plugin.zsh";
+      src = "${zsh-completions}/share/zsh-completions";
+      }*/
       {
-        name = "zsh-completions";
-        file = "zsh-completions.plugin.zsh";
-        src = "${zsh-completions}/share/zsh-completions";
+        name = "zsh-autocomplete";
+        file = "zsh-autocomplete.plugin.zsh";
+        src = "${zsh-autocomplete}/share/zsh-autocomplete";
       }
       {
         name = "zsh-vi-mode";
@@ -28,11 +33,11 @@
         src = "${zsh-vi-mode}/share/zsh-vi-mode";
       }
     ];
-    oh-my-zsh = {
+    /*oh-my-zsh = {
       enable = true;
       plugins = [ "git" ];
       theme = "dstufft";
-    };
+    };*/
     shellAliases = {
       diff = "diff --color=auto";
       dmesg = "dmesg --color=always";
@@ -41,5 +46,14 @@
       ls = "ls --color=auto";
       sudo = "sudo "; # Makes commands after sudo keep colour (https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/zsh.nix)
     };
+    initExtra = ''
+      autoload -U colors && colors
+      prompt() {
+        PS1="%{%F{154}%}%n%{%f%} at %{%F{45}%}%m%{%f%} in %{%F{87}%}%1~ %{%f%}%# "
+        RPROMPT="%{%f%}%?"
+      }
+
+      precmd_functions+=prompt
+    '';
   };
 }

@@ -1,5 +1,8 @@
 { inputs, lib, config, pkgs, ... }:
 {
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = false;
+  };
   users.defaultUserShell = pkgs.zsh;
 }
