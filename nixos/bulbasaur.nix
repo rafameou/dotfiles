@@ -8,7 +8,7 @@
     [ 
       # Include the results of the hardware scan.
       ./bulbasaur-hw.nix
-      ./mod/boot.nix
+      ./mod/boot-grub.nix
       ./mod/nix.nix
       ./mod/nixpkgs.nix
       ./mod/bluetooth.nix
