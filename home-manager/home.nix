@@ -11,7 +11,7 @@
     # You can also split up your configuration and import pieces of it here:
     ../nixos/mod/nixpkgs.nix
     ./mod/zsh.nix
-    ./mod/sway.nix
+    ./mod/windowmanager.nix
     ./mod/internet.nix
     ./mod/qutebrowser.nix
     ./mod/util.nix
