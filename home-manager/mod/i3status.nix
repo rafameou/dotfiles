@@ -1,23 +1,27 @@
 {configs, pkgs, lib, ...}:
 {
-   programs.i3status-rust = {
+  programs.i3status-rust = {
     enable = true;
     bars = {
       top = {
+        theme = "native";
         blocks = [
+          { block = "focused_window"; }
           {
             block = "sound";
-            block.click = {
-        button = "left";
-        cmd = "pavucontrol-qt";
-            };
+            click = [
+              {
+                button = "left";
+                cmd = "pavucontrol-qt";
+              }
+            ];
           }
-         {
-           block = "time";
-           interval = 60;
-           format = "%a %d/%m %k:%M %p";
-         }
-       ];
+          { block = "memory"; }
+          { block = "cpu"; }
+          { block = "backlight"; }
+          { block = "battery"; }
+          { block = "time"; interval = 10; }
+        ];
       };
     };
   }; 

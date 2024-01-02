@@ -8,6 +8,7 @@
     playerctl
     kitty
 
+    i3status-rust
     i3lock
     maim
     xclip
@@ -19,12 +20,37 @@
     enable = true;
     config = rec {
       modifier = "Mod4";
-      fonts = ["Inter"];
+      fonts = {
+        names = ["Inter"];
+        size = 10.0;
+      };
       menu = "${pkgs.rofi}/bin/rofi -show run";
       bars = [
         {
+          fonts = {
+            names = ["Inter"];
+            size = 10.0;
+          };
           position = "top";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+          colors = {
+            background = "#303446";
+            inactiveWorkspace = {
+              background = "#303446";
+              border = "#a6d189";  
+              text = "#ffffff";
+            };
+            focusedWorkspace = {
+              background = "#a6d189";
+              border = "#a6d189";  
+              text = "#303466";
+            };
+            urgentWorkspace = {
+              background = "#e78284";
+              border = "#800000";  
+              text = "#ffffff";
+            };
+          };
         }
       ];
       terminal = "kitty";
@@ -64,7 +90,7 @@
         "XF86MonBrightnessUp"   = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
-        "Print"          = "exec --no-startup-id ${pkgs.main}/bin/maim | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png"; #https://superuser.com/a/1803843
+        "Print"          = "exec --no-startup-id ${pkgs.maim}/bin/maim | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png"; #https://superuser.com/a/1803843
         "${modifier}+l"  = "exec --no-startup-id ${pkgs.i3lock}/bin/i3lock -c 000000";
       };
     };
