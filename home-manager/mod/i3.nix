@@ -1,17 +1,32 @@
 {configs, pkgs, lib, ...}:
 {
-  imports = [  ];
+  imports = [  
+    ./i3status.nix
+  ];
   home.packages = with pkgs; [
     brightnessctl
     playerctl
     kitty
+
+    i3lock
+    maim
+    xclip
+    feh
+    redshift
   ];
 
   xsession.windowManager.i3 = {
     enable = true;
     config = rec {
       modifier = "Mod4";
+      fonts = ["Inter"];
       menu = "${pkgs.rofi}/bin/rofi -show run";
+      bars = [
+        {
+          position = "top";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+        }
+      ];
       terminal = "kitty";
       floating = {
         border = 1;
@@ -26,8 +41,9 @@
       startup = [
         /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
         {command = "--no-startup-id nm-applet --indicator";}
-        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/back"; } #fill
+        {command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-fill ~/back"; } #fill
         {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
+        {command = "--no-startup-id ${pkgs.redshift}/bin/redshift"; }
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -48,8 +64,8 @@
         "XF86MonBrightnessUp"   = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
-        "Print"          = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.scrot}/bin/scrot -e '${pkgs.xclip}/bin/sclip -selection clipboard -t image/png -i $f'";
-        "${modifier}+l"  = "exec --no-startup-id ${pkgs.i3lock}/bin/i3lock -Ffk -c 000000";
+        "Print"          = "exec --no-startup-id ${pkgs.main}/bin/maim | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png"; #https://superuser.com/a/1803843
+        "${modifier}+l"  = "exec --no-startup-id ${pkgs.i3lock}/bin/i3lock -c 000000";
       };
     };
   };

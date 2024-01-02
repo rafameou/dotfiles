@@ -1,7 +1,6 @@
 { inputs, lib, config, pkgs, ... }:
 {
   services.xserver.displayManager.startx.enable = true;
-
   #Enable Keyring for stuff like github-desktop
   services.gnome.gnome-keyring.enable = true;
 
