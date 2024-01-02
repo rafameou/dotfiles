@@ -2,7 +2,8 @@
 {
   home.packages = with pkgs; [
     flatpak
-    github-desktop
+    #github-desktop
+    gh
     scrcpy
     geogebra
     octaveFull
