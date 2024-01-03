@@ -1,12 +1,9 @@
 {configs, pkgs, lib, ...}:
 {
-  imports = [  
-    ./i3status.nix
-  ];
+  #imports = [  ];
   home.packages = with pkgs; [
     brightnessctl
     playerctl
-    kitty
 
     i3status-rust
     i3lock
@@ -35,6 +32,7 @@
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
           colors = {
             background = "#303446";
+            statusline = "#c6d0f5";
             inactiveWorkspace = {
               background = "#303446";
               border = "#a6d189";  
@@ -90,7 +88,7 @@
         "XF86MonBrightnessUp"   = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
-        "Print"          = "exec --no-startup-id ${pkgs.maim}/bin/maim | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png"; #https://superuser.com/a/1803843
+        "Print"          = "exec --no-startup-id ${pkgs.maim}/bin/maim -s | ${pkgs.xclip}/bin/xclip -selection clipboard -t image/png"; #https://superuser.com/a/1803843
         "${modifier}+l"  = "exec --no-startup-id ${pkgs.i3lock}/bin/i3lock -c 000000";
       };
     };

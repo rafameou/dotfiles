@@ -6,7 +6,6 @@
   home.packages = with pkgs; [
     brightnessctl
     playerctl
-    foot
 
     swaybg
     swaylock
@@ -64,10 +63,14 @@
     /*package = pkgs.swayfx;*/
     config = rec {
       modifier = "Mod4";
+      fonts = {
+        names = ["Inter"];
+        size = 10.0;
+      }; 
       /*menu = "${pkgs.wofi}/bin/wofi --show=drun --insensitive --allow-images --hide-scroll | ${pkgs.findutils}/bin/xargs swaymsg exec --";*/
       menu = "${pkgs.fuzzel}/bin/fuzzel | ${pkgs.findutils}/bin/xargs swaymsg exec --";
       bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
-      terminal = "foot"; 
+      terminal = "kitty"; 
       input = {
         "type:keyboard" = {
           xkb_layout = "br,br";
@@ -150,60 +153,6 @@
     systemd.enable = true;
     wrapperFeatures.gtk = true;
     xwayland = true;
-  };
-
-  programs.foot = {
-    enable = true;
-    settings = {
-      /*colors = {
-      background=000000;
-      alpha = 0.75;
-      };*/
-      /*https://github.com/catppuccin/foot/blob/main/catppuccin-frappe.conf*/
-      colors = {
-        /*dark*/
-        foreground="c6d0f5"; # Text
-        background="303446"; # Base
-        regular0="51576d";   # Surface 1
-        regular1="e78284";   # red
-        regular2="a6d189";   # green
-        regular3="e5c890";   # yellow
-        regular4="8caaee";   # blue
-        regular5="f4b8e4";   # pink
-        regular6="81c8be";   # teal
-        regular7="b5bfe2";   # Subtext 1
-        bright0="626880";    # Surface 2
-        bright1="e78284";    # red
-        bright2="a6d189";    # green
-        bright3="e5c890";   # yellow
-        bright4="8caaee";    # blue
-        bright5="f4b8e4";    # pink
-        bright6="81c8be";    # teal
-        bright7="a5adce";    # Subtext 0
-        /*white*/
-        /*
-        foreground="4c4f69"; # Text
-        background="eff1f5"; # Base
-        regular0="5c5f77";   # Subtext 1
-        regular1="d20f39";   # red
-        regular2="40a02b";   # green
-        regular3="df8e1d";   # yellow
-        regular4="1e66f5";   # blue
-        regular5="ea76cb";   # pink
-        regular6="179299";   # teal
-        regular7="acb0be";   # Surface 2
-        bright0="6c6f85";   # Subtext 0
-        bright1="d20f39";    # red
-        bright2="40a02b";    # green
-        bright3="df8e1d";    # yellow
-        bright4="1e66f5";    # blue
-        bright5="ea76cb";    # pink
-        bright6="179299";    # teal
-        bright7="bcc0cc";    # Surface 1
-        */
-        /*alpha = 0.75;*/
-      };
-    };
   };
 
   programs.fuzzel = {

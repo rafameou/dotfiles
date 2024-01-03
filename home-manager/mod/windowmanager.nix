@@ -2,6 +2,7 @@
 {
   imports = [
     ./theme.nix
+    ./i3status.nix
     ./sway.nix
     ./i3.nix
   ];
@@ -51,6 +52,12 @@
 
   services.dunst = {
     enable = true;
+  };
+
+  programs.kitty = {
+    enable = true;
+    theme = "Catppuccin-Frappe";
+    shellIntegration.enableZshIntegration = true;
   };
 
   /*services.udisks2.enable = true; services.playerctld.enable = true;*/

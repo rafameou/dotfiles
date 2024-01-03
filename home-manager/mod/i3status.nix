@@ -19,8 +19,17 @@
           { block = "memory"; }
           { block = "cpu"; }
           { block = "backlight"; }
+          { block = "keyboard_layout"; }
+          { block = "notify"; }
           { block = "battery"; }
-          { block = "time"; interval = 10; }
+          { 
+            block = "time"; 
+            interval = 10;
+            format = {
+              full = " $icon $timestamp.datetime(f:'%a %d/%m/%y %R:%S') ";
+              short = " $icon $timestamp.datetime(f:%R) ";
+            };
+          }
         ];
       };
     };

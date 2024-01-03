@@ -8,11 +8,12 @@
       height = 24;
       spacing = 5;
 
-      modules-left   = [ "sway/workspaces" "sway/mode" "sway/window"];
+      modules-left   = [ "sway/workspaces" "sway/mode"];
       modules-center = [  ];
-      modules-right  = [ "pulseaudio" "network" "cpu" "memory" "backlight" "battery" "battery#bat2" "idle_inhibitor" "clock" "tray" "sway/language" ];
+      modules-right  = [ "sway/window" "pulseaudio" "network" "memory" "cpu" "backlight" "sway/language" "battery" "battery#bat2" "idle_inhibitor" "clock" "tray" ];
 
       "sway/workspaces" = {
+        disable-scroll-wraparound = true;
         all-outputs = true;
         format = "{name}{icon}";
         format-icons = {
@@ -49,7 +50,7 @@
       clock = {
         timezone = lib.mkDefault "America/Sao_Paulo";
         tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-        format = "  [{:%T %d/%m/%Y}]  ";
+        format = "[{:%T %d/%m/%Y}]";
         interval = 1;
       };
 
