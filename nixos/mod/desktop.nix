@@ -27,10 +27,10 @@
   #fonts, move to home maybe
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-    roboto
-    nerdfonts
-    inter
-    font-awesome
+    spleen
+    jetbrains-mono
+    fira-mono
+    fira-code
   ];
 
   hardware.opengl = { # this fixes the "glXChooseVisual failed" bug, context: https://github.com/NixOS/nixpkgs/issues/47932 

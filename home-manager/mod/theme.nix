@@ -44,8 +44,8 @@
   gtk = {
     enable = true;
     font = {
-      name = "Inter";
-      /*size = 12;*/
+      name = "Spleen 32x64";
+      size = 12;
     };
     theme = {
       /*name = "Vertex-Dark";

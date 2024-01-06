@@ -19,8 +19,22 @@
           { block = "memory"; }
           { block = "cpu"; }
           { block = "backlight"; }
-          { block = "keyboard_layout"; }
-          { block = "notify"; }
+          { 
+            block = "keyboard_layout"; 
+            driver = "sway";
+            format = " $variant ";
+          }
+          {
+            block = "toggle";
+            format = "LOCK $icon";
+            command_state = ''[[ $(systemctl --user is-active swayidle) == "active" ]] && echo "ok" || echo ""'';
+            command_on = "systemctl --user start swayidle";
+            command_off = "systemctl --user stop swayidle";
+          }
+          { 
+            block = "notify"; 
+            format = "NOT $icon";
+          }
           { block = "battery"; }
           { 
             block = "time"; 

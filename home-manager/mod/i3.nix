@@ -18,15 +18,15 @@
     config = rec {
       modifier = "Mod4";
       fonts = {
-        names = ["Inter"];
-        size = 10.0;
+        names = ["Spleen 32x64"];
+        size = 12.0;
       };
       menu = "${pkgs.rofi}/bin/rofi -show run";
       bars = [
         {
           fonts = {
-            names = ["Inter"];
-            size = 10.0;
+            names = ["Spleen 32x64"];
+            size = 12.0;
           };
           position = "top";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
@@ -66,8 +66,9 @@
         /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-fill ~/back"; } #fill
-        {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
-        {command = "--no-startup-id ${pkgs.redshift}/bin/redshift"; }
+        /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
+        {command = "--no-startup-id ${pkgs.pcmanfm-qt}/bin/pcmanfm-qt -d"; }
+        {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; } 
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";

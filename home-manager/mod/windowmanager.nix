@@ -11,6 +11,8 @@
     networkmanagerapplet
     killall
 
+    gammastep
+
     ark 
     imv
     lxqt.pcmanfm-qt
@@ -19,7 +21,7 @@
 
     selectdefaultapplication
 
-    udiskie
+    /*udiskie*/
     android-file-transfer
   ];
 
@@ -96,6 +98,11 @@
     enable = true;
     theme = "Catppuccin-Frappe";
     shellIntegration.enableZshIntegration = true;
+    font = {
+      name = "Spleen 32x64";
+      package = pkgs.spleen;
+      size = 12;
+    };
   };
 
   /*services.udisks2.enable = true; services.playerctld.enable = true;*/

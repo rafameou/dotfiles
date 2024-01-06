@@ -24,7 +24,13 @@ in
         tabs.show = "multiple";
         tabs.tabs_are_windows = true;
         /*statusbar.show = "in-mode";*/
-        fonts.default_family = "Inter";
+        fonts.default_family = "Spleen 32x64";
+      };
+      keyBindings = {
+        normal = {
+          "q" = "tab-close";
+          "d" = "spawn mpv {url}";
+        };
       };
       extraConfig = ''
         import catppuccin

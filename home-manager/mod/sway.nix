@@ -30,32 +30,6 @@
         { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
       ];
     };
-    /*using dunst rn*/
-    /*mako = {
-    enable = true;
-    actions = true;
-    anchor = "top-right";
-    icons = true;
-    defaultTimeout = 7000; # 7s
-    ignoreTimeout = true;
-    };*/
-    gammastep = {
-      enable = true;
-      provider = "geoclue2";
-      tray = true;
-      settings.general = {
-        fade = "1";
-        adjustment-method = "wayland";
-      };
-      temperature = {
-        day   = 5500;
-        night = 2700;
-      };
-    };
-  };
-
-  systemd.user.services = {
-    gammastep.Install.WantedBy = lib.mkForce [ "sway-session.target" ];
   };
 
   wayland.windowManager.sway = {
@@ -64,12 +38,41 @@
     config = rec {
       modifier = "Mod4";
       fonts = {
-        names = ["Inter"];
-        size = 10.0;
+        names = ["Spleen 32x64"];
+        size = 12.0;
       }; 
       /*menu = "${pkgs.wofi}/bin/wofi --show=drun --insensitive --allow-images --hide-scroll | ${pkgs.findutils}/bin/xargs swaymsg exec --";*/
       menu = "${pkgs.fuzzel}/bin/fuzzel | ${pkgs.findutils}/bin/xargs swaymsg exec --";
-      bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];
+      /*bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];*/
+      bars = [
+        {
+          fonts = {
+            names = ["Spleen 32x64"];
+            size = 12.0;
+          };
+          position = "top";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+          colors = {
+            background = "#303446";
+            statusline = "#c6d0f5";
+            inactiveWorkspace = {
+              background = "#303446";
+              border = "#a6d189";  
+              text = "#ffffff";
+            };
+            focusedWorkspace = {
+              background = "#a6d189";
+              border = "#a6d189";  
+              text = "#303466";
+            };
+            urgentWorkspace = {
+              background = "#e78284";
+              border = "#800000";  
+              text = "#ffffff";
+            };
+          };
+        }
+      ];
       terminal = "kitty"; 
       input = {
         "type:keyboard" = {
@@ -115,7 +118,9 @@
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
         {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/back"; } #fill
-        {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
+        /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
+        {command = "--no-startup-id ${pkgs.pcmanfm-qt}/bin/pcmanfm-qt -d"; }
+        {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -160,7 +165,7 @@
     settings = {
       main = {
         icon-theme = "hicolor";
-        font = "Inter";
+        font = "Spleen 32x64";
       };
       colors = {
         background = "303446ff";#7d";#e6";
