@@ -99,8 +99,7 @@
     theme = "Catppuccin-Frappe";
     shellIntegration.enableZshIntegration = true;
     font = {
-      name = "Spleen 32x64";
-      package = pkgs.spleen;
+      name = "Fira Code";
       size = 12;
     };
   };

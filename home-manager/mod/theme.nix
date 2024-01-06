@@ -44,7 +44,7 @@
   gtk = {
     enable = true;
     font = {
-      name = "Spleen 32x64";
+      name = "Fira Sans";
       size = 12;
     };
     theme = {

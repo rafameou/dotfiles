@@ -27,8 +27,8 @@
   #fonts, move to home maybe
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
-    spleen
     jetbrains-mono
+    fira
     fira-mono
     fira-code
   ];

@@ -18,15 +18,15 @@
     config = rec {
       modifier = "Mod4";
       fonts = {
-        names = ["Spleen 32x64"];
-        size = 12.0;
+        names = ["Fira Mono"];
+        size = 10.0;
       };
       menu = "${pkgs.rofi}/bin/rofi -show run";
       bars = [
         {
           fonts = {
-            names = ["Spleen 32x64"];
-            size = 12.0;
+            names = ["Fira Mono"];
+            size = 10.0;
           };
           position = "top";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";

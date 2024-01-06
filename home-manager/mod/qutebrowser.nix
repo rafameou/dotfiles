@@ -24,7 +24,7 @@ in
         tabs.show = "multiple";
         tabs.tabs_are_windows = true;
         /*statusbar.show = "in-mode";*/
-        fonts.default_family = "Spleen 32x64";
+        fonts.default_family = "Fira Sans";
       };
       keyBindings = {
         normal = {
