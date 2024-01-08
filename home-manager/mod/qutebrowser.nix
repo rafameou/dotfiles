@@ -1,13 +1,13 @@
 { inputs, lib, config, pkgs, ... }:
-let catpuccin = pkgs.fetchFromGitHub {
+/*let catpuccin = pkgs.fetchFromGitHub {
   owner = "catppuccin";
   repo = "qutebrowser";
   rev = "78bb72b4c60b421c8ea64dd7c960add6add92f83";
   hash = "sha256-lp7HWYuD4aUyX1nRipldEojZVIvQmsxjYATdyHWph0g=";
 };
-in
+in*/
   {
-    xdg.configFile."qutebrowser/catppuccin".source = catpuccin;
+    /*xdg.configFile."qutebrowser/catppuccin".source = catpuccin;*/
     programs.qutebrowser = {
       enable = true;
       package = (pkgs.qutebrowser.override { enableWideVine = true; });
@@ -32,9 +32,9 @@ in
           "d" = "spawn mpv {url}";
         };
       };
-      extraConfig = ''
+      /*extraConfig = ''
         import catppuccin
         catppuccin.setup(c, 'frappe', True)
-      '';
+      '';*/
     };
   }

@@ -5,7 +5,7 @@
     options = {
       /* https://github.com/catppuccin/zathura/blob/main/src/catppuccin-frappe */
       recolor = true;
-      default-fg = "#C6D0F5";
+      /*default-fg = "#C6D0F5";
       default-bg = "#303446";
 
       completion-bg = "#414559";
@@ -41,7 +41,7 @@
 
       highlight-color = "#575268";
       highlight-fg = "#F4B8E4";
-      highlight-active-color = "#F4B8E4";
+      highlight-active-color = "#F4B8E4";*/
     };
   };
 }

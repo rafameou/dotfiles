@@ -19,7 +19,7 @@
       cmp_luasnip
       nvim-cmp
       /*theme*/
-      catppuccin-nvim
+      /*catppuccin-nvim*/
       /*nix*/
       vim-nix
       /*latex*/
@@ -27,7 +27,7 @@
     ];
 
     extraConfig = ''
-      colorscheme catppuccin-frappe
+      "colorscheme catppuccin-frappe
 
       filetype plugin indent on
       syntax enable
@@ -43,11 +43,11 @@
       vim.api.nvim_set_keymap('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', { noremap = true }); 
 
       -- theme
-      require("catppuccin").setup({
-        flavour = "frappe",
+      -- require("catppuccin").setup({
+      --  flavour = "frappe",
         -- transparent_background = true,
-      });
-      vim.cmd.colorscheme "catppuccin";
+      --});
+      --vim.cmd.colorscheme "catppuccin";
 
       -- snippets
       local luasnip = require'luasnip';

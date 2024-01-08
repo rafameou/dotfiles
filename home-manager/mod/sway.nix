@@ -54,7 +54,7 @@
           };
           position = "top";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
-          colors = {
+          /*colors = {
             background = "#303446";
             statusline = "#c6d0f5";
             inactiveWorkspace = {
@@ -72,7 +72,7 @@
               border = "#800000";  
               text = "#ffffff";
             };
-          };
+          };*/
         }
       ];
       terminal = "kitty"; 
@@ -169,13 +169,13 @@
         icon-theme = "hicolor";
         font = "Fira Sans";
       };
-      colors = {
+      /*colors = {
         background = "303446ff";#7d";#e6";
         text = "ffffffff";
         selection = "464646ff";
         selection-text = "ffffffff";
         border = "ffffff00";
-      };
+      };*/
       border = {
         width = 1;
         radius = 0;

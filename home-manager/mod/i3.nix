@@ -5,6 +5,8 @@
     brightnessctl
     playerctl
 
+    lxqt.qterminal
+
     i3status-rust
     i3lock
     maim
@@ -30,7 +32,7 @@
           };
           position = "top";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
-          colors = {
+          /*colors = {
             background = "#303446";
             statusline = "#c6d0f5";
             inactiveWorkspace = {
@@ -48,10 +50,10 @@
               border = "#800000";  
               text = "#ffffff";
             };
-          };
+          };*/
         }
       ];
-      terminal = "kitty";
+      terminal = "qterminal";
       floating = {
         border = 1;
         titlebar = true; #doesnt work

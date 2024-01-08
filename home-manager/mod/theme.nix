@@ -21,11 +21,11 @@
     accent = "Sky";
     variant = "Frappe";
     })*/
-    (catppuccin.override {
+    /*(catppuccin.override {
       accent = "green";
       variant = "frappe";
       themeList = ["kvantum"];
-    })
+    })*/
   ];
 
   home.pointerCursor = {
@@ -48,22 +48,23 @@
       size = 12;
     };
     theme = {
-      /*name = "Vertex-Dark";
-      package = pkgs.theme-vertex;*/
-      name = "Catppuccin-Frappe-Compact-Green-Dark";
+      /*name = "Catppuccin-Frappe-Compact-Green-Dark";
       package = pkgs.catppuccin-gtk.override {
         accents = [ "green" ];
         size = "compact";
         tweaks = [ "rimless" ];
         variant = "frappe";
-      };
+      };*/
+      name = "adwaita-dark";
     };
     iconTheme = {
-      name = "Papirus-Dark";
+      /*name = "Papirus-Dark";
       package = pkgs.catppuccin-papirus-folders.override {
         accent = "green";
         flavor = "frappe";
-      };
+      };*/
+      name = "Oxygen";
+      package = pkgs.libsForQt5.oxygen-icons5;
     };
     cursorTheme = {
       name = "phinger-cursors";

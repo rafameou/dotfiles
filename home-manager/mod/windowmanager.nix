@@ -14,10 +14,12 @@
     gammastep
 
     ark 
-    imv
+    vimiv-qt
     lxqt.pcmanfm-qt
     lxqt.pavucontrol-qt
     lxqt.qps
+
+    nvidia-system-monitor-qt
 
     selectdefaultapplication
 
@@ -96,7 +98,7 @@
 
   programs.kitty = {
     enable = true;
-    theme = "Catppuccin-Frappe";
+    /*theme = "Catppuccin-Frappe";*/
     shellIntegration.enableZshIntegration = true;
     font = {
       name = "Fira Code";
