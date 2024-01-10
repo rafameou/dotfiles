@@ -31,6 +31,7 @@
     fira
     fira-mono
     fira-code
+    fira-code-nerdfont
   ];
 
   hardware.opengl = { # this fixes the "glXChooseVisual failed" bug, context: https://github.com/NixOS/nixpkgs/issues/47932 

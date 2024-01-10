@@ -14,6 +14,10 @@
         name = "Duolingo";
         exec = "qutebrowser preview.duolingo.com";
       };
+      discord = {
+        name = "Discord";
+        exec = "webcord";
+      };
     };
     mimeApps = {
       enable = true;

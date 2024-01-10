@@ -19,6 +19,9 @@
     lxqt.pavucontrol-qt
     lxqt.qps
 
+    j4-dmenu-desktop
+    bemenu
+
     nvidia-system-monitor-qt
 
     selectdefaultapplication
@@ -101,7 +104,7 @@
     /*theme = "Catppuccin-Frappe";*/
     shellIntegration.enableZshIntegration = true;
     font = {
-      name = "Fira Code";
+      name = "FiraCode Nerd Font";
       size = 12;
     };
   };
