@@ -55,7 +55,8 @@
         tweaks = [ "rimless" ];
         variant = "frappe";
       };*/
-      name = "adwaita-dark";
+      name = "Adwaita-dark";
+      package = pkgs.gnome.gnome-themes-extra;
     };
     iconTheme = {
       /*name = "Papirus-Dark";
