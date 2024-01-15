@@ -4,7 +4,8 @@
     enable = true;
     bars = {
       top = {
-        theme = "native";
+        theme = "gruvbox-dark"; /*native*/
+        icons = "material-nf";
         blocks = [
           { block = "focused_window"; }
           {
@@ -16,7 +17,19 @@
               }
             ];
           }
-          { block = "memory"; }
+          {
+            block = "temperature";
+            interval = 10;
+            format = " $icon $max" ;
+            inputs = ["Core 0" "CPU"];
+            chip = "*-isa-*";
+          }
+          { block = "disk_space"; }
+          { 
+            block = "memory"; 
+            format = " $icon $mem_used_percents.eng(w:2) ";
+            format_alt = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) $icon_swap $swap_used_percents.eng(w:2) ";
+          }
           { block = "cpu"; }
           { block = "backlight"; }
           { 
@@ -26,14 +39,14 @@
           }
           {
             block = "toggle";
-            format = "LOCK $icon";
+            format = " LOCK $icon ";
             command_state = ''[[ $(systemctl --user is-active swayidle) == "active" ]] && echo "ok" || echo ""'';
             command_on = "systemctl --user start swayidle";
             command_off = "systemctl --user stop swayidle";
           }
           { 
             block = "notify"; 
-            format = "NOT $icon";
+            format = " NOT $icon ";
           }
           { block = "battery"; }
           { 
