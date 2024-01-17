@@ -8,6 +8,7 @@
         icons = "material-nf";
         blocks = [
           { block = "focused_window"; }
+          { block = "music"; }
           {
             block = "sound";
             click = [
@@ -31,6 +32,12 @@
             format_alt = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) $icon_swap $swap_used_percents.eng(w:2) ";
           }
           { block = "cpu"; }
+          { 
+            block = "net";
+            format = " $icon ";
+            format_alt = " $icon {$ssid($signal_strength $frequency)|Wired} via $device ";
+            interval = 10;
+          }
           { block = "backlight"; }
           { 
             block = "keyboard_layout"; 
@@ -46,14 +53,14 @@
           }
           { 
             block = "notify"; 
-            format = " NOT $icon ";
+            /*format = " NOT $icon ";*/
           }
           { block = "battery"; }
           { 
             block = "time"; 
             interval = 10;
             format = {
-              full = " $icon $timestamp.datetime(f:'%a %d/%m/%y %R:%S') ";
+              full = " $icon $timestamp.datetime(f:'%a %d/%m %R:%S', l:pt_BR) ";
               short = " $icon $timestamp.datetime(f:%R) ";
             };
           }

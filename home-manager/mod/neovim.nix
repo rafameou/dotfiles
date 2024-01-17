@@ -20,7 +20,7 @@
       cmp_luasnip
       nvim-cmp
       /*theme*/
-      tokyonight-nvim
+      gruvbox-nvim
       /*catppuccin-nvim*/
       /*nix*/
       vim-nix
@@ -29,8 +29,6 @@
     ];
 
     extraConfig = ''
-      colorscheme tokyonight-night
-
       filetype plugin indent on
       syntax enable
       let g:vimtex_view_method = 'zathura'
@@ -50,6 +48,8 @@
         -- transparent_background = true,
       --});
       --vim.cmd.colorscheme "catppuccin";
+      vim.o.background = "dark";
+      vim.cmd([[colorscheme gruvbox]]);
 
       -- neo-tree
       -- disable netrw at the very start of your init.lua

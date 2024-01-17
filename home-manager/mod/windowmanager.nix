@@ -102,6 +102,7 @@
   programs.kitty = {
     enable = true;
     /*theme = "Catppuccin-Frappe";*/
+    theme = "Gruvbox Dark";
     shellIntegration.enableZshIntegration = true;
     font = {
       name = "FiraCode Nerd Font";

@@ -66,12 +66,11 @@
         commands = [ ];
       };
       startup = [
-        /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
         {command = "--no-startup-id nm-applet --indicator";}
-        {command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-fill ~/back"; } #fill
+        {command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-fill ~/back"; }
         /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
         {command = "--no-startup-id ${pkgs.pcmanfm-qt}/bin/pcmanfm-qt -d"; }
-        {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; } 
+        {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m randr"; } 
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
