@@ -1,10 +1,10 @@
 {configs, pkgs, lib, ...}:
 {
   imports = [
-    ./theme.nix
-    ./i3status.nix
-    ./sway.nix
-    ./i3.nix
+    ./window-manager/theme.nix
+    ./window-manager/i3status.nix
+    ./window-manager/sway.nix
+    ./window-manager/i3.nix
   ];
 
   home.packages = with pkgs; [

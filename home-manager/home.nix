@@ -12,14 +12,8 @@
     ../nixos/mod/nixpkgs.nix
     ./mod/xdg.nix
     ./mod/zsh.nix
-    ./mod/windowmanager.nix
-    ./mod/internet.nix
-    ./mod/qutebrowser.nix
-    ./mod/util.nix
-    ./mod/edit.nix
-    ./mod/zathura.nix
-    ./mod/neovim.nix
-    ./mod/games.nix
+    ./mod/window-manager.nix
+    ./mod/apps.nix
   ];
 
   home = {
