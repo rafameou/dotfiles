@@ -99,16 +99,5 @@
     enable = true;
   };
 
-  programs.kitty = {
-    enable = true;
-    /*theme = "Catppuccin-Frappe";*/
-    theme = "Gruvbox Dark";
-    shellIntegration.enableZshIntegration = true;
-    font = {
-      name = "FiraCode Nerd Font";
-      size = 12;
-    };
-  };
-
   /*services.udisks2.enable = true; services.playerctld.enable = true;*/
 }

@@ -1,6 +1,7 @@
 { inputs, lib, config, pkgs, ... }:
 {
   imports = [
+    ./apps/kitty.nix
     ./apps/neovim.nix
     ./apps/qutebrowser.nix
     #./apps/vscode.nix

@@ -55,27 +55,79 @@
           };
           position = "top";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
-          /*colors = {
-            background = "#303446";
-            statusline = "#c6d0f5";
-            inactiveWorkspace = {
-              background = "#303446";
-              border = "#a6d189";  
-              text = "#ffffff";
-            };
+          /*---------------------------------------------------------|
+          | Stolen from https://github.com/tinted-theming/base16-i3/ |
+          |---------------------------------------------------------*/
+          colors = {
+            background = "#${config.colorScheme.colors.base00}";
+            separator = "#${config.colorScheme.colors.base01}";
+            statusline = "#${config.colorScheme.colors.base04}";
             focusedWorkspace = {
-              background = "#a6d189";
-              border = "#a6d189";  
-              text = "#303466";
+              border = "#${config.colorScheme.colors.base05}";
+              background = "#${config.colorScheme.colors.base0D}"; 
+              text = "#${config.colorScheme.colors.base00}";
+            };
+            activeWorkspace = {
+              border = "#${config.colorScheme.colors.base05}";
+              background = "#${config.colorScheme.colors.base03}";  
+              text = "#${config.colorScheme.colors.base00}";
+            };
+            inactiveWorkspace = {
+              border = "#${config.colorScheme.colors.base03}";
+              background = "#${config.colorScheme.colors.base01}";
+              text = "#${config.colorScheme.colors.base05}";
             };
             urgentWorkspace = {
-              background = "#e78284";
-              border = "#800000";  
-              text = "#ffffff";
+              border = "#${config.colorScheme.colors.base08}";
+              background = "#${config.colorScheme.colors.base08}";
+              text = "#${config.colorScheme.colors.base00}";
             };
-          };*/
+            bindingMode = {
+              border = "#${config.colorScheme.colors.base00}";
+              background = "#${config.colorScheme.colors.base0A}";
+              text = "#${config.colorScheme.colors.base00}";
+            };
+          };
         }
       ];
+      colors = {
+        focused = {
+          border = "#${config.colorScheme.colors.base05}";
+          background = "#${config.colorScheme.colors.base0D}";
+          text = "#${config.colorScheme.colors.base00}";
+          indicator = "#${config.colorScheme.colors.base0D}";
+          childBorder = "#${config.colorScheme.colors.base0C}";
+        };
+        focusedInactive = {
+          border = "#${config.colorScheme.colors.base01}";
+          background = "#${config.colorScheme.colors.base01}";
+          text = "#${config.colorScheme.colors.base05}";
+          indicator = "#${config.colorScheme.colors.base03}";
+          childBorder = "#${config.colorScheme.colors.base01}";
+        };
+        unfocused = {
+          border = "#${config.colorScheme.colors.base01}";
+          background = "#${config.colorScheme.colors.base00}";
+          text = "#${config.colorScheme.colors.base05}";
+          indicator = "#${config.colorScheme.colors.base01}";
+          childBorder = "#${config.colorScheme.colors.base01}";
+        };
+        urgent = {
+          border = "#${config.colorScheme.colors.base08}";
+          background = "#${config.colorScheme.colors.base08}";
+          text = "#${config.colorScheme.colors.base00}";
+          indicator = "#${config.colorScheme.colors.base08}";
+          childBorder = "#${config.colorScheme.colors.base08}";
+        };
+        placeholder = {
+          border = "#${config.colorScheme.colors.base00}";
+          background = "#${config.colorScheme.colors.base00}";
+          text = "#${config.colorScheme.colors.base05}";
+          indicator = "#${config.colorScheme.colors.base00}";
+          childBorder = "#${config.colorScheme.colors.base00}";
+        };
+        background = "#${config.colorScheme.colors.base07}"; 
+      };
       terminal = "kitty"; 
       input = {
         "type:keyboard" = {
@@ -171,11 +223,11 @@
         font = "Fira Sans";
       };
       /*colors = {
-        background = "303446ff";#7d";#e6";
-        text = "ffffffff";
-        selection = "464646ff";
-        selection-text = "ffffffff";
-        border = "ffffff00";
+      background = "303446ff";#7d";#e6";
+      text = "ffffffff";
+      selection = "464646ff";
+      selection-text = "ffffffff";
+      border = "ffffff00";
       };*/
       border = {
         width = 1;
