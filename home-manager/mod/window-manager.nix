@@ -1,4 +1,4 @@
-{configs, pkgs, lib, ...}:
+{ inputs, lib, config, pkgs, ... }:
 {
   imports = [
     ./window-manager/theme.nix
@@ -19,7 +19,7 @@
     lxqt.pavucontrol-qt
     lxqt.qps
 
-    j4-dmenu-desktop
+    pkgs.nixpkgs-stable.j4-dmenu-desktop
     bemenu
 
     nvidia-system-monitor-qt
@@ -93,10 +93,6 @@
       '';
       executable = true;
     };
-  };
-
-  services.dunst = {
-    enable = true;
   };
 
   /*services.udisks2.enable = true; services.playerctld.enable = true;*/

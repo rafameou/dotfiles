@@ -24,7 +24,7 @@
         size = 10.0;
       };
       /*menu = "${pkgs.rofi}/bin/rofi -show run";*/
-      menu = ''${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"'';
+      menu = ''${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"'';
       bars = [
         {
           fonts = {

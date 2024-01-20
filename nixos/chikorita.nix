@@ -39,7 +39,8 @@
   # enable geoclue2 services
   services.geoclue2.enable = true;
 
-  /*services.zerotierone.enable = true;*/
+  #services.zerotierone.enable = true;
+  #services.openssh.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
