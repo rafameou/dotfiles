@@ -49,7 +49,7 @@
     };
   };
 
-  services.fwupd.enable = true;
+  #services.fwupd.enable = true;
 
   # enable geoclue2 services
   services.geoclue2.enable = true;
