@@ -16,7 +16,7 @@
       };
       discord = {
         name = "Discord";
-        exec = "webcord";
+        exec = "vesktop";
       };
     };
     mimeApps = {
