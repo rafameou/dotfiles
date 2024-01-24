@@ -50,7 +50,7 @@ inactive_colors=#ff${config.colorScheme.colors.base05}, #ff${config.colorScheme.
 color_scheme_path=~/.config/qt-color-base16.conf
 custom_palette=true
 icon_theme=oomox-gruvbox-dark
-style=Oxygen
+style=Fusion
 
 [Fonts]
 fixed="Fira Mono,12,-1,5,50,0,0,0,0,0,Regular"

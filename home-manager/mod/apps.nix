@@ -18,7 +18,8 @@
     thunderbird
     tdesktop
     #(discord.override { nss = nss_latest; })
-    webcord
+    #webcord
+    vesktop
     spotify
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku
