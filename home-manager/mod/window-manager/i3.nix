@@ -23,8 +23,8 @@
         names = ["Fira Mono"];
         size = 10.0;
       };
-      /*menu = "${pkgs.rofi}/bin/rofi -show run";*/
-      menu = ''${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"'';
+      /*colors stolen from https://github.com/Haze-sh/base16-bemenu/"*/
+      menu = ''BEMENU_OPTS="--tb '#${config.colorScheme.colors.base03}' --tf '#${config.colorScheme.colors.base06}' --fb '#${config.colorScheme.colors.base00}' --ff '#${config.colorScheme.colors.base06}' --nb '#${config.colorScheme.colors.base00}' --nf '#${config.colorScheme.colors.base04}' --hb '#${config.colorScheme.colors.base02}' --hf '#${config.colorScheme.colors.base0A}' --sb '#${config.colorScheme.colors.base02}' --sf '#${config.colorScheme.colors.base0A}' --scb '#${config.colorScheme.colors.base00}' --scf '#${config.colorScheme.colors.base0E}'" ${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"'';
       bars = [
         {
           fonts = {

@@ -18,6 +18,10 @@
         name = "Discord";
         exec = "vesktop";
       };
+      clematis = {
+        name = "Clematis";
+        exec = "clematis";
+      };
     };
     mimeApps = {
       enable = true;

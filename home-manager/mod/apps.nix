@@ -19,6 +19,7 @@
     tdesktop
     #(discord.override { nss = nss_latest; })
     #webcord
+    clematis #mpris for discord
     vesktop
     spotify
     /*pkgs.nixpkgs-master.*/bitwarden
@@ -75,4 +76,21 @@
     steam #fix steam games: SDL_VIDEODRIVER=x11 prime-run %command% -vulkan
     /*---------------*/
   ];
+
+  xdg.configFile = {
+    "Clematis/config.json".text = ''
+      {
+        "vars": [""], 
+        "blacklist": [""], 
+        "whitelist": [""], 
+        "useIdentifiers": false, 
+        "logLevel": "info", 
+        "presence": {
+                "details": "{title}" 
+                "state": "{artist} {album}", 
+        },
+        "playerPresence": {}
+      }
+    '';
+  }; 
 }
