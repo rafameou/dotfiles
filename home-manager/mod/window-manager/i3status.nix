@@ -3,7 +3,7 @@
   programs.i3status-rust = {
     enable = true;
     bars = {
-      top = {
+      bottom = {
         theme = "gruvbox-dark"; /*native*/
         icons = "material-nf";
         blocks = [

@@ -24,6 +24,7 @@
     spotify
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku
+    libsForQt5.tokodon
     /*---------------| 
     |---   edit   ---| 
     |---------------*/
@@ -74,6 +75,8 @@
     prismlauncher
     runelite
     steam #fix steam games: SDL_VIDEODRIVER=x11 prime-run %command% -vulkan
+    itch
+    heroic
     /*---------------*/
   ];
 
