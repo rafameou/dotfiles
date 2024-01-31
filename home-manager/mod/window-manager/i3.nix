@@ -49,7 +49,7 @@ unredir-if-possible = false;
           | Stolen from https://github.com/tinted-theming/base16-i3/ |
           |---------------------------------------------------------*/
           colors = {
-            background = "#${config.colorScheme.colors.base00}";
+            background = "#${config.colorScheme.colors.base00}B2";
             separator = "#${config.colorScheme.colors.base01}";
             statusline = "#${config.colorScheme.colors.base04}";
             focusedWorkspace = {

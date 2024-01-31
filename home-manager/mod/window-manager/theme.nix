@@ -75,6 +75,19 @@ fixed="Fira Mono,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
 general="Fira Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
   '';
 
+
+  dconf.settings = {
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "appmenu:";
+    };
+    "org/gtk/settings/file-chooser" = {
+      sort-directories-first = true;
+    };
+    "org/gtk/gtk4/settings/file-chooser" = {
+      sort-directories-first = true;
+    };
+  }; 
+
   gtk = {
     enable = true;
     font = {
