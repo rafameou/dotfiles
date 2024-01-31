@@ -13,7 +13,19 @@
     xclip
     feh
     redshift
+    picom
   ];
+
+  xdg.configFile."picom/picom.conf".text = ''
+shadows = true;
+corner-radius = 10;
+round-borders = 1;
+rounded-corners-exclude = [
+  "class_g = 'i3bar'",
+];
+unredir-if-possible = false;
+  '';
+
 
   xsession.windowManager.i3 = {
     enable = true;
@@ -107,6 +119,17 @@
         background = "#${config.colorScheme.colors.base07}"; 
       };
       terminal = "kitty";
+      focus = {
+        followMouse = true;
+        wrapping = "no";
+        mouseWarping = true;
+        newWindow = "smart";
+      };
+      /*workspaceAutoBackAndForth = true;
+      workspaceLayout = "default";*/
+      gaps = {
+        inner = 10;
+      };
       floating = {
         border = 1;
         titlebar = true; #doesnt work
@@ -123,6 +146,7 @@
         /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
         {command = "--no-startup-id ${pkgs.pcmanfm-qt}/bin/pcmanfm-qt -d"; }
         {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m randr"; } 
+        {command = "--no-startup-id ${pkgs.picom}/bin/picom"; }
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -135,6 +159,7 @@
         "shift+XF86AudioRaiseVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1+";
 
         "${alt}+XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";*/
+        "${modifier}+equal" = "gaps inner current toggle 10";
 
         "XF86AudioMute"        = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";

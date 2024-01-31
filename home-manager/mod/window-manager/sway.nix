@@ -8,6 +8,7 @@
     playerctl
 
     swaybg
+    /*swww*/
     swaylock
     cliphist
     wl-clipboard
@@ -24,7 +25,7 @@
       timeouts = [
         { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
         { timeout = 600; command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
-        resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
+       resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
       ];
       events = [
         { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
@@ -34,7 +35,7 @@
 
   wayland.windowManager.sway = {
     enable = true;
-    /*package = pkgs.swayfx;*/
+    package = pkgs.swayfx;
     config = rec {
       modifier = "Mod4";
       fonts = {
@@ -58,7 +59,7 @@
           | Stolen from https://github.com/tinted-theming/base16-i3/ |
           |---------------------------------------------------------*/
           colors = {
-            background = "#${config.colorScheme.colors.base00}";
+            background = "#${config.colorScheme.colors.base00}B2";
             separator = "#${config.colorScheme.colors.base01}";
             statusline = "#${config.colorScheme.colors.base04}";
             focusedWorkspace = {
@@ -149,13 +150,10 @@
         newWindow = "smart";
       };
       /*workspaceAutoBackAndForth = true;
-      workspaceLayout = "default";
-      gaps = rec {
-      smartBorders = "on";
-      smartGaps = true;
-      inner = 4;
-      outer = -inner;
-      };*/
+      workspaceLayout = "default";*/
+      gaps = {
+        inner = 10;
+      };
       floating = {
         border = 1;
         titlebar = true; #doesnt work
@@ -172,6 +170,7 @@
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
         {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/back"; } #fill
+        /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
         /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
         {command = "--no-startup-id ${pkgs.pcmanfm-qt}/bin/pcmanfm-qt -d"; }
         {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
@@ -188,6 +187,9 @@
 
         "${alt}+XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";*/
 
+        /*"${modifier}+minus" = "";*/
+        "${modifier}+equal" = "gaps inner current toggle 10";
+
         "XF86AudioMute"        = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
@@ -200,14 +202,14 @@
       };
     };
     /*extraSessionCommands = ''*/
-    /*extraConfig = ''
+    extraConfig = ''
     blur enable
     blur_xray disable
     shadows enable
     corner_radius 10
-    layer_effects "waybar" blur enable; shadows enable
-    layer_effects "launcher" blur enable; shadows enable; corner_radius 15
-    '';*/
+    layer_effects "panel" blur enable; shadows enable
+    layer_effects "menu" blur enable; shadows enable;
+    '';
 
     systemd.enable = true;
     wrapperFeatures.gtk = true;
@@ -215,23 +217,23 @@
   };
 
   /*programs.fuzzel = {
-    enable = true;
-    settings = {
-      main = {
-        icon-theme = "hicolor";
-        font = "Fira Sans";
-      };
-      colors = {
-      background = "303446ff";#7d";#e6";
-      text = "ffffffff";
-      selection = "464646ff";
-      selection-text = "ffffffff";
-      border = "ffffff00";
-      };
-      border = {
-        width = 1;
-        radius = 0;
-      };
-    };
+  enable = true;
+  settings = {
+  main = {
+  icon-theme = "hicolor";
+  font = "Fira Sans";
+  };
+  colors = {
+  background = "303446ff";#7d";#e6";
+  text = "ffffffff";
+  selection = "464646ff";
+  selection-text = "ffffffff";
+  border = "ffffff00";
+  };
+  border = {
+  width = 1;
+  radius = 0;
+  };
+  };
   };*/
 }

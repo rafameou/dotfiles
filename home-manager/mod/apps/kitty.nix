@@ -12,6 +12,7 @@
     |- Stolen from Misterio77's config -|
     |----------------------------------*/
     settings = {
+      background_opacity = "0.7";
       foreground = "#${config.colorScheme.colors.base05}";
       background = "#${config.colorScheme.colors.base00}";
       selection_background = "#${config.colorScheme.colors.base05}";
