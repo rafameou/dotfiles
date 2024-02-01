@@ -28,6 +28,9 @@
 
     /*udiskie*/
     android-file-transfer
+
+    /*for steam session*/
+    openbox
   ];
 
   /*  programs.bash = {
@@ -50,33 +53,43 @@
       '';
       executable = true;
     };
-    ".local/bin/startsway" = {
+    ".local/bin/fix" = {
       text = ''
         #!/bin/sh
-        # https://www.reddit.com/r/swaywm/comments/11d89w2/some_workarounds_to_use_sway_with_nvidia/
-        # export WLR_RENDERER=vulkan ;
-        # export WLR_NO_HARDWARE_CURSORS=1 ; # breaks steam
-        # export XWAYLAND_NO_GLAMOR=1 ;
-        export SDL_VIDEODRIVER=wayland ;
-        export QT_QPA_PLATFORM=wayland ;
-        export QT_QPA_PLATFORMTHEME=qt5ct ; 
-        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" ;
-        export _JAVA_AWT_WM_NONREPARENTING=1 ;
-        export MOZ_ENABLE_WAYLAND=1 ;
-        export CLUTTER_BACKEND="wayland" ; 
-        export XDG_SESSION_TYPE="wayland" ;
-        exec sway --unsupported-gpu ;
+        swaymsg output eDP-1 disable
+        swaymsg output HDMI-A-1 mode 1920x1080@60.000Hz
+        xrandr --output eDP-1 --off
+        xrandr --output HDMI-1 --mode 1920x1080
       '';
       executable = true;
     };
-    ".xinitrc" = {
-      text = ''
-        exec i3
-      '';
-    };
-    ".local/bin/starti3" = {
+    ".local/bin/s" = {
       text = ''
         #!/bin/sh
+        if [ -z "$1" ];
+        then
+          # https://www.reddit.com/r/swaywm/comments/11d89w2/some_workarounds_to_use_sway_with_nvidia/
+          # export WLR_RENDERER=vulkan ;
+          # export WLR_NO_HARDWARE_CURSORS=1 ; # breaks steam
+          # export XWAYLAND_NO_GLAMOR=1 ;
+          export SDL_VIDEODRIVER=wayland ;
+          export QT_QPA_PLATFORM=wayland ;
+          export QT_QPA_PLATFORMTHEME=qt5ct ; 
+          export QT_WAYLAND_DISABLE_WINDOWDECORATION="1" ;
+          export _JAVA_AWT_WM_NONREPARENTING=1 ;
+          export MOZ_ENABLE_WAYLAND=1 ;
+          export CLUTTER_BACKEND="wayland" ; 
+          export XDG_SESSION_TYPE="wayland" ;
+          exec sway --unsupported-gpu ;
+        else
+          startx ~/.xinitrc $1
+        fi
+        '';
+        executable = true;
+    };
+    /* https://wiki.archlinux.org/title/Xinit#Switching_between_desktop_environments/window_managers */
+    ".xinitrc" = {
+      text = ''
         # https://www.reddit.com/r/swaywm/comments/11d89w2/some_workarounds_to_use_sway_with_nvidia/
         # unset WLR_RENDERER ;
         # unset WLR_NO_HARDWARE_CURSORS ; # breaks steam
@@ -89,9 +102,16 @@
         unset MOZ_ENABLE_WAYLAND ;
         unset CLUTTER_BACKEND ; 
         unset XDG_SESSION_TYPE ;
-        exec startx ;
+
+        session=${"$"}{1:-i3}
+        case $session in
+          i3                ) i3;;
+          i3fix|fix         ) fix & i3;;
+          steam             ) openbox & steam -bigpicture;;
+          steamfix|sfix     ) fix & openbox & steam -bigpicture;;
+          *                 ) $1;;
+        esac
       '';
-      executable = true;
     };
   };
 
