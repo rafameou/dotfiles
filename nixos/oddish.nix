@@ -24,6 +24,13 @@
 
   services.openssh.enable = true;
 
+  services.nextcloud = {
+    enable = true;
+    package = pkgs.nextcloud28;
+    hostName = "localhost";
+    config.adminpassFile = "/etc/nextpass";
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
 
