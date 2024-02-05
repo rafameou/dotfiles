@@ -10,6 +10,7 @@
       ./oddish-hw.nix
       ./mod/boot-pi.nix
       ./mod/env.nix
+      ./mod/home-manager-server.nix
       ./mod/nix.nix
       ./mod/nixpkgs.nix
       ./mod/time.nix
@@ -20,18 +21,6 @@
   networking.hostName = "oddish"; # Define your hostname.
 
   zramSwap.enable = true; # included in ssd.nix
-
-  /*Use home-manager in the future!*/
-  users.users.rafameou = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      git
-      wget
-      vim
-      nodejs_21
-    ];
-  };
 
   services.openssh.enable = true;
 
