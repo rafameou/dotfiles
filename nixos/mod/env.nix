@@ -2,11 +2,10 @@
 {
   #esc + v + esc ou ctrl + v + esc
   environment.etc."issue".text = ''
-[1;32m<<< Bem-Vindo a \n! >>[0m
+<<< Bem-Vindo a \n! >>>
 NixOS com GNU/Linux \r (\m)
 
-[1;36mHoje é \d, agora sao \t e voce esta na \l[0m
-Caso voce tenha encontrado esse computador sozinho aleatoriamente por ai, contate: 
-+55 (42) 9 8402-6139 (telefone, whatsapp ou telegram) ou rafaelmazz22@gmail.com
+Hoje é \d, agora sao \t e você está na \l
+Caso você tenha encontrado esse computador sozinho aleatoriamente por ai, contate @rafameou no telegram, mais redes sociais em rafameou.github.io.
   '';
 }

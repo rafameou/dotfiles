@@ -35,6 +35,10 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ ./nixos/treecko.nix ];
       };
+      oddish = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+        modules = [ ./nixos/oddish.nix ];
+      };
     };
   };
 }
