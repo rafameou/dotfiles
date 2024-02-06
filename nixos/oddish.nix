@@ -27,10 +27,15 @@
 
   services.tailscale.useRoutingFeatures = "server";
 
+  fileSystems."/mnt/Extra" = { 
+    device = "/dev/disk/by-uuid/5d3453f1-aea2-4d9b-bae4-840edeaf7970";
+    fsType = "ext4";
+  };
+
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud28;
-    hostName = "oddish.nextcloud";
+    hostName = "100.70.140.66";
     config.adminpassFile = "/etc/nextpass";
   };
 
