@@ -25,19 +25,23 @@
 
   services.openssh.enable = true;
 
-  services.tailscale.useRoutingFeatures = "server";
+  services.tailscale.useRoutingFeatures = "both";
 
   fileSystems."/mnt/Extra" = { 
-    device = "/dev/disk/by-uuid/5d3453f1-aea2-4d9b-bae4-840edeaf7970";
+    device = "/dev/disk/by-uuid/953d1685-a959-499a-a340-b77a5ca058d6";
     fsType = "ext4";
   };
 
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud28;
+    extraApps = {
+      inherit (config.services.nextcloud.package.packages.apps) news notes contacts calendar tasks;
+    };
+    extraAppsEnable = true;
     hostName = "100.70.140.66";
     config.adminpassFile = "/etc/nextpass";
-    datadir = "/mnt/Extra/NextCloud";
+
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
