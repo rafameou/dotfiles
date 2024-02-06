@@ -37,6 +37,7 @@
     package = pkgs.nextcloud28;
     hostName = "100.70.140.66";
     config.adminpassFile = "/etc/nextpass";
+    datadir = "/mnt/Extra/NextCloud";
   };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
