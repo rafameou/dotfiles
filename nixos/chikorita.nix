@@ -21,6 +21,7 @@
       ./mod/ssd.nix
       ./mod/time.nix
       ./mod/user.nix
+      ./mod/printer.nix
       ./mod/distrobox.nix
       ./mod/home-manager.nix
       ./mod/env.nix

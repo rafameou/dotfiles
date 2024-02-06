@@ -18,6 +18,7 @@
       ./mod/pipewire.nix
       ./mod/ssd.nix
       ./mod/time.nix
+      ./mod/printer.nix
       ./mod/user.nix
       ./mod/distrobox.nix
       ./mod/home-manager.nix

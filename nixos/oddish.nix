@@ -10,6 +10,7 @@
       ./oddish-hw.nix
       ./mod/boot-pi.nix
       ./mod/env.nix
+      ./mod/user.nix
       ./mod/home-manager-server.nix
       ./mod/nix.nix
       ./mod/nixpkgs.nix
@@ -24,12 +25,16 @@
 
   services.openssh.enable = true;
 
+  services.tailscale.useRoutingFeatures = "server";
+
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud28;
-    hostName = "localhost";
+    hostName = "oddish.nextcloud";
     config.adminpassFile = "/etc/nextpass";
   };
+
+  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
