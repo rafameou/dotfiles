@@ -32,19 +32,16 @@
     fsType = "ext4";
   };
 
-  services.nextcloud = {
+  environment.systemPackages = [
+    pkgs.jellyfin
+    pkgs.jellyfin-web
+    pkgs.jellyfin-ffmpeg
+  ];
+
+  services.jellyfin = {
     enable = true;
-    package = pkgs.nextcloud28;
-    extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps) news notes contacts calendar tasks;
-    };
-    extraAppsEnable = true;
-    hostName = "100.70.140.66";
-    config.adminpassFile = "/etc/nextpass";
-
+    openFirewall = true;
   };
-
-  networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
