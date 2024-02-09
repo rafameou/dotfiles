@@ -31,7 +31,7 @@ in*/
       |----------------------------------*/
       colors = {
         webpage = {
-          preferred_color_scheme = config.colorScheme.kind;
+          preferred_color_scheme = config.colorScheme.variant;
           bg = "#ffffff";
         };
         completion = {

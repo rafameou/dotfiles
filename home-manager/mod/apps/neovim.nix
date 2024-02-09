@@ -33,6 +33,8 @@
       syntax enable
       let g:vimtex_view_method = 'zathura'
       autocmd User VimtexEventQuit VimtexClean
+      nnoremap <F5> :VimtexCompile<CR>
+      nnoremap <F6> :VimtexClean<CR>
     '';
 
     extraLuaConfig = ''
