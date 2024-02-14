@@ -5,6 +5,7 @@
     ./apps/kitty.nix
     ./apps/neovim.nix
     ./apps/qutebrowser.nix
+    ./apps/rclone.nix
     #./apps/vscode.nix
     ./apps/zathura.nix
   ]; 
@@ -12,13 +13,10 @@
   home.packages = with pkgs; [
     /*-------------|
     |-- internet --|
-    |-------------*/
-    #vivaldi
+    |-------------*/ 
     google-chrome
     thunderbird
     tdesktop
-    #(discord.override { nss = nss_latest; })
-    #webcord
     clematis #mpris for discord
     vesktop
     spotify
@@ -35,7 +33,7 @@
     hunspellDicts.pt_BR
     corefonts
     vistafonts
-    strawberry
+    strawberry 
     mpv
     (texlive.combine {inherit (texlive) scheme-medium abnt abntex2 collection-langportuguese dvipng latexmk todonotes;})
     cherrytree
@@ -43,7 +41,6 @@
     imagemagick
     ghostscript
     /*okular*/
-    qpdfview
     gromit-mpx
     speedcrunch
     notepadqq

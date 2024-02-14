@@ -2,6 +2,7 @@
 {
   imports = [
     ./waybar.nix
+    inputs.wayland-pipewire-idle-inhibit.homeModules.default
   ];
   home.packages = with pkgs; [
     brightnessctl
@@ -25,11 +26,26 @@
       timeouts = [
         { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
         { timeout = 600; command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
-       resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
+        resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
       ];
       events = [
         { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
       ];
+    };
+    wayland-pipewire-idle-inhibit = {
+      enable = true;
+      systemdTarget = "sway-session.target";
+      /*settings = {
+      verbosity = "INFO";
+      media_minimum_duration = 10;
+      sink_whitelist = [
+      { name = ""; }
+      ];
+      node_blacklist = [
+      { name = "spotify"; }
+      { app_name = "Music Player Daemon"; }
+      ];
+      };*/
     };
   };
 
@@ -59,7 +75,7 @@
           | Stolen from https://github.com/tinted-theming/base16-i3/ |
           |---------------------------------------------------------*/
           colors = {
-            background = "#${config.colorScheme.palette.base00}B2";
+            background = "#${config.colorScheme.palette.base00}";
             separator = "#${config.colorScheme.palette.base01}";
             statusline = "#${config.colorScheme.palette.base04}";
             focusedWorkspace = {
@@ -203,12 +219,12 @@
     };
     /*extraSessionCommands = ''*/
     extraConfig = ''
-    blur enable
-    blur_xray disable
-    shadows enable
-    corner_radius 10
-    layer_effects "panel" blur enable; shadows enable
-    layer_effects "menu" blur enable; shadows enable;
+    #blur enable
+    #blur_xray disable
+      shadows enable
+      corner_radius 10
+      layer_effects "panel" shadows enable
+      layer_effects "menu" shadows enable;
     '';
 
     systemd.enable = true;
@@ -236,4 +252,4 @@
   };
   };
   };*/
-}
+  }

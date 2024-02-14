@@ -12,7 +12,7 @@
     |- Stolen from Misterio77's config -|
     |----------------------------------*/
     settings = {
-      background_opacity = "0.7";
+      /*background_opacity = "0.7";*/
       foreground = "#${config.colorScheme.palette.base05}";
       background = "#${config.colorScheme.palette.base00}";
       selection_background = "#${config.colorScheme.palette.base05}";

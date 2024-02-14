@@ -3,13 +3,15 @@
   imports = [
     ./apps/neovim.nix
     ./apps/kitty.nix
+    ./apps/rclone-server.nix
   ]; 
 
   home.packages = with pkgs; [
     git
     wget
     screen
-    nodejs_21 
+    firejail
+    nodejs_21 figlet cowsay octave
   ];
 
   /*xdg.configFile = {

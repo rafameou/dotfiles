@@ -25,13 +25,11 @@
 
   services.openssh.enable = true;
 
-  services.tailscale.useRoutingFeatures = "both";
+  #services.tailscale.useRoutingFeatures = "both";
 
-  fileSystems."/mnt/Extra" = { 
-    device = "/dev/disk/by-uuid/953d1685-a959-499a-a340-b77a5ca058d6";
-    fsType = "ext4";
-  };
-
+  programs.fuse.enable = true;
+  programs.fuse.userAllowOther = true;
+  programs.firejail.enable = true;
   environment.systemPackages = [
     pkgs.jellyfin
     pkgs.jellyfin-web
