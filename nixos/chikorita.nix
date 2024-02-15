@@ -14,8 +14,9 @@
       ./mod/zsh.nix
       ./mod/bluetooth.nix
       ./mod/desktop.nix
-      ./mod/qemu.nix
-      ./mod/sway.nix
+      #./mod/qemu.nix
+      #./mod/sway.nix
+      ./mod/desktop-environment/kde.nix
       ./mod/pipewire.nix
       ./mod/nvidia-hell.nix
       ./mod/ssd.nix

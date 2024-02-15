@@ -12,7 +12,8 @@
     ../nixos/mod/nixpkgs.nix
     ./mod/xdg.nix
     ./mod/zsh.nix
-    ./mod/window-manager.nix
+    #./mod/window-manager.nix
+    ./mod/desktop-environment.nix
     ./mod/apps.nix
   ];
 
