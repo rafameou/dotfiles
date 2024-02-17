@@ -2,7 +2,7 @@
 {
   imports = [
     ./apps/dunst.nix
-    ./apps/kitty.nix
+    #./apps/kitty.nix
     ./apps/neovim.nix
     ./apps/qutebrowser.nix
     ./apps/rclone.nix
@@ -68,7 +68,7 @@
     |----------------*/
     easyrpg-player
     crispy-doom
-    prboom-plus
+    pkgs.nixpkgs-master.dsda-doom
     prismlauncher
     runelite
     steam #fix steam games: SDL_VIDEODRIVER=x11 prime-run %command% -vulkan

@@ -34,7 +34,7 @@
       let g:vimtex_view_method = 'zathura'
       autocmd User VimtexEventQuit VimtexClean
       nnoremap <F5> :VimtexCompile<CR>
-      nnoremap <F6> :VimtexClean<CR>
+      nnoremap <F6> :VimtexStop<CR>:VimtexClean<CR>
     '';
 
     extraLuaConfig = ''
