@@ -51,7 +51,7 @@
     #github-desktop
     gh
     scrcpy
-    geogebra
+    #geogebra
     octaveFull
     nicotine-plus
     qbittorrent
@@ -69,6 +69,7 @@
     easyrpg-player
     crispy-doom
     pkgs.nixpkgs-master.dsda-doom
+    pkgs.nixpkgs-master.dsda-launcher
     prismlauncher
     runelite
     steam #fix steam games: SDL_VIDEODRIVER=x11 prime-run %command% -vulkan

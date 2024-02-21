@@ -27,7 +27,6 @@
 
   #services.tailscale.useRoutingFeatures = "both";
 
-  programs.fuse.enable = true;
   programs.fuse.userAllowOther = true;
   programs.firejail.enable = true;
   environment.systemPackages = [

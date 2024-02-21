@@ -10,6 +10,9 @@
     kde-gruvbox
     gruvbox-dark-gtk
 
+    /* -- for neovim --*/
+    wl-clipboard
+
     /* -- apps --*/
     libsForQt5.kpat
     libsForQt5.kmines
