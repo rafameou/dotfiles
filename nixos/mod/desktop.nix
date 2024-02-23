@@ -12,7 +12,7 @@
   #dconf
   programs.dconf.enable = true;
 
-  services.onedrive.enable = true;
+  #services.onedrive.enable = true;
 
   /*# flatpak
   services.dbus.enable = true;
