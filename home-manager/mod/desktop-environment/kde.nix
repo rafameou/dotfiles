@@ -32,8 +32,8 @@
     enable = true;
     workspace = {
       theme = "oxygen";
-      colorScheme = "GruvBox";
-      iconTheme = "Oxygen";
+      colorScheme = "Gruvbox";
+      iconTheme = "oxygen";
       cursorTheme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
     };
