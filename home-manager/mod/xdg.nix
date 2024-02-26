@@ -4,19 +4,18 @@
     desktopEntries = {
       whatsapp = {
         name = "WhatsApp";
+        categories = [ "Network" "InstantMessaging" "Chat"];
         exec = "qutebrowser web.whatsapp.com";
       };
       mastodon = {
         name = "Mastodon";
+        categories = [ "Network" ];
         exec = "qutebrowser mastodon.social";
       };
       duolingo = {
         name = "Duolingo";
+        categories = [ "Network" ];
         exec = "qutebrowser preview.duolingo.com";
-      };
-      discord = {
-        name = "Discord";
-        exec = "vesktop";
       };
       clematis = {
         name = "Clematis";
@@ -49,6 +48,9 @@
 
         "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
         "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+
+        /* heroic keeps adding this line */
+        "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
         "inode/directory" = "dolphin.desktop";
 

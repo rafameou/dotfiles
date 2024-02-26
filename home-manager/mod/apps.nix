@@ -1,8 +1,9 @@
 { inputs, lib, config, pkgs, ... }:
 {
   imports = [
-    ./apps/dunst.nix
+    #./apps/dunst.nix
     #./apps/kitty.nix
+    ./apps/luakit.nix
     ./apps/neovim.nix
     ./apps/qutebrowser.nix
     ./apps/rclone.nix
