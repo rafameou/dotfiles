@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = with pkgs; [ luakit ];
   xdg.configFile."luakit/userconf.lua".text = ''

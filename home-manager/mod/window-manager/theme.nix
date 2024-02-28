@@ -1,4 +1,4 @@
-{configs, config, pkgs, lib, ...}:
+{config, pkgs, ...}:
 {
   home.packages = with pkgs; [
     libsForQt5.qt5ct

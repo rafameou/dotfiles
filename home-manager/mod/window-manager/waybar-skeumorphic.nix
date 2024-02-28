@@ -1,4 +1,4 @@
- {configs, pkgs, lib, ...}:
+ {lib, ...}:
  {
   # https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/waybar.nix
 

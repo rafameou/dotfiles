@@ -1,4 +1,4 @@
-{configs, pkgs, lib, ...}:
+{...}:
 {
   programs.i3status-rust = {
     enable = true;
@@ -45,11 +45,11 @@
             format = " $variant ";
           }
           /*{
-            block = "toggle";
-            format = " LOCK $icon ";
-            command_state = ''[[ $(systemctl --user is-active swayidle) == "active" ]] && echo "ok" || echo ""'';
-            command_on = "systemctl --user start swayidle";
-            command_off = "systemctl --user stop swayidle";
+          block = "toggle";
+          format = " LOCK $icon ";
+          command_state = ''[[ $(systemctl --user is-active swayidle) == "active" ]] && echo "ok" || echo ""'';
+          command_on = "systemctl --user start swayidle";
+          command_off = "systemctl --user stop swayidle";
           }*/
           { 
             block = "notify"; 

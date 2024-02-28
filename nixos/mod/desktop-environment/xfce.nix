@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   # Enable the XFCE Desktop Environment.
   services.xserver.displayManager.lightdm.enable = true;

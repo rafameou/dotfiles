@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.xserver.displayManager.startx.enable = true;
   #Enable Keyring for stuff like github-desktop

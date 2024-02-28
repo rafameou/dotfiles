@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   programs.neovim = with pkgs; {
     enable = true;
@@ -150,8 +150,8 @@
       });
 
       -- nix
-      lspconfig.rnix.setup{
-        cmd = { "${rnix-lsp}/bin/rnix-lsp" },
+      lspconfig.nil_ls.setup{
+        cmd = { "${nil}/bin/nil" },
         capabilities = capabilities,
       };
 

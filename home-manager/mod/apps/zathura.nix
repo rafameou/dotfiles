@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ config, ... }:
 {
   imports = [ ../nix-colors.nix ];
   programs.zathura = {

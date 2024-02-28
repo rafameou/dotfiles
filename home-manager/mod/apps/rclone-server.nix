@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 let
   mount_directory = "/mnt/GoogleDrive";
 in

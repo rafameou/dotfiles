@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ ... }:
 {
   #esc + v + esc ou ctrl + v + esc
   environment.etc."issue".text = ''

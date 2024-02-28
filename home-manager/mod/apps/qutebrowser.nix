@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ config, pkgs, ... }:
 /*let catpuccin = pkgs.fetchFromGitHub {
 owner = "catppuccin";
 repo = "qutebrowser";

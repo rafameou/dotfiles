@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ pkgs, ... }:
 {
   #Enable KDE
   #services.xserver.displayManager.startx.enable = true;

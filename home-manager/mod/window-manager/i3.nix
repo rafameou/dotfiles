@@ -1,4 +1,4 @@
-{ inputs, lib, config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 {
   imports = [ ../nix-colors.nix ];
   home.packages = with pkgs; [

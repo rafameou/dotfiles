@@ -1,4 +1,4 @@
-{configs, pkgs, lib, ...}:
+{pkgs, lib, ...}:
 {
   programs.waybar = {
     enable = true;
