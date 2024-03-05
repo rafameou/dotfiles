@@ -23,7 +23,8 @@
     spotify
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku
-    libsForQt5.tokodon
+    kdePackages.tokodon
+    kdePackages.neochat
     /*---------------| 
     |---   edit   ---| 
     |---------------*/
@@ -34,7 +35,7 @@
     hunspellDicts.pt_BR
     corefonts
     vistafonts
-    strawberry 
+    strawberry-qt6 
     mpv
     (texlive.combine {inherit (texlive) scheme-medium abnt abntex2 collection-langportuguese dvipng latexmk todonotes;})
     cherrytree
@@ -60,7 +61,8 @@
     unzip
     zip
     xsane
-    remmina
+    #remmina
+    freerdp
     htop
     nixos-icons
     mesa-demos
@@ -69,8 +71,8 @@
     |----------------*/
     easyrpg-player
     crispy-doom
-    pkgs.nixpkgs-master.dsda-doom
-    pkgs.nixpkgs-master.dsda-launcher
+    dsda-doom
+    dsda-launcher
     prismlauncher
     runelite
     steam #fix steam games: SDL_VIDEODRIVER=x11 prime-run %command% -vulkan

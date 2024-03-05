@@ -1,14 +1,26 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager 
+    inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
+  /* for some reason this trigger rebuilding the entire oxygen theme */
+  /*nixpkgs.overlays = [ (final: prev: {
+    kdePackages = prev.kdePackages.overrideScope (qt6final: qt6prev: {
+      oxygen-icons = qt6prev.oxygen-icons.overrideAttrs (old: {
+        postInstall = (old.postInstall or "") + ''
+          sed -i -e 's/Inherits=hicolor/Inherits=breeze-dark,breeze,hicolor/g' "$out/share/icons/oxygen/index.theme"
+        '';
+      });
+      # maybe fix qt5's oxygen here as well?
+    });
+  }) ];*/
   home.packages = with pkgs; [
     gnome.dconf-editor
 
-    libsForQt5.oxygen
-    libsForQt5.oxygen-sounds
-    libsForQt5.oxygen-icons5
+    kdePackages.oxygen
+    kdePackages.oxygen.qt5 
+    kdePackages.oxygen-sounds
+    kdePackages.oxygen-icons
 
     kde-gruvbox
     gruvbox-dark-gtk
@@ -17,13 +29,15 @@
     wl-clipboard
 
     /* -- apps --*/
-    libsForQt5.kpat
-    libsForQt5.kmines
-    libsForQt5.kmines
+    kdePackages.kpat
+    kdePackages.kmines
+    kdePackages.kmines
 
-    libsForQt5.kcalc
-    libsForQt5.kalk
-    libsForQt5.discover
+    kdePackages.kcalc
+    kdePackages.kalk
+    kdePackages.discover
+
+    kdePackages.konsole
 
     kaffeine
   ];
@@ -32,7 +46,7 @@
     enable = true;
     workspace = {
       theme = "oxygen";
-      colorScheme = "Gruvbox";
+      colorScheme = "ObsidianCoast"; #"Gruvbox";
       iconTheme = "oxygen";
       cursorTheme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
@@ -74,12 +88,22 @@
 
       "ksmserverrc"."General"."loginMode" = "emptySession";
 
+      "krunnerrc" = {
+        "General"."FreeFloating" = true;
+        "Plugins"."baloosearchEnabled" = false;
+      };
+
       "kwalletrc"."Wallet"."First Use" = false;
 
       "kwinrc" = {
+        "Desktops" = {
+          "Number" = 4;
+          "Rows" = 2;
+        };
         "NightColor"."Active" = true;
         "Plugins" = {
           "blurEnabled" = false;
+          "cubeEnabled" = true;
           "slidingpopupsEnabled" = false;
         };
         "Windows"."RollOverDesktops" = true;
