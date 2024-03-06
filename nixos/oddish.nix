@@ -1,12 +1,7 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
-  imports =
-    [ 
-      # Include the results of the hardware scan.
+  imports = [ 
+      inputs.home-manager.nixosModules.home-manager
       ./oddish-hw.nix
       ./mod/boot-pi.nix
       ./mod/env.nix
@@ -18,14 +13,18 @@
       ./mod/zsh.nix
     ];
 
-  # ... changes to only this sytem
+  /* ... changes to only this sytem */
   networking.hostName = "oddish"; # Define your hostname.
+  home-manager = {
+    extraSpecialArgs = { inherit inputs /*outputs*/; };
+    users = {
+      rafameou = import ../home-manager/oddish.nix;
+    };
+  };
 
   zramSwap.enable = true; # included in ssd.nix
 
   services.openssh.enable = true;
-
-  #services.tailscale.useRoutingFeatures = "both";
 
   programs.fuse.userAllowOther = true;
   programs.firejail.enable = true;

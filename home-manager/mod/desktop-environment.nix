@@ -1,12 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [
-    #./desktop-environment/gnome.nix
-    ./desktop-environment/kde.nix
-    #./desktop-environment/mate.nix
-    #./desktop-environment/xfce.nix
-  ];
-
   home.packages = with pkgs; [
     killall
     vimiv-qt
@@ -34,6 +27,4 @@
       executable = true;
     };
   };
-
-  /*services.udisks2.enable = true; services.playerctld.enable = true;*/
 }

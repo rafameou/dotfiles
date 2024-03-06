@@ -7,11 +7,7 @@
   imports = [
     # If you want to use home-manager modules from other flakes (such as nix-colors):
     # inputs.nix-colors.homeManagerModule
-
-    # You can also split up your configuration and import pieces of it here:
-    ../nixos/mod/nixpkgs.nix
-    ./mod/zsh.nix
-    ./mod/apps-server.nix
+    ../../nixos/mod/nixpkgs.nix
   ];
 
   home = {

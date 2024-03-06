@@ -19,7 +19,7 @@
     adwaita-qt
     adwaita-qt6
     libsForQt5.qt5.qtwayland
-    qt6.qtwayland
+    kdePackages.qtwayland
   ];
 
   qt = {
@@ -30,7 +30,7 @@
 
   dconf.settings = {
     "org/gnome/shell" = {
-      favorite-apps = [
+      /*favorite-apps = [
         "vivaldi-stable.desktop"
         "google-chrome.desktop"
         "thunderbird.desktop"
@@ -46,7 +46,7 @@
         "org.gnome.Console.desktop"
         "gnome-system-monitor.desktop"
         "github-desktop.desktop"
-      ];
+      ];*/
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
@@ -64,13 +64,13 @@
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
-      titlebar-font = "Inter Medium 11";
+      titlebar-font = "Fira Sans 11";
     };
     "org/gnome/desktop/interface" = {
       clock-show-seconds = true;
       show-battery-percentage = true;
-      font-name = "Inter 11";
-      document-font-name = "Inter 11";
+      font-name = "Fira Sans 11";
+      document-font-name = "Fira Sans 11";
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;

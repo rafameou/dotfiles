@@ -138,11 +138,25 @@
                         t({"", 
                         "\\end{document}",}), }),
 
+        s("\\verbatim", {t({ "\\begin{verbatim}", "" }),
+                        i(1), 
+                        t({"", 
+                        "\\end{verbatim}",}), }),
+
+        s("\\itemize", {t({ "\\begin{itemize}", "" }),
+                        t("\\item "), i(1), 
+                        t({"", 
+                        "\\end{itemize}",}), }),
+
+        s("\\enumerize", {t({ "\\begin{enumerize}", "" }),
+                        t("\\item "), i(1), 
+                        t({"", 
+                        "\\end{enumerize}",}), }),
         --text
         s("\\dc", { t("\\documentclass{"), i(1), t("}"), }),
         s("\\bf", { t("\\textbf{"), i(1), t("}"), }),
         s("\\it", { t("\\textit{"), i(1), t("}"), }),
-        s("\\section", { t("\\section{"), i(1), t("}"), }), 
+        s("\\section", { t("\\section{"), i(1), t("}"), }),
         s("\\todo", { t("\\todo{"), i(1), t("}"), }), 
 
         -- math
