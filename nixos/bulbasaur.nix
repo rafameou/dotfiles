@@ -10,7 +10,7 @@
     ./mod/bluetooth.nix
     ./mod/desktop.nix
     ./mod/qemu.nix
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/mate.nix
     ./mod/pipewire.nix
     ./mod/ssd.nix
     ./mod/time.nix

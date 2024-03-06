@@ -16,8 +16,8 @@
     cinnamon.mint-x-icons
   ];
 
-  services.redshift.enable = true;
-  services.redshift.provider = "geoclue2";
+  services.gammastep.enable = true;
+  services.gammastep.provider = "geoclue2";
 
   qt = {
     enable = true;
