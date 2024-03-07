@@ -1,4 +1,4 @@
-{ ... } :
+{ pkgs, ... } :
 {
   imports = [
     ./mod/home-manager.nix
@@ -20,4 +20,8 @@
   ];
 
   /* ... changes to only this sytem */
+  home.packages = with pkgs; [
+    ciscoPacketTracer8
+    wireshark
+  ];
 }

@@ -32,9 +32,11 @@
   /*fileSystems."/mnt/Extra" = { 
     device = "/dev/disk/by-uuid/41785370-fb0f-4504-81a2-d9bf1b895fb5";
     fsType = "ext4";
-  };*/
+    };*/
 
+  services.openssh.enable = true;
   services.geoclue2.enable = true;
+  programs.firejail.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
