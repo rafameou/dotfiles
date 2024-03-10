@@ -83,7 +83,7 @@
       {
         location = "bottom";
         floating = true;
-        hiding = "dodgewindows";
+        hiding = "autohide"; #"dodgewindows";
         height = 42;
         widgets = [
           {

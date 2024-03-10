@@ -23,7 +23,7 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.inputs.home-manager.follows = "home-manager";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
   outputs = { nixpkgs, chaotic, home-manager, ... }@inputs: {
@@ -36,7 +36,7 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
           ./nixos/chikorita.nix 
-          chaotic.nixosModules.default
+          #chaotic.nixosModules.default
         ];
       };
       treecko = nixpkgs.lib.nixosSystem {
