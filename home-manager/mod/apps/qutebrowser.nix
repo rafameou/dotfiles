@@ -32,7 +32,12 @@ in*/
       colors = {
         webpage = {
           preferred_color_scheme = config.colorScheme.variant;
-          bg = "#ffffff";
+          darkmode = {
+            enabled = true;
+            policy.images = "smart";#"smart-simple";
+            policy.page = "smart";
+          };
+          #bg = "#ffffff";
         };
         completion = {
           fg = "#${config.colorScheme.palette.base05}";

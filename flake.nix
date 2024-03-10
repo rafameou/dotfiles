@@ -23,11 +23,10 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.inputs.home-manager.follows = "home-manager";
 
-    #wayland-pipewire-idle-inhibit.url = "github:rafaelrc7/wayland-pipewire-idle-inhibit";
-    #wayland-pipewire-idle-inhibit.inputs.nixpkgs.follows = "nixpkgs";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = { nixpkgs, chaotic, home-manager, ... }@inputs: {
     nixosConfigurations = {
       bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
@@ -35,7 +34,10 @@
       };
       chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./nixos/chikorita.nix ];
+        modules = [ 
+          ./nixos/chikorita.nix 
+          chaotic.nixosModules.default
+        ];
       };
       treecko = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config

@@ -3,24 +3,9 @@
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
-  /* for some reason this trigger rebuilding the entire oxygen theme */
-  /*nixpkgs.overlays = [ (final: prev: {
-    kdePackages = prev.kdePackages.overrideScope (qt6final: qt6prev: {
-      oxygen-icons = qt6prev.oxygen-icons.overrideAttrs (old: {
-        postInstall = (old.postInstall or "") + ''
-          sed -i -e 's/Inherits=hicolor/Inherits=breeze-dark,breeze,hicolor/g' "$out/share/icons/oxygen/index.theme"
-        '';
-      });
-      # maybe fix qt5's oxygen here as well?
-    });
-  }) ];*/
+
   home.packages = with pkgs; [
     gnome.dconf-editor
-
-    kdePackages.oxygen
-    kdePackages.oxygen.qt5 
-    kdePackages.oxygen-sounds
-    kdePackages.oxygen-icons
 
     kde-gruvbox
     gruvbox-dark-gtk
@@ -47,10 +32,79 @@
     workspace = {
       theme = "oxygen";
       colorScheme = "ObsidianCoast"; #"Gruvbox";
-      iconTheme = "oxygen";
+      iconTheme = "Haiku";
       cursorTheme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
     };
+    panels = 
+    [ 
+      {
+        location = "top";
+        floating = true;
+        height = 32;
+        widgets = 
+        [
+          {
+            name = "org.kde.plasma.kickoff";
+            config.General = {
+              icon = "nix-snowflake-white";
+              showRecentDocs = "false";
+              useCustomButtonImage = "true";
+            };
+          }
+          /*{
+            name = "org.kde.plasma.folder";
+            config.General = {
+              url = "file:///home/rafameou";
+              viewMode = "1";
+            };
+          }*/
+          "org.kde.plasma.appmenu"
+          "org.kde.plasma.panelspacer"
+          {
+            name = "org.kde.plasma.systemtray";
+            config = {
+              General = {
+                iconSpacing = "1";
+                /*showAllItems = true;*/
+              };
+            };
+          }
+          {
+            name = "org.kde.plasma.digitalclock";
+            config.Appearance = {
+              dateDisplayFormat = "BesideTime";
+              fontWeight = "400";
+              showSeconds = "2";
+            };
+          }
+        ];
+      } 
+      {
+        location = "bottom";
+        floating = true;
+        hiding = "dodgewindows";
+        height = 42;
+        widgets = [
+          {
+            name = "org.kde.plasma.taskmanager";
+            config.General = {
+              launchers = "";
+              maxStripes = "2";
+              showOnlyCurrentDesktop = "false";
+              unhideOnAttention = "false";
+            };
+          }
+          {
+            name = "org.kde.plasma.pager";
+            config.General = {
+              showWindowIcons = "true";
+            };
+          }
+        ];
+      }
+    ];
+
     kwin.titlebarButtons = {
       left = [ "on-all-desktops" "keep-above-windows" ];
       right = [ "help" "minimize" "maximize" "close" ];
@@ -106,7 +160,10 @@
           "cubeEnabled" = true;
           "slidingpopupsEnabled" = false;
         };
-        "Windows"."RollOverDesktops" = true;
+        "Windows" = {
+          "BorderlessMaximizedWindows" = true;
+          "RollOverDesktops" = true;
+        };
         "Xwayland"."Scale" = 1;
       };
 

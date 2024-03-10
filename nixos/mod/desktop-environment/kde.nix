@@ -11,7 +11,21 @@
   services.gnome.gnome-keyring.enable = true;
 
   environment.systemPackages = with pkgs; [
-      gnome.seahorse
+    /* -- gnome apps compatibility -- */
+    gnome.seahorse
+
+    /* -- appmenu -- */
+    #appmenu-gtk3-module # breaks everything
+    libappindicator-gtk3
+
+    /* -----------------------------------------|
+    | decided to move to here, since they kinda |
+    | are like system packages                  |
+    |------------------------------------------*/
+    kdePackages.oxygen
+    kdePackages.oxygen.qt5 
+    kdePackages.oxygen-sounds
+    kdePackages.oxygen-icons
   ];
 
   # flatpak
