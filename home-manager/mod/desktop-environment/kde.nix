@@ -21,6 +21,7 @@
     kdePackages.kcalc
     kdePackages.kalk
     kdePackages.discover
+    kdePackages.kdeconnect-kde
 
     kdePackages.konsole
 
