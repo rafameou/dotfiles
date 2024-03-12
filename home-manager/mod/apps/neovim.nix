@@ -130,8 +130,8 @@
         capabilities = capabilities,
       };
       luasnip.add_snippets("tex", {
-        s("\\beg", {t({ "\\documentclass[a4paper]{article}", 
-                        "\\usepackage{todonotes}", 
+        s("\\start", {t({ "\\documentclass[a4paper]{article}", 
+                        "\\usepackage{alltt, amssymb, todonotes}",
                         "\\begin{document}", 
                         "\\section*{ - \\today}", "",}), 
                         i(1), 
@@ -143,15 +143,20 @@
                         t({"", 
                         "\\end{verbatim}",}), }),
 
+        s("\\alltt", {t({ "\\begin{alltt}", "" }),
+                        i(1), 
+                        t({"", 
+                        "\\end{alltt}",}), }), 
+
         s("\\itemize", {t({ "\\begin{itemize}", "" }),
                         t("\\item "), i(1), 
                         t({"", 
                         "\\end{itemize}",}), }),
 
-        s("\\enumerize", {t({ "\\begin{enumerize}", "" }),
+        s("\\enumerate", {t({ "\\begin{enumerate}", "" }),
                         t("\\item "), i(1), 
                         t({"", 
-                        "\\end{enumerize}",}), }),
+                        "\\end{enumerate}",}), }),
         --text
         s("\\dc", { t("\\documentclass{"), i(1), t("}"), }),
         s("\\bf", { t("\\textbf{"), i(1), t("}"), }),
