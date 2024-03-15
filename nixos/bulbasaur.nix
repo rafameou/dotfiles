@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -29,14 +29,26 @@
     };
   };
 
-  /*fileSystems."/mnt/Extra" = { 
-    device = "/dev/disk/by-uuid/41785370-fb0f-4504-81a2-d9bf1b895fb5";
+  fileSystems."/mnt/Extra" = { 
+    device = "/dev/disk/by-uuid/30c8e8dd-7a12-449a-ae59-f26262c5a8ff";
     fsType = "ext4";
-    };*/
+  };
 
   services.openssh.enable = true;
   services.geoclue2.enable = true;
   programs.firejail.enable = true;
+  programs.fuse.userAllowOther = true;
+
+  environment.systemPackages = [
+    pkgs.jellyfin
+    pkgs.jellyfin-web
+    pkgs.jellyfin-ffmpeg
+  ];
+
+  services.jellyfin = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

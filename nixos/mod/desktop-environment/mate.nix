@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  #services.xserver.displayManager.lightdm.enable = true;
+  services.xserver.displayManager.lightdm.enable = false;
   services.xserver.desktopManager.mate.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
