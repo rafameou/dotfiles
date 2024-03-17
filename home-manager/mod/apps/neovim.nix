@@ -162,7 +162,13 @@
         s("\\bf", { t("\\textbf{"), i(1), t("}"), }),
         s("\\it", { t("\\textit{"), i(1), t("}"), }),
         s("\\section", { t("\\section{"), i(1), t("}"), }),
-        s("\\todo", { t("\\todo{"), i(1), t("}"), }), 
+        s("\\todo", { t("\\todo{"), i(1), t("}"), }),
+
+        s("\\red", { t("\\textcolor{red}{"), i(1), t("}"), }),
+        s("\\green", { t("\\textcolor{green}{"), i(1), t("}"), }),
+        s("\\blue", { t("\\textcolor{blue}{"), i(1), t("}"), }),
+        s("\\gray", { t("\\textcolor{gray}{"), i(1), t("}"), }),
+        s("\\pink", { t("\\textcolor{pink}{"), i(1), t("}"), }),
 
         -- math
         s("\\frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), }),

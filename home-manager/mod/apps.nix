@@ -62,8 +62,8 @@
     zip
     xsane
     #remmina
-    freerdp
-    htop
+    kdePackages.krdc freerdp tigervnc
+    htop lm_sensors powerstat
     nixos-icons
     mesa-demos
     /*----------------|
