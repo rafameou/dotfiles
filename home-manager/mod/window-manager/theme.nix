@@ -5,16 +5,19 @@
     #libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5.qtwayland
     #qt6Packages.qtstyleplugin-kvantum
-    qt6.qtwayland
-    qt6Packages.qt6ct
+    kdePackages.qtwayland
+    kdePackages.qt6ct
 
-    libsForQt5.oxygen
-    libsForQt5.oxygen-sounds
-    libsForQt5.oxygen-icons5
+    kdePackages.oxygen
+    kdePackages.oxygen.qt5
+    kdePackages.oxygen-sounds
+    kdePackages.oxygen-icons
 
-    libsForQt5.breeze-qt5
+    kdePackages.breeze
     kde-gruvbox
 
+    mate.mate-icon-theme-faenza
+    gruvbox-dark-icons-gtk
     gnome.adwaita-icon-theme
     hicolor-icon-theme
 
@@ -22,8 +25,8 @@
   ];
 
   home.pointerCursor = {
-    name = "phinger-cursors";
-    package = pkgs.phinger-cursors;
+    name = "Oxygen_Zion";
+    package = pkgs.kdePackages.oxygen;
     /*size = 16;*/
     x11.enable = true;
     gtk.enable = true;
@@ -52,27 +55,24 @@ inactive_colors=#ff${config.colorScheme.palette.base05}, #ff${config.colorScheme
 [Appearance]
 color_scheme_path=~/.config/qt-color-base16.conf
 custom_palette=true
-icon_theme=oomox-gruvbox-dark
+icon_theme=matefaenzadark
 style=Fusion
 
 [Fonts]
-fixed="Fira Mono,12,-1,5,50,0,0,0,0,0,Regular"
-general="Fira Sans,12,-1,5,50,0,0,0,0,0,Regular"
+fixed="FiraCode Nerd Font Mono,10,-1,5,50,0,0,0,0,0,Regular"
+general="Fira Sans,10,-1,5,50,0,0,0,0,0,Regular"
   '';
 
-  /*------------------------------------|
-  | I hope kde team port oxygen to qt6. |
-  |------------------------------------*/
   xdg.configFile."qt6ct/qt6ct.conf".text = ''
 [Appearance]
 color_scheme_path=~/.config/qt-color-base16.conf
 custom_palette=true
-icon_theme=oomox-gruvbox-dark
-style=Fusion
+icon_theme=matefaenzadark
+style=mate
 
 [Fonts]
-fixed="Fira Mono,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
-general="Fira Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
+fixed="FiraCode Nerd Font Mono,10,-1,5,50,0,0,0,0,0,Regular"
+general="Fira Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
   '';
 
 
@@ -92,19 +92,20 @@ general="Fira Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
     enable = true;
     font = {
       name = "Fira Sans";
-      size = 12;
+      size = 10;
     };
     theme = {
       name = "gruvbox-dark";
       package = pkgs.gruvbox-dark-gtk;
     };
     iconTheme = {
-      name = "oomox-gruvbox-dark";
-      package = pkgs.gruvbox-dark-icons-gtk;
+      #name = "oomox-gruvbox-dark";
+      #package = pkgs.gruvbox-dark-icons-gtk;
+      name = "matefaenzadark";
     };
     cursorTheme = {
-      name = "phinger-cursors";
-      package = pkgs.phinger-cursors;
+      name = "Oxygen_Zion";
+      package = pkgs.kdePackages.oxygen;
     };
 
     gtk2.extraConfig = ''

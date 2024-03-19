@@ -2,17 +2,15 @@
 {
   services.xserver.displayManager.lightdm.enable = false;
   services.xserver.desktopManager.mate.enable = true;
-
-  services.gnome.gnome-keyring.enable = true;
-
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "mate-session";
-  #services.xrdp.openFirewall = true;
+  services.xserver.desktopManager.mate.enableWaylandSession = true;
+ 
+  #services.gnome.gnome-keyring.enable = true;
+  #security.pam.services.rafameou.kwallet.enable = true;
 
   # flatpak
-  xdg.portal = {
+  /*xdg.portal = {
     enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config.common.default = "*";
-  };
+  };*/
 }

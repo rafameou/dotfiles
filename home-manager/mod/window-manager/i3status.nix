@@ -51,10 +51,10 @@
           command_on = "systemctl --user start swayidle";
           command_off = "systemctl --user stop swayidle";
           }*/
-          { 
+          /*{ 
             block = "notify"; 
-            /*format = " NOT $icon ";*/
-          }
+            format = " NOT $icon ";
+          }*/
           { block = "battery"; }
           { 
             block = "time"; 

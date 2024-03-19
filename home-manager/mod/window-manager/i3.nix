@@ -118,7 +118,7 @@ unredir-if-possible = false;
         };
         background = "#${config.colorScheme.palette.base07}"; 
       };
-      terminal = "kitty";
+      terminal = "konsole";
       focus = {
         followMouse = true;
         wrapping = "no";
@@ -144,9 +144,17 @@ unredir-if-possible = false;
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-fill ~/back"; }
         /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
-        {command = "--no-startup-id ${pkgs.pcmanfm-qt}/bin/pcmanfm-qt -d"; }
         {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m randr"; } 
-        {command = "--no-startup-id ${pkgs.picom}/bin/picom"; }
+        #{command = "--no-startup-id ${pkgs.picom}/bin/picom"; }
+
+        {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
+
+        /*mate stuff*/
+        /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/
+        {command = "--no-startup-id ${pkgs.mate.caja}/bin/caja -n --force-desktop"; } 
+        {command = "--no-startup-id ${pkgs.mate.mate-panel}/bin/mate-panel"; }
+        {command = "--no-startup-id ${pkgs.mate.mate-polkit}/bin/polkit-mate-authentication-agent-1"; }
+        {command = "--no-startup-id ${pkgs.mate.mate-notification-daemon}/bin/mate-notification-daemon"; }
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";

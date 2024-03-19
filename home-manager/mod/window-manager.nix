@@ -13,9 +13,19 @@
 
     gammastep
 
-    ark 
+    gnome.dconf-editor
+
+    kdePackages.ark
+    kdePackages.konsole
+    kdePackages.kpat
+    kdePackages.kmines
+    kdePackages.kcalc
+    kdePackages.kalk
+    kdePackages.discover
+    kdePackages.kdeconnect-kde
+
     vimiv-qt
-    lxqt.pcmanfm-qt
+    #lxqt.pcmanfm-qt
     lxqt.pavucontrol-qt
     lxqt.qps
 
@@ -40,6 +50,12 @@
     loginExtra = ''
       export PATH="$HOME/.local/bin:$PATH" ;
     '';
+  };
+
+  dconf.settings = {
+    "org/mate/panel/menubar" = {
+      icon-theme = "nix-snowflake";
+    };
   };
 
   home.file = {
@@ -105,10 +121,8 @@
 
         session=${"$"}{1:-i3}
         case $session in
-          i3                ) i3;;
-          i3fix|fix         ) fix & i3;;
+          i3                ) i3;; 
           steam             ) openbox & steam -bigpicture;;
-          steamfix|sfix     ) fix & openbox & steam -bigpicture;;
           *                 ) $1;;
         esac
       '';

@@ -24,4 +24,11 @@
     ciscoPacketTracer8
     wireshark
   ];
+
+  wayland.windowManager.sway.config.input."type:keyboard" = {
+    xkb_layout = "br";
+    xkb_model = "abnt2";
+    xkb_variant = "thinkpad";
+    xkb_numlock = "disabled";
+  };
 }

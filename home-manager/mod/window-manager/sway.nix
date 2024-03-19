@@ -1,8 +1,8 @@
-{ inputs, lib, config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 {
   imports = [
     ./waybar.nix
-    inputs.wayland-pipewire-idle-inhibit.homeModules.default
+    #inputs.wayland-pipewire-idle-inhibit.homeModules.default
   ];
   home.packages = with pkgs; [
     brightnessctl
@@ -17,6 +17,8 @@
     slurp
     wf-recorder
     fuzzel
+
+    wayland-pipewire-idle-inhibit
   ];
 
   services = {
@@ -32,26 +34,15 @@
         { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
       ];
     };
-    wayland-pipewire-idle-inhibit = {
+    /*wayland-pipewire-idle-inhibit = {
       enable = true;
       systemdTarget = "sway-session.target";
-      /*settings = {
-      verbosity = "INFO";
-      media_minimum_duration = 10;
-      sink_whitelist = [
-      { name = ""; }
-      ];
-      node_blacklist = [
-      { name = "spotify"; }
-      { app_name = "Music Player Daemon"; }
-      ];
-      };*/
-    };
+    };*/
   };
 
   wayland.windowManager.sway = {
     enable = true;
-    package = pkgs.swayfx;
+    #package = pkgs.swayfx;
     config = rec {
       modifier = "Mod4";
       fonts = {
@@ -69,6 +60,7 @@
             style = "Regular";
             size = 10.0;
           };
+          trayOutput = "none";
           position = "bottom";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
           /*---------------------------------------------------------|
@@ -144,7 +136,7 @@
         };
         background = "#${config.colorScheme.palette.base07}"; 
       };
-      terminal = "kitty"; 
+      terminal = "foot"; 
       input = {
         "type:keyboard" = {
           xkb_layout = "br,br";
@@ -188,8 +180,17 @@
         {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/back"; } #fill
         /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
         /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
-        {command = "--no-startup-id ${pkgs.pcmanfm-qt}/bin/pcmanfm-qt -d"; }
         {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
+        {command = "--no-startup-id ${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5";}
+
+        {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
+
+        /*mate stuff*/
+        /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/
+        {command = "--no-startup-id caja -n --force-desktop"; } 
+        {command = "--no-startup-id mate-panel"; }
+        {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
+        {command = "--no-startup-id mate-notification-daemon"; } 
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
@@ -198,7 +199,7 @@
         "XF86AudioNext"              = "exec ${pkgs.playerctl}/bin/playerctl next";
         "shift+XF86AudioPrev"        = "exec ${pkgs.playerctl}/bin/playerctl position 10-";
         "shift+XF86AudioNext"        = "exec ${pkgs.playerctl}/bin/playerctl position 10+";
-        "shift+XF86AudioLowerVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1-";
+        "shift+XF86AudioowerVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1-";
         "shift+XF86AudioRaiseVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1+";
 
         "${alt}+XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";*/
@@ -221,10 +222,10 @@
     extraConfig = ''
     #blur enable
     #blur_xray disable
-      shadows enable
-      corner_radius 10
-      layer_effects "panel" shadows enable
-      layer_effects "menu" shadows enable;
+      #shadows enable
+      #corner_radius 10
+      #layer_effects "panel" shadows enable
+      #layer_effects "menu" shadows enable;
     '';
 
     systemd.enable = true;
@@ -232,24 +233,59 @@
     xwayland = true;
   };
 
-  /*programs.fuzzel = {
-  enable = true;
-  settings = {
-  main = {
-  icon-theme = "hicolor";
-  font = "Fira Sans";
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        font = "Terminess Nerd Font:size=12";
+      };
+      colors = {
+        foreground="${config.colorScheme.palette.base05}";
+        background="${config.colorScheme.palette.base00}";
+        regular0="${config.colorScheme.palette.base00}";
+        regular1="${config.colorScheme.palette.base08}";
+        regular2="${config.colorScheme.palette.base0B}";
+        regular3="${config.colorScheme.palette.base0A}";
+        regular4="${config.colorScheme.palette.base0D}";
+        regular5="${config.colorScheme.palette.base0E}";
+        regular6="${config.colorScheme.palette.base0C}";
+        regular7="${config.colorScheme.palette.base05}";
+        bright0="${config.colorScheme.palette.base03}";
+        bright1="${config.colorScheme.palette.base08}"; 
+        bright2="${config.colorScheme.palette.base0B}";
+        bright3="${config.colorScheme.palette.base0A}";
+        bright4="${config.colorScheme.palette.base0D}";
+        bright5="${config.colorScheme.palette.base0E}";
+        bright6="${config.colorScheme.palette.base0C}";
+        bright7="${config.colorScheme.palette.base07}";
+      "16"="${config.colorScheme.palette.base09}";
+      "17"="${config.colorScheme.palette.base0F}";
+      "18"="${config.colorScheme.palette.base01}";
+      "19"="${config.colorScheme.palette.base02}";
+      "20"="${config.colorScheme.palette.base04}";
+      "21"="${config.colorScheme.palette.base06}";
+    };
   };
-  colors = {
-  background = "303446ff";#7d";#e6";
-  text = "ffffffff";
-  selection = "464646ff";
-  selection-text = "ffffffff";
-  border = "ffffff00";
-  };
-  border = {
-  width = 1;
-  radius = 0;
-  };
-  };
-  };*/
-  }
+};
+
+/*programs.fuzzel = {
+enable = true;
+settings = {
+main = {
+icon-theme = "hicolor";
+font = "Fira Sans";
+};
+colors = {
+background = "303446ff";#7d";#e6";
+text = "ffffffff";
+selection = "464646ff";
+selection-text = "ffffffff";
+border = "ffffff00";
+};
+border = {
+width = 1;
+radius = 0;
+};
+};
+};*/
+}

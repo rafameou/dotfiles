@@ -11,19 +11,21 @@
     arc-icon-theme
     cinnamon.mint-themes
     mate.mate-icon-theme-faenza
-    theme-jade1
-    iconpack-jade
     cinnamon.mint-x-icons
+    gruvbox-dark-gtk
+
+    kdePackages.oxygen
+    kdePackages.oxygen.qt5 
+    kdePackages.oxygen-sounds
+    kdePackages.oxygen-icons
+
+    /* -- for neovim --*/
+    wl-clipboard
+
+    libsForQt5.qt5ct
+    kdePackages.qt6ct
+    kdePackages.qtwayland
   ];
-
-  services.gammastep.enable = true;
-  services.gammastep.provider = "geoclue2";
-
-  qt = {
-    enable = true;
-    #platformTheme = "gnome";
-    #style.name = "adwaita";
-  };
 
   dconf.settings = {
     "org/mate/panel/menubar" = {

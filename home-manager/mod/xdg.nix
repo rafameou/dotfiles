@@ -52,7 +52,7 @@
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
-        "inode/directory" = "dolphin.desktop";
+        "inode/directory" = "caja.desktop";
 
         "image/tiff" = "vimiv.desktop";
         "image/jpx" = "vimiv.desktop";

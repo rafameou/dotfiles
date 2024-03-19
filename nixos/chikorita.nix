@@ -10,7 +10,8 @@
     ./mod/bluetooth.nix
     ./mod/desktop.nix
     ./mod/qemu.nix
-    ./mod/desktop-environment/kde.nix
+    ./mod/sway.nix
+    ./mod/desktop-environment/mate.nix
     ./mod/pipewire.nix
     ./mod/nvidia-hell.nix
     ./mod/ssd.nix

@@ -16,7 +16,6 @@
     /* -- apps --*/
     kdePackages.kpat
     kdePackages.kmines
-    kdePackages.kmines
 
     kdePackages.kcalc
     kdePackages.kalk

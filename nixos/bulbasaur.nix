@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, lib, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -33,6 +33,10 @@
     device = "/dev/disk/by-uuid/30c8e8dd-7a12-449a-ae59-f26262c5a8ff";
     fsType = "ext4";
   };
+
+  services.xrdp.enable = true;
+  services.xrdp.defaultWindowManager = "mate-session";
+  #services.xrdp.openFirewall = true;
 
   services.openssh.enable = true;
   services.geoclue2.enable = true;
