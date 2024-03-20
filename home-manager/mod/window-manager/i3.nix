@@ -151,7 +151,7 @@ unredir-if-possible = false;
 
         /*mate stuff*/
         /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/
-        {command = "--no-startup-id ${pkgs.mate.caja}/bin/caja -n --force-desktop"; } 
+        #{command = "--no-startup-id ${pkgs.mate.caja}/bin/caja -n --force-desktop"; } 
         {command = "--no-startup-id ${pkgs.mate.mate-panel}/bin/mate-panel"; }
         {command = "--no-startup-id ${pkgs.mate.mate-polkit}/bin/polkit-mate-authentication-agent-1"; }
         {command = "--no-startup-id ${pkgs.mate.mate-notification-daemon}/bin/mate-notification-daemon"; }

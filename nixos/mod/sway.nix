@@ -3,14 +3,25 @@
   services.xserver.displayManager.startx.enable = true;
   #Enable Keyring for stuff like github-desktop
   services.gnome.gnome-keyring.enable = true;
-
-  environment.systemPackages = with pkgs; [
-    gnome.seahorse
-  ];
+  programs.seahorse.enable = true;
 
   # pcmanfm
   services.udisks2.enable = true;
-  services.gvfs.enable = true;
+  services.gvfs.enable = true; 
+
+  # thumbnails
+  services.tumbler.enable = true;
+  environment.systemPackages = with pkgs; [
+    gdk-pixbuf
+    webp-pixbuf-loader
+    poppler
+    ffmpegthumbnailer
+    freetype
+    libgsf
+    gnome.totem #caja
+    gnome-epub-thumbnailer
+    f3d
+  ];
 
   security.polkit.enable = true;
   security.pam.services.swaylock = {};
