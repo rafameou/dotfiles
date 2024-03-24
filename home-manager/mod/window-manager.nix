@@ -52,12 +52,6 @@
     '';
   };
 
-  dconf.settings = {
-    "org/mate/panel/menubar" = {
-      icon-theme = "nix-snowflake";
-    };
-  };
-
   home.file = {
     ".local/bin/prime-run" = {
       text = ''

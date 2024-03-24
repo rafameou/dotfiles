@@ -52,6 +52,7 @@
       }; 
       /*colors stolen from https://github.com/Haze-sh/base16-bemenu/"*/
       menu = ''BEMENU_OPTS="--tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
+      /*menu = "${pkgs.fuzzel}/bin/fuzzel | ${pkgs.findutils}/bin/xargs swaymsg exec --";*/
       /*bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];*/
       bars = [
         {
@@ -139,10 +140,10 @@
       terminal = "foot"; 
       input = {
         "type:keyboard" = {
-          xkb_layout = "br,br";
-          xkb_model = "abnt2,abnt2";
-          xkb_variant = ",thinkpad";
-          xkb_numlock = "enabled,disabled";
+          xkb_layout = "br";
+          xkb_model = "abnt2";
+          xkb_variant = "";
+          xkb_numlock = "enabled";
           xkb_options = "grp:alt_shift_toggle";
         };
         "type:touchpad" = {
@@ -159,9 +160,9 @@
       };
       /*workspaceAutoBackAndForth = true;
       workspaceLayout = "default";*/
-      gaps = {
+      /*gaps = {
         inner = 10;
-      };
+      };*/
       floating = {
         border = 1;
         titlebar = true; #doesnt work
@@ -177,7 +178,7 @@
         {command = "--no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
-        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/back"; } #fill
+        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i /home/rafameou/GoogleDrive/back"; } #fill
         /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
         /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
         {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
@@ -210,6 +211,7 @@
         "XF86AudioMute"        = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioMicMute"     = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
         "XF86MonBrightnessUp"   = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
@@ -237,7 +239,7 @@
     enable = true;
     settings = {
       main = {
-        font = "Terminess Nerd Font:size=12";
+        font = "FiraCode Nerd Font Mono:size=12";
       };
       colors = {
         foreground="${config.colorScheme.palette.base05}";
@@ -258,34 +260,36 @@
         bright5="${config.colorScheme.palette.base0E}";
         bright6="${config.colorScheme.palette.base0C}";
         bright7="${config.colorScheme.palette.base07}";
-      "16"="${config.colorScheme.palette.base09}";
-      "17"="${config.colorScheme.palette.base0F}";
-      "18"="${config.colorScheme.palette.base01}";
-      "19"="${config.colorScheme.palette.base02}";
-      "20"="${config.colorScheme.palette.base04}";
-      "21"="${config.colorScheme.palette.base06}";
+        "16"="${config.colorScheme.palette.base09}";
+        "17"="${config.colorScheme.palette.base0F}";
+        "18"="${config.colorScheme.palette.base01}";
+        "19"="${config.colorScheme.palette.base02}";
+        "20"="${config.colorScheme.palette.base04}";
+        "21"="${config.colorScheme.palette.base06}";
+      };
     };
   };
-};
 
-/*programs.fuzzel = {
-enable = true;
-settings = {
-main = {
-icon-theme = "hicolor";
-font = "Fira Sans";
-};
-colors = {
-background = "303446ff";#7d";#e6";
-text = "ffffffff";
-selection = "464646ff";
-selection-text = "ffffffff";
-border = "ffffff00";
-};
-border = {
-width = 1;
-radius = 0;
-};
-};
-};*/
+/*  programs.fuzzel = {
+    enable = true;
+    settings = {
+      main = {
+        icon-theme = "hicolor";
+        font = "Fira Sans";
+      };
+      colors = {
+        background = "${config.colorScheme.palette.base00}ff";#7d";#e6";
+        text = "${config.colorScheme.palette.base05}ff";
+        match = "${config.colorScheme.palette.base0D}ff";
+        selection = "${config.colorScheme.palette.base03}ff";
+        selection-text = "${config.colorScheme.palette.base06}ff";
+        selection-match = "${config.colorScheme.palette.base0D}ff";
+        border = "${config.colorScheme.palette.base05}ff";
+      };
+      border = {
+        width = 1;
+        radius = 0;
+      };
+    };
+  };*/
 }

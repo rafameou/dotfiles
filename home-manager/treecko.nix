@@ -1,4 +1,4 @@
-{ pkgs, ... } :
+{ lib, pkgs, ... } :
 {
   imports = [
     ./mod/home-manager.nix
@@ -25,7 +25,7 @@
     wireshark
   ];
 
-  wayland.windowManager.sway.config.input."type:keyboard" = {
+  wayland.windowManager.sway.config.input."type:keyboard" = lib.mkForce {
     xkb_layout = "br";
     xkb_model = "abnt2";
     xkb_variant = "thinkpad";

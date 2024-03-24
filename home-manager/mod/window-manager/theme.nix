@@ -55,8 +55,8 @@ inactive_colors=#ff${config.colorScheme.palette.base05}, #ff${config.colorScheme
 [Appearance]
 color_scheme_path=~/.config/qt-color-base16.conf
 custom_palette=true
-icon_theme=matefaenzadark
-style=Fusion
+icon_theme=Gruvbox-Plus-Dark
+style=Breeze
 
 [Fonts]
 fixed="FiraCode Nerd Font Mono,10,-1,5,50,0,0,0,0,0,Regular"
@@ -67,8 +67,8 @@ general="Fira Sans,10,-1,5,50,0,0,0,0,0,Regular"
 [Appearance]
 color_scheme_path=~/.config/qt-color-base16.conf
 custom_palette=true
-icon_theme=matefaenzadark
-style=mate
+icon_theme=Gruvbox-Plus-Dark
+style=Oxygen
 
 [Fonts]
 fixed="FiraCode Nerd Font Mono,10,-1,5,50,0,0,0,0,0,Regular"
@@ -86,6 +86,14 @@ general="Fira Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
     "org/gtk/gtk4/settings/file-chooser" = {
       sort-directories-first = true;
     };
+    "org/mate/panel/menubar" = {
+      icon-name = "nix-snowflake-white";
+      icon-theme = "nix-snowflake-white";
+    };
+    "org/mate/desktop/background" = {
+      picture-filename = "/home/rafameou/GoogleDrive/back";
+      picture-options = "zoom";
+    };
   }; 
 
   gtk = {
@@ -95,13 +103,15 @@ general="Fira Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
       size = 10;
     };
     theme = {
-      name = "gruvbox-dark";
-      package = pkgs.gruvbox-dark-gtk;
+      name = "Gruvbox-Dark-BL-LB";
+      package = pkgs.gruvbox-gtk-theme;
     };
     iconTheme = {
       #name = "oomox-gruvbox-dark";
       #package = pkgs.gruvbox-dark-icons-gtk;
-      name = "matefaenzadark";
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+      #name = "matefaenzadark";
     };
     cursorTheme = {
       name = "Oxygen_Zion";
@@ -135,6 +145,7 @@ general="Fira Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
         gtk-enable-animations = true;
         gtk-primary-button-warps-slider = false;
       };
+      /*copy gtk4's gruvbox theme*/
       extraCss = ''
 @define-color accent_color #${config.colorScheme.palette.base0D};
 @define-color accent_bg_color mix(#${config.colorScheme.palette.base0D}, #${config.colorScheme.palette.base00},0.3);

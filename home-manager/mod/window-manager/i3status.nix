@@ -7,7 +7,7 @@
         theme = "gruvbox-dark"; /*native*/
         icons = "material-nf";
         blocks = [
-          { block = "focused_window"; }
+          /*{ block = "focused_window"; }*/
           { block = "music"; }
           {
             block = "sound";
@@ -19,26 +19,44 @@
             ];
           }
           {
+            block = "privacy";
+            driver = [
+              {
+                name = "v4l";
+              }
+              /*{
+                name = "pipewire";
+              }*/
+            ];
+          }
+          {
+            block = "kdeconnect";
+          }
+          /*{
             block = "temperature";
             interval = 10;
             format = " $icon $max" ;
             inputs = ["Core 0" "CPU"];
             chip = "*-isa-*";
-          }
+          }*/
           { block = "disk_space"; }
-          { 
+          /*{ 
             block = "memory"; 
             format = " $icon $mem_used_percents.eng(w:2) ";
             format_alt = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) $icon_swap $swap_used_percents.eng(w:2) ";
           }
-          { block = "cpu"; }
+          { block = "cpu"; }*/
           { 
             block = "net";
-            format = " $icon ";
+            format = " $icon {$ssid($signal_strength) $frequency|Wired}";
             format_alt = " $icon {$ssid($signal_strength $frequency)|Wired} via $device ";
             interval = 10;
           }
           { block = "backlight"; }
+          {
+            block = "hueshift";
+            step = 0;
+          }
           { 
             block = "keyboard_layout"; 
             driver = "sway";

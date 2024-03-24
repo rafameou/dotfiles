@@ -20,7 +20,7 @@
     tdesktop
     clematis #mpris for discord
     vesktop
-    spotify
+    #spotify
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku
     kdePackages.tokodon
@@ -74,9 +74,9 @@
     dsda-doom
     dsda-launcher
     prismlauncher
-    #runelite #broken 18-03-2023
+    runelite 
     steam #fix steam games: SDL_VIDEODRIVER=x11 prime-run %command% -vulkan
-    itch
+    #itch #marked as broken 24/03/24
     heroic
     /*---------------*/
   ];

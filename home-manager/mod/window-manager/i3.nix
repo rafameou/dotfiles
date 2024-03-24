@@ -142,7 +142,7 @@ unredir-if-possible = false;
       };
       startup = [
         {command = "--no-startup-id nm-applet --indicator";}
-        {command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-fill ~/back"; }
+        {command = "--no-startup-id ${pkgs.feh}/bin/feh --bg-fill /home/rafameou/GoogleDrive/back"; }
         /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
         {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m randr"; } 
         #{command = "--no-startup-id ${pkgs.picom}/bin/picom"; }
@@ -172,6 +172,7 @@ unredir-if-possible = false;
         "XF86AudioMute"        = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioMicMute"     = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
         "XF86MonBrightnessUp"   = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
