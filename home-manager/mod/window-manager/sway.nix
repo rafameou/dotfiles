@@ -142,9 +142,9 @@
         "type:keyboard" = {
           xkb_layout = "br";
           xkb_model = "abnt2";
-          xkb_variant = "";
+          #xkb_variant = "";
           xkb_numlock = "enabled";
-          xkb_options = "grp:alt_shift_toggle";
+          #xkb_options = "grp:alt_shift_toggle";
         };
         "type:touchpad" = {
           dwt = "enabled";

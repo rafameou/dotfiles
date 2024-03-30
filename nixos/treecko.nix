@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -18,6 +18,13 @@
     ./mod/user.nix
     ./mod/distrobox.nix
     ./mod/env.nix
+  ];
+
+  system.replaceRuntimeDependencies = [
+    {
+      original = pkgs.xz;
+      replacement = pkgs.nixpkgs-staging-next.xz;
+    }
   ];
 
   /* ... changes to only this sytem */

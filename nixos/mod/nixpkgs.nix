@@ -17,6 +17,7 @@
         nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.system};
         nixpkgs-unstable = inputs.nixpkgs-unstable-legacyPackages.${pkgs.system};
         nixpkgs-master = inputs.nixpkgs-master.legacyPackages.${pkgs.system};
+        nixpkgs-staging-next = inputs.nixpkgs-staging-next.legacyPackages.${pkgs.system};
       })
     ];
     # Configure your nixpkgs instance

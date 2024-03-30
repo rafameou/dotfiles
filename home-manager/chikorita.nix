@@ -1,4 +1,4 @@
-{ ... } :
+{ pkgs, ... } :
 {
   imports = [
     ./mod/home-manager.nix
@@ -22,4 +22,9 @@
   /* ... changes to only this sytem */
   wayland.windowManager.sway.config.startup = [{command = "--no-startup-id fix";}];
   xsession.windowManager.i3.config.startup = [{command = "--no-startup-id fix";}];
+
+  home.packages = with pkgs; [
+    ciscoPacketTracer8
+    wireshark
+  ];
 }

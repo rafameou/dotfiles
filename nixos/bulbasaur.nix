@@ -19,6 +19,13 @@
     ./mod/distrobox.nix 
     ./mod/env.nix
   ];
+  
+  system.replaceRuntimeDependencies = [
+    {
+      original = pkgs.xz;
+      replacement = pkgs.nixpkgs-staging-next.xz;
+    }
+  ];
 
   /* ... changes to only this sytem */
   networking.hostName = "bulbasaur"; # Define your hostname.
