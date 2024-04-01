@@ -1,96 +1,103 @@
-{ pkgs, ... }:
-{
-  programs.neovim = with pkgs; {
-    enable = true;
-    defaultEditor = true;
+{ config, inputs, pkgs, ... }:
+let
+  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) vimThemeFromScheme;
+in
+  {
+    imports = [ ../nix-colors.nix ];
+    programs.neovim = with pkgs; {
+      enable = true;
+      defaultEditor = true;
 
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    withNodeJs = true;
-    withPython3 = true;
-    plugins = with vimPlugins; [
-      nvim-tree-lua
-      nvim-treesitter.withAllGrammars
-      nvim-lspconfig
-      luasnip
-      cmp-nvim-lsp
-      cmp-buffer
-      cmp-path
-      cmp-cmdline
-      cmp_luasnip
-      nvim-cmp
-      /*theme*/
-      gruvbox-nvim
-      /*catppuccin-nvim*/
-      /*nix*/
-      vim-nix
-      /*latex*/
-      vimtex
-    ];
+      viAlias = true;
+      vimAlias = true;
+      vimdiffAlias = true;
+      withNodeJs = true;
+      withPython3 = true;
+      plugins = with vimPlugins; [
+        nvim-tree-lua
+        nvim-treesitter.withAllGrammars
+        nvim-lspconfig
+        luasnip
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-path
+        cmp-cmdline
+        cmp_luasnip
+        nvim-cmp
+        /*theme*/
+        /*gruvbox-nvim*/
+        {
+          plugin = vimThemeFromScheme { scheme = config.colorScheme; };
+          config = "colorscheme nix-${config.colorScheme.slug}";
+        }
+        /*nix*/
+        vim-nix
+        /*latex*/
+        vimtex
+      ];
 
-    extraConfig = ''
-      filetype plugin indent on
-      syntax enable
-      let g:vimtex_view_method = 'zathura'
-      autocmd User VimtexEventQuit VimtexClean
-      nnoremap <F4> :NvimTreeToggle<CR>
-      nnoremap <F5> :VimtexCompile<CR>
-      nnoremap <F6> :VimtexStop<CR>:VimtexClean<CR>
-    '';
+      extraConfig = ''
+        filetype plugin indent on
+        syntax enable
+        let g:vimtex_view_method = 'zathura'
+        autocmd User VimtexEventQuit VimtexClean
+        nnoremap <F4> :NvimTreeToggle<CR>
+        nnoremap <F5> :VimtexCompile<CR>
+        nnoremap <F6> :VimtexStop<CR>:VimtexClean<CR>
 
-    extraLuaConfig = ''
-      vim.opt.clipboard:append('unnamedplus');
-      -- spelling
-      vim.opt.spelllang = 'pt_br';
-      vim.opt.spell = true;
-      -- inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u; --https://castel.dev/post/lecture-notes-1/
-      vim.api.nvim_set_keymap('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', { noremap = true }); 
+        highlight Normal guibg=none
+        highlight NonText guibg=none
+        highlight Normal ctermbg=none
+        highlight NonText ctermbg=none
+      '';
 
-      -- theme
-      -- require("catppuccin").setup({
-      --  flavour = "frappe",
-        -- transparent_background = true,
-      --});
-      --vim.cmd.colorscheme "catppuccin";
-      vim.o.background = "dark";
-      vim.cmd([[colorscheme gruvbox]]);
+      extraLuaConfig = ''
+        vim.opt.clipboard:append('unnamedplus');
+        -- spelling
+        vim.opt.spelllang = 'pt_br';
+        vim.opt.spell = true;
+        -- inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u; --https://castel.dev/post/lecture-notes-1/
+        vim.api.nvim_set_keymap('i', '<C-l>', '<c-g>u<Esc>[s1z=`]a<c-g>u', { noremap = true }); 
 
-      -- neo-tree
-      -- disable netrw at the very start of your init.lua
-      vim.g.loaded_netrw = 1
-      vim.g.loaded_netrwPlugin = 1
-      -- set termguicolors to enable highlight groups
-      vim.opt.termguicolors = true
-      -- empty setup using defaults
-      require("nvim-tree").setup()
-      --local function open_nvim_tree(data)
+        -- theme
+        vim.o.background = "dark";
+        -- vim.cmd([[colorscheme gruvbox]]);
+
+        -- neo-tree
+        -- disable netrw at the very start of your init.lua
+        vim.g.loaded_netrw = 1
+        vim.g.loaded_netrwPlugin = 1
+        -- set termguicolors to enable highlight groups
+        vim.opt.termguicolors = true
+        -- empty setup using defaults
+        require("nvim-tree").setup()
+        --local function open_nvim_tree(data)
         -- buffer is a real file on the disk
-      --  local real_file = vim.fn.filereadable(data.file) == 1
+        --  local real_file = vim.fn.filereadable(data.file) == 1
           -- buffer is a [No Name]
-      --    local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
-      --    if not real_file and not no_name then
-      --    return
-      --  end
+        --    local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
+        --    if not real_file and not no_name then
+        --    return
+        --  end
         -- open the tree, find the file but don't focus it
-      --  require("nvim-tree.api").tree.toggle({ focus = false, find_file = true, })
-      --end
-      -- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree });
+        --  require("nvim-tree.api").tree.toggle({ focus = false, find_file = true, })
+        --end
+        -- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree });
 
-      -- snippets
-      local luasnip = require'luasnip';
-      local s = luasnip.snippet;
-      local sn = luasnip.snippet_node;
-      local t = luasnip.text_node;
-      local i = luasnip.insert_node;
-      local f = luasnip.function_node;
-      local c = luasnip.choice_node;
-      local d = luasnip.dynamic_node;
-      local r = luasnip.restore_node;
+        -- snippets
+        local luasnip = require'luasnip';
+        local s = luasnip.snippet;
+        local sn = luasnip.snippet_node;
+        local t = luasnip.text_node;
+        local i = luasnip.insert_node;
+        local f = luasnip.function_node;
+        local c = luasnip.choice_node;
+        local d = luasnip.dynamic_node;
+        local r = luasnip.restore_node;
 
-      -- cmp
-      local cmp = require'cmp';
-      cmp.setup({
+        -- cmp
+        local cmp = require'cmp';
+        cmp.setup({
         snippet = {
           expand = function(args)
             luasnip.lsp_expand(args.body)
@@ -111,25 +118,25 @@
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
         });
-      });
+        });
 
-      local lspconfig = require "lspconfig"
-      local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        local lspconfig = require "lspconfig"
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- clang
-      lspconfig.clangd.setup {
+        -- clang
+        lspconfig.clangd.setup {
         cmd = { "${clang-tools}/bin/clangd" },
         filetypes = { "c", "cpp", "h", "hpp", "objc", "objcpp", "cuda" },
         root_dir = function() return vim.loop.cwd() end,
         capabilities = capabilities,
-      };
+        };
 
-      -- latex
-      lspconfig.texlab.setup{
+        -- latex
+        lspconfig.texlab.setup{
         cmd = { "${texlab}/bin/texlab" },
         capabilities = capabilities,
-      };
-      luasnip.add_snippets("tex", {
+        };
+        luasnip.add_snippets("tex", {
         s("\\start", {t({ "\\documentclass[a4paper]{article}", 
                         "\\usepackage{alltt, amssymb, todonotes}",
                         "\\begin{document}", 
@@ -172,19 +179,19 @@
 
         -- math
         s("\\frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), }),
-      });
+        });
 
-      -- nix
-      lspconfig.nil_ls.setup{
+        -- nix
+        lspconfig.nil_ls.setup{
         cmd = { "${nil}/bin/nil" },
         capabilities = capabilities,
-      };
+        };
 
-      -- go
-      lspconfig.gopls.setup{
+        -- go
+        lspconfig.gopls.setup{
         cmd = { "${gopls}/bin/gopls" },
         capabilities = capabilities,
-      };
-    '';
-  };
-}
+        };
+      '';
+    };
+  }

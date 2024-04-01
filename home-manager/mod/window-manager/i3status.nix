@@ -4,7 +4,7 @@
     enable = true;
     bars = {
       bottom = {
-        theme = "gruvbox-dark"; /*native*/
+        theme = "gruvbox-dark";#"gruvbox-dark";
         icons = "material-nf";
         blocks = [
           /*{ block = "focused_window"; }*/

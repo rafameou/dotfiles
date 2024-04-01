@@ -4,7 +4,7 @@
     inputs.nix-colors.homeManagerModules.default
   ];
 
-  colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+    colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-soft;
 
   /*------------------------------------------------------------|
   |  Please note that most configs are stolen from Misterio77,  |
