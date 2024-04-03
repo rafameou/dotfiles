@@ -23,8 +23,7 @@
     kdePackages.kalk
     kdePackages.discover
     kdePackages.kdeconnect-kde
-
-    vimiv-qt
+ 
     #lxqt.pcmanfm-qt
     lxqt.pavucontrol-qt
     lxqt.qps
@@ -63,13 +62,22 @@
       '';
       executable = true;
     };
-    ".local/bin/fix" = {
+    ".local/bin/res_fix" = {
       text = ''
         #!/bin/sh
         swaymsg output eDP-1 disable
         swaymsg output HDMI-A-1 mode 1920x1080@60.000Hz
         xrandr --output eDP-1 --off
         xrandr --output HDMI-1 --mode 1920x1080
+      '';
+      executable = true;
+    };
+    ".local/bin/res_unfix" = {
+      text = ''
+        #!/bin/sh
+        swaymsg output eDP-1 enable
+        xrandr --output eDP-1 --auto
+        xrandr --output HDMI-1 --auto
       '';
       executable = true;
     };

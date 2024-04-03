@@ -20,8 +20,16 @@
   ];
 
   /* ... changes to only this sytem */
-  wayland.windowManager.sway.config.startup = [{command = "--no-startup-id fix";}];
-  xsession.windowManager.i3.config.startup = [{command = "--no-startup-id fix";}];
+  /*wayland.windowManager.sway.config.startup = [{command = "--no-startup-id fix";}];*/
+  wayland.windowManager.sway.config.output = {
+    eDP-1 = {
+      disable = "";
+    };
+    HDMI-A-1 = {
+      mode = "1920x1080@60.000Hz";
+    };
+  };
+  xsession.windowManager.i3.config.startup = [{command = "--no-startup-id res_fix";}];
 
   home.packages = with pkgs; [
     ciscoPacketTracer8
