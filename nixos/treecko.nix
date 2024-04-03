@@ -20,13 +20,6 @@
     ./mod/env.nix
   ];
 
-  system.replaceRuntimeDependencies = [
-    {
-      original = pkgs.xz;
-      replacement = pkgs.nixpkgs-staging-next.xz;
-    }
-  ];
-
   /* ... changes to only this sytem */
   networking.hostName = "treecko"; # Define your hostname.
   home-manager = {

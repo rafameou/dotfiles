@@ -22,13 +22,6 @@
     ./mod/env.nix
   ];
 
-  system.replaceRuntimeDependencies = [
-    {
-      original = pkgs.xz;
-      replacement = pkgs.nixpkgs-staging-next.xz;
-    }
-  ];
-
   networking.hostName = "chikorita"; # Define your hostname.
   home-manager = {
     extraSpecialArgs = { inherit inputs /*outputs*/; };
