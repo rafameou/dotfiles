@@ -62,6 +62,7 @@
     zip
     xsane
     #remmina
+    virt-viewer
     kdePackages.krdc freerdp tigervnc
     htop lm_sensors powerstat
     nixos-icons

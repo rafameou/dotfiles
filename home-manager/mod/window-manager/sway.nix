@@ -68,7 +68,7 @@
           | Stolen from https://github.com/tinted-theming/base16-i3/ |
           |---------------------------------------------------------*/
           colors = {
-            background = "#${config.colorScheme.palette.base00}";
+            background = "#${config.colorScheme.palette.base00}e5";
             separator = "#${config.colorScheme.palette.base01}";
             statusline = "#${config.colorScheme.palette.base04}";
             focusedWorkspace = {
