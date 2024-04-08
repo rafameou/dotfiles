@@ -51,10 +51,12 @@
         size = 10.0;
       }; 
       /*colors stolen from https://github.com/Haze-sh/base16-bemenu/"*/
-      menu = ''BEMENU_OPTS="--tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
+      /*menu = ''BEMENU_OPTS="--tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; */
       /*menu = "${pkgs.fuzzel}/bin/fuzzel | ${pkgs.findutils}/bin/xargs swaymsg exec --";*/
+      menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
       /*bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];*/
       bars = [
+        /*{ command = "${pkgs.mate.mate-panel}/bin/mate-panel"; } */
         {
           fonts = {
             names = ["Fira Sans"];
@@ -140,11 +142,11 @@
       terminal = "foot"; 
       input = {
         "type:keyboard" = {
-          xkb_layout = "br";
-          xkb_model = "abnt2";
-          #xkb_variant = "";
-          xkb_numlock = "enabled";
-          #xkb_options = "grp:alt_shift_toggle";
+          xkb_layout = "br,br";
+          xkb_model = "abnt2,abnt2";
+          xkb_variant = ",nativo";
+          xkb_numlock = "enabled,enabled";
+          xkb_options = "grp:alt_shift_toggle";
         };
         "type:touchpad" = {
           dwt = "enabled";

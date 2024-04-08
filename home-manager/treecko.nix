@@ -25,10 +25,8 @@
     wireshark
   ];
 
-  wayland.windowManager.sway.config.input."type:keyboard" = lib.mkForce {
-    xkb_layout = "br";
-    xkb_model = "abnt2";
-    xkb_variant = "thinkpad";
-    xkb_numlock = "disabled";
+  wayland.windowManager.sway.config.input."type:keyboard" = {
+    xkb_variant = lib.mkForce "thinkpad,nativo";
+    xkb_numlock = lib.mkForce "disabled,disabled";
   };
 }

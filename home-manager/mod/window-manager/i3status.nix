@@ -4,19 +4,24 @@
     enable = true;
     bars = {
       bottom = {
-        theme = "gruvbox-dark";#"gruvbox-dark";
+        theme = "native";#"gruvbox-dark";
         icons = "material-nf";
         blocks = [
           /*{ block = "focused_window"; }*/
           { block = "music"; }
           {
             block = "sound";
+            headphones_indicator = true;
             click = [
               {
                 button = "left";
                 cmd = "pavucontrol-qt";
               }
             ];
+          }
+          {
+            block = "sound";
+            device_kind = "source";
           }
           {
             block = "privacy";
@@ -48,7 +53,7 @@
           { block = "cpu"; }*/
           { 
             block = "net";
-            format = " $icon {$ssid($signal_strength) $frequency|Wired}";
+            format = " $icon {$ssid($signal_strength)|Wired}";
             format_alt = " $icon {$ssid($signal_strength $frequency)|Wired} via $device ";
             interval = 10;
           }

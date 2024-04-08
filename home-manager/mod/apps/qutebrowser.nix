@@ -24,8 +24,9 @@ in*/
       url.start_pages = "https://start.duckduckgo.com/";
       tabs.show = "multiple";
       tabs.tabs_are_windows = true;
-      /*statusbar.show = "in-mode";*/
+      statusbar.show = "in-mode";
       fonts.default_family = "Fira Sans";
+      /*window.transparent = true;*/
       /*----------------------------------|
       |- Stolen from Misterio77's config -|
       |----------------------------------*/

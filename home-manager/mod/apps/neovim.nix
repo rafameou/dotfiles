@@ -138,7 +138,7 @@ in
         };
         luasnip.add_snippets("tex", {
         s("\\start", {t({ "\\documentclass[a4paper]{article}", 
-                        "\\usepackage{alltt, amssymb, todonotes}",
+                        "\\usepackage{alltt, amssymb, listings, todonotes}",
                         "\\begin{document}", 
                         "\\section*{ - \\today}", "",}), 
                         i(1), 
@@ -164,6 +164,12 @@ in
                         t("\\item "), i(1), 
                         t({"", 
                         "\\end{enumerate}",}), }),
+
+        s("\\lstlisting", {t({ "%\\lstset{language=C}", "\\begin{lstlisting}", "" }),
+                        i(1), 
+                        t({"", 
+                        "\\end{lstlisting}",}), }),
+
         --text
         s("\\dc", { t("\\documentclass{"), i(1), t("}"), }),
         s("\\bf", { t("\\textbf{"), i(1), t("}"), }),

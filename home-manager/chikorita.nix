@@ -30,9 +30,4 @@
     };
   };
   xsession.windowManager.i3.config.startup = [{command = "--no-startup-id res_fix";}];
-
-  home.packages = with pkgs; [
-    ciscoPacketTracer8
-    wireshark
-  ];
 }
