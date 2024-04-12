@@ -36,6 +36,22 @@
         "type": "github"
       }
     },
+    "img-clip-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1712141440,
+        "narHash": "sha256-fMoQ0gpdw7rN7flEAiQvdlqWLHOARVEriyMXX5UfrBQ=",
+        "owner": "HakonHarnes",
+        "repo": "img-clip.nvim",
+        "rev": "fc30500c35663aa1762697f5aba31d43b86028f0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HakonHarnes",
+        "repo": "img-clip.nvim",
+        "type": "github"
+      }
+    },
     "nix-colors": {
       "inputs": {
         "base16-schemes": "base16-schemes",
@@ -175,6 +191,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "img-clip-nvim": "img-clip-nvim",
         "nix-colors": "nix-colors",
         "nixpkgs": "nixpkgs",
         "nixpkgs-master": "nixpkgs-master",

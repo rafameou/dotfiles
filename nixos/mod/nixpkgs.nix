@@ -19,6 +19,16 @@
         nixpkgs-master = inputs.nixpkgs-master.legacyPackages.${pkgs.system};
         nixpkgs-staging-next = inputs.nixpkgs-staging-next.legacyPackages.${pkgs.system};
       })
+
+      (self: super:
+        let
+          img-clip-nvim = super.vimUtils.buildVimPlugin {
+            name = "img-clip-nvim";
+            src = inputs.img-clip-nvim;
+          };
+        in
+        { vimPlugins = super.vimPlugins // { inherit img-clip-nvim; }; }
+      )
     ];
     # Configure your nixpkgs instance
     config = {

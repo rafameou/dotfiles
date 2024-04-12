@@ -24,6 +24,9 @@
     plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     plasma-manager.inputs.home-manager.follows = "home-manager";
 
+    img-clip-nvim.url = "github:HakonHarnes/img-clip.nvim";
+    img-clip-nvim.flake = false;
+
     #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
