@@ -47,12 +47,19 @@
     pkgs.jellyfin
     pkgs.jellyfin-web
     pkgs.jellyfin-ffmpeg
+
+    pkgs.xorg.xhost
   ];
 
   services.jellyfin = {
     enable = true;
-    openFirewall = true;
+    #openFirewall = true;
   };
+
+    #fix distrobox
+  environment.shellInit = ''
+    [ -n "$DISPLAY" ] && xhost +si:localhost:$USER || true
+    '';
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

@@ -26,12 +26,7 @@
     screen
     firejail
     nodejs_21 figlet cowsay octave
-
-    xorg.xhost
   ];
 
-  #fix distrobox
-  environment.shellInit = ''
-    [ -n "$DISPLAY" ] && xhost +si:localhost:$USER || true
-    '';
+
 }
