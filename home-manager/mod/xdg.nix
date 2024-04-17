@@ -24,6 +24,13 @@
     };
     mimeApps = {
       enable = true;
+      associations = {
+        added = {
+          /*gsconnect keeps adding this line, notice the ; :facepalm:*/
+          "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+          "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+        };
+      };
       defaultApplications = {
         "video/3gpp" = "mpv.desktop";
         "video/x-ogm+ogg" = "mpv.desktop";
@@ -48,9 +55,6 @@
 
         "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
         "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
-        /*gsconnect keeps adding this line*/
-        "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop";
-        "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop";
 
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";

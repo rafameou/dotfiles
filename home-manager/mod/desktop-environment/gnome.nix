@@ -33,6 +33,10 @@
     wayland-pipewire-idle-inhibit 
   ];
 
+  home.sessionVariables = {
+    QT_QPA_PLATFORM = "xcb"; #fixes https://gitlab.gnome.org/GNOME/mutter/-/issues/3435
+  };
+
   systemd.user.services = {
     wayland-idle-pipewire-inhibit-serv = {
       Unit = {
@@ -90,7 +94,7 @@
       switch-to-workspace-7 = ["<Super>7"];
       switch-to-workspace-8 = ["<Super>8"];
       switch-to-workspace-9 = ["<Super>9"];
-      move-to-workspace-1 = ["<Super><Shift>Home" "<Super>1"]; 
+      move-to-workspace-1 = ["<Super><Shift>Home" "<Super><Shift>1"]; 
       move-to-workspace-2 = ["<Super><Shift>2"];
       move-to-workspace-3 = ["<Super><Shift>3"];
       move-to-workspace-4 = ["<Super><Shift>4"];
