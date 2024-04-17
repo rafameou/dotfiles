@@ -10,8 +10,8 @@
     ./mod/zsh.nix
     ./mod/desktop.nix
     ./mod/qemu.nix
-    ./mod/sway.nix
-    ./mod/desktop-environment/mate.nix 
+    #./mod/sway.nix
+    ./mod/desktop-environment/gnome.nix 
     ./mod/pipewire.nix
     ./mod/ssd.nix
     ./mod/time.nix

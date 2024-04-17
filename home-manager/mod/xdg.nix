@@ -48,11 +48,14 @@
 
         "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
         "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+        /*gsconnect keeps adding this line*/
+        "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop";
+        "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop";
 
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
-        "inode/directory" = "caja.desktop";
+        "inode/directory" = "org.gnome.Nautilus.desktop";
 
         "image/tiff" = "vimiv.desktop";
         "image/jpx" = "vimiv.desktop";

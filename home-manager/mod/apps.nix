@@ -42,7 +42,7 @@
     mpv
     (texlive.combine {inherit (texlive) scheme-medium abnt abntex2 collection-langportuguese dvipng latexmk todonotes;})
     cherrytree
-    kile 
+    /*kile */
     imagemagick
     ghostscript
     /*okular*/
@@ -66,7 +66,7 @@
     xsane
     #remmina
     virt-viewer
-    kdePackages.krdc freerdp tigervnc
+    freerdp
     htop lm_sensors powerstat
     nixos-icons
     mesa-demos
