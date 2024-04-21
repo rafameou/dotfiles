@@ -27,7 +27,7 @@
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku
     kdePackages.tokodon
-    kdePackages.neochat
+    #kdePackages.neochat #broken 21-05
     /*---------------| 
     |---   edit   ---| 
     |---------------*/
