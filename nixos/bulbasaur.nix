@@ -9,8 +9,7 @@
     ./mod/zsh.nix
     ./mod/bluetooth.nix
     ./mod/desktop.nix
-    ./mod/qemu.nix
-    ./mod/desktop-environment/gnome.nix
+    ./mod/qemu.nix 
     ./mod/pipewire.nix
     ./mod/ssd.nix
     ./mod/time.nix
@@ -18,6 +17,8 @@
     ./mod/printer.nix
     ./mod/distrobox.nix 
     ./mod/env.nix
+    ./mod/flatpak.nix
+    ./mod/desktop-environment/gnome.nix
   ];
   
   /* ... changes to only this sytem */

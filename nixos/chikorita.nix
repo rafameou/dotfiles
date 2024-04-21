@@ -9,9 +9,7 @@
     ./mod/zsh.nix
     ./mod/bluetooth.nix
     ./mod/desktop.nix
-    ./mod/qemu.nix
-    #./mod/sway.nix
-    ./mod/desktop-environment/gnome.nix
+    ./mod/qemu.nix 
     ./mod/pipewire.nix
     ./mod/nvidia-hell.nix
     ./mod/ssd.nix
@@ -20,6 +18,8 @@
     ./mod/printer.nix
     ./mod/distrobox.nix 
     ./mod/env.nix
+    ./mod/flatpak.nix
+    ./mod/desktop-environment/gnome.nix
   ];
 
   networking.hostName = "chikorita"; # Define your hostname.

@@ -27,6 +27,8 @@
     img-clip-nvim.url = "github:HakonHarnes/img-clip.nvim";
     img-clip-nvim.flake = false;
 
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+
     #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 

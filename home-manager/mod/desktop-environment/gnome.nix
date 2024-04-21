@@ -21,6 +21,7 @@
     gnomeExtensions.wiggle
     gnomeExtensions.gsconnect
     gnomeExtensions.space-bar
+    gnomeExtensions.dash-to-dock
     # ---- gnome fixes ----
     adwaita-qt
     adwaita-qt6
@@ -148,7 +149,25 @@
         "wiggle@mechtifs"
         "gsconnect@andyholmes.github.io"
         "space-bar@luchrioh"
+        "dash-to-dock@micxgx.gmail.com"
       ];
+    };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      background-color = "rgb(0,0,0)";
+      background-opacity = 0.7;
+      click-action = "minimize";
+      custom-background-color = true;
+      customize-alphas = true;
+      custom-theme-shrink = true;
+      dock-fixed = true;
+      dock-position = "LEFT";
+      extend-height = true;
+      hot-keys = false;
+      icon-size-fixed = true;
+      multi-monitor = true;
+      running-indicator-style = "DOTS";
+      show-mounts-network = true;
+      transparency-mode = "FIXED";
     };
     "org/gnome/desktop/app-folders" = {
       /*https://github.com/BenJetson/gnome-dash-fix*/

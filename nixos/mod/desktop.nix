@@ -14,16 +14,6 @@
 
   #services.onedrive.enable = true;
 
-  /*# flatpak
-  services.dbus.enable = true;
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-  };*/
-
-  services.flatpak.enable = true;
-
   #fonts, move to home maybe
   fonts.fontDir.enable = true;
   fonts.packages = with pkgs; [
