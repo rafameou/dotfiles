@@ -13,20 +13,32 @@
     #./apps/vscode.nix
     ./apps/zathura.nix
   ]; 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    /*nativeMessagingHosts = {
+      gsconnect = true;
+      packages = [
+        pkgs.firefoxpwa
+      ];
+      };*/
+    nativeMessagingHosts = with pkgs; [
+      firefoxpwa
+    ];
+  };
   home.packages = with pkgs; [
     /*-------------|
     |-- internet --|
-    |-------------*/ 
+    |-------------*/
+    firefoxpwa
     google-chrome
     thunderbird
     tdesktop
-    clematis #mpris for discord
+    #clematis #mpris for discord
     vesktop
     #spotify
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku
-    kdePackages.tokodon
+    #kdePackages.tokodon
     #kdePackages.neochat #broken 21-05
     /*---------------| 
     |---   edit   ---| 
@@ -46,9 +58,9 @@
     imagemagick
     ghostscript
     /*okular*/
-    gromit-mpx
-    speedcrunch
-    notepadqq
+    #gromit-mpx
+    #speedcrunch
+    #notepadqq
     /*---------------|
     |---   util   ---| 
     |---------------*/
@@ -86,7 +98,7 @@
     /*---------------*/
   ];
 
-  xdg.configFile = {
+  /*xdg.configFile = {
     "Clematis/config.json".text = ''
       {
         "vars": [""], 
@@ -101,5 +113,5 @@
         "playerPresence": {}
       }
     '';
-  }; 
+  }; */
 }

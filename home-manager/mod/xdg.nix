@@ -1,7 +1,7 @@
 { ... }:
 {
   xdg = {
-    desktopEntries = {
+    /*desktopEntries = {
       whatsapp = {
         name = "WhatsApp";
         categories = [ "Network" "InstantMessaging" "Chat"];
@@ -21,7 +21,7 @@
         name = "Clematis";
         exec = "clematis";
       };
-    };
+    };*/
     mimeApps = {
       enable = true;
       associations = {
@@ -29,6 +29,7 @@
           /*gsconnect keeps adding this line, notice the ; :facepalm:*/
           "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+          "x-scheme-handler/tg" = "org.telegram.desktop.desktop;";
         };
       };
       defaultApplications = {
@@ -51,10 +52,11 @@
         "video/x-flic" = "mpv.desktop";
         "video/x-theora+ogg" = "mpv.desktop";
 
-        "text/html" = "org.qutebrowser.qutebrowser.desktop";
+        "text/html" = "firefox.desktop";
 
-        "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+        "x-scheme-handler/http" = "firefox.desktop";
+        "x-scheme-handler/https" = "firefox.desktop";
+        "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
 
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
@@ -69,10 +71,10 @@
         "image/bmp" = "vimiv.desktop";
         "image/jp2" = "vimiv.desktop";
 
-        "application/x-tar" = "org.kde.ark.desktop";
-        "application/x-7z-compressed" = "org.kde.ark.desktop";
-        "application/vnd.rar" = "org.kde.ark.desktop"; 
-        "application/zip" = "org.kde.ark.desktop";
+        "application/x-tar" = "file-roller.desktop";
+        "application/x-7z-compressed" = "file-roller.desktop";
+        "application/vnd.rar" = "file-roller.desktop"; 
+        "application/zip" = "file-roller.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
       };
