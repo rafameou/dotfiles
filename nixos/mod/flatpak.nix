@@ -24,7 +24,6 @@
     packages = [
       "com.github.tchx84.Flatseal"
       "dev.bambosh.UnofficialHomestuckCollection"
-      "info.febvre.Komikku"
       "io.github.finefindus.Hieroglyphic"
     ];
   };

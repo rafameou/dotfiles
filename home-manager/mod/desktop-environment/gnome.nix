@@ -129,6 +129,7 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
+        /*firefoxpwa generates random ids for the desktop files, I recommend renaming and moving then to a folder.*/
         #"org.qutebrowser.qutebrowser.desktop"
         "firefox.desktop"
         "google-chrome.desktop"
@@ -136,11 +137,11 @@
         "org.codeberg.dnkl.foot.desktop"
         "org.gnome.Nautilus.desktop"
         "bitwarden.desktop"
-        "FFPWA-01HW1V2SSJNS119YHVTMAPH84B.desktop"
-        "org.telegram.desktop.desktop"
+        "FFW-Jellyfin.desktop"
+        "FFW-Mastodon.desktop"
+        "org.telegram.desktop.desktop" 
         "vesktop.desktop"
-        "FFPWA-01HW1THWX3JTR1MWVRMQBVTNQJ.desktop"
-        "FFPWA-01HW1TJJNJPTBJWC49DK57HRFP.desktop"
+        "FFW-WhatsApp.desktop" 
       ];
       disable-user-extensions = false;
       enabled-extensions = [
