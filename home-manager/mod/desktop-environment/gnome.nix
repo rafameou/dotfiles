@@ -1,7 +1,18 @@
-{ pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
+let 
+  base00 = inputs.nix-colors.lib.conversions.hexToRGB config.colorScheme.palette.base00;
+  base00_rgb = lib.lists.forEach base00 (x: x / 255.0); 
+  base00_rgba = base00_rgb ++ [ 0.9 ];
+
+  base05 = inputs.nix-colors.lib.conversions.hexToRGB config.colorScheme.palette.base05;
+  base05_rgb = lib.lists.forEach base05 (x: x / 255.0); 
+  base05_rgba = base05_rgb ++ [ 1.0 ];
+  base05_rgba_alt = base05_rgb ++ [0.5]; 
+in
 {
   imports = [
     ../qt-theme.nix
+    ../nix-colors.nix
   ];
   home.packages = with pkgs; [
     gnome.gnome-software
@@ -21,7 +32,8 @@
     gnomeExtensions.wiggle
     gnomeExtensions.gsconnect
     gnomeExtensions.space-bar
-    gnomeExtensions.dash-to-dock
+    /*gnomeExtensions.dash-to-dock*/
+    gnomeExtensions.dash2dock-lite
     # ---- gnome fixes ----
     adwaita-qt
     adwaita-qt6
@@ -156,7 +168,8 @@
         "wiggle@mechtifs"
         "gsconnect@andyholmes.github.io"
         "space-bar@luchrioh"
-        "dash-to-dock@micxgx.gmail.com"
+        /*"dash-to-dock@micxgx.gmail.com"*/
+        "dash2dock-lite@icedman.github.com"
       ];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -175,6 +188,37 @@
       running-indicator-style = "DOTS";
       show-mounts-network = true;
       transparency-mode = "FIXED";
+    };
+    "org/gnome/shell/extensions/dash2dock-lite" = {
+      animation-bounce = 0.75;
+      animation-fps = 0;
+      apps-icon = true;
+      autohide-dash = true;
+      autohide-dodge = true;
+      autohide-speed = 0.5;
+      background-color = lib.hm.gvariant.mkTuple base00_rgba;
+      border-color = lib.hm.gvariant.mkTuple base05_rgba_alt;
+      border-radius = 3;
+      border-thickness = 1;
+      clock-icon = true;
+      clock-style = 2;
+      customize-label = true;
+      customize-topbar = true;
+      dock-location = 0;
+      dock-padding = 1;
+      edge-distance = 0.5;
+      mounted-icon = true;
+      multi-monitor-preference = 1;
+      open-app-animation = true;
+      preferred-monitor = 0;
+      pressure-sense = false;
+      running-indicator-style = 3;
+      running-indicator-color = lib.hm.gvariant.mkTuple base05_rgba;
+      shrink-icons = true;
+      topbar-background-color = lib.hm.gvariant.mkTuple base00_rgba;
+      topbar-foreground-color = lib.hm.gvariant.mkTuple base05_rgba;
+      topbar-border-thickness = 0;
+      trash-icon = true;
     };
     "org/gnome/desktop/app-folders" = {
       /*https://github.com/BenJetson/gnome-dash-fix*/
