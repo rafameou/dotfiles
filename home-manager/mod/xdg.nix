@@ -71,10 +71,10 @@
         "image/bmp" = "vimiv.desktop";
         "image/jp2" = "vimiv.desktop";
 
-        "application/x-tar" = "file-roller.desktop";
-        "application/x-7z-compressed" = "file-roller.desktop";
-        "application/vnd.rar" = "file-roller.desktop"; 
-        "application/zip" = "file-roller.desktop";
+        "application/x-tar" = "org.gnome.FileRoller.desktop";
+        "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
+        "application/vnd.rar" = "org.gnome.FileRoller.desktop"; 
+        "application/zip" = "org.gnome.FileRoller.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
       };

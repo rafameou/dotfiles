@@ -22,18 +22,19 @@ in
     # ---- gnome extensions ----
     gnomeExtensions.runcat
     gnomeExtensions.appindicator
-    gnomeExtensions.openweather
+    /*gnomeExtensions.openweather*/
     gnomeExtensions.alphabetical-app-grid
     gnomeExtensions.favourites-in-appgrid
-    gnomeExtensions.hot-edge
+    /*gnomeExtensions.hot-edge*/
     gnomeExtensions.caffeine
     gnomeExtensions.activate_gnome
     gnomeExtensions.tailscale-status
     gnomeExtensions.wiggle
     gnomeExtensions.gsconnect
-    gnomeExtensions.space-bar
+    /*gnomeExtensions.space-bar*/
     /*gnomeExtensions.dash-to-dock*/
-    gnomeExtensions.dash2dock-lite
+    /*gnomeExtensions.dash2dock-lite*/
+    gnomeExtensions.dash-to-panel
     # ---- gnome fixes ----
     adwaita-qt
     adwaita-qt6
@@ -84,6 +85,7 @@ in
     };
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
+      edge-tiling = true;
     };
     "org/gnome/shell/keybindings" = {
       switch-to-application-1 = ["<Super><Control>1"];
@@ -143,7 +145,7 @@ in
       favorite-apps = [
         /*firefoxpwa generates random ids for the desktop files, I recommend renaming and moving then to a folder.*/
         #"org.qutebrowser.qutebrowser.desktop"
-        "firefox.desktop"
+        /*"firefox.desktop"
         "google-chrome.desktop"
         "thunderbird.desktop"
         "org.codeberg.dnkl.foot.desktop"
@@ -153,23 +155,24 @@ in
         "FFW-Mastodon.desktop"
         "org.telegram.desktop.desktop" 
         "vesktop.desktop"
-        "FFW-WhatsApp.desktop" 
+        "FFW-WhatsApp.desktop" */
       ];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
         "appindicatorsupport@rgcjonas.gmail.com"
-        "openweather-extension@jenslody.de"
+        /*"openweather-extension@jenslody.de"*/
         "AlphabeticalAppGrid@stuarthayhurst"
         "favourites-in-appgrid@harshadgavali.gitlab.org"
-        "hotedge@jonathan.jdoda.ca"
+        /*"hotedge@jonathan.jdoda.ca"*/
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
         "wiggle@mechtifs"
         "gsconnect@andyholmes.github.io"
-        "space-bar@luchrioh"
+        /*"space-bar@luchrioh"*/
         /*"dash-to-dock@micxgx.gmail.com"*/
-        "dash2dock-lite@icedman.github.com"
+        /*"dash2dock-lite@icedman.github.com"*/
+        "dash-to-panel@jderose9.github.com"
       ];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -220,8 +223,38 @@ in
       topbar-border-thickness = 0;
       trash-icon = true;
     };
+    "org/gnome/shell/extensions/dash-to-panel" = {
+      animate-appicon-hover = true;
+      appicon-margin = 0;
+      appicon-padding = 4;
+      dot-position = "BOTTOM";
+      focus-highlight-dominant = true;
+      group-apps = false;
+      hotkeys-overlay-combo = "TEMPORARILY";
+      intellihide = false;
+      isolate-workspaces = false;
+      leftbox-padding = 4;
+      panel-positions = ''{"0":"BOTTOM"}''; 
+      panel-sizes = ''{"0":32}'';
+      scroll-icon-action = "PASS_THROUGH";
+      show-apps-icon-file = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
+      status-icon-padding = 4;
+      trans-bg-color = "#${config.colorScheme.palette.base00}";
+      trans-gradient-bottom-color = "#000000";
+      trans-gradient-bottom-opacity = 0.3;
+      trans-gradient-top-color = "#000000";
+      trans-gradient-top-opacity = 0.0;
+      trans-panel-opacity = 0.9;
+      trans-use-custom-bg = true;
+      trans-use-custom-gradient = true;
+      trans-use-custom-opacity = true;
+      trans-use-dynamic-opacity = false;
+      tray-padding = 4;
+      window-preview-title-position = "TOP";
+    };
     "org/gnome/desktop/app-folders" = {
       /*https://github.com/BenJetson/gnome-dash-fix*/
+      #folder-children = [];
       folder-children = ["accessories" "chrome-apps" "games" "graphics" "internet" "office" "programming" "science" "sound---video" "system-tools" "universal-access" "wine"];
     };
     "org/gnome/desktop/app-folders/folders/accessories" = {
