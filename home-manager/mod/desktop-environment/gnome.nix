@@ -18,6 +18,7 @@ in
     gnome.gnome-software
     gnome.gnome-tweaks
     gnome.dconf-editor
+    gnome-frog
     #gnome-builder
     # ---- gnome extensions ----
     gnomeExtensions.runcat
@@ -35,6 +36,8 @@ in
     /*gnomeExtensions.dash-to-dock*/
     /*gnomeExtensions.dash2dock-lite*/
     gnomeExtensions.dash-to-panel
+    gnomeExtensions.add-to-desktop
+    gnomeExtensions.gtk4-desktop-icons-ng-ding
     # ---- gnome fixes ----
     adwaita-qt
     adwaita-qt6
@@ -173,6 +176,8 @@ in
         /*"dash-to-dock@micxgx.gmail.com"*/
         /*"dash2dock-lite@icedman.github.com"*/
         "dash-to-panel@jderose9.github.com"
+        "gtk4-ding@smedius.gitlab.com" 
+        "add-to-desktop@tommimon.github.com"
       ];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -224,10 +229,12 @@ in
       trash-icon = true;
     };
     "org/gnome/shell/extensions/dash-to-panel" = {
-      animate-appicon-hover = true;
+      animate-appicon-hover = false;
       appicon-margin = 0;
       appicon-padding = 4;
-      dot-position = "BOTTOM";
+      dot-color-dominant = true;
+      dot-position = "TOP";
+      dot-size = 2;
       focus-highlight-dominant = true;
       group-apps = false;
       hotkeys-overlay-combo = "TEMPORARILY";
@@ -251,6 +258,12 @@ in
       trans-use-dynamic-opacity = false;
       tray-padding = 4;
       window-preview-title-position = "TOP";
+    };
+    "org/gnome/shell/extensions/gtk4-ding" = {
+      arrangeorder = "NAME";
+      keep-arranged = true;
+      show-network-volumes = true;
+      start-corner = "top-left";#"top-right";
     };
     "org/gnome/desktop/app-folders" = {
       /*https://github.com/BenJetson/gnome-dash-fix*/

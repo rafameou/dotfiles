@@ -9,12 +9,19 @@
     overrides = {
       global = {
         /*Force Wayland by default*/
-        Context.sockets = ["wayland" "!x11" "!fallback-x11"];
+        Context = {
+          /* ln -s /run/current-system/sw/share/X11/fonts ~/.local/share/fonts */
+          filesystems = [
+            "$HOME/.local/share/fonts:ro"
+            "$HOME/.icons:ro"
+          ];
+          sockets = ["wayland" "!x11" "!fallback-x11"];
+        };
 
         Environment = {
           /*Fix un-themed cursor in some Wayland apps*/
           XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
-        };
+        }; 
       };
     };
     update.auto = {
