@@ -13,25 +13,19 @@
     #./apps/vscode.nix
     ./apps/zathura.nix
   ]; 
-  programs.firefox = {
+  /*programs.firefox = {
     enable = true;
-    /*nativeMessagingHosts = {
-      gsconnect = true;
-      packages = [
-        pkgs.firefoxpwa
-      ];
-      };*/
     nativeMessagingHosts = with pkgs; [
       firefoxpwa
     ];
-  };
+  };*/
   home.packages = with pkgs; [
     /*-------------|
     |-- internet --|
     |-------------*/
-    firefoxpwa
+    vivaldi
+    vivaldi-ffmpeg-codecs
     google-chrome
-    thunderbird
     tdesktop
     #clematis #mpris for discord
     vesktop

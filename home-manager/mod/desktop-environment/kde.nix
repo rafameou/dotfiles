@@ -22,7 +22,7 @@
     kdePackages.discover
     kdePackages.kdeconnect-kde
 
-    kdePackages.konsole
+    #kdePackages.konsole
 
     kaffeine
   ];
@@ -32,7 +32,7 @@
     workspace = {
       theme = "oxygen";
       colorScheme = "ObsidianCoast"; #"Gruvbox";
-      iconTheme = "Haiku";
+      iconTheme = "Oxygen";
       cursorTheme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
     };

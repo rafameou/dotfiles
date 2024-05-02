@@ -34,4 +34,18 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
     config.common.default = "*";
   };
+
+  # thumbnails
+  #services.tumbler.enable = true;
+  environment.systemPackages = with pkgs; [
+    gdk-pixbuf
+    webp-pixbuf-loader
+    poppler
+    ffmpegthumbnailer
+    freetype
+    libgsf
+    gnome.totem #caja
+    gnome-epub-thumbnailer
+    f3d
+  ];
 }
