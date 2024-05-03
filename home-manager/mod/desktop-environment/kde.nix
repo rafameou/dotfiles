@@ -32,15 +32,15 @@
     workspace = {
       theme = "oxygen";
       colorScheme = "ObsidianCoast"; #"Gruvbox";
-      iconTheme = "Oxygen";
+      iconTheme = "oxygen";
       cursorTheme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
     };
     panels = 
     [ 
       {
-        location = "top";
-        floating = true;
+        location = "bottom";
+        floating = false;
         height = 32;
         widgets = 
         [
@@ -52,21 +52,27 @@
               useCustomButtonImage = "true";
             };
           }
-          /*{
-            name = "org.kde.plasma.folder";
+          {
+            name = "org.kde.plasma.taskmanager";
             config.General = {
-              url = "file:///home/rafameou";
-              viewMode = "1";
+              launchers = "";
+              maxStripes = "1";
+              showOnlyCurrentDesktop = "false";
+              unhideOnAttention = "false";
             };
-          }*/
-          "org.kde.plasma.appmenu"
+          }
           "org.kde.plasma.panelspacer"
+          {
+            name = "org.kde.plasma.pager";
+            config.General = {
+              showWindowIcons = "true";
+            };
+          }
           {
             name = "org.kde.plasma.systemtray";
             config = {
               General = {
                 iconSpacing = "1";
-                /*showAllItems = true;*/
               };
             };
           }
@@ -80,29 +86,6 @@
           }
         ];
       } 
-      {
-        location = "bottom";
-        floating = true;
-        hiding = "autohide"; #"dodgewindows";
-        height = 42;
-        widgets = [
-          {
-            name = "org.kde.plasma.taskmanager";
-            config.General = {
-              launchers = "";
-              maxStripes = "2";
-              showOnlyCurrentDesktop = "false";
-              unhideOnAttention = "false";
-            };
-          }
-          {
-            name = "org.kde.plasma.pager";
-            config.General = {
-              showWindowIcons = "true";
-            };
-          }
-        ];
-      }
     ];
 
     kwin.titlebarButtons = {
@@ -119,7 +102,24 @@
       launchWithoutCapturing = "";
     };
     shortcuts = {
-      "kwin"."Window Close" = ["Meta+Shift+Q" "Alt+F4"];
+      "kwin" = {
+        "Window Close" = ["Meta+Shift+Q" "Alt+F4"];
+        "Switch to Desktop 1" = [ "Meta+1" ];
+        "Switch to Desktop 2" = [ "Meta+2" ];
+        "Switch to Desktop 3" = [ "Meta+3" ];
+        "Switch to Desktop 4" = [ "Meta+4" ];
+        "Window to Desktop 1" = [ "Meta+Shift+1" ];
+        "Window to Desktop 2" = [ "Meta+Shift+2" ];
+        "Window to Desktop 3" = [ "Meta+Shift+3" ];
+        "Window to Desktop 4" = [ "Meta+Shift+4" ];
+      };
+
+      "plasmashell" = {
+        "activate task manager entry 1" = [];
+        "activate task manager entry 2" = [];
+        "activate task manager entry 3" = [];
+        "activate task manager entry 4" = [];
+      };
 
       "org.kde.dolphin.desktop"."_launch" = "Meta+E";
     };
@@ -152,7 +152,7 @@
       "kwinrc" = {
         "Desktops" = {
           "Number" = 4;
-          "Rows" = 2;
+          "Rows" = 1;
         };
         "NightColor"."Active" = true;
         "Plugins" = {
@@ -161,17 +161,17 @@
           "slidingpopupsEnabled" = false;
         };
         "Windows" = {
-          "BorderlessMaximizedWindows" = true;
-          "RollOverDesktops" = true;
+          "BorderlessMaximizedWindows" = false;
+          "RollOverDesktops" = false;
         };
         "Xwayland"."Scale" = 1;
       };
 
       "kxkbrc"."Layout" = {
         "DisplayNames" = ",";
-        "LayoutList" = "br,br";
+        "LayoutList" = "br,br,br";
         "Use" = true;
-        "VariantList" = ",thinkpad";
+        "VariantList" = ",thinkpad,nativo";
       };
 
       "plasmarc"."Theme"."name" = "oxygen";

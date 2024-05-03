@@ -2,8 +2,8 @@
 {
   #Enable KDE
   #services.xserver.displayManager.startx.enable = true;
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.desktopManager.plasma6.enable = true;
   #services.xserver.desktopManager.lxqt.enable = true;
   #services.xserver.displayManager.defaultSession = "plasmawayland";
   
@@ -26,18 +26,8 @@
     kdePackages.oxygen.qt5 
     kdePackages.oxygen-sounds
     kdePackages.oxygen-icons
-  ];
 
-  # flatpak
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
-  };
-
-  # thumbnails
-  #services.tumbler.enable = true;
-  environment.systemPackages = with pkgs; [
+    /* -- thumbnails -- */
     gdk-pixbuf
     webp-pixbuf-loader
     poppler
@@ -48,4 +38,11 @@
     gnome-epub-thumbnailer
     f3d
   ];
+
+  # flatpak
+  xdg.portal = {
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = "*";
+  };
 }
