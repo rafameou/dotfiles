@@ -33,8 +33,6 @@ in
     gnomeExtensions.wiggle
     gnomeExtensions.gsconnect
     /*gnomeExtensions.space-bar*/
-    /*gnomeExtensions.dash-to-dock*/
-    /*gnomeExtensions.dash2dock-lite*/
     gnomeExtensions.dash-to-panel
     gnomeExtensions.add-to-desktop
     gnomeExtensions.gtk4-desktop-icons-ng-ding
@@ -175,11 +173,11 @@ in
         "wiggle@mechtifs"
         "gsconnect@andyholmes.github.io"
         /*"space-bar@luchrioh"*/
-        /*"dash-to-dock@micxgx.gmail.com"*/
-        /*"dash2dock-lite@icedman.github.com"*/
-        "dash-to-panel@jderose9.github.com"
+        /*"dash-to-panel@jderose9.github.com"*/
         "gtk4-ding@smedius.gitlab.com" 
         "add-to-desktop@tommimon.github.com"
+        "places-menu@gnome-shell-extensions.gcampax.github.com"
+        "window-list@gnome-shell-extensions.gcampax.github.com"
       ];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -199,73 +197,16 @@ in
       show-mounts-network = true;
       transparency-mode = "FIXED";
     };
-    "org/gnome/shell/extensions/dash2dock-lite" = {
-      animation-bounce = 0.75;
-      animation-fps = 0;
-      apps-icon = true;
-      autohide-dash = true;
-      autohide-dodge = true;
-      autohide-speed = 0.5;
-      background-color = lib.hm.gvariant.mkTuple base00_rgba;
-      border-color = lib.hm.gvariant.mkTuple base05_rgba_alt;
-      border-radius = 3;
-      border-thickness = 1;
-      clock-icon = true;
-      clock-style = 2;
-      customize-label = true;
-      customize-topbar = true;
-      dock-location = 0;
-      dock-padding = 1;
-      edge-distance = 0.5;
-      mounted-icon = true;
-      multi-monitor-preference = 1;
-      open-app-animation = true;
-      preferred-monitor = 0;
-      pressure-sense = false;
-      running-indicator-style = 3;
-      running-indicator-color = lib.hm.gvariant.mkTuple base05_rgba;
-      shrink-icons = true;
-      topbar-background-color = lib.hm.gvariant.mkTuple base00_rgba;
-      topbar-foreground-color = lib.hm.gvariant.mkTuple base05_rgba;
-      topbar-border-thickness = 0;
-      trash-icon = true;
-    };
-    "org/gnome/shell/extensions/dash-to-panel" = {
-      animate-appicon-hover = false;
-      appicon-margin = 0;
-      appicon-padding = 4;
-      dot-color-dominant = true;
-      dot-position = "TOP";
-      dot-size = 2;
-      focus-highlight-dominant = true;
-      group-apps = false;
-      hotkeys-overlay-combo = "TEMPORARILY";
-      intellihide = false;
-      isolate-workspaces = false;
-      leftbox-padding = 4;
-      panel-positions = ''{"0":"BOTTOM"}''; 
-      panel-sizes = ''{"0":32}'';
-      scroll-icon-action = "PASS_THROUGH";
-      show-apps-icon-file = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake-white.svg";
-      status-icon-padding = 4;
-      trans-bg-color = "#${config.colorScheme.palette.base00}";
-      trans-gradient-bottom-color = "#000000";
-      trans-gradient-bottom-opacity = 0.3;
-      trans-gradient-top-color = "#000000";
-      trans-gradient-top-opacity = 0.0;
-      trans-panel-opacity = 0.9;
-      trans-use-custom-bg = true;
-      trans-use-custom-gradient = true;
-      trans-use-custom-opacity = true;
-      trans-use-dynamic-opacity = false;
-      tray-padding = 4;
-      window-preview-title-position = "TOP";
-    };
     "org/gnome/shell/extensions/gtk4-ding" = {
       arrangeorder = "NAME";
       keep-arranged = true;
       show-network-volumes = true;
       start-corner = "top-left";#"top-right";
+    };
+    "org/gnome/shell/extensions/window-list" = {
+      display-all-workspaces = true;
+      grouping-mode = "auto";
+      show-on-all-monitors = true;
     };
     "org/gnome/desktop/app-folders" = {
       /*https://github.com/BenJetson/gnome-dash-fix*/

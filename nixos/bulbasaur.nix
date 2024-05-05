@@ -39,6 +39,8 @@
   services.xrdp.defaultWindowManager = "gnome-session";
   #services.xrdp.openFirewall = true;
 
+  services.gnome.gnome-remote-desktop.enable = true;
+
   services.openssh.enable = true;
   services.geoclue2.enable = true;
   programs.firejail.enable = true;

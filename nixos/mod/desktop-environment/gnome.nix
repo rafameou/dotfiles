@@ -5,7 +5,7 @@
 
   services.gnome.gnome-keyring.enable = true;
 
-  services.gnome.gnome-remote-desktop.enable = true;
+  #services.gnome.gnome-remote-desktop.enable = true;
 
   /*services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "gnome-remote-desktop";
