@@ -130,7 +130,9 @@ in
       titlebar-font = "Fira Sans 11";
     };
     "org/gnome/desktop/interface" = {
+      clock-show-date = true;
       clock-show-seconds = true;
+      clock-show-weekday = true;
       show-battery-percentage = true;
       font-name = "Fira Sans 11";
       document-font-name = "Fira Sans 11";
