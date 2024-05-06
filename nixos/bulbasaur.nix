@@ -35,10 +35,11 @@
     fsType = "ext4";
   };
 
-  services.xrdp.enable = true;
-  services.xrdp.defaultWindowManager = "gnome-session";
+  #services.xrdp.enable = true;
+  #services.xrdp.defaultWindowManager = "gnome-session";
   #services.xrdp.openFirewall = true;
 
+  services.xserver.desktopManager.gnome.enable = lib.mkForce false; 
   services.gnome.gnome-remote-desktop.enable = true;
 
   services.openssh.enable = true;
