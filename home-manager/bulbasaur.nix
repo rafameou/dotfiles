@@ -25,7 +25,7 @@
   home.packages = with pkgs; [
     screen
     firejail
-    nodejs_21 figlet cowsay
+    nodejs_22 figlet cowsay
   ];
 
 

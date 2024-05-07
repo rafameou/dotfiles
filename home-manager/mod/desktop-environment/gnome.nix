@@ -1,14 +1,4 @@
 { inputs, config, lib, pkgs, ... }:
-let 
-  base00 = inputs.nix-colors.lib.conversions.hexToRGB config.colorScheme.palette.base00;
-  base00_rgb = lib.lists.forEach base00 (x: x / 255.0); 
-  base00_rgba = base00_rgb ++ [ 0.9 ];
-
-  base05 = inputs.nix-colors.lib.conversions.hexToRGB config.colorScheme.palette.base05;
-  base05_rgb = lib.lists.forEach base05 (x: x / 255.0); 
-  base05_rgba = base05_rgb ++ [ 1.0 ];
-  base05_rgba_alt = base05_rgb ++ [0.5]; 
-in
 {
   imports = [
     ../qt-theme.nix
@@ -37,6 +27,7 @@ in
     gnomeExtensions.add-to-desktop
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     # ---- gnome fixes ----
+    adw-gtk3
     adwaita-qt
     adwaita-qt6
     libsForQt5.qt5.qtwayland
@@ -78,6 +69,10 @@ in
       name = "Fira Sans";
       size = 11;
     };
+    /*theme = {
+      name = "adw-gtk3-dark";
+      package = pkgs.adw-gtk3;
+    };*/
   };
 
   dconf.settings = {
@@ -134,6 +129,8 @@ in
       show-battery-percentage = true;
       font-name = "Fira Sans 11";
       document-font-name = "Fira Sans 11";
+      gtk-theme = "adw-gtk3-dark";
+      color-scheme = "prefer-dark";
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
@@ -145,21 +142,7 @@ in
       sort-directories-first = true;
     };
     "org/gnome/shell" = {
-      favorite-apps = [
-        /*firefoxpwa generates random ids for the desktop files, I recommend renaming and moving then to a folder.*/
-        #"org.qutebrowser.qutebrowser.desktop"
-        /*"firefox.desktop"
-        "google-chrome.desktop"
-        "thunderbird.desktop"
-        "org.codeberg.dnkl.foot.desktop"
-        "org.gnome.Nautilus.desktop"
-        "bitwarden.desktop"
-        "FFW-Jellyfin.desktop"
-        "FFW-Mastodon.desktop"
-        "org.telegram.desktop.desktop" 
-        "vesktop.desktop"
-        "FFW-WhatsApp.desktop" */
-      ];
+      favorite-apps = [ ];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
@@ -179,23 +162,6 @@ in
         "places-menu@gnome-shell-extensions.gcampax.github.com"
         "window-list@gnome-shell-extensions.gcampax.github.com"
       ];
-    };
-    "org/gnome/shell/extensions/dash-to-dock" = {
-      background-color = "rgb(0,0,0)";
-      background-opacity = 0.7;
-      click-action = "minimize";
-      custom-background-color = true;
-      customize-alphas = true;
-      custom-theme-shrink = true;
-      dock-fixed = true;
-      dock-position = "LEFT";
-      extend-height = true;
-      hot-keys = false;
-      icon-size-fixed = true;
-      multi-monitor = true;
-      running-indicator-style = "DOTS";
-      show-mounts-network = true;
-      transparency-mode = "FIXED";
     };
     "org/gnome/shell/extensions/gtk4-ding" = {
       arrangeorder = "NAME";

@@ -38,9 +38,12 @@
   #services.xrdp.enable = true;
   #services.xrdp.defaultWindowManager = "gnome-session";
   #services.xrdp.openFirewall = true;
-
-  services.xserver.desktopManager.gnome.enable = lib.mkForce false; 
+ 
   services.gnome.gnome-remote-desktop.enable = true;
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+  '';
 
   services.openssh.enable = true;
   services.geoclue2.enable = true;
@@ -61,9 +64,9 @@
   };
 
     #fix distrobox
-  environment.shellInit = ''
+  /*environment.shellInit = ''
     [ -n "$DISPLAY" ] && xhost +si:localhost:$USER || true
-    '';
+    '';*/
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
