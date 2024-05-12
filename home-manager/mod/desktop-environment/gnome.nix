@@ -15,7 +15,7 @@
     gnomeExtensions.appindicator
     /*gnomeExtensions.openweather*/
     gnomeExtensions.alphabetical-app-grid
-    gnomeExtensions.favourites-in-appgrid
+    /*gnomeExtensions.favourites-in-appgrid*/
     /*gnomeExtensions.hot-edge*/
     gnomeExtensions.caffeine
     gnomeExtensions.activate_gnome
@@ -26,6 +26,7 @@
     gnomeExtensions.dash-to-panel
     gnomeExtensions.add-to-desktop
     gnomeExtensions.gtk4-desktop-icons-ng-ding
+    gnomeExtensions.just-perfection
     # ---- gnome fixes ----
     adw-gtk3
     adwaita-qt
@@ -149,7 +150,7 @@
         "appindicatorsupport@rgcjonas.gmail.com"
         /*"openweather-extension@jenslody.de"*/
         "AlphabeticalAppGrid@stuarthayhurst"
-        "favourites-in-appgrid@harshadgavali.gitlab.org"
+        /*"favourites-in-appgrid@harshadgavali.gitlab.org"*/
         /*"hotedge@jonathan.jdoda.ca"*/
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
@@ -159,9 +160,16 @@
         /*"dash-to-panel@jderose9.github.com"*/
         "gtk4-ding@smedius.gitlab.com" 
         "add-to-desktop@tommimon.github.com"
+        "apps-menu@gnome-shell-extensions.gcampax.github.com"
         "places-menu@gnome-shell-extensions.gcampax.github.com"
         "window-list@gnome-shell-extensions.gcampax.github.com"
+        "just-perfection-desktop@just-perfection"
       ];
+    };
+    "org/gnome/shell/extensions/just-perfection" = {
+      activities-button = false;
+      dash = false;
+      startup-status = 0;
     };
     "org/gnome/shell/extensions/gtk4-ding" = {
       arrangeorder = "NAME";
