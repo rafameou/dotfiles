@@ -8,7 +8,6 @@
     gnome.gnome-software
     gnome.gnome-tweaks
     gnome.dconf-editor
-    gnome-frog
     #gnome-builder
     # ---- gnome extensions ----
     gnomeExtensions.runcat
@@ -37,7 +36,10 @@
     wl-clipboard 
     xclip
 
-    wayland-pipewire-idle-inhibit 
+    wayland-pipewire-idle-inhibit
+
+    planify
+    eyedropper
   ];
 
   home.sessionVariables = {
