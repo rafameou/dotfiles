@@ -66,7 +66,7 @@
     };
   };
 
-  gtk = {
+  /*gtk = {
     enable = true;
     font = {
       name = "Fira Sans";
@@ -76,7 +76,7 @@
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
     };*/
-  };
+  #};*/
 
   dconf.settings = {
     "org/gnome/desktop/session" = {

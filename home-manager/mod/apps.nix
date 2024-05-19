@@ -26,9 +26,9 @@
     vivaldi
     vivaldi-ffmpeg-codecs
     google-chrome
-    tdesktop
+    #tdesktop
     #clematis #mpris for discord
-    vesktop
+    #pkgs.nixpkgs-master.vesktop
     #spotify
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku
