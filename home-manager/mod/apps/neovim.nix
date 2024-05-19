@@ -171,12 +171,6 @@ in
               capabilities = capabilities,
             };
 
-            -- Haskell (hls)
-            lspconfig.hls.setup{
-              cmd = { vim.fn.executable("haskell-language-server-wrapper") == 1 and "haskell-language-server-wrapper" or "${haskell-language-server}/bin/haskell-language-server-wrapper", "--lsp" },
-              capabilities = capabilities,
-            };
-
             -- html
             capabilities.textDocument.completion.completionItem.snippetSupport = true;
               lspconfig.html.setup {
