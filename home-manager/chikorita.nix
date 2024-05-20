@@ -17,6 +17,8 @@
     #./mod/desktop-environment/kde.nix
     #./mod/desktop-environment/mate.nix
     #./mod/desktop-environment/xfce.nix
+
+    ./mod/apps/rclone-server.nix
   ];
 
   /* ... changes to only this sytem */

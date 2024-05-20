@@ -46,6 +46,7 @@
   '';
 
   services.openssh.enable = true;
+  services.openssh.openFirewall = false;
   services.geoclue2.enable = true;
   programs.firejail.enable = true;
   programs.fuse.userAllowOther = true;

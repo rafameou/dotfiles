@@ -1,6 +1,6 @@
 { pkgs, ... }:
 let
-  mount_directory = "/mnt/Extra/gdrive_music";
+  mount_directory = "/mnt/Extra2/gdrive_music";
 in
   {
   home.packages = with pkgs; [ rclone fuse ];
