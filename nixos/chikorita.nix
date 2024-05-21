@@ -20,6 +20,8 @@
     ./mod/env.nix
     ./mod/flatpak.nix
     ./mod/desktop-environment/gnome.nix
+
+    ./mod/navidrome.nix
   ];
 
   networking.hostName = "chikorita"; # Define your hostname.
@@ -56,12 +58,17 @@
   programs.firejail.enable = true;
   programs.fuse.userAllowOther = true;
 
-  services.navidrome = {
+  /*services.navidrome = {
     enable = true;
     settings = {
       MusicFolder = "/mnt/Extra2/gdrive_music";
     };
-  };
+  };*/
+
+  environment.systemPackages = [
+    pkgs.screen
+    pkgs.navidrome
+  ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
