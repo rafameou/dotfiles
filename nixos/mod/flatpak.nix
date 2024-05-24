@@ -32,6 +32,8 @@
       "com.github.tchx84.Flatseal"
       "dev.bambosh.UnofficialHomestuckCollection"
       "io.github.finefindus.Hieroglyphic"
+      "org.gnome.gitlab.YaLTeR.VideoTrimmer"
+      "org.gnome.gitlab.YaLTeR.Identity"
     ];
   };
 }

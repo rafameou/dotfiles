@@ -1,14 +1,17 @@
 { pkgs, ... }:
 {
-  virtualisation.libvirtd = {
-    enable = true;
-    qemu = {
-      package = pkgs.qemu_kvm;
-      ovmf = {
-        enable = true;
-        packages = [ pkgs.OVMFFull.fd ];
+  virtualisation = {
+    #useSecureBoot = true;
+    libvirtd = {
+      enable = true;
+      qemu = {
+        package = pkgs.qemu_kvm;
+        ovmf = {
+          enable = true;
+          packages = [ pkgs.OVMFFull.fd ];
+        };
+        swtpm.enable = true;
       };
-      swtpm.enable = true;
     };
   };
   #https://github.com/ners/NixOS/blob/master/overlays/OVMF.nix
