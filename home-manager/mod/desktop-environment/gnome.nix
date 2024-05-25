@@ -17,15 +17,15 @@
     /*gnomeExtensions.favourites-in-appgrid*/
     /*gnomeExtensions.hot-edge*/
     gnomeExtensions.caffeine
-    gnomeExtensions.activate_gnome
+    #gnomeExtensions.activate_gnome
     gnomeExtensions.tailscale-status
-    gnomeExtensions.wiggle
+    #gnomeExtensions.wiggle
     gnomeExtensions.gsconnect
     /*gnomeExtensions.space-bar*/
-    gnomeExtensions.dash-to-panel
+    #gnomeExtensions.dash-to-panel
     gnomeExtensions.add-to-desktop
     gnomeExtensions.gtk4-desktop-icons-ng-ding
-    gnomeExtensions.just-perfection
+    #gnomeExtensions.just-perfection
     # ---- gnome fixes ----
     adw-gtk3
     adwaita-qt
@@ -77,6 +77,13 @@
       package = pkgs.adw-gtk3;
     };*/
   #};*/
+
+  home.pointerCursor = {
+    gtk.enable = true;
+    x11.enable = true;
+    name = "phinger-cursors-light";
+    package = pkgs.phinger-cursors;
+  };
 
   dconf.settings = {
     "org/gnome/desktop/session" = {
@@ -134,6 +141,8 @@
       document-font-name = "Fira Sans 11";
       gtk-theme = "adw-gtk3-dark";
       color-scheme = "prefer-dark";
+      cursor-theme = "phinger-cursors-light";
+      cursor-size = 32;
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;
@@ -156,16 +165,16 @@
         /*"hotedge@jonathan.jdoda.ca"*/
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
-        "wiggle@mechtifs"
+        #"wiggle@mechtifs"
         "gsconnect@andyholmes.github.io"
         /*"space-bar@luchrioh"*/
         /*"dash-to-panel@jderose9.github.com"*/
         "gtk4-ding@smedius.gitlab.com" 
         "add-to-desktop@tommimon.github.com"
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
-        "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"
-        "just-perfection-desktop@just-perfection"
+        #"apps-menu@gnome-shell-extensions.gcampax.github.com"
+        #"places-menu@gnome-shell-extensions.gcampax.github.com"
+        #"window-list@gnome-shell-extensions.gcampax.github.com"
+        #"just-perfection-desktop@just-perfection"
       ];
     };
     "org/gnome/shell/extensions/just-perfection" = {
