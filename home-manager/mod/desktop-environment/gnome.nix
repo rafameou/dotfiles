@@ -12,19 +12,17 @@
     # ---- gnome extensions ----
     gnomeExtensions.runcat
     gnomeExtensions.appindicator
-    /*gnomeExtensions.openweather*/
     gnomeExtensions.alphabetical-app-grid
     /*gnomeExtensions.favourites-in-appgrid*/
-    /*gnomeExtensions.hot-edge*/
+    gnomeExtensions.hot-edge
     gnomeExtensions.caffeine
-    #gnomeExtensions.activate_gnome
     gnomeExtensions.tailscale-status
     #gnomeExtensions.wiggle
     gnomeExtensions.gsconnect
-    /*gnomeExtensions.space-bar*/
+    gnomeExtensions.space-bar
     #gnomeExtensions.dash-to-panel
-    gnomeExtensions.add-to-desktop
-    gnomeExtensions.gtk4-desktop-icons-ng-ding
+    #gnomeExtensions.add-to-desktop
+    #gnomeExtensions.gtk4-desktop-icons-ng-ding
     #gnomeExtensions.just-perfection
     # ---- gnome fixes ----
     adw-gtk3
@@ -154,23 +152,30 @@
       sort-directories-first = true;
     };
     "org/gnome/shell" = {
-      favorite-apps = [ ];
+      favorite-apps = [ 
+        "vivaldi-stable.desktop"
+        "google-chrome.desktop"
+        "org.gnome.Geary.desktop"
+        "io.github.alainm23.planify.desktop"
+        "org.gnome.Console.desktop"
+        "org.gnome.SystemMonitor.desktop"
+        "org.gnome.Nautilus.desktop"
+        "virt-manager.desktop"
+      ];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
         "appindicatorsupport@rgcjonas.gmail.com"
-        /*"openweather-extension@jenslody.de"*/
         "AlphabeticalAppGrid@stuarthayhurst"
         /*"favourites-in-appgrid@harshadgavali.gitlab.org"*/
-        /*"hotedge@jonathan.jdoda.ca"*/
+        "hotedge@jonathan.jdoda.ca"
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
-        #"wiggle@mechtifs"
         "gsconnect@andyholmes.github.io"
-        /*"space-bar@luchrioh"*/
+        "space-bar@luchrioh"
         /*"dash-to-panel@jderose9.github.com"*/
-        "gtk4-ding@smedius.gitlab.com" 
-        "add-to-desktop@tommimon.github.com"
+        /*"gtk4-ding@smedius.gitlab.com" 
+        "add-to-desktop@tommimon.github.com"*/
         #"apps-menu@gnome-shell-extensions.gcampax.github.com"
         #"places-menu@gnome-shell-extensions.gcampax.github.com"
         #"window-list@gnome-shell-extensions.gcampax.github.com"
