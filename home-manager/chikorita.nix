@@ -19,6 +19,7 @@
     #./mod/desktop-environment/xfce.nix
 
     ./mod/apps/rclone-server.nix
+    ./mod/apps/retroarch.nix
   ];
 
   /* ... changes to only this sytem */
