@@ -2,7 +2,6 @@
 {
   home.packages = with pkgs; [
     killall
-    vimiv-qt
     android-file-transfer
   ];
 

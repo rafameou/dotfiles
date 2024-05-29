@@ -4,12 +4,12 @@
     #./apps/dunst.nix
     #./apps/foot.nix
     #./apps/fuzzel.nix
-    #./apps/kitty.nix
-    ./apps/luakit.nix
+    ./apps/kitty.nix
+    #./apps/luakit.nix
     ./apps/neovim.nix
-    ./apps/qutebrowser.nix
+    #./apps/qutebrowser.nix
     ./apps/rclone.nix
-    ./apps/vimiv.nix
+    #./apps/vimiv.nix
     #./apps/vscode.nix
     ./apps/zathura.nix
   ]; 

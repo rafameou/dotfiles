@@ -63,13 +63,13 @@
 
         "inode/directory" = "org.gnome.Nautilus.desktop";
 
-        "image/tiff" = "vimiv.desktop";
-        "image/jpx" = "vimiv.desktop";
-        "image/png" = "vimiv.desktop";
-        "image/gif" = "vimiv.desktop";
-        "image/jpeg" = "vimiv.desktop";
-        "image/bmp" = "vimiv.desktop";
-        "image/jp2" = "vimiv.desktop";
+        "image/tiff" = "org.gnome.Loupe.desktop";
+        "image/jpx" = "org.gnome.Loupe.desktop";
+        "image/png" = "org.gnome.Loupe.desktop";
+        "image/gif" = "org.gnome.Loupe.desktop";
+        "image/jpeg" = "org.gnome.Loupe.desktop";
+        "image/bmp" = "org.gnome.Loupe.desktop";
+        "image/jp2" = "org.gnome.Loupe.desktop";
 
         "application/x-tar" = "org.gnome.FileRoller.desktop";
         "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";

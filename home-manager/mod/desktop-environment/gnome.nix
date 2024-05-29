@@ -156,7 +156,7 @@
         "google-chrome.desktop"
         "org.gnome.Geary.desktop"
         "io.github.alainm23.planify.desktop"
-        "org.gnome.Console.desktop"
+        "kitty.desktop"
         "org.gnome.SystemMonitor.desktop"
         "org.gnome.Nautilus.desktop"
         "virt-manager.desktop"
