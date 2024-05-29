@@ -1,17 +1,6 @@
 {config, inputs, pkgs, ...}:
-let
-  #inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) gtkThemeFromScheme;
-  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) nixWallpaperFromScheme;
-
-  wallpaper = nixWallpaperFromScheme {
-    scheme = config.colorScheme;
-    width = 1920;
-    height = 1080;
-    logoScale = 5.0;
-  };
-in
   {
-    imports = [ ../nix-colors.nix ../qt-theme.nix ../gtk-theme.nix ];
+    imports = [ ../qt-theme.nix ../gtk-theme.nix ];
     home.packages = with pkgs; [
       breeze-icons
     ];
@@ -39,7 +28,7 @@ in
         icon-theme = "nix-snowflake-white";
       };
       "org/mate/desktop/background" = {
-        picture-filename = "${wallpaper}"; #"/home/rafameou/GoogleDrive/back";
+        #picture-filename = "${wallpaper}"; #"/home/rafameou/GoogleDrive/back";
         picture-options = "zoom";
       };
     };

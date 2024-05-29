@@ -2,7 +2,6 @@
 {
   imports = [
     ../qt-theme.nix
-    ../nix-colors.nix
   ];
   home.packages = with pkgs; [
     gnome.gnome-software
@@ -76,12 +75,12 @@
     };*/
   #};*/
 
-  home.pointerCursor = {
+  /*home.pointerCursor = {
     gtk.enable = true;
     x11.enable = true;
     name = "phinger-cursors-light";
     package = pkgs.phinger-cursors;
-  };
+  };*/
 
   dconf.settings = {
     "org/gnome/desktop/session" = {
@@ -128,19 +127,19 @@
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
-      titlebar-font = "Fira Sans 11";
+      #titlebar-font = "Fira Sans 11";
     };
     "org/gnome/desktop/interface" = {
       clock-show-date = true;
       clock-show-seconds = true;
       clock-show-weekday = true;
       show-battery-percentage = true;
-      font-name = "Fira Sans 11";
-      document-font-name = "Fira Sans 11";
-      gtk-theme = "adw-gtk3-dark";
+      #font-name = "Fira Sans 11";
+      #document-font-name = "Fira Sans 11";
+      #gtk-theme = "adw-gtk3-dark";
       color-scheme = "prefer-dark";
-      cursor-theme = "phinger-cursors-light";
-      cursor-size = 32;
+      #cursor-theme = "phinger-cursors-light";
+      #cursor-size = 32;
     };
     "org/gnome/desktop/peripherals/touchpad" = {
       tap-to-click = true;

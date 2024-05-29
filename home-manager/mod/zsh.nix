@@ -1,7 +1,4 @@
 { config, inputs, pkgs, ... }:
-let
-  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) shellThemeFromScheme;
-in
 {
   programs.zsh = {
     enable = true;
@@ -55,8 +52,6 @@ in
         PS1="%{%F{154}%}%n%{%f%} at %{%F{45}%}%m%{%f%} in %{%F{87}%}%1~ %{%f%}%# "
         RPROMPT="%{%f%}%?"
       }
-      
-      sh ${shellThemeFromScheme { scheme = config.colorScheme; }}
 
       precmd_functions+=prompt
     '';

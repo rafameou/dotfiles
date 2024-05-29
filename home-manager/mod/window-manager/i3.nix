@@ -1,6 +1,5 @@
 { lib, config, pkgs, ... }:
 {
-  imports = [ ../nix-colors.nix ];
   home.packages = with pkgs; [
     brightnessctl
     playerctl
@@ -36,7 +35,7 @@ unredir-if-possible = false;
         size = 10.0;
       };
       /*colors stolen from https://github.com/Haze-sh/base16-bemenu/"*/
-      menu = ''BEMENU_OPTS="--tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"'';
+      menu = ''${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"'';
       bars = [
         {
           fonts = {
@@ -45,79 +44,8 @@ unredir-if-possible = false;
           };
           position = "bottom";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
-          /*---------------------------------------------------------|
-          | Stolen from https://github.com/tinted-theming/base16-i3/ |
-          |---------------------------------------------------------*/
-          colors = {
-            background = "#${config.colorScheme.palette.base00}B2";
-            separator = "#${config.colorScheme.palette.base01}";
-            statusline = "#${config.colorScheme.palette.base04}";
-            focusedWorkspace = {
-              border = "#${config.colorScheme.palette.base05}";
-              background = "#${config.colorScheme.palette.base0D}"; 
-              text = "#${config.colorScheme.palette.base00}";
-            };
-            activeWorkspace = {
-              border = "#${config.colorScheme.palette.base05}";
-              background = "#${config.colorScheme.palette.base03}";  
-              text = "#${config.colorScheme.palette.base00}";
-            };
-            inactiveWorkspace = {
-              border = "#${config.colorScheme.palette.base03}";
-              background = "#${config.colorScheme.palette.base01}";
-              text = "#${config.colorScheme.palette.base05}";
-            };
-            urgentWorkspace = {
-              border = "#${config.colorScheme.palette.base08}";
-              background = "#${config.colorScheme.palette.base08}";
-              text = "#${config.colorScheme.palette.base00}";
-            };
-            bindingMode = {
-              border = "#${config.colorScheme.palette.base00}";
-              background = "#${config.colorScheme.palette.base0A}";
-              text = "#${config.colorScheme.palette.base00}";
-            };
-          };
         }
       ];
-      colors = {
-        focused = {
-          border = "#${config.colorScheme.palette.base05}";
-          background = "#${config.colorScheme.palette.base0D}";
-          text = "#${config.colorScheme.palette.base00}";
-          indicator = "#${config.colorScheme.palette.base0D}";
-          childBorder = "#${config.colorScheme.palette.base0C}";
-        };
-        focusedInactive = {
-          border = "#${config.colorScheme.palette.base01}";
-          background = "#${config.colorScheme.palette.base01}";
-          text = "#${config.colorScheme.palette.base05}";
-          indicator = "#${config.colorScheme.palette.base03}";
-          childBorder = "#${config.colorScheme.palette.base01}";
-        };
-        unfocused = {
-          border = "#${config.colorScheme.palette.base01}";
-          background = "#${config.colorScheme.palette.base00}";
-          text = "#${config.colorScheme.palette.base05}";
-          indicator = "#${config.colorScheme.palette.base01}";
-          childBorder = "#${config.colorScheme.palette.base01}";
-        };
-        urgent = {
-          border = "#${config.colorScheme.palette.base08}";
-          background = "#${config.colorScheme.palette.base08}";
-          text = "#${config.colorScheme.palette.base00}";
-          indicator = "#${config.colorScheme.palette.base08}";
-          childBorder = "#${config.colorScheme.palette.base08}";
-        };
-        placeholder = {
-          border = "#${config.colorScheme.palette.base00}";
-          background = "#${config.colorScheme.palette.base00}";
-          text = "#${config.colorScheme.palette.base05}";
-          indicator = "#${config.colorScheme.palette.base00}";
-          childBorder = "#${config.colorScheme.palette.base00}";
-        };
-        background = "#${config.colorScheme.palette.base07}"; 
-      };
       terminal = "konsole";
       focus = {
         followMouse = true;

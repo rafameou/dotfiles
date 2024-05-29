@@ -1,9 +1,5 @@
 { config, inputs, pkgs, ... }:
-let
-  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) vimThemeFromScheme;
-in
   {
-    imports = [ ../nix-colors.nix ];
     programs.neovim = with pkgs; {
       enable = true;
       defaultEditor = true;
@@ -290,17 +286,6 @@ in
           '';
         }
         { plugin = img-clip-nvim; }
-        {
-          plugin = vimThemeFromScheme { scheme = config.colorScheme; };
-          config = ''
-            colorscheme nix-${config.colorScheme.slug}
-            lua << END
-            -- theme
-            vim.o.background = "dark";
-            -- vim.cmd([[colorscheme gruvbox]]);
-            END
-          '';
-        }
       ];
 
       extraConfig = ''

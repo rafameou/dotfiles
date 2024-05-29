@@ -18,11 +18,13 @@
 
     # Shameless plug: looking for a way to nixify your themes and make
     # everything match nicely? Try nix-colors!
-    nix-colors.url = "github:misterio77/nix-colors";
+    #nix-colors.url = "github:misterio77/nix-colors";
 
-    plasma-manager.url = "github:pjones/plasma-manager";
-    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
-    plasma-manager.inputs.home-manager.follows = "home-manager";
+    #plasma-manager.url = "github:pjones/plasma-manager";
+    #plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
+    #plasma-manager.inputs.home-manager.follows = "home-manager";
+
+    stylix.url = "github:danth/stylix";
 
     img-clip-nvim.url = "github:HakonHarnes/img-clip.nvim";
     img-clip-nvim.flake = false;
@@ -32,27 +34,24 @@
     #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
-  outputs = { nixpkgs, home-manager, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, stylix, ... }@inputs: {
     nixosConfigurations = {
-      bulbasaur = nixpkgs.lib.nixosSystem {
+      /*bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ ./nixos/bulbasaur.nix ];
-      };
+      };*/
       chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ 
-          ./nixos/chikorita.nix 
-          #chaotic.nixosModules.default
-        ];
+        modules = [ stylix.nixosModules.stylix ./nixos/chikorita.nix ];
       };
       treecko = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./nixos/treecko.nix ];
+        modules = [ stylix.nixosModules.stylix ./nixos/treecko.nix ];
       };
-      oddish = nixpkgs.lib.nixosSystem {
+      /*oddish = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ ./nixos/oddish.nix ];
-      };
+      };*/
     };
   };
 }

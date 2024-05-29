@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 {
-  imports = [../nix-colors.nix];
   home.packages = with pkgs; [ vimiv-qt ];
-  xdg.configFile = {
+  /*xdg.configFile = {
     "vimiv/styles/nix-colors".text = ''
       ; base16: (https://github.com/chriskempson/base16)
       ; Template: Christian Karl <karlch at protonmail dot com>
@@ -40,5 +39,5 @@
       [STATUSBAR]
       center = {image-size} 
     '';
-  };
+  };*/
 }

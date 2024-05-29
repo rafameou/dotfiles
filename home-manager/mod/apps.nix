@@ -2,7 +2,7 @@
 {
   imports = [
     #./apps/dunst.nix
-    ./apps/foot.nix
+    #./apps/foot.nix
     #./apps/fuzzel.nix
     #./apps/kitty.nix
     ./apps/luakit.nix
