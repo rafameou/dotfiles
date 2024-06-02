@@ -1,15 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    gnome.gnome-software
-    gnome.dconf-editor
-    gnome.file-roller
-
-    galculator
-    libsForQt5.okular
-    
-    networkmanagerapplet
-
     arc-theme
     arc-icon-theme
     cinnamon.mint-themes
@@ -18,14 +9,8 @@
     greybird
   ];
 
-  services.redshift.enable = true;
-  services.redshift.provider = "geoclue2";
-
-  qt = {
-    enable = true;
-    #platformTheme = "gnome";
-    #style.name = "adwaita";
-  };
+  services.gammastep.enable = true;
+  #services.redshift.provider = "geoclue2";
 
   dconf.settings = {
     #"org/mate/panel/menubar" = {

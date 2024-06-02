@@ -10,7 +10,7 @@
   /*  programs.bash = {
   enable = true;
   profileExtra = ''*/
-  programs.zsh = {
+  /*programs.zsh = {
     loginExtra = ''
       export PATH="$HOME/.local/bin:$PATH" ;
     '';
@@ -27,5 +27,5 @@
       '';
       executable = true;
     };
-  };
+  };*/
 }

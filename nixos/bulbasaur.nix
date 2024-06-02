@@ -3,11 +3,11 @@
   imports = [
     inputs.home-manager.nixosModules.home-manager
     ./bulbasaur-hw.nix
-    ./mod/boot.nix
+    ./mod/boot-grub.nix
     ./mod/nix.nix
     ./mod/nixpkgs.nix
     ./mod/zsh.nix
-    ./mod/bluetooth.nix
+    #./mod/bluetooth.nix
     ./mod/desktop.nix
     ./mod/stylix.nix
     ./mod/qemu.nix 
@@ -31,44 +31,7 @@
     };
   };
 
-  fileSystems."/mnt/Extra" = { 
-    device = "/dev/disk/by-uuid/30c8e8dd-7a12-449a-ae59-f26262c5a8ff";
-    fsType = "ext4";
-  };
-
-  #services.xrdp.enable = true;
-  #services.xrdp.defaultWindowManager = "gnome-session";
-  #services.xrdp.openFirewall = true;
- 
-  services.gnome.gnome-remote-desktop.enable = true;
-  systemd.sleep.extraConfig = ''
-    AllowSuspend=no
-    AllowHibernation=no
-  '';
-
-  services.openssh.enable = true;
-  services.openssh.openFirewall = false;
   services.geoclue2.enable = true;
-  programs.firejail.enable = true;
-  programs.fuse.userAllowOther = true;
-
-  environment.systemPackages = [
-    pkgs.jellyfin
-    pkgs.jellyfin-web
-    pkgs.jellyfin-ffmpeg
-
-    pkgs.xorg.xhost
-  ];
-
-  services.jellyfin = {
-    enable = true;
-    #openFirewall = true;
-  };
-
-    #fix distrobox
-  /*environment.shellInit = ''
-    [ -n "$DISPLAY" ] && xhost +si:localhost:$USER || true
-    '';*/
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

@@ -250,5 +250,28 @@
       name = "Wine";
       categories = ["Wine" "X-Wine" "Wine-Programs-Accessories"];
     };
+
+    # --- gnome flashback stuff --- #
+
+    "org/gnome/gnome-panel/layout" = {
+      object-id-list =  ["menu-bar" "clock" "notification-area" "show-desktop" "user-menu" "window-list" "workspace-switcher" "geyes" "system-indicators"];
+    };
+    "org/gnome/gnome-panel/layout/toplevels/bottom-panel".enable-buttons = true;
+    "org/gnome/gnome-panel/layout/toplevels/top-panel".enable-buttons = true;
+    "org/gnome/gnome-panel/layout/objects/geyes" = {
+      pack-index = 4;
+      pack-type = "end";
+      toplevel-id = "top-panel";
+    };
+    "org/gnome/gnome-panel/layout/objects/system-indicators" = {
+      pack-index = 2;
+      pack-type = "end";
+      toplevel-id = "top-panel";
+    };
+    "org/gnome/gnome-panel/layout/objects/window-list/instance-config" = {
+      display-all-workspaces = true;
+      group-windows = "auto-group";
+      move-unminimized-windows = false;
+    };
   };
 }
