@@ -10,7 +10,7 @@
     #./mod/apps-server.nix
 
     /* - sway - */
-    #./mod/window-manager.nix
+    ./mod/window-manager.nix
     /* - other desktops - */
     ./mod/desktop-environment.nix
     ./mod/desktop-environment/gnome.nix

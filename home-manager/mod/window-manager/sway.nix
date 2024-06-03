@@ -69,7 +69,7 @@
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
         }
       ];
-      terminal = "kgx"; 
+      terminal = "foot"; 
       input = {
         "type:keyboard" = {
           xkb_layout = "br,br";

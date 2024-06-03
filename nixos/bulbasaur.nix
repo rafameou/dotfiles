@@ -20,6 +20,7 @@
     ./mod/env.nix
     ./mod/flatpak.nix
     ./mod/desktop-environment/gnome.nix
+    ./mod/sway.nix
   ];
   
   /* ... changes to only this sytem */
