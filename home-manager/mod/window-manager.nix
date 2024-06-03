@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   imports = [
-    ./window-manager/theme.nix
+    #./window-manager/theme.nix
     ./window-manager/i3status.nix
     ./window-manager/sway.nix
-    ./window-manager/i3.nix
+    #./window-manager/i3.nix
   ];
 
   home.packages = with pkgs; [
@@ -13,45 +13,47 @@
 
     gammastep
 
-    gnome.dconf-editor
+    #gnome.dconf-editor
 
-    kdePackages.ark
+    /*kdePackages.ark
     kdePackages.konsole
     kdePackages.kpat
     kdePackages.kmines
     kdePackages.kcalc
     kdePackages.kalk
     kdePackages.discover
-    kdePackages.kdeconnect-kde
+    kdePackages.kdeconnect-kde*/
  
     #lxqt.pcmanfm-qt
-    lxqt.pavucontrol-qt
-    lxqt.qps
+    #lxqt.pavucontrol-qt
+    #lxqt.qps
+
+    pavucontrol
 
     pkgs.nixpkgs-stable.j4-dmenu-desktop
     bemenu
 
-    nvidia-system-monitor-qt
+    #nvidia-system-monitor-qt
 
-    selectdefaultapplication
+    #selectdefaultapplication
 
     /*udiskie*/
     android-file-transfer
 
     /*for steam session*/
-    openbox
+    #openbox
   ];
 
   /*  programs.bash = {
   enable = true;
   profileExtra = ''*/
-  programs.zsh = {
+  /*programs.zsh = {
     loginExtra = ''
       export PATH="$HOME/.local/bin:$PATH" ;
     '';
-  };
+  };*/
 
-  home.file = {
+/*  home.file = {
     ".local/bin/prime-run" = {
       text = ''
         export __NV_PRIME_RENDER_OFFLOAD=1
@@ -105,7 +107,7 @@
         '';
         executable = true;
     };
-    /* https://wiki.archlinux.org/title/Xinit#Switching_between_desktop_environments/window_managers */
+    # https://wiki.archlinux.org/title/Xinit#Switching_between_desktop_environments/window_managers 
     ".xinitrc" = {
       text = ''
         # https://www.reddit.com/r/swaywm/comments/11d89w2/some_workarounds_to_use_sway_with_nvidia/
@@ -129,7 +131,7 @@
         esac
       '';
     };
-  };
+  };*/
 
   /*services.udisks2.enable = true; services.playerctld.enable = true;*/
 }

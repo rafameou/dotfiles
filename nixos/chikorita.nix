@@ -21,6 +21,7 @@
     ./mod/env.nix
     ./mod/flatpak.nix
     ./mod/desktop-environment/gnome.nix
+    ./mod/sway.nix
 
     ./mod/navidrome.nix
   ];

@@ -36,10 +36,10 @@
 
   outputs = { nixpkgs, home-manager, stylix, ... }@inputs: {
     nixosConfigurations = {
-      /*bulbasaur = nixpkgs.lib.nixosSystem {
+      bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./nixos/bulbasaur.nix ];
-      };*/
+        modules = [ stylix.nixosModules.stylix ./nixos/bulbasaur.nix ];
+      };
       chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ stylix.nixosModules.stylix ./nixos/chikorita.nix ];

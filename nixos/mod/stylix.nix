@@ -1,7 +1,11 @@
 { pkgs, ... }:
 {
   stylix = {
-    image = "/etc/wallpaper";
+    #image = "/etc/wallpaper";
+    image = pkgs.fetchurl {
+      url = "https://w.wallhaven.cc/full/wy/wallhaven-wyv7jq.jpg";
+      sha256 = "926a11ba3e0d61d63141b9f5959d7d98546f7cb8634cf6c6a7bfb3c4185cb7a3";
+    };
     polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml"; 
     opacity = {

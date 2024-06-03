@@ -15,7 +15,7 @@
             click = [
               {
                 button = "left";
-                cmd = "pavucontrol-qt";
+                cmd = "pavucontrol";
               }
             ];
           }

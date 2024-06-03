@@ -16,10 +16,14 @@
     grim
     slurp
     wf-recorder
-    fuzzel
+    #fuzzel
+
+    dunst
 
     wayland-pipewire-idle-inhibit
   ];
+
+  programs.foot.enable = true;
 
   services = {
     swayidle = {
@@ -65,7 +69,7 @@
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
         }
       ];
-      terminal = "foot"; 
+      terminal = "kgx"; 
       input = {
         "type:keyboard" = {
           xkb_layout = "br,br";
@@ -106,20 +110,21 @@
         {command = "--no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
-        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i /home/rafameou/GoogleDrive/back"; } #fill
+        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i /etc/wallpaper"; } #fill
         /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
         /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
         {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
         {command = "--no-startup-id ${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5";}
+        {command = "--no-startup-id ${pkgs.dunst}/bin/dunst";}
 
-        {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
+        #{command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
 
         /*mate stuff*/
         /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/
-        {command = "--no-startup-id caja -n --force-desktop"; } 
+        /*{command = "--no-startup-id caja -n --force-desktop"; } 
         {command = "--no-startup-id mate-panel"; }
         {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
-        {command = "--no-startup-id mate-notification-daemon"; } 
+        {command = "--no-startup-id mate-notification-daemon"; } */
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
