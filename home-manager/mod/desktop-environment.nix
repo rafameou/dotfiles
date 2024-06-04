@@ -5,8 +5,6 @@
     android-file-transfer
   ];
 
-  stylix.targets.kde.enable = false;
-
   /*  programs.bash = {
   enable = true;
   profileExtra = ''*/
