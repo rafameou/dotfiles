@@ -61,20 +61,20 @@
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
-        "inode/directory" = "org.gnome.Nautilus.desktop";
+        "inode/directory" = "caja.desktop";
 
-        "image/tiff" = "org.gnome.Loupe.desktop";
-        "image/jpx" = "org.gnome.Loupe.desktop";
-        "image/png" = "org.gnome.Loupe.desktop";
-        "image/gif" = "org.gnome.Loupe.desktop";
-        "image/jpeg" = "org.gnome.Loupe.desktop";
-        "image/bmp" = "org.gnome.Loupe.desktop";
-        "image/jp2" = "org.gnome.Loupe.desktop";
+        "image/tiff" = "eom.desktop";
+        "image/jpx" = "eom.desktop";
+        "image/png" = "eom.desktop";
+        "image/gif" = "eom.desktop";
+        "image/jpeg" = "eom.desktop";
+        "image/bmp" = "eom.desktop";
+        "image/jp2" = "eom.desktop";
 
-        "application/x-tar" = "org.gnome.FileRoller.desktop";
-        "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
-        "application/vnd.rar" = "org.gnome.FileRoller.desktop"; 
-        "application/zip" = "org.gnome.FileRoller.desktop";
+        "application/x-tar" = "engrampa.desktop";
+        "application/x-7z-compressed" = "engrampa.desktop";
+        "application/vnd.rar" = "engrampa.desktop"; 
+        "application/zip" = "engrampa.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
       };

@@ -6,7 +6,7 @@
     enable = true;
     #package = null;
   };
-  #services.xserver.displayManager.sessionPackages = [ pkgs.sway ];
+  services.displayManager.sessionPackages = [ pkgs.sway ];
   #Enable Keyring for stuff like github-desktop
   #services.gnome.gnome-keyring.enable = true;
   #programs.seahorse.enable = true;
@@ -33,11 +33,11 @@
   security.pam.services.swaylock = {};
 
   # flatpak
-  /*services.dbus.enable = true;
+  services.dbus.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-kde ];
     config.common.default = "*";
-  };*/
+  };
 }

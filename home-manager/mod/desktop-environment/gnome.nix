@@ -39,9 +39,9 @@
     eyedropper
   ];
 
-  home.sessionVariables = {
-    QT_QPA_PLATFORM = "xcb"; #fixes https://gitlab.gnome.org/GNOME/mutter/-/issues/3435
-  };
+  #home.sessionVariables = {
+  #  QT_QPA_PLATFORM = "xcb"; #fixes https://gitlab.gnome.org/GNOME/mutter/-/issues/3435
+  #};
 
   systemd.user.services = {
     wayland-idle-pipewire-inhibit-serv = {

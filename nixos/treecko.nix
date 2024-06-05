@@ -18,7 +18,8 @@
     ./mod/distrobox.nix
     ./mod/env.nix
     ./mod/flatpak.nix
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/mate.nix
+    ./mod/sway.nix
   ];
 
   /* ... changes to only this sytem */

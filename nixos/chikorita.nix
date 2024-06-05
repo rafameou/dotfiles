@@ -20,7 +20,7 @@
     ./mod/distrobox.nix 
     ./mod/env.nix
     ./mod/flatpak.nix
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/mate.nix
     ./mod/sway.nix
 
     ./mod/navidrome.nix
@@ -70,6 +70,15 @@
   environment.systemPackages = [
     pkgs.screen
     pkgs.navidrome
+  ];
+
+  services.xserver.displayManager.setupCommands = ''
+  ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --off
+  ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --mode 1920x1080
+  '';
+
+  programs.sway.extraOptions = [
+      "--unsupported-gpu"
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
