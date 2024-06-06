@@ -5,6 +5,7 @@
     mate.mate-tweak
     mate.mate-icon-theme-faenza
     networkmanagerapplet
+    blueman
 
     arc-theme
     arc-icon-theme
@@ -18,7 +19,7 @@
   dconf.settings = {
     "org/mate/panel/menubar" = {
       show-icon = true;
-      icon-name = "nix-snowflake";
+      icon-name = "nix-snowflake-white";
     };
     "org/mate/panel/objects/clock/prefs" = {
       show-seconds = true;
@@ -28,7 +29,7 @@
     };
     "org/mate/desktop/interface" = with config.stylix.fonts; {
       gtk-theme = "adw-gtk3";
-      icon-theme = "Arc";
+      icon-theme = "mate";
       font-name = "${sansSerif.name} ${toString (sizes.applications - 1)}";
       document-font-name = "${serif.name}  ${toString (sizes.applications - 1)}";
       monospace-font-name = "${monospace.name} ${toString sizes.applications}";
@@ -56,6 +57,16 @@
       unmaximize = "<Mod4>Down";
       tile-to-side-e = "<Mod4>Right";
       tile-to-side-w = "<Mod4>Left";
+
+      move-to-workspace-1 = "<Mod4><Shift>1";
+      move-to-workspace-2 = "<Mod4><Shift>2";
+      move-to-workspace-3 = "<Mod4><Shift>3";
+      move-to-workspace-4 = "<Mod4><Shift>4";
+      move-to-workspace-5 = "<Mod4><Shift>5";
+      move-to-workspace-6 = "<Mod4><Shift>6";
+      move-to-workspace-7 = "<Mod4><Shift>7";
+      move-to-workspace-8 = "<Mod4><Shift>8";
+      move-to-workspace-9 = "<Mod4><Shift>9";
     };
     "org/mate/marco/keybinding-commands" = {
       command-screenshot = "mate-screenshot -ac";

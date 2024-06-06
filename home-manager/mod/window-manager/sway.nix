@@ -120,11 +120,14 @@
         #{command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
 
         /*mate stuff*/
-        /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/
-        {command = "--no-startup-id caja -n --force-desktop"; } 
+        /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/ 
         {command = "--no-startup-id mate-panel"; }
         {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
-        {command = "--no-startup-id mate-notification-daemon"; } 
+        {command = "--no-startup-id mate-notification-daemon"; }
+        {command = "--no-startup-id GDK_BACKEND=x11 mate-settings-daemon"; }
+        {command = "--no-startup-id caja -n --force-desktop"; }
+
+        {command = "--no-startup-id blueman-applet"; }
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
