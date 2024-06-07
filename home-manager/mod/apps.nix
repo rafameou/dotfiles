@@ -4,7 +4,7 @@
     #./apps/dunst.nix
     #./apps/foot.nix
     #./apps/fuzzel.nix
-    ./apps/kitty.nix
+    #./apps/kitty.nix
     #./apps/luakit.nix
     ./apps/neovim.nix
     #./apps/qutebrowser.nix
@@ -34,6 +34,7 @@
     komikku
     #kdePackages.tokodon
     #kdePackages.neochat #broken 21-05
+    whatsapp-for-linux
     /*---------------| 
     |---   edit   ---| 
     |---------------*/
@@ -44,7 +45,7 @@
     hunspellDicts.pt_BR
     corefonts
     vistafonts
-    strawberry-qt6 
+    feishin #strawberry-qt6 
     mpv
     (texlive.combine {inherit (texlive) scheme-medium abnt abntex2 collection-langportuguese dvipng latexmk todonotes;})
     cherrytree

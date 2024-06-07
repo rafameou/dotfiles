@@ -14,6 +14,8 @@
     cinnamon.mint-x-icons
 
     xclip
+
+    volctl
   ];
 
   dconf.settings = {
@@ -23,6 +25,14 @@
     };
     "org/mate/panel/objects/clock/prefs" = {
       show-seconds = true;
+    };
+    "org/mate/panel/toplevels/top/background" = {
+      image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";
+      type = "image";
+    };
+    "org/mate/panel/toplevels/bottom/background" = {
+      image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";
+      type = "image";
     };
     "org/mate/desktop/background" = {
       picture-filename = config.stylix.image;
@@ -37,6 +47,14 @@
     "org/mate/marco/general" = {
       theme = "Spidey";
       titlebar-uses-sytem-font = true;
+    };
+    "org/mate/terminal/profiles/default" = {
+      background-darkness = config.stylix.opacity.terminal;
+      background-type = "transparent";
+      use-system-font = true;
+    };
+    "org/mate/marco/keybinding-commands" = {
+      command-screenshot = "mate-screenshot -ac";
     };
     # --- shortcuts --- #
     "org/mate/marco/global-keybindings" = {
@@ -68,8 +86,22 @@
       move-to-workspace-8 = "<Mod4><Shift>8";
       move-to-workspace-9 = "<Mod4><Shift>9";
     };
-    "org/mate/marco/keybinding-commands" = {
-      command-screenshot = "mate-screenshot -ac";
+
+    # --- fix for volume icon disappearing --- (doesnt work -.-)
+    /*"org/mate/settings-daemon/plugins/media-keys" = {
+      active = true;
+      enable-osd = true;
+      volume-step = 5;
+      volume-down = "XF86AudioLowerVolume";
+      volume-up = "XF86AudioRaiseVolume";
+    };*/
+    
+    # --- other ---
+    "apps/volctl" = {
+      mixer-command = "pavucontrol";
+      mouse-wheel-step = 5;
+      osd-position = "bottom-center";
+      show-percentage = true;
     };
   };
 }

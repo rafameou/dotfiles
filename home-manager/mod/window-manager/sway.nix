@@ -16,14 +16,13 @@
     grim
     slurp
     wf-recorder
-    #fuzzel
 
     dunst
 
     wayland-pipewire-idle-inhibit
   ];
 
-  programs.foot.enable = true;
+  programs.fuzzel.enable = true;
 
   services = {
     swayidle = {
@@ -54,10 +53,11 @@
         style = "Regular";
         size = 10.0;
       }; 
-      menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
+      #menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
+      menu = "fuzzel";
       /*bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];*/
       bars = [
-        {
+        /*{
           fonts = {
             names = ["Fira Sans"];
             style = "Regular";
@@ -66,9 +66,9 @@
           trayOutput = "none";
           position = "bottom";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
-        }
+        }*/
       ];
-      terminal = "foot"; 
+      terminal = "mate-terminal"; 
       input = {
         "type:keyboard" = {
           xkb_layout = "br,br";
@@ -116,8 +116,7 @@
         {command = "--no-startup-id ${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5";}
         #{command = "--no-startup-id ${pkgs.dunst}/bin/dunst";}
 
-
-        #{command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
+        {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
 
         /*mate stuff*/
         /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/ 
@@ -128,6 +127,7 @@
         {command = "--no-startup-id caja -n --force-desktop"; }
 
         {command = "--no-startup-id blueman-applet"; }
+        {command = "--no-startup-id volctl";}
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
