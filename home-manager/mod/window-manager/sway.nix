@@ -117,6 +117,7 @@
         #{command = "--no-startup-id ${pkgs.dunst}/bin/dunst";}
 
         {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
+        {command = "--no-startup-id ${pkgs.trayscale}/bin/trayscale --hide=window";}
 
         /*mate stuff*/
         /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/ 

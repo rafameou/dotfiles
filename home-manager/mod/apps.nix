@@ -18,7 +18,13 @@
     nativeMessagingHosts = with pkgs; [
       firefoxpwa
     ];
-  };*/
+    };*/
+  programs.firefox = {
+    enable = true; 
+    /*nativeMessagingHosts = with pkgs; [
+      firefoxpwa
+    ];*/
+  };
   home.packages = with pkgs; [
     /*-------------|
     |-- internet --|
@@ -26,6 +32,7 @@
     vivaldi
     vivaldi-ffmpeg-codecs
     google-chrome
+    thunderbird
     telegram-desktop
     #clematis #mpris for discord
     vesktop
@@ -77,6 +84,7 @@
     htop lm_sensors powerstat
     nixos-icons
     mesa-demos
+    trayscale
     /*----------------|
     |---   games   ---|
     |----------------*/
