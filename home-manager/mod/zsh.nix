@@ -22,11 +22,11 @@
       file = "zsh-completions.plugin.zsh";
       src = "${zsh-completions}/share/zsh-completions";
       }*/
-      {
+      /*{
         name = "zsh-autocomplete";
         file = "zsh-autocomplete.plugin.zsh";
         src = "${zsh-autocomplete}/share/zsh-autocomplete";
-      }
+      }*/
       {
         name = "zsh-vi-mode";
         file = "zsh-vi-mode.plugin.zsh";
@@ -49,7 +49,7 @@
     initExtra = ''
       autoload -U colors && colors
       prompt() {
-        PS1="%{%F{154}%}%n%{%f%} at %{%F{45}%}%m%{%f%} in %{%F{87}%}%1~ %{%f%}%# "
+        PS1="%{%F{154}%}%n%{%f%}@%{%F{45}%}%m%{%f%}:%{%F{87}%}%~ %{%f%}%# "
         RPROMPT="%{%f%}%?"
       }
 

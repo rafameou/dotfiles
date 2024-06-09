@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }:
 {
   imports = [
-    ./waybar.nix
+    #./waybar.nix
     #inputs.wayland-pipewire-idle-inhibit.homeModules.default
   ];
   home.packages = with pkgs; [
@@ -17,7 +17,7 @@
     slurp
     wf-recorder
 
-    dunst
+    #dunst
 
     wayland-pipewire-idle-inhibit
   ];
@@ -57,7 +57,7 @@
       menu = "fuzzel";
       /*bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];*/
       bars = [
-        /*{
+        {
           fonts = {
             names = ["Fira Sans"];
             style = "Regular";
@@ -66,7 +66,7 @@
           trayOutput = "none";
           position = "bottom";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
-        }*/
+        }
       ];
       terminal = "mate-terminal"; 
       input = {
@@ -127,7 +127,7 @@
         {command = "--no-startup-id caja -n --force-desktop"; }
 
         {command = "--no-startup-id blueman-applet"; }
-        {command = "--no-startup-id volctl";}
+        #{command = "--no-startup-id volctl";}
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
