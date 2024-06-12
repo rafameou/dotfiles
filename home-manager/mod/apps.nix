@@ -13,14 +13,9 @@
     #./apps/vscode.nix
     ./apps/zathura.nix
   ]; 
-  /*programs.firefox = {
-    enable = true;
-    nativeMessagingHosts = with pkgs; [
-      firefoxpwa
-    ];
-    };*/
   programs.firefox = {
     enable = true; 
+    package = pkgs.floorp;
     /*nativeMessagingHosts = with pkgs; [
       firefoxpwa
     ];*/
@@ -29,12 +24,9 @@
     /*-------------|
     |-- internet --|
     |-------------*/
-    #vivaldi
-    #vivaldi-ffmpeg-codecs
     google-chrome
     thunderbird
     telegram-desktop
-    #clematis #mpris for discord
     vesktop
     #spotify
     /*pkgs.nixpkgs-master.*/bitwarden
@@ -56,7 +48,6 @@
     mpv
     (texlive.combine {inherit (texlive) scheme-medium abnt abntex2 collection-langportuguese dvipng latexmk todonotes;})
     cherrytree
-    /*kile */
     imagemagick
     ghostscript
     /*okular*/
@@ -85,36 +76,6 @@
     nixos-icons
     mesa-demos
     trayscale
-    /*----------------|
-    |---   games   ---|
-    |----------------*/
-    easyrpg-player
-    crispy-doom
-    dsda-doom
-    dsda-launcher
-    prismlauncher
-    runelite 
-    steam #fix steam games: SDL_VIDEODRIVER=x11 prime-run %command% -vulkan
-    #itch #marked as broken 24/03/24
-    heroic
-    protonup-qt
     /*---------------*/
   ];
-
-  /*xdg.configFile = {
-    "Clematis/config.json".text = ''
-      {
-        "vars": [""], 
-        "blacklist": [""], 
-        "whitelist": [""], 
-        "useIdentifiers": false, 
-        "logLevel": "info", 
-        "presence": {
-                "details": "{title}" 
-                "state": "{artist} {album}", 
-        },
-        "playerPresence": {}
-      }
-    '';
-  }; */
 }

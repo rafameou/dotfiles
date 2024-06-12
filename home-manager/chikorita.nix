@@ -8,6 +8,7 @@
     ./mod/apps.nix
     #./mod/apps-minimal.nix
     #./mod/apps-server.nix
+    ./mod/apps/games.nix
 
     /* - sway - */
     ./mod/window-manager.nix

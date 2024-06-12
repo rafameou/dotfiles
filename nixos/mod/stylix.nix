@@ -28,9 +28,9 @@
     };
 
     cursor = {
-      name = "Adwaita";
+      name = "Oxygen_Zion";
       size = 24;
-      package = pkgs.gnome.adwaita-icon-theme;
+      package = pkgs.kdePackages.oxygen;
     };
   };
 }

@@ -13,6 +13,11 @@
     mate.mate-icon-theme-faenza
     cinnamon.mint-x-icons
 
+    kdePackages.oxygen
+    kdePackages.oxygen.qt5
+    kdePackages.oxygen-sounds
+    kdePackages.oxygen-icons
+
     xclip
 
     volctl
@@ -21,36 +26,40 @@
   dconf.settings = {
     "org/mate/panel/menubar" = {
       show-icon = true;
-      icon-name = "nix-snowflake-white";
+      icon-name = "nix-snowflake";
     };
     "org/mate/panel/objects/clock/prefs" = {
       show-seconds = true;
     };
     "org/mate/panel/toplevels/top/background" = {
-      image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";
-      type = "image";
+      #image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";
+      type = "none";#"image";
     };
     "org/mate/panel/toplevels/bottom/background" = {
-      image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";
-      type = "image";
+      #image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";
+      type = "none";#"image";
     };
     "org/mate/desktop/background" = {
       picture-filename = config.stylix.image;
     };
     "org/mate/desktop/interface" = with config.stylix.fonts; {
-      gtk-theme = "adw-gtk3";
+      gtk-theme = "TraditionalOk";#"adw-gtk3";
       icon-theme = "mate";
       font-name = "${sansSerif.name} ${toString (sizes.applications - 1)}";
       document-font-name = "${serif.name}  ${toString (sizes.applications - 1)}";
       monospace-font-name = "${monospace.name} ${toString sizes.applications}";
     };
     "org/mate/marco/general" = {
-      theme = "Spidey";
+      theme = "Dopple";
       titlebar-uses-sytem-font = true;
     };
-    "org/mate/terminal/profiles/default" = {
+    "org/mate/terminal/profiles/default" = with config.lib.stylix.colors.withHashtag; {
+      background-color = base00;
       background-darkness = config.stylix.opacity.terminal;
       background-type = "transparent";
+      foreground-color = base05;
+      palette = "${base00}:${red}:${green}:${yellow}:${blue}:${magenta}:${cyan}:${base05}:${base03}:${bright-red}:${bright-green}:${yellow}:${bright-blue}:${bright-cyan}:${base06}";
+      use-theme-colors = false;
       use-system-font = true;
     };
     "org/mate/marco/keybinding-commands" = {
@@ -89,13 +98,13 @@
 
     # --- fix for volume icon disappearing --- (doesnt work -.-)
     /*"org/mate/settings-daemon/plugins/media-keys" = {
-      active = true;
-      enable-osd = true;
-      volume-step = 5;
-      volume-down = "XF86AudioLowerVolume";
-      volume-up = "XF86AudioRaiseVolume";
+    active = true;
+    enable-osd = true;
+    volume-step = 5;
+    volume-down = "XF86AudioLowerVolume";
+    volume-up = "XF86AudioRaiseVolume";
     };*/
-    
+
     # --- other ---
     "apps/volctl" = {
       mixer-command = "pavucontrol";
