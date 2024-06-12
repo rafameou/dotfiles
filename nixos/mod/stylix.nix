@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   stylix = {
+    enable = true;
     #image = "/etc/wallpaper";
     image = pkgs.fetchurl {
       url = "https://w.wallhaven.cc/full/wy/wallhaven-wyv7jq.jpg";

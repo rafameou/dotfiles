@@ -29,8 +29,8 @@
     /*-------------|
     |-- internet --|
     |-------------*/
-    vivaldi
-    vivaldi-ffmpeg-codecs
+    #vivaldi
+    #vivaldi-ffmpeg-codecs
     google-chrome
     thunderbird
     telegram-desktop
