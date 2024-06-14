@@ -4,11 +4,19 @@
     enable = true;
     #image = "/etc/wallpaper";
     image = pkgs.fetchurl {
-      url = "https://w.wallhaven.cc/full/wy/wallhaven-wyv7jq.jpg";
-      sha256 = "926a11ba3e0d61d63141b9f5959d7d98546f7cb8634cf6c6a7bfb3c4185cb7a3";
+      url = "https://w.wallhaven.cc/full/g7/wallhaven-g7781d.jpg";
+      sha256 = "47113ceb5984c23d477d9f3cbf548c19abfa380844226414d05bcb4ebc8a428a";
     };
+
+    targets = {
+      chromium.enable = false;
+      grub.enable = false;
+    };
+    
     polarity = "dark";
+    
     base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-soft.yaml"; 
+    
     opacity = {
       applications = 0.9;
       desktop = 0.9;

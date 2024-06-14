@@ -2,33 +2,33 @@
 {
   xdg = {
     /*desktopEntries = {
-      whatsapp = {
-        name = "WhatsApp";
-        categories = [ "Network" "InstantMessaging" "Chat"];
-        exec = "qutebrowser web.whatsapp.com";
-      };
-      mastodon = {
-        name = "Mastodon";
-        categories = [ "Network" ];
-        exec = "qutebrowser mastodon.social";
-      };
-      duolingo = {
-        name = "Duolingo";
-        categories = [ "Network" ];
-        exec = "qutebrowser preview.duolingo.com";
-      };
-      clematis = {
-        name = "Clematis";
-        exec = "clematis";
-      };
+    whatsapp = {
+    name = "WhatsApp";
+    categories = [ "Network" "InstantMessaging" "Chat"];
+    exec = "qutebrowser web.whatsapp.com";
+    };
+    mastodon = {
+    name = "Mastodon";
+    categories = [ "Network" ];
+    exec = "qutebrowser mastodon.social";
+    };
+    duolingo = {
+    name = "Duolingo";
+    categories = [ "Network" ];
+    exec = "qutebrowser preview.duolingo.com";
+    };
+    clematis = {
+    name = "Clematis";
+    exec = "clematis";
+    };
     };*/
     mimeApps = {
       enable = true;
       associations = {
         added = {
           /*gsconnect keeps adding this line, notice the ; :facepalm:*/
-          "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
-          "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+          #"x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+          #"x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tg" = "org.telegram.desktop.desktop;";
         };
       };
@@ -63,6 +63,7 @@
 
         "inode/directory" = "caja.desktop";
 
+        # move this stuff to each desktop's dot nix file
         "image/tiff" = "eom.desktop";
         "image/jpx" = "eom.desktop";
         "image/png" = "eom.desktop";
@@ -77,6 +78,21 @@
         "application/zip" = "engrampa.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
+
+        #its random, thanks thunderbid
+        /*"x-scheme-handler/mailto"="userapp-Betterbird-NUOGP2.desktop";
+        "x-scheme-handler/mid"="userapp-Betterbird-NUOGP2.desktop";
+        "x-scheme-handler/news"="userapp-Betterbird-N81HP2.desktop";
+        "x-scheme-handler/snews"="userapp-Betterbird-N81HP2.desktop";
+        "x-scheme-handler/nntp"="userapp-Betterbird-N81HP2.desktop";
+        "x-scheme-handler/feed"="userapp-Betterbird-6GWGP2.desktop";
+        "application/rss+xml"="userapp-Betterbird-6GWGP2.desktop";
+        "application/x-extension-rss"="userapp-Betterbird-6GWGP2.desktop;";
+        "x-scheme-handler/webcal"="userapp-Betterbird-7KB8O2.desktop;";
+        "x-scheme-handler/webcals"="userapp-Betterbird-7KB8O2.desktop;";
+        "application/x-extension-ics"="userapp-Betterbird-7KB8O2.desktop";
+        "message/rfc822"="userapp-Betterbird-NUOGP2.desktop";
+        "text/calendar"="userapp-Betterbird-7KB8O2.desktop";*/
       };
     };
   };

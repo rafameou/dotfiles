@@ -25,7 +25,7 @@
     |-- internet --|
     |-------------*/
     google-chrome
-    thunderbird
+    betterbird#thunderbird 
     telegram-desktop
     vesktop
     #spotify

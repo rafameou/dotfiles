@@ -1,37 +1,47 @@
 { config, pkgs, ... }:
-{
-  home.packages = with pkgs; [
-    gnome.dconf-editor
-    mate.mate-tweak
-    mate.mate-icon-theme-faenza
-    networkmanagerapplet
-    blueman
+let
+  autostartString = (val: ''
+      [Desktop Entry]
+      Type=Application
+      Exec=${val}
+      Hidden=false
+      Name=${val}
+      X-MATE-Autostart-Delay=2
+  '');
+in
+  {
+    home.packages = with pkgs; [
+      gnome.dconf-editor
+      mate.mate-tweak
+      mate.mate-icon-theme-faenza
+      networkmanagerapplet
+      blueman
 
-    arc-theme
-    arc-icon-theme
-    cinnamon.mint-themes
-    mate.mate-icon-theme-faenza
-    cinnamon.mint-x-icons
+      arc-theme
+      arc-icon-theme
+      cinnamon.mint-themes
+      mate.mate-icon-theme-faenza
+      cinnamon.mint-x-icons
 
-    kdePackages.oxygen
-    kdePackages.oxygen.qt5
-    kdePackages.oxygen-sounds
-    kdePackages.oxygen-icons
+      kdePackages.oxygen
+      kdePackages.oxygen.qt5
+      kdePackages.oxygen-sounds
+      kdePackages.oxygen-icons
 
-    xclip
+      xclip
 
-    volctl
-  ];
+      volctl
+    ];
 
-  dconf.settings = {
-    "org/mate/panel/menubar" = {
-      show-icon = true;
-      icon-name = "nix-snowflake";
-    };
-    "org/mate/panel/objects/clock/prefs" = {
-      show-seconds = true;
-    };
-    "org/mate/panel/toplevels/top/background" = {
+    dconf.settings = {
+      "org/mate/panel/menubar" = {
+        show-icon = true;
+        icon-name = "nix-snowflake";
+      };
+      "org/mate/panel/objects/clock/prefs" = {
+        show-seconds = true;
+      };
+      "org/mate/panel/toplevels/top/background" = {
       #image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";
       type = "none";#"image";
     };
@@ -112,5 +122,16 @@
       osd-position = "bottom-center";
       show-percentage = true;
     };
+  };
+
+  xdg.configFile = {
+    /*
+    Hey, rafameou from the past here.
+    Hidden means it's on or off, false means on.
+    */
+    "autostart/betterbird.desktop".text = autostartString "betterbird";
+    "autostart/gammastep-indicator.desktop".text = autostartString "gammastep-indicator";
+    "autostart/trayscale.desktop".text = autostartString "trayscale --hide-window";
+    "autostart/volctl.desktop".text = autostartString "volctl";
   };
 }
