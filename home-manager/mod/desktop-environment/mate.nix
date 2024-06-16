@@ -17,11 +17,21 @@ in
       networkmanagerapplet
       blueman
 
+      ayatana-ido
+      ayatana-indicator-datetime
+      ayatana-indicator-display
+      ayatana-indicator-messages
+      ayatana-indicator-power
+      ayatana-indicator-session
+      ayatana-indicator-sound
+      ayatana-webmail
+
       arc-theme
       arc-icon-theme
       cinnamon.mint-themes
       mate.mate-icon-theme-faenza
       cinnamon.mint-x-icons
+      iconpack-obsidian
 
       kdePackages.oxygen
       kdePackages.oxygen.qt5
@@ -54,14 +64,14 @@ in
     };
     "org/mate/desktop/interface" = with config.stylix.fonts; {
       gtk-theme = "TraditionalOk";#"adw-gtk3";
-      icon-theme = "mate";
+      icon-theme = "Obsidian-Aqua-Light";
       font-name = "${sansSerif.name} ${toString (sizes.applications - 1)}";
       document-font-name = "${serif.name}  ${toString (sizes.applications - 1)}";
       monospace-font-name = "${monospace.name} ${toString sizes.applications}";
     };
     "org/mate/marco/general" = {
-      theme = "Dopple";
-      titlebar-uses-sytem-font = true;
+      theme = "ClearlooksRe";
+      titlebar-uses-system-font = false;
     };
     "org/mate/terminal/profiles/default" = with config.lib.stylix.colors.withHashtag; {
       background-color = base00;

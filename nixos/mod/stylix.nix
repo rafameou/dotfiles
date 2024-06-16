@@ -11,6 +11,7 @@
     targets = {
       chromium.enable = false;
       grub.enable = false;
+      gtk.enable = false;
     };
     
     polarity = "dark";
