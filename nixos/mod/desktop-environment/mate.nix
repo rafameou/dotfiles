@@ -8,6 +8,20 @@
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
 
+  services.ayatana-indicators = {
+    enable = true;
+    packages = with pkgs; [
+      #ayatana-ido
+      ayatana-indicator-datetime
+      ayatana-indicator-display
+      ayatana-indicator-messages
+      ayatana-indicator-power
+      ayatana-indicator-session
+      ayatana-indicator-sound
+      #ayatana-webmail
+    ];
+  };
+
   environment.systemPackages = with pkgs; [
     mate.caja-extensions
 
