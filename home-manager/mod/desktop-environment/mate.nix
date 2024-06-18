@@ -247,7 +247,6 @@ in
       Hey, rafameou from the past here.
       Hidden means it's on or off, false means on.
       */
-      "autostart/betterbird.desktop".text = autostartString "betterbird";
       "autostart/gammastep-indicator.desktop".text = autostartString "gammastep-indicator";
       "autostart/trayscale.desktop".text = autostartString "trayscale --hide-window";
       #"autostart/volctl.desktop".text = autostartString "volctl";

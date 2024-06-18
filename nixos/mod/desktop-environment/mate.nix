@@ -8,6 +8,9 @@
   services.gnome.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
 
+  programs.evolution.enable = true;
+  services.gnome.evolution-data-server.enable = true;
+
   services.ayatana-indicators = {
     enable = true;
     packages = with pkgs; [
