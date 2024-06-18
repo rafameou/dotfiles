@@ -5,6 +5,7 @@
     #./apps/foot.nix
     #./apps/fuzzel.nix
     #./apps/kitty.nix
+    ./apps/liferea.nix
     #./apps/luakit.nix
     ./apps/neovim.nix
     #./apps/qutebrowser.nix
