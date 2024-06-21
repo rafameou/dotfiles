@@ -43,8 +43,8 @@ in
         picture-filename = config.stylix.image;
       };
       "org/mate/desktop/interface" = with config.stylix.fonts; {
-        gtk-theme = "TraditionalOk";#"adw-gtk3";
-        icon-theme = "Obsidian-Aqua-Light";
+        gtk-theme = "BlueMenta";#"adw-gtk3";
+        icon-theme = "mate";
         font-name = "${sansSerif.name} ${toString (sizes.applications - 1)}";
         document-font-name = "${serif.name}  ${toString (sizes.applications - 1)}";
         monospace-font-name = "${monospace.name} ${toString sizes.applications}";
@@ -98,18 +98,18 @@ in
 
       /* panel */
       "org/mate/panel/general" = {
-        "object-id-list" =  ["menu-bar" "mate-screenshot" "mate-terminal" "mate-system-monitor" "sensors-applet" "multi-load" "notification-area" "ayatana-indicator-full" "show-desktop" "window-list" "workspace-switcher" ];
+        "object-id-list" =  ["menu-bar" "mate-screenshot" "mate-terminal" "mate-system-monitor" "eyes-applet" "sensors-applet" "multi-load" "notification-area" "ayatana-indicator-full" "show-desktop" "window-list" "workspace-switcher" ];
       };
       /*"org/mate/panel/objects/clock/prefs" = {
         show-seconds = true;
       };*/
       "org/mate/panel/toplevels/top/background" = {
-        /*image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";*/
-        type = "none";#"image";
+        image = "${./mate/top.png}";
+        type = "image";
       };
       "org/mate/panel/toplevels/bottom/background" = {
-        /*image = "/home/rafameou/GoogleDrive/Outros/Temas/Ubuntu Panel BG 32.png";*/
-        type = "none";#"image";
+        image = "${./mate/bottom.png}";
+        type = "image";
       };
 
       /* --- panel applets --- */
@@ -122,6 +122,7 @@ in
       };
 
       "org/mate/panel/objects/mate-screenshot" = {
+        locked = true;
         launcher-location = "mate-screenshot.desktop";
         object-type = "launcher";
         panel-right-stick = false;
@@ -130,6 +131,7 @@ in
       };
 
       "org/mate/panel/objects/mate-terminal" = {
+        locked = true;
         launcher-location = "mate-terminal.desktop";
         object-type = "launcher";
         panel-right-stick = false;
@@ -138,6 +140,7 @@ in
       };
 
       "org/mate/panel/objects/mate-system-monitor" = {
+        locked = true;
         launcher-location = "mate-system-monitor.desktop";
         object-type = "launcher";
         panel-right-stick = false;
@@ -145,12 +148,22 @@ in
         toplevel-id = "top";
       };
 
+      "org/mate/panel/objects/eyes-applet" = {
+        locked = true;
+        object-type = "applet";
+        applet-iid = "GeyesAppletFactory::GeyesApplet";
+        panel-right-stick = false;
+        position = 4;
+        toplevel-id = "top";
+      };
+
+
       "org/mate/panel/objects/sensors-applet" = {
         locked = true;
         object-type = "applet";
         applet-iid = "SensorsAppletFactory::SensorsApplet";
-        panel-right-stick = true;
-        position = 3;
+        panel-right-stick = false;
+        position = 5;
         toplevel-id = "top";
       };
       "org/mate/panel/objects/sensors-applet/prefs".timeout-delay = 5000;
@@ -159,8 +172,8 @@ in
         locked = true;
         object-type = "applet";
         applet-iid = "MultiLoadAppletFactory::MultiLoadApplet";
-        panel-right-stick = true;
-        position = 2;
+        panel-right-stick = false;
+        position = 6;
         toplevel-id = "top";
       };
       "org/mate/panel/objects/multi-load/prefs" = {
@@ -223,6 +236,10 @@ in
         show-date = true;
         show-day = true;
       };
+      "org/ayatana/indicator/power" = {
+        show-percentage = true;
+        /*show-time = true;*/
+      };
 
       /* --- fix for volume icon disappearing --- (doesnt work -.-) */
       /*"org/mate/settings-daemon/plugins/media-keys" = {
@@ -240,6 +257,8 @@ in
         osd-position = "bottom-center";
         show-percentage = true;
       };
+
+      "org/gnome/evolution/shell".use-header-bar = false;
     };
 
     xdg.configFile = {
