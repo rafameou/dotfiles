@@ -16,7 +16,7 @@
   ]; 
   programs.firefox = {
     enable = true; 
-    package = pkgs.nixpkgs-stable.floorp;
+    package = pkgs.floorp;
     /*nativeMessagingHosts = with pkgs; [
       firefoxpwa
     ];*/
