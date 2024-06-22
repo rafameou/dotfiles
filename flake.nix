@@ -31,22 +31,22 @@
 
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
-  outputs = { nixpkgs, home-manager, stylix, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, stylix, chaotic, ... }@inputs: {
     nixosConfigurations = {
       bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ stylix.nixosModules.stylix ./nixos/bulbasaur.nix ];
+        modules = [ stylix.nixosModules.stylix ./nixos/bulbasaur.nix chaotic.nixosModules.default];
       };
       chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ stylix.nixosModules.stylix ./nixos/chikorita.nix ];
+        modules = [ stylix.nixosModules.stylix ./nixos/chikorita.nix chaotic.nixosModules.default];
       };
       treecko = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ stylix.nixosModules.stylix ./nixos/treecko.nix ];
+        modules = [ stylix.nixosModules.stylix ./nixos/treecko.nix chaotic.nixosModules.default];
       };
       /*oddish = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config

@@ -32,6 +32,13 @@
     };
   };
 
+  fileSystems = {
+    "/mnt/Extra" = { 
+      device = "/dev/disk/by-uuid/0dce2fcf-1ba2-495c-a178-bb712089f63c";
+      fsType = "ext4";
+    };
+  };
+
   services.geoclue2.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

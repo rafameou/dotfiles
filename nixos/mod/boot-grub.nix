@@ -4,5 +4,5 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
-  boot.kernelPackages = pkgs.linuxPackages;#_latest;
+  boot.kernelPackages = pkgs.linuxPackages_cachyos;#_latest;
 }
