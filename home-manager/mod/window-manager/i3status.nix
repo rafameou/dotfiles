@@ -45,12 +45,12 @@
             chip = "*-isa-*";
           }*/
           { block = "disk_space"; }
-          /*{ 
+          { 
             block = "memory"; 
             format = " $icon $mem_used_percents.eng(w:2) ";
             format_alt = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) $icon_swap $swap_used_percents.eng(w:2) ";
           }
-          { block = "cpu"; }*/
+          { block = "cpu"; }
           { 
             block = "net";
             format = " $icon {$ssid($signal_strength)|Wired}";

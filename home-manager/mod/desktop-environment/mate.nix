@@ -32,6 +32,9 @@ in
       xclip
 
       volctl
+
+      xscreensaver
+      flameshot
     ];
 
     dconf.settings = {
@@ -41,16 +44,17 @@ in
       };
       "org/mate/desktop/background" = {
         picture-filename = config.stylix.image;
+        /*picture-options = "wallpaper";*/
       };
       "org/mate/desktop/interface" = with config.stylix.fonts; {
-        gtk-theme = "BlueMenta";#"adw-gtk3";
-        icon-theme = "mate";
+        gtk-theme = "TraditionalGreen";#"adw-gtk3";
+        icon-theme = "menta";
         font-name = "${sansSerif.name} ${toString (sizes.applications - 1)}";
         document-font-name = "${serif.name}  ${toString (sizes.applications - 1)}";
         monospace-font-name = "${monospace.name} ${toString sizes.applications}";
       };
       "org/mate/marco/general" = {
-        theme = "ClearlooksRe";
+        theme = "Esco";
         titlebar-uses-system-font = false;
       };
       "org/mate/terminal/profiles/default" = with config.lib.stylix.colors.withHashtag; {
@@ -63,7 +67,7 @@ in
         use-system-font = true;
       };
       "org/mate/marco/keybinding-commands" = {
-        command-screenshot = "mate-screenshot -ac";
+        command-screenshot = "flameshot gui";
       };
       /* --- shortcuts --- */
       "org/mate/marco/global-keybindings" = {
@@ -94,6 +98,12 @@ in
         move-to-workspace-7 = "<Mod4><Shift>7";
         move-to-workspace-8 = "<Mod4><Shift>8";
         move-to-workspace-9 = "<Mod4><Shift>9";
+      };
+
+      "org/mate/desktop/keybindings/custom0" = {
+        action = "xscreensaver-command --lock";
+        binding = "<Mod4>l";
+        name = "xscreensaver";
       };
 
       /* panel */
@@ -270,5 +280,27 @@ in
       "autostart/trayscale.desktop".text = autostartString "trayscale --hide-window";
       #"autostart/volctl.desktop".text = autostartString "volctl";
       "autostart/liferea.desktop".text = autostartString "liferea";
+      "autostart/flameshot.desktop".text = autostartString "flameshot";
+
+      "autostart/wayland-pipewire-idle-inhibit.desktop".text = autostartString "wayland-pipewire-idle-inhibit -b -d 0";
+      /* this is unsafe but we can take the risk */
+      "autostart/xscreensaver.desktop".text = autostartString "xscreensaver";
+      /* Disable mate-screensaver */
+      "autostart/mate-screensaver.desktop".text = ''
+        [Desktop Entry]
+        Type=Application
+        Name=Screensaver
+        Icon=preferences-desktop-screensaver
+        Exec=mate-screensaver
+        OnlyShowIn=MATE;
+        NoDisplay=true
+        X-MATE-Autostart-Phase=Application
+        X-MATE-Autostart-Notify=true
+        X-MATE-Bugzilla-Bugzilla=MATE
+        X-MATE-Bugzilla-Product=mate-screensaver
+        X-MATE-Bugzilla-Component=general
+        X-MATE-Bugzilla-Version=1.28.0
+        Hidden=true
+      '';
   };
 }

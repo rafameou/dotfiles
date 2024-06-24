@@ -55,7 +55,6 @@
       }; 
       #menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
       menu = "fuzzel";
-      /*bars = [{ command = "${pkgs.waybar}/bin/waybar"; }];*/
       bars = [
         {
           fonts = {
@@ -66,7 +65,8 @@
           trayOutput = "none";
           position = "bottom";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
-        }
+          }
+          /*{ command = "${pkgs.waybar}/bin/waybar"; }*/
       ];
       terminal = "mate-terminal"; 
       input = {
@@ -121,14 +121,21 @@
 
         /*mate stuff*/
         /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/ 
-        {command = "--no-startup-id mate-panel"; }
+        /*{command = "--no-startup-id mate-panel"; }*/
         {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
         {command = "--no-startup-id mate-notification-daemon"; }
         {command = "--no-startup-id GDK_BACKEND=x11 mate-settings-daemon"; }
         {command = "--no-startup-id caja -n --force-desktop"; }
 
         {command = "--no-startup-id blueman-applet"; }
-        #{command = "--no-startup-id volctl";}
+
+        /*{command = "--no-startup-id volctl";}*/
+        /*{command = "--no-startup-id ${pkgs.ayatana-indicator-datetime}/libexec/ayatana-indicator-datetime/ayatana-indicator-datetime-service";}
+        {command = "--no-startup-id ${pkgs.ayatana-indicator-display}/libexec/ayatana-indicator-display/ayatana-indicator-display-service";}
+        {command = "--no-startup-id ${pkgs.ayatana-indicator-messages}/libexec/ayatana-indicator-messages/ayatana-indicator-messages-service";}
+        {command = "--no-startup-id ${pkgs.ayatana-indicator-power}/libexec/ayatana-indicator-power/ayatana-indicator-power-service";}
+        {command = "--no-startup-id ${pkgs.ayatana-indicator-session}/libexec/ayatana-indicator-session/ayatana-indicator-session-service";}
+        {command = "--no-startup-id ${pkgs.ayatana-indicator-sound}/libexec/ayatana-indicator-sound/ayatana-indicator-sound-service";}*/
       ];
       keybindings = lib.mkOptionDefault {
         /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
