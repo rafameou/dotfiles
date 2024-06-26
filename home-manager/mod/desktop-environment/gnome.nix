@@ -13,15 +13,15 @@
     gnomeExtensions.appindicator
     gnomeExtensions.alphabetical-app-grid
     /*gnomeExtensions.favourites-in-appgrid*/
-    gnomeExtensions.hot-edge
-    gnomeExtensions.caffeine
-    gnomeExtensions.tailscale-status
+    #gnomeExtensions.hot-edge
+    #gnomeExtensions.caffeine
+    #gnomeExtensions.tailscale-status
     #gnomeExtensions.wiggle
-    gnomeExtensions.gsconnect
-    gnomeExtensions.space-bar
+    #gnomeExtensions.gsconnect
+    #gnomeExtensions.space-bar
     #gnomeExtensions.dash-to-panel
-    #gnomeExtensions.add-to-desktop
-    #gnomeExtensions.gtk4-desktop-icons-ng-ding
+    gnomeExtensions.add-to-desktop
+    gnomeExtensions.gtk4-desktop-icons-ng-ding
     #gnomeExtensions.just-perfection
     # ---- gnome fixes ----
     adw-gtk3
@@ -42,26 +42,6 @@
   #home.sessionVariables = {
   #  QT_QPA_PLATFORM = "xcb"; #fixes https://gitlab.gnome.org/GNOME/mutter/-/issues/3435
   #};
-
-  systemd.user.services = {
-    wayland-idle-pipewire-inhibit-serv = {
-      Unit = {
-        Wants = "graphical-session.target";
-        After = "graphical-session.target";
-      };
-
-      Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -b -d 5";
-        Restart = "on-failure";
-        RestartSec = 30;
-      };
-
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
-  };
 
   /*gtk = {
     enable = true;
@@ -151,34 +131,25 @@
       sort-directories-first = true;
     };
     "org/gnome/shell" = {
-      favorite-apps = [ 
-        "vivaldi-stable.desktop"
-        "google-chrome.desktop"
-        "org.gnome.Geary.desktop"
-        "io.github.alainm23.planify.desktop"
-        "kitty.desktop"
-        "org.gnome.SystemMonitor.desktop"
-        "org.gnome.Nautilus.desktop"
-        "virt-manager.desktop"
-      ];
+      favorite-apps = [];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
         "appindicatorsupport@rgcjonas.gmail.com"
         "AlphabeticalAppGrid@stuarthayhurst"
         /*"favourites-in-appgrid@harshadgavali.gitlab.org"*/
-        "hotedge@jonathan.jdoda.ca"
-        "caffeine@patapon.info"
-        "tailscale-status@maxgallup.github.com"
-        "gsconnect@andyholmes.github.io"
-        "space-bar@luchrioh"
+        /*"hotedge@jonathan.jdoda.ca"*/
+        /*"caffeine@patapon.info"*/
+        /*"tailscale-status@maxgallup.github.com"*/
+        /*"gsconnect@andyholmes.github.io"*/
+        /*"space-bar@luchrioh"*/
         /*"dash-to-panel@jderose9.github.com"*/
-        /*"gtk4-ding@smedius.gitlab.com" 
-        "add-to-desktop@tommimon.github.com"*/
-        #"apps-menu@gnome-shell-extensions.gcampax.github.com"
-        #"places-menu@gnome-shell-extensions.gcampax.github.com"
-        #"window-list@gnome-shell-extensions.gcampax.github.com"
-        #"just-perfection-desktop@just-perfection"
+        "gtk4-ding@smedius.gitlab.com" 
+        "add-to-desktop@tommimon.github.com"
+        "apps-menu@gnome-shell-extensions.gcampax.github.com"
+        "places-menu@gnome-shell-extensions.gcampax.github.com"
+        "window-list@gnome-shell-extensions.gcampax.github.com"
+        /*"just-perfection-desktop@just-perfection"*/
       ];
     };
     "org/gnome/shell/extensions/just-perfection" = {

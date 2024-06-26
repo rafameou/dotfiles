@@ -21,6 +21,7 @@
     ./mod/env.nix
     ./mod/flatpak.nix
     ./mod/desktop-environment/mate.nix
+    ./mod/desktop-environment/cinnamon.nix 
     ./mod/sway.nix
 
     ./mod/navidrome.nix
@@ -28,6 +29,7 @@
 
   networking.hostName = "chikorita"; # Define your hostname.
   home-manager = {
+    backupFileExtension = "hm-backup";
     extraSpecialArgs = { inherit inputs /*outputs*/; };
     users = {
       rafameou = import ../home-manager/chikorita.nix;
@@ -61,10 +63,10 @@
   programs.fuse.userAllowOther = true;
 
   /*services.navidrome = {
-    enable = true;
-    settings = {
-      MusicFolder = "/mnt/Extra2/gdrive_music";
-    };
+  enable = true;
+  settings = {
+  MusicFolder = "/mnt/Extra2/gdrive_music";
+  };
   };*/
 
   environment.systemPackages = [
@@ -73,12 +75,48 @@
   ];
 
   services.xserver.displayManager.setupCommands = ''
-  ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --off
-  ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --mode 1920x1080
+    ${pkgs.xorg.xrandr}/bin/xrandr --output eDP-1 --off
+    ${pkgs.xorg.xrandr}/bin/xrandr --output HDMI-1 --mode 1920x1080
   '';
 
+  systemd.tmpfiles.rules = [
+    "L+ /run/gdm/.config/monitors.xml - - - - ${pkgs.writeText "gdm-monitors.xml" ''
+<monitors version="2">
+  <configuration>
+    <logicalmonitor>
+      <x>0</x>
+      <y>0</y>
+      <scale>1</scale>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>HDMI-1</connector>
+          <vendor>HJW</vendor>
+          <product>MACROSILICON</product>
+          <serial>0x0002e842</serial>
+        </monitorspec>
+        <mode>
+          <width>1920</width>
+          <height>1080</height>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <disabled>
+      <monitorspec>
+        <connector>eDP-1</connector>
+        <vendor>CMN</vendor>
+        <product>0x15dc</product>
+        <serial>0x00000000</serial>
+      </monitorspec>
+    </disabled>
+  </configuration>
+</monitors>
+    ''}"
+  ];
+
   programs.sway.extraOptions = [
-      "--unsupported-gpu"
+    "--unsupported-gpu"
   ];
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

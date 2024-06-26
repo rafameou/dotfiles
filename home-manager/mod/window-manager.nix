@@ -30,7 +30,7 @@
 
     pavucontrol
 
-    pkgs.nixpkgs-stable.j4-dmenu-desktop
+    j4-dmenu-desktop
     bemenu
 
     #nvidia-system-monitor-qt

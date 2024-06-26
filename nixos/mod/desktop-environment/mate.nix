@@ -2,7 +2,7 @@
 {
   services.xserver.displayManager.lightdm.enable = true;
   services.xserver.desktopManager.mate.enable = true;
-  services.xserver.desktopManager.mate.enableWaylandSession = true;
+  #services.xserver.desktopManager.mate.enableWaylandSession = true;
 
   services.gnome.games.enable = true;
   services.gnome.gnome-keyring.enable = true;
@@ -27,15 +27,5 @@
 
   environment.systemPackages = with pkgs; [
     mate.caja-extensions
-
-    gdk-pixbuf
-    webp-pixbuf-loader
-    poppler
-    ffmpegthumbnailer
-    freetype
-    libgsf
-    gnome.totem #caja
-    gnome-epub-thumbnailer
-    f3d
   ];
 }

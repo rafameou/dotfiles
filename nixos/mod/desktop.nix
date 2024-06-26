@@ -31,6 +31,20 @@
     enable32Bit = true; 
   };
 
+  # thumbnails
+  #services.tumbler.enable = true;
+  environment.systemPackages = with pkgs; [
+    gdk-pixbuf
+    webp-pixbuf-loader
+    poppler
+    ffmpegthumbnailer
+    freetype
+    libgsf
+    gnome.totem #caja
+    gnome-epub-thumbnailer
+    f3d
+  ];
+
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 }

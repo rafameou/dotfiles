@@ -9,11 +9,14 @@
   
   #Enable Keyring for stuff like github-desktop
   services.gnome.gnome-keyring.enable = true;
+  #programs.seahorse.enable = true;
+
+  qt = {
+    enable = true;
+    platformTheme = "kde";
+  };
 
   environment.systemPackages = with pkgs; [
-    /* -- gnome apps compatibility -- */
-    gnome.seahorse
-
     /* -- appmenu -- */
     #appmenu-gtk3-module # breaks everything
     libappindicator-gtk3
@@ -26,23 +29,5 @@
     kdePackages.oxygen.qt5 
     kdePackages.oxygen-sounds
     kdePackages.oxygen-icons
-
-    /* -- thumbnails -- */
-    gdk-pixbuf
-    webp-pixbuf-loader
-    poppler
-    ffmpegthumbnailer
-    freetype
-    libgsf
-    gnome.totem #caja
-    gnome-epub-thumbnailer
-    f3d
   ];
-
-  # flatpak
-  xdg.portal = {
-    enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.common.default = "*";
-  };
 }

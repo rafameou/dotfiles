@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 let
-  autostartString = (val: ''
+  autostartString = (val: extra: ''
       [Desktop Entry]
       Type=Application
       Exec=${val}
       Hidden=false
       Name=${val}
+      ${extra}
       X-MATE-Autostart-Delay=2
   ''); 
 in
@@ -42,21 +43,22 @@ in
         show-icon = true;
         icon-name = "nix-snowflake";
       };
-      "org/mate/desktop/background" = {
-        picture-filename = config.stylix.image;
-        /*picture-options = "wallpaper";*/
-      };
+      /*"org/mate/desktop/background" = {
+        #picture-filename = config.stylix.image;
+        #picture-options = "wallpaper";
+      };*/
       "org/mate/desktop/interface" = with config.stylix.fonts; {
-        gtk-theme = "TraditionalGreen";#"adw-gtk3";
-        icon-theme = "menta";
+        gtk-theme = "TraditionalOk";#"adw-gtk3";
+        icon-theme = "Mint-X-Aqua";
         font-name = "${sansSerif.name} ${toString (sizes.applications - 1)}";
         document-font-name = "${serif.name}  ${toString (sizes.applications - 1)}";
         monospace-font-name = "${monospace.name} ${toString sizes.applications}";
       };
       "org/mate/marco/general" = {
-        theme = "Esco";
+        theme = "ClearlooksRe";
         titlebar-uses-system-font = false;
       };
+      "org/mate/desktop/peripherals/mouse".cursor-theme = "Oxygen_Zion";
       "org/mate/terminal/profiles/default" = with config.lib.stylix.colors.withHashtag; {
         background-color = base00;
         background-darkness = config.stylix.opacity.terminal;
@@ -276,15 +278,16 @@ in
       Hey, rafameou from the past here.
       Hidden means it's on or off, false means on.
       */
-      "autostart/gammastep-indicator.desktop".text = autostartString "gammastep-indicator";
-      "autostart/trayscale.desktop".text = autostartString "trayscale --hide-window";
-      #"autostart/volctl.desktop".text = autostartString "volctl";
-      "autostart/liferea.desktop".text = autostartString "liferea";
-      "autostart/flameshot.desktop".text = autostartString "flameshot";
+      "autostart/gammastep-indicator.desktop".text = autostartString "gammastep-indicator" "OnlyShowIn=MATE;";
+      "autostart/trayscale.desktop".text = autostartString "trayscale --hide-window" "";
+      #"autostart/volctl.desktop".text = autostartString "volctl" "";
+      "autostart/liferea.desktop".text = autostartString "liferea" "";
+      "autostart/flameshot.desktop".text = autostartString "flameshot" "OnlyShowIn=MATE;";
 
-      "autostart/wayland-pipewire-idle-inhibit.desktop".text = autostartString "wayland-pipewire-idle-inhibit -b -d 0";
+      /* we currently have a service for this on gnome.nix */
+      #"autostart/wayland-pipewire-idle-inhibit.desktop".text = autostartString "wayland-pipewire-idle-inhibit -b -d 0";
       /* this is unsafe but we can take the risk */
-      "autostart/xscreensaver.desktop".text = autostartString "xscreensaver";
+      "autostart/xscreensaver.desktop".text = autostartString "xscreensaver" "OnlyShowIn=MATE;";
       /* Disable mate-screensaver */
       "autostart/mate-screensaver.desktop".text = ''
         [Desktop Entry]

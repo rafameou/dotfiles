@@ -4,6 +4,11 @@
     inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
 
+  qt = {
+    enable = true;
+    platformTheme.name = "kde";
+  };
+
   home.packages = with pkgs; [
     gnome.dconf-editor
 
@@ -31,9 +36,9 @@
     enable = true;
     workspace = {
       theme = "oxygen";
-      colorScheme = "ObsidianCoast"; #"Gruvbox";
+      colorScheme = "Oxygen"; #"Gruvbox";
       iconTheme = "oxygen";
-      cursorTheme = "Oxygen_Zion";
+      cursor.theme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
     };
     panels = 
@@ -41,17 +46,9 @@
       {
         location = "bottom";
         floating = false;
-        height = 32;
+        height = 24;
         widgets = 
         [
-          {
-            name = "org.kde.plasma.kickoff";
-            config.General = {
-              icon = "nix-snowflake-white";
-              showRecentDocs = "false";
-              useCustomButtonImage = "true";
-            };
-          }
           {
             name = "org.kde.plasma.taskmanager";
             config.General = {
@@ -68,6 +65,23 @@
               showWindowIcons = "true";
             };
           }
+        ];
+      } 
+      {
+        location = "top";
+        floating = false;
+        height = 24;
+        widgets = 
+        [
+          {
+            name = "org.kde.plasma.kickoff";
+            config.General = {
+              icon = "nix-snowflake-white";
+              showRecentDocs = "false";
+              useCustomButtonImage = "true";
+            };
+          }
+          "org.kde.plasma.panelspacer"
           {
             name = "org.kde.plasma.systemtray";
             config = {
@@ -147,7 +161,7 @@
         "Plugins"."baloosearchEnabled" = false;
       };
 
-      "kwalletrc"."Wallet"."First Use" = false;
+      #"kwalletrc"."Wallet"."First Use" = false;
 
       "kwinrc" = {
         "Desktops" = {

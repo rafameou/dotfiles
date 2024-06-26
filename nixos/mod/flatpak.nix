@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -35,5 +35,13 @@
       "org.gnome.gitlab.YaLTeR.VideoTrimmer"
       "org.gnome.gitlab.YaLTeR.Identity"
     ];
+  };
+
+  services.dbus.enable = true;
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-kde ];
+    config.common.default = "*";
   };
 }

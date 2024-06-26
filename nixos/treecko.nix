@@ -19,12 +19,14 @@
     ./mod/env.nix
     ./mod/flatpak.nix
     ./mod/desktop-environment/mate.nix
+    ./mod/desktop-environment/cinnamon.nix
     ./mod/sway.nix
   ];
 
   /* ... changes to only this sytem */
   networking.hostName = "treecko"; # Define your hostname.
   home-manager = {
+    backupFileExtension = "hm-backup";
     extraSpecialArgs = { inherit inputs /*outputs*/; };
     users = {
       rafameou = import ../home-manager/treecko.nix;
