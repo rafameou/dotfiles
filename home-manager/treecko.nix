@@ -5,10 +5,12 @@
     ./mod/xdg.nix
     ./mod/zsh.nix
 
-    ./mod/apps.nix
-    #./mod/apps-minimal.nix
-    #./mod/apps-server.nix
+    ./mod/apps/edit.nix
     #./mod/apps/games.nix
+    ./mod/apps/internet.nix
+    ./mod/apps/tools.nix
+    #./mod/apps/separated/retroarch.nix
+    #./mod/apps/separated/rclone-server.nix
 
     /* - sway - */
     ./mod/window-manager.nix
@@ -21,11 +23,6 @@
   ];
 
   /* ... changes to only this sytem */
-  home.packages = with pkgs; [
-    ciscoPacketTracer8
-    wireshark
-  ];
-
   wayland.windowManager.sway.config.input."type:keyboard" = {
     xkb_variant = lib.mkForce "thinkpad,nativo";
     xkb_numlock = lib.mkForce "disabled,disabled";

@@ -11,6 +11,11 @@
   programs.evolution.enable = true;
   services.gnome.evolution-data-server.enable = true;
 
+  qt = {
+    enable = true;
+    platformTheme = "gtk2";
+  };
+
   services.ayatana-indicators = {
     enable = true;
     packages = with pkgs; [

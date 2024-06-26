@@ -1,9 +1,9 @@
 { pkgs, ... }:
 {
+  imports = [
+    #./separated/retroarch.nix
+  ];
   home.packages = with pkgs; [
-    /*----------------|
-    |---   games   ---|
-    |----------------*/
     easyrpg-player
     crispy-doom
     dsda-doom
@@ -14,6 +14,5 @@
     #itch #marked as broken 24/03/24
     heroic
     protonup-qt
-    /*---------------*/
   ];
 }

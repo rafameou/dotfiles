@@ -38,6 +38,11 @@ in
       flameshot
     ];
 
+    qt = {
+      enable = true;
+      platformTheme.name = "gtk2";
+    };
+
     dconf.settings = {
       "org/mate/panel/menubar" = {
         show-icon = true;
