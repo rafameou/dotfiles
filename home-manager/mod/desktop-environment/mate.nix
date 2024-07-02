@@ -53,14 +53,14 @@ in
         #picture-options = "wallpaper";
       };*/
       "org/mate/desktop/interface" = with config.stylix.fonts; {
-        gtk-theme = "TraditionalOk";#"adw-gtk3";
+        gtk-theme = "Mint-X-Aqua";#"adw-gtk3";
         icon-theme = "Mint-X-Aqua";
         font-name = "${sansSerif.name} ${toString (sizes.applications - 1)}";
         document-font-name = "${serif.name}  ${toString (sizes.applications - 1)}";
         monospace-font-name = "${monospace.name} ${toString sizes.applications}";
       };
       "org/mate/marco/general" = {
-        theme = "ClearlooksRe";
+        theme = "Mint-X";
         titlebar-uses-system-font = false;
       };
       "org/mate/desktop/peripherals/mouse".cursor-theme = "Oxygen_Zion";
@@ -115,18 +115,18 @@ in
 
       /* panel */
       "org/mate/panel/general" = {
-        "object-id-list" =  ["menu-bar" "mate-screenshot" "mate-terminal" "mate-system-monitor" "eyes-applet" "sensors-applet" "multi-load" "notification-area" "ayatana-indicator-full" "show-desktop" "window-list" "workspace-switcher" ];
+        "object-id-list" =  ["menu-bar" "st0" "evolution" "liferea" "mate-terminal" "st1" "eyes-applet" "st2" "sensors-applet" "st3" "multi-load" "st4" "st5" "notification-area" "st6" "ayatana-indicator-full" "show-desktop" "window-list" "sb0" "workspace-switcher" ];
       };
       /*"org/mate/panel/objects/clock/prefs" = {
         show-seconds = true;
       };*/
       "org/mate/panel/toplevels/top/background" = {
         image = "${./mate/top.png}";
-        type = "image";
+        type = "none";#"image";
       };
       "org/mate/panel/toplevels/bottom/background" = {
         image = "${./mate/bottom.png}";
-        type = "image";
+        type = "none";#"image";
       };
 
       /* --- panel applets --- */
@@ -138,12 +138,29 @@ in
         toplevel-id = "top";
       };
 
-      "org/mate/panel/objects/mate-screenshot" = {
+      "org/mate/panel/objects/st0" = {
         locked = true;
-        launcher-location = "mate-screenshot.desktop";
-        object-type = "launcher";
+        object-type = "separator";
         panel-right-stick = false;
         position = 1;
+        toplevel-id = "top";
+      };
+
+      "org/mate/panel/objects/evolution" = {
+        locked = true;
+        launcher-location = "org.gnome.Evolution.desktop";
+        object-type = "launcher";
+        panel-right-stick = false;
+        position = 2;
+        toplevel-id = "top";
+      };
+
+      "org/mate/panel/objects/liferea" = {
+        locked = true;
+        launcher-location = "net.sourceforge.liferea.desktop";
+        object-type = "launcher";
+        panel-right-stick = false;
+        position = 3;
         toplevel-id = "top";
       };
 
@@ -152,16 +169,15 @@ in
         launcher-location = "mate-terminal.desktop";
         object-type = "launcher";
         panel-right-stick = false;
-        position = 2;
+        position = 4;
         toplevel-id = "top";
       };
 
-      "org/mate/panel/objects/mate-system-monitor" = {
+      "org/mate/panel/objects/st1" = {
         locked = true;
-        launcher-location = "mate-system-monitor.desktop";
-        object-type = "launcher";
+        object-type = "separator";
         panel-right-stick = false;
-        position = 3;
+        position = 5;
         toplevel-id = "top";
       };
 
@@ -170,7 +186,16 @@ in
         object-type = "applet";
         applet-iid = "GeyesAppletFactory::GeyesApplet";
         panel-right-stick = false;
-        position = 4;
+        position = 6;
+        toplevel-id = "top";
+      };
+      "org/mate/panel/objects/eyes-applet/prefs".theme_path = "${pkgs.mate.mate-applets}/share/mate-applets/geyes/Tango";
+
+      "org/mate/panel/objects/st2" = {
+        locked = true;
+        object-type = "separator";
+        panel-right-stick = false;
+        position = 7;
         toplevel-id = "top";
       };
 
@@ -180,17 +205,25 @@ in
         object-type = "applet";
         applet-iid = "SensorsAppletFactory::SensorsApplet";
         panel-right-stick = false;
-        position = 5;
+        position = 8;
         toplevel-id = "top";
       };
       "org/mate/panel/objects/sensors-applet/prefs".timeout-delay = 5000;
+
+      "org/mate/panel/objects/st3" = {
+        locked = true;
+        object-type = "separator";
+        panel-right-stick = false;
+        position = 9;
+        toplevel-id = "top";
+      };
 
       "org/mate/panel/objects/multi-load" = {
         locked = true;
         object-type = "applet";
         applet-iid = "MultiLoadAppletFactory::MultiLoadApplet";
         panel-right-stick = false;
-        position = 6;
+        position = 10;
         toplevel-id = "top";
       };
       "org/mate/panel/objects/multi-load/prefs" = {
@@ -202,10 +235,34 @@ in
         view-swapload = true;
       };
 
+      "org/mate/panel/objects/st4" = {
+        locked = true;
+        object-type = "separator";
+        panel-right-stick = false;
+        position = 11;
+        toplevel-id = "top";
+      };
+
+      "org/mate/panel/objects/st5" = {
+        locked = true;
+        object-type = "separator";
+        panel-right-stick = true;
+        position = 3;
+        toplevel-id = "top";
+      };
+
       "org/mate/panel/objects/notification-area" = {
         locked = true;
         object-type = "applet";
         applet-iid = "NotificationAreaAppletFactory::NotificationArea";
+        panel-right-stick = true;
+        position = 2;
+        toplevel-id = "top";
+      };
+
+      "org/mate/panel/objects/st6" = {
+        locked = true;
+        object-type = "separator";
         panel-right-stick = true;
         position = 1;
         toplevel-id = "top";
@@ -234,6 +291,14 @@ in
         object-type = "applet";
         applet-iid = "WnckletFactory::WindowListApplet";
         panel-right-stick = false;
+        position = 1;
+        toplevel-id = "bottom";
+      };
+
+      "org/mate/panel/objects/sb0" = {
+        locked = true;
+        object-type = "separator";
+        panel-right-stick = true;
         position = 1;
         toplevel-id = "bottom";
       };
@@ -286,7 +351,6 @@ in
       "autostart/gammastep-indicator.desktop".text = autostartString "gammastep-indicator" "OnlyShowIn=MATE;";
       "autostart/trayscale.desktop".text = autostartString "trayscale --hide-window" "";
       #"autostart/volctl.desktop".text = autostartString "volctl" "";
-      "autostart/liferea.desktop".text = autostartString "liferea" "";
       "autostart/flameshot.desktop".text = autostartString "flameshot" "OnlyShowIn=MATE;";
 
       /* we currently have a service for this on gnome.nix */
