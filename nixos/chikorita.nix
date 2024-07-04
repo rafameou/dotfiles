@@ -39,10 +39,10 @@
   /* ... changes to only this sytem */
 
   fileSystems = {
-    "/mnt/Extra" = { 
+    /*"/mnt/Extra" = { 
       device = "/dev/disk/by-uuid/41785370-fb0f-4504-81a2-d9bf1b895fb5";
       fsType = "ext4";
-    };
+    };*/
     "/mnt/Extra2" = { 
       device = "/dev/disk/by-uuid/30c8e8dd-7a12-449a-ae59-f26262c5a8ff";
       fsType = "ext4";
