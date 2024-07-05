@@ -6,7 +6,7 @@
   home.packages = with pkgs; [
     gnome.gnome-software
     gnome.gnome-tweaks
-    gnome.dconf-editor
+    dconf-editor
     #gnome-builder
     # ---- gnome extensions ----
     gnomeExtensions.runcat

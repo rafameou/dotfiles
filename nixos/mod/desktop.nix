@@ -40,7 +40,7 @@
     ffmpegthumbnailer
     freetype
     libgsf
-    gnome.totem #caja
+    totem #caja
     gnome-epub-thumbnailer
     f3d
   ];

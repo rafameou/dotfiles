@@ -10,7 +10,7 @@
   };
 
   home.packages = with pkgs; [
-    gnome.dconf-editor
+    dconf-editor
 
     kde-gruvbox
     gruvbox-dark-gtk

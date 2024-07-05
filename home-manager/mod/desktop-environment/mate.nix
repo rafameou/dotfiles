@@ -21,7 +21,7 @@ let
 in
   {
     home.packages = with pkgs; [
-      gnome.dconf-editor
+      dconf-editor
       mate.mate-tweak
       mate.mate-icon-theme-faenza
       networkmanagerapplet
