@@ -217,7 +217,7 @@ in
           position = 14;
           toplevel-id = "top";
         };
-        "org/mate/panel/objects/eyes-applet/prefs".theme_path = "${pkgs.mate.mate-applets}/share/mate-applets/geyes/Tango";
+        "org/mate/panel/objects/eyes-applet/prefs".theme-path = "${pkgs.mate.mate-applets}/share/mate-applets/geyes/Tango";
 
         "org/mate/panel/objects/st2" = {
           locked = true;
