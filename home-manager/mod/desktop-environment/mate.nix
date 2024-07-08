@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 let
   autostartString = (val: extra: ''
       [Desktop Entry]
@@ -46,6 +46,8 @@ in
 
       xscreensaver
       flameshot
+
+      inputs.bing-mate.defaultPackage.x86_64-linux
     ];
 
     qt = {
@@ -380,6 +382,7 @@ in
         "autostart/trayscale.desktop".text = autostartString "trayscale --hide-window" "";
       #"autostart/volctl.desktop".text = autostartString "volctl" "";
       "autostart/flameshot.desktop".text = autostartString "flameshot" "OnlyShowIn=MATE;";
+      "autostart/bing-mate.desktop".text = autostartString "bing-mate" "OnlyShowIn=MATE;";
 
       /* we currently have a service for this on gnome.nix */
       #"autostart/wayland-pipewire-idle-inhibit.desktop".text = autostartString "wayland-pipewire-idle-inhibit -b -d 0";

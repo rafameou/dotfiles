@@ -24,6 +24,9 @@
     #plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     #plasma-manager.inputs.home-manager.follows = "home-manager";
 
+    bing-mate.url = "github:rafameou/bing-mate";
+    bing-mate.inputs.nixpkgs.follows = "nixpkgs";
+
     stylix.url = "github:danth/stylix";
 
     img-clip-nvim.url = "github:HakonHarnes/img-clip.nvim";
