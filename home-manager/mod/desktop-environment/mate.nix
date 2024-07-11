@@ -138,7 +138,7 @@ in
           "object-id-list" =  [
             "menu-bar" 
             "st0" 
-            "floorp" 
+            "firefox" 
             "google-chrome" 
             "evolution" 
             "liferea" 
@@ -199,7 +199,7 @@ in
           toplevel-id = "top";
         };
 
-        "org/mate/panel/objects/floorp" = appletDconf "floorp" 2;
+        "org/mate/panel/objects/firefox" = appletDconf "firefox" 2;
         "org/mate/panel/objects/google-chrome" = appletDconf "google-chrome" 3;
         "org/mate/panel/objects/evolution" = appletDconf "org.gnome.Evolution" 4;
         "org/mate/panel/objects/liferea" = appletDconf "net.sourceforge.liferea" 5;

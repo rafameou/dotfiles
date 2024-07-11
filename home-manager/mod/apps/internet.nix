@@ -7,7 +7,7 @@
   ];
   programs.firefox = {
     enable = true; 
-    package = pkgs.floorp;
+    #package = pkgs.floorp;
     /*nativeMessagingHosts = with pkgs; [
       firefoxpwa
     ];*/
@@ -22,5 +22,6 @@
     #kdePackages.tokodon
     #kdePackages.neochat #broken 21-05
     whatsapp-for-linux
+    stremio
   ];
 }
