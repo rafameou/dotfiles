@@ -40,6 +40,7 @@
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
+        "application/x-gnome-saved-search" = "caja.desktop";
         "inode/directory" = "caja.desktop";
 
         # move this stuff to each desktop's dot nix file

@@ -30,8 +30,8 @@
 
     fonts = {
       sansSerif = {
-        name = "Fira Sans";
-        package = pkgs.fira;
+        name = "Ubuntu Regular";#"Fira Sans";
+        package = pkgs.ubuntu_font_family;#pkgs.fira;
       };
       monospace = {
         name = "FiraCode Nerd Font Mono";

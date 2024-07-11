@@ -34,11 +34,14 @@ in
       cinnamon.mint-x-icons
       iconpack-obsidian
       (callPackage ./mate/ambient-mate.nix {})
+      ubuntu-themes
 
       kdePackages.oxygen
       kdePackages.oxygen.qt5
       kdePackages.oxygen-sounds
       kdePackages.oxygen-icons
+
+      kdePackages.kdeconnect-kde
 
       xclip
 
@@ -75,6 +78,7 @@ in
           button-layout = "close,minimize,maximize:menu";
           theme = "Ambiant-MATE";
           titlebar-uses-system-font = false;
+          titlebar-font = "Ubuntu Bold 10";
         };
         "org/gnome/desktop/wm/preferences" = {
           button-layout = "close,minimize,maximize:appmenu";
@@ -148,17 +152,21 @@ in
             "st1" 
             "eyes-applet" 
             "st2" 
-            "sensors-applet" 
+
             "st3" 
-            "multi-load" 
-            "st4" 
-            "st5" 
             "notification-area" 
-            "st6" 
+            "st4" 
             "ayatana-indicator-full" 
+
             "show-desktop" 
             "window-list" 
-            "sb0" 
+            "sb0"
+            "sensors-applet" 
+            "sb1" 
+            "multi-load" 
+            "sb2"
+            "trash"
+            "sb3"
             "workspace-switcher" 
           ];
         };
@@ -230,50 +238,7 @@ in
         };
 
 
-        "org/mate/panel/objects/sensors-applet" = {
-          locked = true;
-          object-type = "applet";
-          applet-iid = "SensorsAppletFactory::SensorsApplet";
-          panel-right-stick = false;
-          position = 16;
-          toplevel-id = "top";
-        };
-        "org/mate/panel/objects/sensors-applet/prefs".timeout-delay = 5000;
-
         "org/mate/panel/objects/st3" = {
-          locked = true;
-          object-type = "separator";
-          panel-right-stick = false;
-          position = 17;
-          toplevel-id = "top";
-        };
-
-        "org/mate/panel/objects/multi-load" = {
-          locked = true;
-          object-type = "applet";
-          applet-iid = "MultiLoadAppletFactory::MultiLoadApplet";
-          panel-right-stick = false;
-          position = 18;
-          toplevel-id = "top";
-        };
-        "org/mate/panel/objects/multi-load/prefs" = {
-          speed = 5000;
-          view-diskload = true;
-          view-loadavg = false;
-          view-memload = true;
-          view-netload = true;
-          view-swapload = true;
-        };
-
-        "org/mate/panel/objects/st4" = {
-          locked = true;
-          object-type = "separator";
-          panel-right-stick = false;
-          position = 19;
-          toplevel-id = "top";
-        };
-
-        "org/mate/panel/objects/st5" = {
           locked = true;
           object-type = "separator";
           panel-right-stick = true;
@@ -290,7 +255,7 @@ in
           toplevel-id = "top";
         };
 
-        "org/mate/panel/objects/st6" = {
+        "org/mate/panel/objects/st4" = {
           locked = true;
           object-type = "separator";
           panel-right-stick = true;
@@ -326,6 +291,66 @@ in
         };
 
         "org/mate/panel/objects/sb0" = {
+          locked = true;
+          object-type = "separator";
+          panel-right-stick = true;
+          position = 7;
+          toplevel-id = "bottom";
+        };
+
+        "org/mate/panel/objects/sensors-applet" = {
+          locked = true;
+          object-type = "applet";
+          applet-iid = "SensorsAppletFactory::SensorsApplet";
+          panel-right-stick = true;
+          position = 6;
+          toplevel-id = "bottom";
+        };
+        "org/mate/panel/objects/sensors-applet/prefs".timeout-delay = 5000;
+
+        "org/mate/panel/objects/sb1" = {
+          locked = true;
+          object-type = "separator";
+          panel-right-stick = true;
+          position = 5;
+          toplevel-id = "bottom";
+        };
+
+        "org/mate/panel/objects/multi-load" = {
+          locked = true;
+          object-type = "applet";
+          applet-iid = "MultiLoadAppletFactory::MultiLoadApplet";
+          panel-right-stick = true;
+          position = 4;
+          toplevel-id = "bottom";
+        };
+        "org/mate/panel/objects/multi-load/prefs" = {
+          speed = 5000;
+          view-diskload = true;
+          view-loadavg = false;
+          view-memload = true;
+          view-netload = true;
+          view-swapload = true;
+        };
+
+        "org/mate/panel/objects/sb2" = {
+          locked = true;
+          object-type = "separator";
+          panel-right-stick = true;
+          position = 3;
+          toplevel-id = "bottom";
+        };
+
+        "org/mate/panel/objects/trash" = {
+          locked = true;
+          object-type = "applet";
+          applet-iid = "TrashAppletFactory::TrashApplet";
+          panel-right-stick = true;
+          position = 2;
+          toplevel-id = "bottom";
+        };
+
+        "org/mate/panel/objects/sb3" = {
           locked = true;
           object-type = "separator";
           panel-right-stick = true;
@@ -383,6 +408,7 @@ in
       #"autostart/volctl.desktop".text = autostartString "volctl" "";
       "autostart/flameshot.desktop".text = autostartString "flameshot" "OnlyShowIn=MATE;";
       "autostart/bing-mate.desktop".text = autostartString "bing-mate" "OnlyShowIn=MATE;";
+      "autostart/kdeconnect-indicator.desktop".text = autostartString "kdeconnect-indicator" "OnlyShowIn=MATE;";
 
       /* we currently have a service for this on gnome.nix */
       #"autostart/wayland-pipewire-idle-inhibit.desktop".text = autostartString "wayland-pipewire-idle-inhibit -b -d 0";
