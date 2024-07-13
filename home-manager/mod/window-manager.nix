@@ -28,8 +28,6 @@
     #lxqt.pavucontrol-qt
     #lxqt.qps
 
-    pavucontrol
-
     j4-dmenu-desktop
     bemenu
 
@@ -38,6 +36,5 @@
     #selectdefaultapplication
 
     /*udiskie*/
-    android-file-transfer
   ];
 }

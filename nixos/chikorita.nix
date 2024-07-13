@@ -21,8 +21,6 @@
     ./mod/env.nix
     ./mod/flatpak.nix
     ./mod/desktop-environment/mate.nix
-    ./mod/desktop-environment/cinnamon.nix 
-    ./mod/sway.nix
 
     ./mod/navidrome.nix
   ];

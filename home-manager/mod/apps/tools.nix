@@ -25,5 +25,7 @@
     nixos-icons
     mesa-demos
     trayscale
+    pavucontrol
+    android-file-transfer
   ];
 }
