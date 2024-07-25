@@ -23,6 +23,7 @@
     ./mod/desktop-environment/mate.nix
 
     ./mod/navidrome.nix
+    #./mod/nextcloud.nix
   ];
 
   networking.hostName = "chikorita"; # Define your hostname.
@@ -60,16 +61,8 @@
   programs.firejail.enable = true;
   programs.fuse.userAllowOther = true;
 
-  /*services.navidrome = {
-  enable = true;
-  settings = {
-  MusicFolder = "/mnt/Extra2/gdrive_music";
-  };
-  };*/
-
   environment.systemPackages = [
     pkgs.screen
-    pkgs.navidrome
   ];
 
   services.xserver.displayManager.setupCommands = ''

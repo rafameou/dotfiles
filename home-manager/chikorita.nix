@@ -10,7 +10,7 @@
     ./mod/apps/internet.nix
     ./mod/apps/tools.nix
     ./mod/apps/separated/retroarch.nix
-    ./mod/apps/separated/rclone-server.nix
+    #./mod/apps/separated/rclone-server.nix
 
     /* - sway - */
     #./mod/window-manager.nix
