@@ -15,7 +15,7 @@
             "$HOME/.local/share/fonts:ro"
             "$HOME/.icons:ro"
           ];
-          sockets = ["wayland" "!x11" "!fallback-x11"];
+          sockets = ["wayland" "x11" "fallback-x11"];
         };
 
         Environment = {
@@ -34,6 +34,7 @@
       "io.github.finefindus.Hieroglyphic"
       "org.gnome.gitlab.YaLTeR.VideoTrimmer"
       "org.gnome.gitlab.YaLTeR.Identity"
+      "io.mrarm.mcpelauncher"
     ];
   };
 
