@@ -407,13 +407,13 @@ in
         "autostart/trayscale.desktop".text = autostartString "trayscale --hide-window" "";
       #"autostart/volctl.desktop".text = autostartString "volctl" "";
       "autostart/flameshot.desktop".text = autostartString "flameshot" "OnlyShowIn=MATE;";
-      "autostart/bing-mate.desktop".text = autostartString "bing-mate" "OnlyShowIn=MATE;";
+      #"autostart/bing-mate.desktop".text = autostartString "bing-mate" "OnlyShowIn=MATE;";
       "autostart/kdeconnect-indicator.desktop".text = autostartString "kdeconnect-indicator" "OnlyShowIn=MATE;";
 
       /* we currently have a service for this on gnome.nix */
       #"autostart/wayland-pipewire-idle-inhibit.desktop".text = autostartString "wayland-pipewire-idle-inhibit -b -d 0";
       /* this is unsafe but we can take the risk */
-      "autostart/xscreensaver.desktop".text = autostartString "xscreensaver" "OnlyShowIn=MATE;";
+      "autostart/xscreensaver.desktop".text = autostartString "xscreensaver --no-splash" "OnlyShowIn=MATE;";
       /* Disable mate-screensaver */
       "autostart/mate-screensaver.desktop".text = ''
         [Desktop Entry]
