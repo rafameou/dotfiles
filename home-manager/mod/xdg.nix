@@ -40,22 +40,22 @@
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
-        "application/x-gnome-saved-search" = "caja.desktop";
-        "inode/directory" = "caja.desktop";
+        "application/x-gnome-saved-search" = "dolphin.desktop";
+        "inode/directory" = "dolphin.desktop";
 
         # move this stuff to each desktop's dot nix file
-        "image/tiff" = "eom.desktop";
-        "image/jpx" = "eom.desktop";
-        "image/png" = "eom.desktop";
-        "image/gif" = "eom.desktop";
-        "image/jpeg" = "eom.desktop";
-        "image/bmp" = "eom.desktop";
-        "image/jp2" = "eom.desktop";
+        "image/tiff" = "org.kde.gwenview.desktop";
+        "image/jpx" = "org.kde.gwenview.desktop";
+        "image/png" = "org.kde.gwenview.desktop";
+        "image/gif" = "org.kde.gwenview.desktop";
+        "image/jpeg" = "org.kde.gwenview.desktop";
+        "image/bmp" = "org.kde.gwenview.desktop";
+        "image/jp2" = "org.kde.gwenview.desktop";
 
-        "application/x-tar" = "engrampa.desktop";
-        "application/x-7z-compressed" = "engrampa.desktop";
-        "application/vnd.rar" = "engrampa.desktop"; 
-        "application/zip" = "engrampa.desktop";
+        "application/x-tar" = "org.kde.ark.desktop";
+        "application/x-7z-compressed" = "org.kde.ark.desktop";
+        "application/vnd.rar" = "org.kde.ark.desktop"; 
+        "application/zip" = "org.kde.ark.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
       };

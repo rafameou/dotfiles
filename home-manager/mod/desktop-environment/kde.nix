@@ -50,13 +50,13 @@
       {
         location = "bottom";
         floating = true;
-        height = 48;
+        height = 40;
         widgets = 
         [
           {
             name = "org.kde.plasma.kickoff";
             config.General = {
-              icon = "nix-snowflake-white";
+              icon = "nix-snowflake";
               showRecentDocs = "false";
               useCustomButtonImage = "true";
             };

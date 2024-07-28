@@ -5,14 +5,17 @@
     #./separated/luakit.nix
     #./separated/qutebrowser.nix
   ];
-  programs.firefox = {
-    enable = true; 
-    #package = pkgs.floorp;
-    /*nativeMessagingHosts = with pkgs; [
-      firefoxpwa
-    ];*/
+  programs = {
+    firefox = {
+      enable = true; 
+      #package = pkgs.floorp;
+      /*nativeMessagingHosts = with pkgs; [
+        firefoxpwa
+      ];*/
+    };
   };
   home.packages = with pkgs; [
+    thunderbird-128
     google-chrome 
     telegram-desktop
     vesktop
