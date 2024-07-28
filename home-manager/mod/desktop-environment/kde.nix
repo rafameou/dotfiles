@@ -5,8 +5,8 @@
   ];
 
   /*qt = {
-    enable = true;
-    platformTheme.name = "kde";
+  enable = true;
+  platformTheme.name = "kde";
   };*/
 
   home.packages = with pkgs; [
@@ -39,6 +39,11 @@
       cursor.theme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
       soundTheme = "Oxygen";
+    };
+    startup = {
+      startupScript = {
+        trayscale.text = "trayscale --hide-window";
+      };
     };
     panels = 
     [ 
