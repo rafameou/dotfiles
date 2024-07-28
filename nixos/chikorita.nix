@@ -20,7 +20,7 @@
     ./mod/distrobox.nix 
     ./mod/env.nix
     ./mod/flatpak.nix
-    ./mod/desktop-environment/mate.nix
+    ./mod/desktop-environment/kde.nix
 
     ./mod/navidrome.nix
     #./mod/nextcloud.nix

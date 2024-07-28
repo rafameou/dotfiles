@@ -20,9 +20,9 @@
     # everything match nicely? Try nix-colors!
     #nix-colors.url = "github:misterio77/nix-colors";
 
-    #plasma-manager.url = "github:pjones/plasma-manager";
-    #plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
-    #plasma-manager.inputs.home-manager.follows = "home-manager";
+    plasma-manager.url = "github:pjones/plasma-manager";
+    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
+    plasma-manager.inputs.home-manager.follows = "home-manager";
 
     bing-mate.url = "github:rafameou/bing-mate";
     bing-mate.inputs.nixpkgs.follows = "nixpkgs";
@@ -37,19 +37,29 @@
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
   };
 
-  outputs = { nixpkgs, home-manager, stylix, chaotic, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, plasma-manager, stylix, chaotic, ... }@inputs: {
     nixosConfigurations = {
       bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ stylix.nixosModules.stylix ./nixos/bulbasaur.nix chaotic.nixosModules.default];
+        modules = [ 
+          stylix.nixosModules.stylix
+          ./nixos/bulbasaur.nix 
+          chaotic.nixosModules.default
+        ];
       };
       chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ stylix.nixosModules.stylix ./nixos/chikorita.nix chaotic.nixosModules.default];
+        modules = [ 
+          stylix.nixosModules.stylix 
+          ./nixos/chikorita.nix 
+          chaotic.nixosModules.default];
       };
       treecko = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ stylix.nixosModules.stylix ./nixos/treecko.nix chaotic.nixosModules.default];
+        modules = [ 
+          stylix.nixosModules.stylix 
+          ./nixos/treecko.nix 
+          chaotic.nixosModules.default];
       };
       /*oddish = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config

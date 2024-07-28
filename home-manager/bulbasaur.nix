@@ -17,7 +17,7 @@
     /* - other desktops - */
     ./mod/desktop-environment.nix
     #./mod/desktop-environment/gnome.nix
-    #./mod/desktop-environment/kde.nix
+    ./mod/desktop-environment/kde.nix
     ./mod/desktop-environment/mate.nix
     #./mod/desktop-environment/xfce.nix
   ];

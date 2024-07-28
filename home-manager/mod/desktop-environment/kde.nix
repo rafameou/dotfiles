@@ -4,10 +4,10 @@
     inputs.plasma-manager.homeManagerModules.plasma-manager
   ];
 
-  qt = {
+  /*qt = {
     enable = true;
     platformTheme.name = "kde";
-  };
+  };*/
 
   home.packages = with pkgs; [
     dconf-editor
@@ -27,8 +27,6 @@
     kdePackages.discover
     kdePackages.kdeconnect-kde
 
-    #kdePackages.konsole
-
     kaffeine
   ];
 
@@ -40,37 +38,14 @@
       iconTheme = "oxygen";
       cursor.theme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
+      soundTheme = "Oxygen";
     };
     panels = 
     [ 
       {
         location = "bottom";
-        floating = false;
-        height = 24;
-        widgets = 
-        [
-          {
-            name = "org.kde.plasma.taskmanager";
-            config.General = {
-              launchers = "";
-              maxStripes = "1";
-              showOnlyCurrentDesktop = "false";
-              unhideOnAttention = "false";
-            };
-          }
-          "org.kde.plasma.panelspacer"
-          {
-            name = "org.kde.plasma.pager";
-            config.General = {
-              showWindowIcons = "true";
-            };
-          }
-        ];
-      } 
-      {
-        location = "top";
-        floating = false;
-        height = 24;
+        floating = true;
+        height = 48;
         widgets = 
         [
           {
@@ -81,19 +56,36 @@
               useCustomButtonImage = "true";
             };
           }
+          {
+            name = "org.kde.plasma.pager";
+            config.General = {
+              showWindowIcons = "true";
+            };
+          }
+          {
+            name = "org.kde.plasma.taskmanager";
+            config.General = {
+              launchers = "";
+              forceStripes = "true";
+              maxStripes = "2";
+              showOnlyCurrentDesktop = "false";
+              unhideOnAttention = "false";
+            };
+          }
           "org.kde.plasma.panelspacer"
           {
             name = "org.kde.plasma.systemtray";
             config = {
               General = {
                 iconSpacing = "1";
+                showAllItems = "true";
               };
             };
           }
           {
             name = "org.kde.plasma.digitalclock";
             config.Appearance = {
-              dateDisplayFormat = "BesideTime";
+              dateDisplayFormat = "adaptive";
               fontWeight = "400";
               showSeconds = "2";
             };
@@ -102,9 +94,34 @@
       } 
     ];
 
-    kwin.titlebarButtons = {
-      left = [ "on-all-desktops" "keep-above-windows" ];
-      right = [ "help" "minimize" "maximize" "close" ];
+    kwin = {
+      titlebarButtons = {
+        left = [ "close" "minimize" "maximize" "help" ];
+        right = [ "keep-above-windows" "on-all-desktops" ];
+      };
+      effects = {
+        shakeCursor.enable = true;
+        translucency.enable = true;
+        wobblyWindows.enable = true;
+        cube.enable = true;
+        blur.enable = false;
+      };
+      virtualDesktops = {
+        rows = 2;
+        number = 4;
+      };
+      borderlessMaximizedWindows = false;
+      nightLight = {
+        enable = true;
+        mode = "location";
+        location = {
+          latitude = "-25.4430715";
+          longitude = "-49.2396095";
+        };
+      };
+    };
+    kscreenlocker = {
+      wallpaperPictureOfTheDay.provider = "bing";
     };
     spectacle.shortcuts = {
       captureActiveWindow = "Meta+Print";
@@ -137,48 +154,45 @@
 
       "org.kde.dolphin.desktop"."_launch" = "Meta+E";
     };
+    /**/
+    fonts = {
+      general = {
+        family = "Fira Sans";
+        pointSize = 10;
+      };
+      fixedWidth = {
+        family = "FiraCode Nerd Font Mono";
+        pointSize = 10;
+      };
+      small = {
+        family = "Fira Sans";
+        pointSize = 8;
+      };
+      toolbar = {
+        family = "Fira Sans";
+        pointSize = 10;
+      };
+      menu = {
+        family = "Fira Sans";
+        pointSize = 10;
+      };
+      windowTitle = {
+        family = "Fira Sans";
+        pointSize = 10;
+      };
+    };
     configFile = {
       "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
 
       "kdeglobals" = {
-        "General" = {
-          "fixed" = "FiraCode Nerd Font Mono,10,-1,5,50,0,0,0,0,0";
-          "font" = "Fira Sans,10,-1,5,29,0,0,0,0,0,Book";
-          "menuFont" = "Fira Sans,10,-1,5,29,0,0,0,0,0,Book";
-          "smallestReadableFont" = "Fira Sans,8,-1,5,29,0,0,0,0,0,Book";
-          "toolBarFont" = "Fira Sans,10,-1,5,29,0,0,0,0,0,Book";
-        };
         "KDE"."widgetStyle" = "Oxygen";
-        "WM"."activeFont" = "Fira Sans,10,-1,5,29,0,0,0,0,0,Book";
       };
-
-      "kscreenlockerrc"."Greeter.Wallpaper.org.kde.potd.General"."Provider" = "bing";
 
       "ksmserverrc"."General"."loginMode" = "emptySession";
 
       "krunnerrc" = {
         "General"."FreeFloating" = true;
         "Plugins"."baloosearchEnabled" = false;
-      };
-
-      #"kwalletrc"."Wallet"."First Use" = false;
-
-      "kwinrc" = {
-        "Desktops" = {
-          "Number" = 4;
-          "Rows" = 1;
-        };
-        "NightColor"."Active" = true;
-        "Plugins" = {
-          "blurEnabled" = false;
-          "cubeEnabled" = true;
-          "slidingpopupsEnabled" = false;
-        };
-        "Windows" = {
-          "BorderlessMaximizedWindows" = false;
-          "RollOverDesktops" = false;
-        };
-        "Xwayland"."Scale" = 1;
       };
 
       "kxkbrc"."Layout" = {
@@ -192,5 +206,19 @@
 
       "plasma-localerc"."Formats"."LANG" = "pt_BR.UTF-8";
     };
+  };
+
+  programs.konsole = {
+    profiles = [
+      {
+        name = "abacate";
+        colorScheme = "Gruvbox";
+        font = {
+          name = "FiraCode Nerd Font Mono";
+          size = 10;
+        };
+      }
+    ];
+    defaultProfile = "abacate";
   };
 }
