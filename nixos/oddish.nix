@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ lib, inputs, pkgs, ... }:
 {
   imports = [ 
       inputs.home-manager.nixosModules.home-manager
@@ -36,6 +36,10 @@
   services.xrdp.enable = true;
   services.xrdp.defaultWindowManager = "startlxqt";
   services.xrdp.openFirewall = false;
+
+  hardware.graphics = { 
+    enable32Bit = lib.mkDefault false; 
+  };
 
 # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
