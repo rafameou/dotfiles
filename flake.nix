@@ -61,10 +61,13 @@
           ./nixos/treecko.nix 
           chaotic.nixosModules.default];
       };
-      /*oddish = nixpkgs.lib.nixosSystem {
+      oddish = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ ./nixos/oddish.nix ];
-      };*/
+        modules = [ 
+          stylix.nixosModules.stylix
+          ./nixos/oddish.nix 
+        ];
+      };
     };
   };
 }

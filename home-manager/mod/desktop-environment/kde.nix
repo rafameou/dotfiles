@@ -27,6 +27,35 @@
     kdePackages.discover
     kdePackages.kdeconnect-kde
 
+    kdePackages.kdenlive
+    krita
+    kdePackages.filelight
+    kdePackages.kolourpaint
+    kdePackages.kcolorchooser
+    kdePackages.yakuake
+    #kdePackages.kompare
+    kdePackages.kruler
+    kdePackages.kteatime
+    kdePackages.falkon
+    #kdePackages.lokalize
+    kdePackages.akregator #remove one after testing
+    kdePackages.alligator
+    kdePackages.kmines
+    kdePackages.ksudoku
+    kdePackages.kapman
+    kdePackages.kblocks
+    kdePackages.kbounce
+    #kdePackages.kwave
+    kdePackages.knotes
+    kdePackages.ghostwriter
+    kdePackages.kmplot
+    kdePackages.keysmith
+    kdePackages.tokodon
+    kdePackages.plasmatube
+    labplot
+
+    ktailctl
+
     kaffeine
   ];
 
@@ -34,7 +63,7 @@
     enable = true;
     workspace = {
       theme = "oxygen";
-      colorScheme = "Oxygen"; #"Gruvbox";
+      colorScheme = "Oxygen";
       iconTheme = "oxygen";
       cursor.theme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
@@ -42,7 +71,7 @@
     };
     startup = {
       startupScript = {
-        trayscale.text = "trayscale --hide-window";
+        trayscale.text = "ktailctl";
       };
     };
     panels = 
@@ -56,7 +85,7 @@
           {
             name = "org.kde.plasma.kickoff";
             config.General = {
-              icon = "nix-snowflake";
+              icon = "kde";#"nix-snowflake";
               showRecentDocs = "false";
               useCustomButtonImage = "true";
             };
