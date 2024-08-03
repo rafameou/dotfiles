@@ -77,9 +77,38 @@
     panels = 
     [ 
       {
+        location = "top";
+        floating = true;
+        height = 24;
+        widgets = 
+        [
+          "org.kde.windowbuttons"
+          "com.github.antroids.application-title-bar"
+          "org.kde.plasma.appmenu"
+          {
+            name = "org.kde.plasma.systemtray";
+            config = {
+              General = {
+                iconSpacing = "1";
+                #showAllItems = "true";
+              };
+            };
+          }
+          {
+            name = "org.kde.plasma.digitalclock";
+            config.Appearance = {
+              dateDisplayFormat = "BesideTime";
+              fontWeight = "400";
+              showSeconds = "2";
+            };
+          }
+        ];
+      }
+      {
         location = "bottom";
         floating = true;
-        height = 40;
+        hiding = "dodgewindows";
+        height = 48;
         widgets = 
         [
           {
@@ -88,12 +117,6 @@
               icon = "kde";#"nix-snowflake";
               showRecentDocs = "false";
               useCustomButtonImage = "true";
-            };
-          }
-          {
-            name = "org.kde.plasma.pager";
-            config.General = {
-              showWindowIcons = "true";
             };
           }
           {
@@ -108,20 +131,9 @@
           }
           "org.kde.plasma.panelspacer"
           {
-            name = "org.kde.plasma.systemtray";
-            config = {
-              General = {
-                iconSpacing = "1";
-                showAllItems = "true";
-              };
-            };
-          }
-          {
-            name = "org.kde.plasma.digitalclock";
-            config.Appearance = {
-              dateDisplayFormat = "adaptive";
-              fontWeight = "400";
-              showSeconds = "2";
+            name = "org.kde.plasma.pager";
+            config.General = {
+              showWindowIcons = "true";
             };
           }
         ];
@@ -144,7 +156,7 @@
         rows = 2;
         number = 4;
       };
-      borderlessMaximizedWindows = false;
+      borderlessMaximizedWindows = true;
       nightLight = {
         enable = true;
         mode = "location";
