@@ -8,6 +8,7 @@
     gimp
     onlyoffice-bin
     libreoffice
+    wpsoffice
     hunspell
     hunspellDicts.pt_BR
     corefonts
