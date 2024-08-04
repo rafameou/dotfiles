@@ -66,7 +66,7 @@
     workspace = {
       theme = "oxygen";
       colorScheme = "Oxygen";
-      iconTheme = "oxygen";
+      iconTheme = "Haiku";#"oxygen";
       cursor.theme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
       soundTheme = "Oxygen";
