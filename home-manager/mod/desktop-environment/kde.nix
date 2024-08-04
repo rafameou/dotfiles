@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
   imports = [
     inputs.plasma-manager.homeManagerModules.plasma-manager
@@ -14,6 +14,8 @@
 
     kde-gruvbox
     gruvbox-dark-gtk
+
+    (callPackage ./kde/crystal-dock.nix {})
 
     /* -- for neovim --*/
     wl-clipboard
@@ -52,7 +54,7 @@
     kdePackages.keysmith
     kdePackages.tokodon
     kdePackages.plasmatube
-    labplot
+    #labplot
 
     ktailctl
 
@@ -68,10 +70,12 @@
       cursor.theme = "Oxygen_Zion";
       lookAndFeel = "org.kde.oxygen";
       soundTheme = "Oxygen";
+      wallpaper = config.stylix.image;
     };
     startup = {
       startupScript = {
         trayscale.text = "ktailctl";
+        crystal-dock.text = "crystal-dock";
       };
     };
     panels = 
@@ -82,9 +86,39 @@
         height = 24;
         widgets = 
         [
-          "org.kde.windowbuttons"
-          "com.github.antroids.application-title-bar"
+          #"org.kde.windowbuttons"
+          {
+            name = "org.kde.plasma.kickoff";
+            config.General = {
+              icon = "nix-snowflake-white";
+              showRecentDocs = "false";
+              useCustomButtonImage = "true";
+            };
+          }
+          /*{
+          name = "org.kde.plasma.windowlist";
+          config = {
+          General = {
+          showText = "false";
+          };
+          };
+          }*/
+          { 
+            name = "com.github.antroids.application-title-bar";
+            config = {
+              Appearance = {
+                overrideElementsMaximized = "true";
+                widgetButtonsIconsTheme = "Oxygen";
+                widgetElements = "spacer,windowIcon,windowTitle";
+                widgetElementsMaximized = "windowCloseButton,windowMinimizeButton,windowMaximizeButton,spacer,windowIcon,windowTitle";
+                windowTitleSource = "AppName";
+                windowTitleSourceMaximized = "AppName";
+                windowTitleUndefined = "Plasma Desktop";
+              };
+            };
+          }
           "org.kde.plasma.appmenu"
+          "org.kde.plasma.panelspacer"
           {
             name = "org.kde.plasma.systemtray";
             config = {
@@ -104,40 +138,6 @@
           }
         ];
       }
-      {
-        location = "bottom";
-        floating = true;
-        hiding = "dodgewindows";
-        height = 48;
-        widgets = 
-        [
-          {
-            name = "org.kde.plasma.kickoff";
-            config.General = {
-              icon = "kde";#"nix-snowflake";
-              showRecentDocs = "false";
-              useCustomButtonImage = "true";
-            };
-          }
-          {
-            name = "org.kde.plasma.taskmanager";
-            config.General = {
-              launchers = "";
-              forceStripes = "true";
-              maxStripes = "2";
-              showOnlyCurrentDesktop = "false";
-              unhideOnAttention = "false";
-            };
-          }
-          "org.kde.plasma.panelspacer"
-          {
-            name = "org.kde.plasma.pager";
-            config.General = {
-              showWindowIcons = "true";
-            };
-          }
-        ];
-      } 
     ];
 
     kwin = {
@@ -266,5 +266,46 @@
       }
     ];
     defaultProfile = "abacate";
+  };
+
+  home.file = {
+    ".crystal-dock-2/KDE/panel_1.conf".text = ''
+      [General]
+      autoHide=true
+      launchers="firefox;google-chrome;thunderbird;bitwarden;org.telegram.desktop;vesktop;org.kde.konsole;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;org.kde.kpat;virt-manager;org.kde.plasma-systemmonitor"
+      position=1
+      screen=0
+      showApplicationMenu=false
+      showClock=false
+      showPager=false
+      showTaskManager=true
+      visibility=1
+    '';
+    ".crystal-dock-2/KDE/appearance.conf".text = ''
+      [General]
+      activeIndicatorColor=#00ff00
+      backgroundColor=#6bbdbdbd
+      borderColor=#ffffff
+      floatingMargin=2
+      inactiveIndicatorColor=#00ffff
+      maximumIconSize=128
+      minimumIconSize=48
+      panelStyle=0
+      showBorder=true
+      spacingFactor=0.4
+      tooltipFontSize=12
+
+      [Application%20Menu]
+      backgroundAlpha=0.8
+      fontSize=14
+      label=Applications
+
+      [Clock]
+      fontScaleFactor=1
+      use24HourClock=true
+
+      [TaskManager]
+      currentDesktopTasksOnly=false
+    '';
   };
 }
