@@ -6,15 +6,15 @@
   kdePackages,
   qt6,
 }:
-stdenv.mkDerivation rec {
+stdenv.mkDerivation (finalAttrs: {
   pname = "crystal-dock";
   version = "2.2";
 
   src = fetchFromGitHub {
     owner = "dangvd";
     repo = "crystal-dock";
-    rev = "v${version}";
-    sha256 = "sha256-c5Kae2cZ/DoJ972VT4kQWNUr2cF6Noy3nPIChWok/BA=";
+    rev = "v${finalAttrs.version}";
+    hash = "sha256-c5Kae2cZ/DoJ972VT4kQWNUr2cF6Noy3nPIChWok/BA=";
   };
 
   nativeBuildInputs = [
@@ -32,11 +32,11 @@ stdenv.mkDerivation rec {
   cmakeDir = "../src";
 
   meta = with lib; {
-    description = "Cool dock (desktop panel) for Linux desktop.";
+    description = "Dock (desktop panel) for Linux desktop";
     mainProgram = "crystal-dock";
     license = licenses.gpl3Only;
     homepage = "https://github.com/dangvd/crystal-dock";
     maintainers = with maintainers; [ rafameou ];
     platforms = platforms.linux;
   };
-}
+})

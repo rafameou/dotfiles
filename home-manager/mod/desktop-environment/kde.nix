@@ -82,7 +82,7 @@
     [ 
       {
         location = "top";
-        floating = true;
+        floating = false;
         height = 24;
         widgets = 
         [
