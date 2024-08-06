@@ -39,8 +39,8 @@
 
   fileSystems = {
     /*"/mnt/Extra" = { 
-      device = "/dev/disk/by-uuid/41785370-fb0f-4504-81a2-d9bf1b895fb5";
-      fsType = "ext4";
+    device = "/dev/disk/by-uuid/41785370-fb0f-4504-81a2-d9bf1b895fb5";
+    fsType = "ext4";
     };*/
     "/mnt/Extra2" = { 
       device = "/dev/disk/by-uuid/30c8e8dd-7a12-449a-ae59-f26262c5a8ff";
@@ -72,9 +72,9 @@
 
   systemd.tmpfiles.rules = [
     "L+ /run/gdm/.config/monitors.xml - - - - ${pkgs.writeText "gdm-monitors.xml" ''
-<monitors version="2">
-  <configuration>
-    <logicalmonitor>
+      <monitors version="2">
+      <configuration>
+      <logicalmonitor>
       <x>0</x>
       <y>0</y>
       <scale>1</scale>
@@ -92,23 +92,39 @@
           <rate>60.000</rate>
         </mode>
       </monitor>
-    </logicalmonitor>
-    <disabled>
+      </logicalmonitor>
+      <disabled>
       <monitorspec>
         <connector>eDP-1</connector>
         <vendor>CMN</vendor>
         <product>0x15dc</product>
         <serial>0x00000000</serial>
       </monitorspec>
-    </disabled>
-  </configuration>
-</monitors>
+      </disabled>
+      </configuration>
+      </monitors>
     ''}"
   ];
 
   programs.sway.extraOptions = [
     "--unsupported-gpu"
   ];
+
+  programs.gamescope = {
+    enable = true;
+    env = {
+      __NV_PRIME_RENDER_OFFLOAD = "1";
+      __VK_LAYER_NV_optimus = "NVIDIA_only";
+      __GLX_VENDOR_LIBRARY_NAME = "nvidia";
+    };
+  };
+
+  programs.steam = {
+    enable = true;
+    extraPackages = with pkgs; [
+      gamescope
+    ];
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
