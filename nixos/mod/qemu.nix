@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   virtualisation = {
     #useSecureBoot = true;
@@ -20,6 +20,7 @@
   programs.virt-manager.enable = true;
   environment.systemPackages = with pkgs; [
     libguestfs
+    virtiofsd
     spice-vdagent
     swtpm
   ];
