@@ -175,7 +175,7 @@
       };
     };
     kscreenlocker = {
-      wallpaperPictureOfTheDay.provider = "bing";
+      appearance.wallpaperPictureOfTheDay.provider = "bing";
     };
     spectacle.shortcuts = {
       captureActiveWindow = "Meta+Print";
@@ -280,7 +280,7 @@
     ".crystal-dock-2/KDE/panel_1.conf".text = ''
       [General]
       autoHide=true
-      launchers="firefox;google-chrome;thunderbird;bitwarden;org.telegram.desktop;vesktop;org.kde.konsole;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;org.kde.kpat;virt-manager;org.kde.plasma-systemmonitor"
+      launchers="firefox;google-chrome;thunderbird;bitwarden;org.telegram.desktop;vesktop;org.kde.konsole;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;org.kde.kpat;org.strawberrymusicplayer.strawberry;feishin;smartcode-stremio;virt-manager;org.kde.plasma-systemmonitor"
       position=1
       screen=0
       showApplicationMenu=false
