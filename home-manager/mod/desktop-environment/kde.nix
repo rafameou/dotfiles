@@ -68,7 +68,7 @@
       theme = "default";#"oxygen";
       colorScheme = "Oxygen";
       iconTheme = "breeze";#"oxygen";
-      cursor.theme = "breeze_cursors";#"Oxygen_Zion";
+      cursor.theme = "Oxygen_Zion";
       soundTheme = "ocean";
       splashScreen = {
         engine = "none";
@@ -117,7 +117,7 @@
               Appearance = {
                 overrideElementsMaximized = "true";
                 widgetButtonsIconsTheme = "Oxygen";
-                widgetElements = "windowIcon,windowTitle";
+                widgetElements = "windowCloseButton,windowMinimizeButton,windowMaximizeButton,spacer,windowIcon,windowTitle";#"windowIcon,windowTitle";
                 widgetElementsMaximized = "windowCloseButton,windowMinimizeButton,windowMaximizeButton,spacer,windowIcon,windowTitle";
                 windowTitleSource = "AppName";
                 windowTitleSourceMaximized = "AppName";

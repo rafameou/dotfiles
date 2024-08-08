@@ -3,6 +3,7 @@
   #Enable KDE
   #services.xserver.displayManager.startx.enable = true;
   services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
   services.desktopManager.plasma6.enable = true;
   #services.xserver.desktopManager.lxqt.enable = true;
   #services.xserver.displayManager.defaultSession = "plasmawayland";
