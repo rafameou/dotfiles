@@ -64,20 +64,28 @@
   programs.plasma = {
     enable = true;
     workspace = {
-      theme = "oxygen";
+      lookAndFeel = null;#"org.kde.oxygen";
+      theme = "default";#"oxygen";
       colorScheme = "Oxygen";
-      iconTheme = "Haiku";#"oxygen";
-      cursor.theme = "Oxygen_Zion";
-      lookAndFeel = "org.kde.oxygen";
-      soundTheme = "Oxygen";
+      iconTheme = "breeze";#"oxygen";
+      cursor.theme = "breeze_cursors";#"Oxygen_Zion";
+      soundTheme = "ocean";
+      splashScreen = {
+        engine = "none";
+        theme = "None";
+      };
+      windowDecorations = {
+        library = "org.kde.oxygen";
+        theme = "Oxygen";
+      };
       wallpaper = config.stylix.image;
     };
-    startup = {
+    /*startup = {
       startupScript = {
         trayscale.text = "ktailctl";
         crystal-dock.text = "crystal-dock";
       };
-    };
+    };*/
     panels = 
     [ 
       {
@@ -90,7 +98,7 @@
           {
             name = "org.kde.plasma.kickoff";
             config.General = {
-              icon = "nix-snowflake-white";
+              icon = "kde-symbolic";#"nix-snowflake-white";
               showRecentDocs = "false";
               useCustomButtonImage = "true";
             };
@@ -109,7 +117,7 @@
               Appearance = {
                 overrideElementsMaximized = "true";
                 widgetButtonsIconsTheme = "Oxygen";
-                widgetElements = "spacer,windowIcon,windowTitle";
+                widgetElements = "windowIcon,windowTitle";
                 widgetElementsMaximized = "windowCloseButton,windowMinimizeButton,windowMaximizeButton,spacer,windowIcon,windowTitle";
                 windowTitleSource = "AppName";
                 windowTitleSourceMaximized = "AppName";

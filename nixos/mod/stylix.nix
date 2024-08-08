@@ -2,7 +2,7 @@
 {
   stylix = {
     enable = true;
-    image = "${./stylix/wallpaper.jpg}";
+    image = "${./stylix/wallhaven-0wm9jp.jpg}";
     /*imageScalingMode = "tile";*/
     /*image = pkgs.fetchurl {
       url = "https://w.wallhaven.cc/full/g7/wallhaven-g7781d.jpg";
