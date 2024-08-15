@@ -68,7 +68,7 @@
       theme = "default";#"oxygen";
       colorScheme = "Oxygen";
       iconTheme = "breeze";#"oxygen";
-      cursor.theme = "Oxygen_Zion";
+      cursor.theme = "breeze_cursors";#"Oxygen_Zion";
       soundTheme = "ocean";
       splashScreen = {
         engine = "none";
@@ -78,7 +78,7 @@
         library = "org.kde.oxygen";
         theme = "Oxygen";
       };
-      wallpaper = config.stylix.image;
+      #wallpaper = config.stylix.image;
     };
     /*startup = {
       startupScript = {

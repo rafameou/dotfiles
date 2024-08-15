@@ -25,7 +25,7 @@
     };
   };
 
-  stylix = {
+  /*stylix = {
     enable = true;
     autoEnable = false;
     targets = {
@@ -36,7 +36,7 @@
       vscode.enable = true;
       zathura.enable = true;
     };
-  };
+  };*/
 
   /*  programs.bash = {
   enable = true;
