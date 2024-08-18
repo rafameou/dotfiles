@@ -63,11 +63,11 @@
 
   programs.plasma = {
     enable = true;
-    workspace = {
+    /*workspace = {
       lookAndFeel = null;#"org.kde.oxygen";
       theme = "default";#"oxygen";
-      colorScheme = "Oxygen";
-      iconTheme = "breeze";#"oxygen";
+      colorScheme = "Gruvbox";#"Oxygen";
+      iconTheme = "breeze-dark";#"oxygen";
       cursor.theme = "breeze_cursors";#"Oxygen_Zion";
       soundTheme = "ocean";
       splashScreen = {
@@ -79,7 +79,7 @@
         theme = "Oxygen";
       };
       #wallpaper = config.stylix.image;
-    };
+    };*/
     /*startup = {
       startupScript = {
         trayscale.text = "ktailctl";
@@ -120,7 +120,7 @@
                 widgetElements = "windowCloseButton,windowMinimizeButton,windowMaximizeButton,spacer,windowIcon,windowTitle";#"windowIcon,windowTitle";
                 widgetElementsMaximized = "windowCloseButton,windowMinimizeButton,windowMaximizeButton,spacer,windowIcon,windowTitle";
                 windowTitleSource = "AppName";
-                windowTitleSourceMaximized = "AppName";
+                windowTitleSourceMaximized = "Decoration";
                 windowTitleUndefined = "Plasma Desktop";
               };
             };
@@ -238,9 +238,9 @@
     configFile = {
       "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
 
-      "kdeglobals" = {
+      /*"kdeglobals" = {
         "KDE"."widgetStyle" = "Oxygen";
-      };
+      };*/
 
       "ksmserverrc"."General"."loginMode" = "emptySession";
 
@@ -256,7 +256,7 @@
         "VariantList" = ",thinkpad,nativo";
       };
 
-      "plasmarc"."Theme"."name" = "oxygen";
+      /*"plasmarc"."Theme"."name" = "oxygen";*/
 
       "plasma-localerc"."Formats"."LANG" = "pt_BR.UTF-8";
     };
