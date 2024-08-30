@@ -15,7 +15,7 @@
     kde-gruvbox
     gruvbox-dark-gtk
 
-    (callPackage ./kde/crystal-dock.nix {})
+    #(callPackage ./kde/crystal-dock.nix {})
 
     /* -- for neovim --*/
     wl-clipboard
@@ -64,53 +64,37 @@
   programs.plasma = {
     enable = true;
     /*workspace = {
-      lookAndFeel = null;#"org.kde.oxygen";
-      theme = "default";#"oxygen";
-      colorScheme = "Gruvbox";#"Oxygen";
-      iconTheme = "breeze-dark";#"oxygen";
-      cursor.theme = "breeze_cursors";#"Oxygen_Zion";
-      soundTheme = "ocean";
-      splashScreen = {
-        engine = "none";
-        theme = "None";
-      };
-      windowDecorations = {
-        library = "org.kde.oxygen";
-        theme = "Oxygen";
-      };
+    lookAndFeel = null;#"org.kde.oxygen";
+    theme = "default";#"oxygen";
+    colorScheme = "Gruvbox";#"Oxygen";
+    iconTheme = "breeze-dark";#"oxygen";
+    cursor.theme = "breeze_cursors";#"Oxygen_Zion";
+    soundTheme = "ocean";
+    splashScreen = {
+    engine = "none";
+    theme = "None";
+    };
+    windowDecorations = {
+    library = "org.kde.oxygen";
+    theme = "Oxygen";
+    };
       #wallpaper = config.stylix.image;
-    };*/
-    /*startup = {
+      };*/
+      /*startup = {
       startupScript = {
-        trayscale.text = "ktailctl";
-        crystal-dock.text = "crystal-dock";
+      trayscale.text = "ktailctl";
+      crystal-dock.text = "crystal-dock";
       };
-    };*/
-    panels = 
-    [ 
-      {
-        location = "top";
-        floating = false;
-        height = 24;
-        widgets = 
-        [
+      };*/
+      panels = 
+      [ 
+        {
+          location = "top";
+          floating = false;
+          height = 24;
+          widgets = 
+          [
           #"org.kde.windowbuttons"
-          {
-            name = "org.kde.plasma.kickoff";
-            config.General = {
-              icon = "kde-symbolic";#"nix-snowflake-white";
-              showRecentDocs = "false";
-              useCustomButtonImage = "true";
-            };
-          }
-          /*{
-          name = "org.kde.plasma.windowlist";
-          config = {
-          General = {
-          showText = "false";
-          };
-          };
-          }*/
           { 
             name = "com.github.antroids.application-title-bar";
             config = {
@@ -126,7 +110,30 @@
             };
           }
           "org.kde.plasma.appmenu"
-          "org.kde.plasma.panelspacer"
+        ];
+      }
+      {
+        location = "bottom";
+        floating = false;
+        height = 24;
+        widgets = [
+          {
+            name = "org.kde.plasma.kickoff";
+            config.General = {
+              icon = "kde-symbolic";#"nix-snowflake-white";
+              showRecentDocs = "false";
+              useCustomButtonImage = "true";
+            };
+          }
+          {
+            name = "org.kde.plasma.windowlist";
+            config = {
+              General = {
+                showText = "false";
+              };
+            };
+          }
+          /*"org.kde.plasma.panelspacer"*/
           {
             name = "org.kde.plasma.systemtray";
             config = {
@@ -239,7 +246,7 @@
       "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
 
       /*"kdeglobals" = {
-        "KDE"."widgetStyle" = "Oxygen";
+      "KDE"."widgetStyle" = "Oxygen";
       };*/
 
       "ksmserverrc"."General"."loginMode" = "emptySession";
@@ -280,7 +287,7 @@
     ".crystal-dock-2/KDE/panel_1.conf".text = ''
       [General]
       autoHide=true
-      launchers="firefox;google-chrome;thunderbird;bitwarden;org.telegram.desktop;vesktop;org.kde.konsole;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;org.kde.kpat;org.strawberrymusicplayer.strawberry;feishin;smartcode-stremio;virt-manager;org.kde.plasma-systemmonitor"
+      launchers="firefox;google-chrome;thunderbird;bitwarden;org.telegram.desktop;vesktop;org.kde.konsole;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;feishin;smartcode-stremio;virt-manager;org.kde.plasma-systemmonitor"
       position=1
       screen=0
       showApplicationMenu=false
@@ -291,11 +298,11 @@
     '';
     ".crystal-dock-2/KDE/appearance.conf".text = ''
       [General]
-      activeIndicatorColor=#00ff00
-      backgroundColor=#6bbdbdbd
-      borderColor=#ffffff
+      activeIndicatorColor=#b8bb26
+      backgroundColor=#f4282828
+      borderColor=#1d2021
       floatingMargin=2
-      inactiveIndicatorColor=#00ffff
+      inactiveIndicatorColor=#b16286
       maximumIconSize=128
       minimumIconSize=48
       panelStyle=0
