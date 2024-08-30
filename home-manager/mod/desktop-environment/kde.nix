@@ -48,7 +48,7 @@
     kdePackages.kblocks
     kdePackages.kbounce
     #kdePackages.kwave
-    kdePackages.knotes
+    #kdePackages.knotes
     kdePackages.ghostwriter
     kdePackages.kmplot
     kdePackages.keysmith
