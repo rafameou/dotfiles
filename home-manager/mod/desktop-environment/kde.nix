@@ -126,10 +126,13 @@
             };
           }
           {
-            name = "org.kde.plasma.windowlist";
+            name = "org.kde.plasma.taskmanager";
             config = {
               General = {
-                showText = "false";
+                forceStripes="true";
+                maxStripes="2";
+                showOnlyCurrentActivity="false";
+                showOnlyCurrentDesktop="false";
               };
             };
           }
@@ -258,9 +261,9 @@
 
       "kxkbrc"."Layout" = {
         "DisplayNames" = ",";
-        "LayoutList" = "br,br,br";
+        "LayoutList" = "br,br,us";
         "Use" = true;
-        "VariantList" = ",thinkpad,nativo";
+        "VariantList" = ",thinkpad,alt-intl";
       };
 
       /*"plasmarc"."Theme"."name" = "oxygen";*/
