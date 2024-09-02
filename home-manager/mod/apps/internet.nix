@@ -19,6 +19,7 @@
     google-chrome 
     telegram-desktop
     vesktop
+    zapzap
     #spotify
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku

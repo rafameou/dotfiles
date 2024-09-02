@@ -153,7 +153,9 @@
               name = "org.kde.plasma.icontasks";
               config = {
                 General = { 
-                    launchers="applications:firefox.desktop,applications:google-chrome.desktop,aplications:thunderbird.desktop,applications:bitwarden.desktop,applications:org.telegram.desktop.desktop,applications:vesktop.desktop,applications:org.kde.konsole.desktop,applications:org.kde.dolphin.desktop,applications:org.octave.Octave.desktop,applications:onlyoffice-desktopeditors.desktop,applications:startcenter.desktop,applications:org.kde.kpat.desktop,applications:steam.desktop,applications:org.strawberrymusicplayer.strawberry.desktop,applications:feishin.desktop,applications:smartcode-stremio.desktop,applications:virt-manager.desktop,applications:org.kde.plasma-systemmonitor.desktop";
+                  launchers="applications:firefox.desktop,applications:google-chrome.desktop,aplications:thunderbird.desktop,applications:bitwarden.desktop,applications:org.telegram.desktop.desktop,applications:vesktop.desktop,applications:com.rtosta.zapzap.desktop,applications:org.kde.konsole.desktop,applications:org.kde.dolphin.desktop,applications:org.octave.Octave.desktop,applications:onlyoffice-desktopeditors.desktop,applications:startcenter.desktop,applications:org.kde.kpat.desktop,applications:org.strawberrymusicplayer.strawberry.desktop,applications:feishin.desktop,applications:smartcode-stremio.desktop,applications:org.kde.plasma-systemmonitor.desktop";
+                  showOnlyCurrentActivity="false";
+                  showOnlyCurrentDesktop="false";
                 };
               };
             }
