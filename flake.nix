@@ -27,7 +27,7 @@
     bing-mate.url = "github:rafameou/bing-mate";
     bing-mate.inputs.nixpkgs.follows = "nixpkgs";
 
-    stylix.url = "github:danth/stylix";
+    #stylix.url = "github:danth/stylix";
 
     img-clip-nvim.url = "github:HakonHarnes/img-clip.nvim";
     img-clip-nvim.flake = false;
@@ -35,14 +35,18 @@
     nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+
+    solaar.url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
+    solaar.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, plasma-manager, stylix, chaotic, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, plasma-manager, solaar, chaotic, ... }@inputs: {
     nixosConfigurations = {
       bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
-          stylix.nixosModules.stylix
+          #stylix.nixosModules.stylix
+          solaar.nixosModules.default
           ./nixos/bulbasaur.nix 
           chaotic.nixosModules.default
         ];
@@ -50,21 +54,23 @@
       chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
-          stylix.nixosModules.stylix 
+          #stylix.nixosModules.stylix 
+          solaar.nixosModules.default
           ./nixos/chikorita.nix 
           chaotic.nixosModules.default];
       };
       treecko = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
-          stylix.nixosModules.stylix 
+          #stylix.nixosModules.stylix 
+          solaar.nixosModules.default
           ./nixos/treecko.nix 
           chaotic.nixosModules.default];
       };
       oddish = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
-          stylix.nixosModules.stylix
+          #stylix.nixosModules.stylix
           ./nixos/oddish.nix 
         ];
       };

@@ -110,12 +110,24 @@
             };
           }
           "org.kde.plasma.appmenu"
+          "org.kde.plasma.panelspacer"
+          {
+            name = "org.kde.plasma.digitalclock";
+            config.Appearance = {
+              dateDisplayFormat = "BesideTime";
+              fontWeight = "400";
+              showSeconds = "2";
+            };
+          }
         ];
       }
       {
         location = "bottom";
-        floating = false;
-        height = 24;
+        hiding = "dodgewindows";
+        floating = true;
+        alignment = "center";
+        /*minLenght = "0";*/
+        height = 46;
         widgets = [
           {
             name = "org.kde.plasma.kickoff";
@@ -125,7 +137,7 @@
               useCustomButtonImage = "true";
             };
           }
-          {
+          /*{
             name = "org.kde.plasma.taskmanager";
             config = {
               General = {
@@ -135,23 +147,24 @@
                 showOnlyCurrentDesktop="false";
               };
             };
-          }
+            }*/
+            "org.kde.plasma.pager"
+            {
+              name = "org.kde.plasma.icontasks";
+              config = {
+                General = { 
+                    launchers="applications:firefox.desktop,applications:google-chrome.desktop,aplications:thunderbird.desktop,applications:bitwarden.desktop,applications:org.telegram.desktop.desktop,applications:vesktop.desktop,applications:org.kde.konsole.desktop,applications:org.kde.dolphin.desktop,applications:org.octave.Octave.desktop,applications:onlyoffice-desktopeditors.desktop,applications:startcenter.desktop,applications:org.kde.kpat.desktop,applications:steam.desktop,applications:org.strawberrymusicplayer.strawberry.desktop,applications:feishin.desktop,applications:smartcode-stremio.desktop,applications:virt-manager.desktop,applications:org.kde.plasma-systemmonitor.desktop";
+                };
+              };
+            }
           /*"org.kde.plasma.panelspacer"*/
           {
             name = "org.kde.plasma.systemtray";
             config = {
               General = {
                 iconSpacing = "1";
-                #showAllItems = "true";
+                showAllItems = "true";
               };
-            };
-          }
-          {
-            name = "org.kde.plasma.digitalclock";
-            config.Appearance = {
-              dateDisplayFormat = "BesideTime";
-              fontWeight = "400";
-              showSeconds = "2";
             };
           }
         ];

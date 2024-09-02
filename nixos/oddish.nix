@@ -10,7 +10,7 @@
       ./mod/nix.nix
       ./mod/nixpkgs.nix
       ./mod/pipewire.nix
-      ./mod/stylix.nix
+      #./mod/stylix.nix
       ./mod/time.nix
       ./mod/zsh.nix
 
