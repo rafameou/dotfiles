@@ -123,11 +123,10 @@
       }
       {
         location = "bottom";
-        hiding = "dodgewindows";
-        floating = true;
+        floating = false;
         alignment = "center";
         /*minLenght = "0";*/
-        height = 46;
+        height = 40;
         widgets = [
           {
             name = "org.kde.plasma.kickoff";

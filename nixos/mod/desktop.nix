@@ -24,6 +24,7 @@
     fira-code-nerdfont
     terminus_font
     terminus-nerdfont
+    montserrat
   ];
 
   hardware.graphics = { # this fixes the "glXChooseVisual failed" bug, context: https://github.com/NixOS/nixpkgs/issues/47932 
