@@ -1,11 +1,8 @@
 { inputs, config, lib, pkgs, ... }:
 {
-  imports = [
-    ../qt-theme.nix
-  ];
   home.packages = with pkgs; [
-    gnome.gnome-software
-    gnome.gnome-tweaks
+    #gnome.gnome-software
+    gnome-tweaks
     dconf-editor
     #gnome-builder
     # ---- gnome extensions ----
@@ -13,16 +10,17 @@
     gnomeExtensions.appindicator
     gnomeExtensions.alphabetical-app-grid
     /*gnomeExtensions.favourites-in-appgrid*/
-    #gnomeExtensions.hot-edge
-    #gnomeExtensions.caffeine
-    #gnomeExtensions.tailscale-status
+    /*gnomeExtensions.hot-edge*/
+    gnomeExtensions.caffeine
+    gnomeExtensions.tailscale-status
     #gnomeExtensions.wiggle
-    #gnomeExtensions.gsconnect
-    #gnomeExtensions.space-bar
-    #gnomeExtensions.dash-to-panel
+    gnomeExtensions.gsconnect
+    gnomeExtensions.space-bar
+    gnomeExtensions.dash-to-dock
     gnomeExtensions.add-to-desktop
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     #gnomeExtensions.just-perfection
+    gnomeExtensions.solaar-extension
     # ---- gnome fixes ----
     adw-gtk3
     adwaita-qt
@@ -43,23 +41,23 @@
   #  QT_QPA_PLATFORM = "xcb"; #fixes https://gitlab.gnome.org/GNOME/mutter/-/issues/3435
   #};
 
-  /*gtk = {
+  gtk = {
     enable = true;
-    font = {
-      name = "Fira Sans";
-      size = 11;
-    };
-    /*theme = {
+    /*font = {
+    name = "Fira Sans";
+    size = 11;
+    };*/
+    theme = {
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
-    };*/
-  #};*/
+    };
+  };
 
   /*home.pointerCursor = {
-    gtk.enable = true;
-    x11.enable = true;
-    name = "phinger-cursors-light";
-    package = pkgs.phinger-cursors;
+  gtk.enable = true;
+  x11.enable = true;
+  name = "phinger-cursors-light";
+  package = pkgs.phinger-cursors;
   };*/
 
   dconf.settings = {
@@ -107,16 +105,16 @@
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
-      #titlebar-font = "Fira Sans 11";
+      titlebar-font = "Fira Sans 11";
     };
     "org/gnome/desktop/interface" = {
       clock-show-date = true;
       clock-show-seconds = true;
       clock-show-weekday = true;
       show-battery-percentage = true;
-      #font-name = "Fira Sans 11";
-      #document-font-name = "Fira Sans 11";
-      #gtk-theme = "adw-gtk3-dark";
+      font-name = "Fira Sans 11";
+      document-font-name = "Fira Sans 11";
+      gtk-theme = "adw-gtk3-dark";
       color-scheme = "prefer-dark";
       #cursor-theme = "phinger-cursors-light";
       #cursor-size = 32;
@@ -131,26 +129,60 @@
       sort-directories-first = true;
     };
     "org/gnome/shell" = {
-      favorite-apps = [];
+      favorite-apps = [
+        "firefox.desktop"
+        "google-chrome.desktop"
+        "thunderbird.desktop"
+        "bitwarden.desktop"
+        "org.telegram.desktop.desktop"
+        "vesktop.desktop"
+        "com.rtosta.zapzap.desktop"
+        "org.gnome.Nautilus.desktop"
+        "org.gnome.Console.desktop"
+        "org.octave.Octave.desktop"
+        /*"onlyoffice-desktopeditors.desktop"
+        "startcenter.desktop"*/
+        "org.strawberrymusicplayer.strawberry.desktop"
+        /*"feishin.desktop"
+        "smartcode-stremio.desktop"*/
+      ];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
         "appindicatorsupport@rgcjonas.gmail.com"
         "AlphabeticalAppGrid@stuarthayhurst"
         /*"favourites-in-appgrid@harshadgavali.gitlab.org"*/
-        /*"hotedge@jonathan.jdoda.ca"*/
-        /*"caffeine@patapon.info"*/
-        /*"tailscale-status@maxgallup.github.com"*/
-        /*"gsconnect@andyholmes.github.io"*/
-        /*"space-bar@luchrioh"*/
-        /*"dash-to-panel@jderose9.github.com"*/
+        "hotedge@jonathan.jdoda.ca"
+        "caffeine@patapon.info"
+        "tailscale-status@maxgallup.github.com"
+        "gsconnect@andyholmes.github.io"
+        "space-bar@luchrioh"
+        "dash-to-dock@micxgx.gmail.com"
         "gtk4-ding@smedius.gitlab.com" 
         "add-to-desktop@tommimon.github.com"
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
+        /*"apps-menu@gnome-shell-extensions.gcampax.github.com"
         "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"
+        "window-list@gnome-shell-extensions.gcampax.github.com"*/
         /*"just-perfection-desktop@just-perfection"*/
+        "solaar-extension@sidevesh"
       ];
+    };
+    "org/gnome/shell/extensions/dash-to-dock" = {
+      apply-custom-theme=false;
+      background-opacity=0.80000000000000004;
+      custom-theme-shrink=true;
+      dash-max-icon-size=48;
+      dock-fixed=true;
+      dock-position="LEFT";
+      extend-height=true;
+      height-fraction=0.90000000000000002;
+      hot-keys=false;
+      icon-size-fixed=true;
+      max-alpha=0.80000000000000004;
+      running-indicator-style="METRO";
+      show-apps-at-top=false;
+      show-mounts-network=true;
+      transparency-mode="DYNAMIC";
     };
     "org/gnome/shell/extensions/just-perfection" = {
       activities-button = false;
@@ -161,7 +193,7 @@
       arrangeorder = "NAME";
       keep-arranged = true;
       show-network-volumes = true;
-      start-corner = "top-left";#"top-right";
+      start-corner = "top-right";
     };
     "org/gnome/shell/extensions/window-list" = {
       display-all-workspaces = true;

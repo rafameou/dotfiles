@@ -6,8 +6,8 @@
       associations = {
         added = {
           /*gsconnect keeps adding this line, notice the ; :facepalm:*/
-          #"x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
-          #"x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+          "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
+          "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tg" = "org.telegram.desktop.desktop;";
         };
       };
@@ -40,22 +40,22 @@
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
-        "application/x-gnome-saved-search" = "dolphin.desktop";
-        "inode/directory" = "dolphin.desktop";
+        "application/x-gnome-saved-search" = "org.gnome.Nautilus.desktop";
+        "inode/directory" = "org.gnome.Nautilus.desktop";
 
         # move this stuff to each desktop's dot nix file
-        "image/tiff" = "org.kde.gwenview.desktop";
-        "image/jpx" = "org.kde.gwenview.desktop";
-        "image/png" = "org.kde.gwenview.desktop";
-        "image/gif" = "org.kde.gwenview.desktop";
-        "image/jpeg" = "org.kde.gwenview.desktop";
-        "image/bmp" = "org.kde.gwenview.desktop";
-        "image/jp2" = "org.kde.gwenview.desktop";
+        "image/tiff" = "org.gnome.Loupe.desktop";
+        "image/jpx" = "org.gnome.Loupe.desktop";
+        "image/png" = "org.gnome.Loupe.desktop";
+        "image/gif" = "org.gnome.Loupe.desktop";
+        "image/jpeg" = "org.gnome.Loupe.desktop";
+        "image/bmp" = "org.gnome.Loupe.desktop";
+        "image/jp2" = "org.gnome.Loupe.desktop";
 
-        "application/x-tar" = "org.kde.ark.desktop";
-        "application/x-7z-compressed" = "org.kde.ark.desktop";
-        "application/vnd.rar" = "org.kde.ark.desktop"; 
-        "application/zip" = "org.kde.ark.desktop";
+        "application/x-tar" = "org.gnome.FileRoller.desktop";
+        "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
+        "application/vnd.rar" = "org.gnome.FileRoller.desktop"; 
+        "application/zip" = "org.gnome.FileRoller.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
       };

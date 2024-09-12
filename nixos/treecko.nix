@@ -17,7 +17,7 @@
     ./mod/distrobox.nix
     ./mod/env.nix
     ./mod/flatpak.nix
-    ./mod/desktop-environment/kde.nix
+    ./mod/desktop-environment/gnome.nix
   ];
 
   /* ... changes to only this sytem */

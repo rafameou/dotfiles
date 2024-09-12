@@ -19,7 +19,7 @@
     ./mod/distrobox.nix 
     ./mod/env.nix
     ./mod/flatpak.nix
-    ./mod/desktop-environment/kde.nix
+    ./mod/desktop-environment/gnome.nix
 
     #./mod/navidrome.nix
     #./mod/nextcloud.nix

@@ -17,5 +17,6 @@
     };
   };
 
+ home-manager.backupFileExtension = "hm-backup";
 
 }
