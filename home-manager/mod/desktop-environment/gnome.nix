@@ -21,6 +21,8 @@
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     #gnomeExtensions.just-perfection
     gnomeExtensions.solaar-extension
+    gnomeExtensions.weather-oclock
+    gnomeExtensions.activate_gnome
     # ---- gnome fixes ----
     adw-gtk3
     adwaita-qt
@@ -35,23 +37,24 @@
 
     planify
     eyedropper
+    ptyxis
   ];
 
   #home.sessionVariables = {
   #  QT_QPA_PLATFORM = "xcb"; #fixes https://gitlab.gnome.org/GNOME/mutter/-/issues/3435
   #};
 
-  gtk = {
+  /*gtk = {
     enable = true;
-    /*font = {
+    font = {
     name = "Fira Sans";
     size = 11;
-    };*/
+    };
     theme = {
       name = "adw-gtk3-dark";
       package = pkgs.adw-gtk3;
     };
-  };
+  };*/
 
   /*home.pointerCursor = {
   gtk.enable = true;
@@ -138,7 +141,7 @@
         "vesktop.desktop"
         "com.rtosta.zapzap.desktop"
         "org.gnome.Nautilus.desktop"
-        "org.gnome.Console.desktop"
+        "org.gnome.Ptyxis.desktop"
         "org.octave.Octave.desktop"
         /*"onlyoffice-desktopeditors.desktop"
         "startcenter.desktop"*/
@@ -252,6 +255,17 @@
     "org/gnome/desktop/app-folders/folders/wine" = {
       name = "Wine";
       categories = ["Wine" "X-Wine" "Wine-Programs-Accessories"];
+    };
+
+
+    # --- ptyxis ---
+    "org/gnome/Ptyxis" = {
+      default-profile-uuid="0c67ead72258a94b1fc94e9066e42a09";
+      profile-uuids=["0c67ead72258a94b1fc94e9066e42a09"];
+    };
+    "org/gnome/Ptyxis/Profiles/0c67ead72258a94b1fc94e9066e42a09" = {
+      palette = "Gruvbox Dark";
+      opacity = 0.8;
     };
 
     # --- gnome flashback stuff --- #
