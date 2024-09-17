@@ -270,8 +270,21 @@
     };
 
     # --- gnome weather ---
-    "org/gnome/Weather" = {
-      locations = "[<(uint32 2, <('Ponta Grossa', '', false, [(-0.43788859696982335, -0.87546031545127168)], @a(dd) [])>)>, <(uint32 2, <('Curitiba', 'SBBI', false, [(-0.44389540060612698, -0.85986555063363712)], @a(dd) [])>)>]";
+    "org/gnome/Weather" = let inherit (lib.hm.gvariant) mkTuple mkUint32 mkVariant; in {
+      locations = [ 
+        (mkVariant (mkTuple [ 
+          (mkUint32 2) 
+          (mkVariant (mkTuple [ 
+            "Ponta Grossa" 
+            "" 
+            false 
+            [ (mkTuple [ (-0.43788859696982335) (-0.8754603154512717) ]) ] 
+            [ (mkTuple [ (0.0) (0.0) ]) ] 
+          ]) 
+          )
+        ] 
+        )) 
+      ];
     };
 
     # --- gnome flashback stuff --- #
