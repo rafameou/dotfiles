@@ -10,13 +10,13 @@
     gnomeExtensions.appindicator
     gnomeExtensions.alphabetical-app-grid
     /*gnomeExtensions.favourites-in-appgrid*/
-    /*gnomeExtensions.hot-edge*/
+    gnomeExtensions.hot-edge
     gnomeExtensions.caffeine
     gnomeExtensions.tailscale-status
     #gnomeExtensions.wiggle
     gnomeExtensions.gsconnect
     gnomeExtensions.space-bar
-    gnomeExtensions.dash-to-dock
+    #gnomeExtensions.dash-to-dock
     gnomeExtensions.add-to-desktop
     gnomeExtensions.gtk4-desktop-icons-ng-ding
     #gnomeExtensions.just-perfection
@@ -143,11 +143,11 @@
         "org.gnome.Nautilus.desktop"
         "org.gnome.Ptyxis.desktop"
         "org.octave.Octave.desktop"
-        /*"onlyoffice-desktopeditors.desktop"
-        "startcenter.desktop"*/
+        "onlyoffice-desktopeditors.desktop"
+        "startcenter.desktop"
         "org.strawberrymusicplayer.strawberry.desktop"
-        /*"feishin.desktop"
-        "smartcode-stremio.desktop"*/
+        "feishin.desktop"
+        "smartcode-stremio.desktop"
       ];
       disable-user-extensions = false;
       enabled-extensions = [
@@ -160,7 +160,7 @@
         "tailscale-status@maxgallup.github.com"
         "gsconnect@andyholmes.github.io"
         "space-bar@luchrioh"
-        "dash-to-dock@micxgx.gmail.com"
+        /*"dash-to-dock@micxgx.gmail.com"*/
         "gtk4-ding@smedius.gitlab.com" 
         "add-to-desktop@tommimon.github.com"
         /*"apps-menu@gnome-shell-extensions.gcampax.github.com"
@@ -168,6 +168,7 @@
         "window-list@gnome-shell-extensions.gcampax.github.com"*/
         /*"just-perfection-desktop@just-perfection"*/
         "solaar-extension@sidevesh"
+        "weatheroclock@CleoMenezesJr.github.io"
       ];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
@@ -266,6 +267,11 @@
     "org/gnome/Ptyxis/Profiles/0c67ead72258a94b1fc94e9066e42a09" = {
       palette = "Gruvbox Dark";
       opacity = 0.8;
+    };
+
+    # --- gnome weather ---
+    "org/gnome/Weather" = {
+      locations = "[<(uint32 2, <('Ponta Grossa', '', false, [(-0.43788859696982335, -0.87546031545127168)], @a(dd) [])>)>, <(uint32 2, <('Curitiba', 'SBBI', false, [(-0.44389540060612698, -0.85986555063363712)], @a(dd) [])>)>]";
     };
 
     # --- gnome flashback stuff --- #

@@ -14,7 +14,7 @@
     vistafonts
     feishin strawberry-qt6 
     mpv
-    (texlive.combine {inherit (texlive) scheme-medium abnt abntex2 collection-langportuguese dvipng latexmk todonotes enumitem;})
+    texlive.combined.scheme-full
     cherrytree
     imagemagick
     ghostscript
