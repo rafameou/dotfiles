@@ -15,7 +15,7 @@
     kde-gruvbox
     gruvbox-dark-gtk
 
-    #(callPackage ./kde/crystal-dock.nix {})
+    (callPackage ./kde/crystal-dock.nix {})
 
     /* -- for neovim --*/
     wl-clipboard
@@ -94,6 +94,14 @@
           height = 24;
           widgets = 
           [
+                      {
+            name = "org.kde.plasma.kickoff";
+            config.General = {
+              icon = "kde-symbolic";#"nix-snowflake-white";
+              showRecentDocs = "false";
+              useCustomButtonImage = "true";
+            };
+          }
           #"org.kde.windowbuttons"
           { 
             name = "com.github.antroids.application-title-bar";
@@ -121,11 +129,10 @@
           }
         ];
       }
-      {
+      /*{
         location = "bottom";
         floating = false;
         alignment = "center";
-        /*minLenght = "0";*/
         height = 40;
         widgets = [
           {
@@ -136,17 +143,6 @@
               useCustomButtonImage = "true";
             };
           }
-          /*{
-            name = "org.kde.plasma.taskmanager";
-            config = {
-              General = {
-                forceStripes="true";
-                maxStripes="2";
-                showOnlyCurrentActivity="false";
-                showOnlyCurrentDesktop="false";
-              };
-            };
-            }*/
             "org.kde.plasma.pager"
             {
               name = "org.kde.plasma.icontasks";
@@ -158,7 +154,6 @@
                 };
               };
             }
-          /*"org.kde.plasma.panelspacer"*/
           {
             name = "org.kde.plasma.systemtray";
             config = {
@@ -169,7 +164,7 @@
             };
           }
         ];
-      }
+      }*/
     ];
 
     kwin = {
@@ -311,7 +306,7 @@
       showClock=false
       showPager=false
       showTaskManager=true
-      visibility=1
+      visibility=0
     '';
     ".crystal-dock-2/KDE/appearance.conf".text = ''
       [General]
