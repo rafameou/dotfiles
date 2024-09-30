@@ -38,6 +38,9 @@
     planify
     eyedropper
     ptyxis
+    newsflash
+    resources
+    gnome-decoder
   ];
 
   #home.sessionVariables = {
@@ -136,7 +139,8 @@
       favorite-apps = [
         "firefox.desktop"
         "google-chrome.desktop"
-        "thunderbird.desktop"
+        "geary.desktop"
+        "io.gitlab.news_flash.NewsFlash.desktop"
         "bitwarden.desktop"
         "org.telegram.desktop.desktop"
         "vesktop.desktop"
@@ -149,6 +153,7 @@
         "org.strawberrymusicplayer.strawberry.desktop"
         "feishin.desktop"
         "smartcode-stremio.desktop"
+        "net.nokyan.Resources.desktop"
       ];
       disable-user-extensions = false;
       enabled-extensions = [
@@ -156,13 +161,13 @@
         "appindicatorsupport@rgcjonas.gmail.com"
         "AlphabeticalAppGrid@stuarthayhurst"
         /*"favourites-in-appgrid@harshadgavali.gitlab.org"*/
-        "hotedge@jonathan.jdoda.ca"
+        /*"hotedge@jonathan.jdoda.ca"*/
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
         "gsconnect@andyholmes.github.io"
         "space-bar@luchrioh"
         /*"dash-to-dock@micxgx.gmail.com"*/
-        "gtk4-ding@smedius.gitlab.com" 
+        /*"gtk4-ding@smedius.gitlab.com"*/
         "add-to-desktop@tommimon.github.com"
         /*"apps-menu@gnome-shell-extensions.gcampax.github.com"
         "places-menu@gnome-shell-extensions.gcampax.github.com"
