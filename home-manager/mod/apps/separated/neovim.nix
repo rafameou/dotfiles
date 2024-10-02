@@ -14,6 +14,10 @@ in
     home.file."${config.xdg.configHome}/nvim/spell/pt.utf-8.spl".source = nvim-spell-pt-utf8-dictionary;
     home.file."${config.xdg.configHome}/nvim/spell/pt.latin1.spl".source = nvim-spell-pt-latin-dictionary;
 
+    home.packages = with pkgs; [
+      python312Packages.pylatexenc
+    ];
+
     programs.neovim = with pkgs; {
       enable = true;
       defaultEditor = true;
@@ -309,6 +313,7 @@ in
           '';
         }
         { plugin = img-clip-nvim; }
+        { plugin = render-markdown-nvim; }
       ];
 
       extraConfig = ''
