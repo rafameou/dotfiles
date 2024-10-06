@@ -18,6 +18,7 @@
     cherrytree
     imagemagick
     ghostscript
+    sioyek
     /*okular*/
     #gromit-mpx
     #speedcrunch

@@ -121,7 +121,7 @@
       font-name = "Fira Sans 11";
       document-font-name = "Fira Sans 11";
       monospace-font-name = "CozetteHiDpi Medium 16";
-      gtk-theme = "adw-gtk3-dark";
+      gtk-theme = "Adwaita";#"adw-gtk3-dark";
       color-scheme = "prefer-dark";
       #cursor-theme = "phinger-cursors-light";
       #cursor-size = 32;

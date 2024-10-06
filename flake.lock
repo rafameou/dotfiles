@@ -246,6 +246,22 @@
         "type": "github"
       }
     },
+    "markview-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1728219267,
+        "narHash": "sha256-/F0hAWMMnhrqFIBBxOrGxIAHQ/fIDE+TyCpSVmnIFos=",
+        "owner": "OXY2DEV",
+        "repo": "markview.nvim",
+        "rev": "fb10bcbb401780234c2e8bd2ec3fc85a94521944",
+        "type": "github"
+      },
+      "original": {
+        "owner": "OXY2DEV",
+        "repo": "markview.nvim",
+        "type": "github"
+      }
+    },
     "nix-flatpak": {
       "locked": {
         "lastModified": 1721549352,
@@ -345,6 +361,7 @@
         "chaotic": "chaotic",
         "home-manager": "home-manager_2",
         "img-clip-nvim": "img-clip-nvim",
+        "markview-nvim": "markview-nvim",
         "nix-flatpak": "nix-flatpak",
         "nixpkgs": "nixpkgs_2",
         "plasma-manager": "plasma-manager",

@@ -313,7 +313,7 @@ in
           '';
         }
         { plugin = img-clip-nvim; }
-        { plugin = render-markdown-nvim; }
+        { plugin = markview-nvim; }
       ];
 
       extraConfig = ''
