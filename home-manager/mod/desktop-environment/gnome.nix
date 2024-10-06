@@ -48,15 +48,15 @@
   #};
 
   /*gtk = {
-    enable = true;
-    font = {
-    name = "Fira Sans";
-    size = 11;
-    };
-    theme = {
-      name = "adw-gtk3-dark";
-      package = pkgs.adw-gtk3;
-    };
+  enable = true;
+  font = {
+  name = "Fira Sans";
+  size = 11;
+  };
+  theme = {
+  name = "adw-gtk3-dark";
+  package = pkgs.adw-gtk3;
+  };
   };*/
 
   /*home.pointerCursor = {
@@ -110,7 +110,7 @@
       current-workspace-only = true;
     };
     "org/gnome/desktop/wm/preferences" = {
-      button-layout = "appmenu:minimize,maximize,close";
+      button-layout = "appmenu:close";#"appmenu:minimize,maximize,close";
       titlebar-font = "Fira Sans 11";
     };
     "org/gnome/desktop/interface" = {
@@ -141,6 +141,7 @@
         "google-chrome.desktop"
         "geary.desktop"
         "io.gitlab.news_flash.NewsFlash.desktop"
+        "io.github.alainm23.planify.desktop"
         "bitwarden.desktop"
         "org.telegram.desktop.desktop"
         "vesktop.desktop"
@@ -165,13 +166,13 @@
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
         "gsconnect@andyholmes.github.io"
-        "space-bar@luchrioh"
+        /*"space-bar@luchrioh"*/
         /*"dash-to-dock@micxgx.gmail.com"*/
         /*"gtk4-ding@smedius.gitlab.com"*/
-        "add-to-desktop@tommimon.github.com"
-        /*"apps-menu@gnome-shell-extensions.gcampax.github.com"
+        /*"add-to-desktop@tommimon.github.com"*/
+        /*"apps-menu@gnome-shell-extensions.gcampax.github.com" */
         "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"*/
+        /*"window-list@gnome-shell-extensions.gcampax.github.com"*/
         /*"just-perfection-desktop@just-perfection"*/
         "solaar-extension@sidevesh"
         "weatheroclock@CleoMenezesJr.github.io"
@@ -213,7 +214,9 @@
     "org/gnome/desktop/app-folders" = {
       /*https://github.com/BenJetson/gnome-dash-fix*/
       #folder-children = [];
-      folder-children = ["accessories" "chrome-apps" "games" "graphics" "internet" "office" "programming" "science" "sound---video" "system-tools" "universal-access" "wine"];
+      folder-children = ["accessories" "chrome-apps" "games" "graphics" 
+      "internet" "office" "programming" "science" "sound---video" 
+      "system-tools" "universal-access" "wine"];
     };
     "org/gnome/desktop/app-folders/folders/accessories" = {
       name = "Accessories";
@@ -276,7 +279,8 @@
     };
 
     # --- gnome weather ---
-    "org/gnome/Weather" = let inherit (lib.hm.gvariant) mkTuple mkUint32 mkVariant; in {
+    "org/gnome/Weather" = 
+    let inherit (lib.hm.gvariant) mkTuple mkUint32 mkVariant; in {
       locations = [ 
         (mkVariant (mkTuple [ 
           (mkUint32 2) 
@@ -296,7 +300,9 @@
     # --- gnome flashback stuff --- #
 
     "org/gnome/gnome-panel/layout" = {
-      object-id-list =  ["menu-bar" "clock" "notification-area" "show-desktop" "user-menu" "window-list" "workspace-switcher" "geyes" "system-indicators"];
+      object-id-list =  ["menu-bar" "clock" "notification-area" "show-desktop" 
+      "user-menu" "window-list" "workspace-switcher" "geyes" 
+      "system-indicators"];
     };
     "org/gnome/gnome-panel/layout/toplevels/bottom-panel".enable-buttons = true;
     "org/gnome/gnome-panel/layout/toplevels/top-panel".enable-buttons = true;

@@ -319,6 +319,7 @@ in
       extraConfig = ''
         filetype plugin indent on
         syntax enable
+        set colorcolumn=80,120
 
         highlight Normal guibg=none
         highlight NonText guibg=none
