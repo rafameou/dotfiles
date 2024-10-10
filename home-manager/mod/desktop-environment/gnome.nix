@@ -170,9 +170,9 @@
         /*"dash-to-dock@micxgx.gmail.com"*/
         /*"gtk4-ding@smedius.gitlab.com"*/
         /*"add-to-desktop@tommimon.github.com"*/
-        /*"apps-menu@gnome-shell-extensions.gcampax.github.com" */
+        "apps-menu@gnome-shell-extensions.gcampax.github.com" 
         "places-menu@gnome-shell-extensions.gcampax.github.com"
-        /*"window-list@gnome-shell-extensions.gcampax.github.com"*/
+        "window-list@gnome-shell-extensions.gcampax.github.com"
         /*"just-perfection-desktop@just-perfection"*/
         "solaar-extension@sidevesh"
         "weatheroclock@CleoMenezesJr.github.io"
