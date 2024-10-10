@@ -177,6 +177,7 @@
         "solaar-extension@sidevesh"
         "weatheroclock@CleoMenezesJr.github.io"
       ];
+      disabled-extensions = [];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme=false;
