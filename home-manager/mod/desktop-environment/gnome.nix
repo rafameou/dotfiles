@@ -142,6 +142,7 @@
         "geary.desktop"
         "io.gitlab.news_flash.NewsFlash.desktop"
         "io.github.alainm23.planify.desktop"
+        "Zettlr.desktop"
         "bitwarden.desktop"
         "org.telegram.desktop.desktop"
         "vesktop.desktop"

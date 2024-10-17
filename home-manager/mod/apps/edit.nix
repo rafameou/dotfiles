@@ -19,6 +19,15 @@
     imagemagick
     ghostscript
     sioyek
+
+    apostrophe
+    zettlr
+
+
+    kdePackages.kdenlive
+    krita
+    kdePackages.kolourpaint
+
     /*okular*/
     #gromit-mpx
     #speedcrunch

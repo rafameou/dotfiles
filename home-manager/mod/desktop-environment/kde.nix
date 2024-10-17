@@ -29,10 +29,6 @@
     kdePackages.discover
     kdePackages.kdeconnect-kde
 
-    kdePackages.kdenlive
-    krita
-    kdePackages.filelight
-    kdePackages.kolourpaint
     kdePackages.kcolorchooser
     kdePackages.yakuake
     #kdePackages.kompare

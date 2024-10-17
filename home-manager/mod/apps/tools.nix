@@ -27,5 +27,6 @@
     trayscale
     pavucontrol
     android-file-transfer
+    kdePackages.filelight
   ];
 }
