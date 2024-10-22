@@ -23,6 +23,7 @@
     gnomeExtensions.solaar-extension
     gnomeExtensions.weather-oclock
     gnomeExtensions.activate_gnome
+    gnomeExtensions.blur-my-shell
     # ---- gnome fixes ----
     adw-gtk3
     adwaita-qt
@@ -177,6 +178,7 @@
         /*"just-perfection-desktop@just-perfection"*/
         "solaar-extension@sidevesh"
         "weatheroclock@CleoMenezesJr.github.io"
+        "blur-my-shell@aunetx"
       ];
       disabled-extensions = [];
     };
