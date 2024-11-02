@@ -3,7 +3,7 @@
   imports = [
     ./separated/liferea.nix
     #./separated/luakit.nix
-    #./separated/qutebrowser.nix
+    ./separated/qutebrowser.nix
   ];
   programs = {
     firefox = {
@@ -25,7 +25,7 @@
     komikku
     #kdePackages.tokodon
     #kdePackages.neochat #broken 21-05
-    whatsapp-for-linux
+    #whatsapp-for-linux
     stremio
   ];
 }

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    #./window-manager/theme.nix
+    ./window-manager/theme.nix
     ./window-manager/i3status.nix
     ./window-manager/sway.nix
     #./window-manager/i3.nix
@@ -24,17 +24,18 @@
     kdePackages.discover
     kdePackages.kdeconnect-kde*/
  
-    #lxqt.pcmanfm-qt
-    #lxqt.pavucontrol-qt
-    #lxqt.qps
+    lxqt.pcmanfm-qt
+    lxqt.pavucontrol-qt
+    lxqt.qps
 
-    j4-dmenu-desktop
-    bemenu
+    #j4-dmenu-desktop
+    #bemenu
 
     #nvidia-system-monitor-qt
 
     #selectdefaultapplication
 
     /*udiskie*/
+    wttrbar
   ];
 }

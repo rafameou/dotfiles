@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }:
 {
   imports = [
-    #./waybar.nix
+    ./waybar-skeumorphic.nix
     #inputs.wayland-pipewire-idle-inhibit.homeModules.default
   ];
   home.packages = with pkgs; [
@@ -20,6 +20,8 @@
     #dunst
 
     wayland-pipewire-idle-inhibit
+
+    mate.mate-polkit
   ];
 
   programs.fuzzel.enable = true;
@@ -37,10 +39,26 @@
         { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
       ];
     };
-    /*wayland-pipewire-idle-inhibit = {
-      enable = true;
-      systemdTarget = "sway-session.target";
-    };*/
+  };
+
+  systemd.user.services = {
+    wayland-idle-pipewire-inhibit-serv = {
+      Unit = {
+        Wants = "sway-session.target";
+        After = "sway-session.target";
+      };
+
+      Service = {
+        Type = "simple";
+        ExecStart = "${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5";
+        Restart = "on-failure";
+        RestartSec = 30;
+      };
+
+      Install = {
+        WantedBy = [ "sway-session.target" ];
+      };
+    };
   };
 
   wayland.windowManager.sway = {
@@ -49,14 +67,14 @@
     config = rec {
       modifier = "Mod4";
       fonts = {
-        names = ["Fira Sans"];
+        names = ["terminus"];
         style = "Regular";
-        size = 10.0;
+        size = 12.0;
       }; 
       #menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
       menu = "fuzzel";
       bars = [
-        {
+        /*{
           fonts = {
             names = ["Fira Sans"];
             style = "Regular";
@@ -65,10 +83,48 @@
           trayOutput = "none";
           position = "bottom";
           statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
-          }
-          /*{ command = "${pkgs.waybar}/bin/waybar"; }*/
+          }*/
+          { command = "${pkgs.waybar}/bin/waybar"; }
       ];
-      terminal = "mate-terminal"; 
+      colors = {
+        focused = {
+          border = "#${config.colorScheme.palette.base05}";
+          background = "#${config.colorScheme.palette.base0D}";
+          text = "#${config.colorScheme.palette.base00}";
+          indicator = "#${config.colorScheme.palette.base0D}";
+          childBorder = "#${config.colorScheme.palette.base0C}";
+        };
+        focusedInactive = {
+          border = "#${config.colorScheme.palette.base01}";
+          background = "#${config.colorScheme.palette.base01}";
+          text = "#${config.colorScheme.palette.base05}";
+          indicator = "#${config.colorScheme.palette.base03}";
+          childBorder = "#${config.colorScheme.palette.base01}";
+        };
+        unfocused = {
+          border = "#${config.colorScheme.palette.base01}";
+          background = "#${config.colorScheme.palette.base00}";
+          text = "#${config.colorScheme.palette.base05}";
+          indicator = "#${config.colorScheme.palette.base01}";
+          childBorder = "#${config.colorScheme.palette.base01}";
+        };
+        urgent = {
+          border = "#${config.colorScheme.palette.base08}";
+          background = "#${config.colorScheme.palette.base08}";
+          text = "#${config.colorScheme.palette.base00}";
+          indicator = "#${config.colorScheme.palette.base08}";
+          childBorder = "#${config.colorScheme.palette.base08}";
+        };
+        placeholder = {
+          border = "#${config.colorScheme.palette.base00}";
+          background = "#${config.colorScheme.palette.base00}";
+          text = "#${config.colorScheme.palette.base05}";
+          indicator = "#${config.colorScheme.palette.base00}";
+          childBorder = "#${config.colorScheme.palette.base00}";
+        };
+        background = "#${config.colorScheme.palette.base07}"; 
+      };
+      terminal = "foot"; 
       input = {
         "type:keyboard" = {
           xkb_layout = "br,br";
@@ -109,9 +165,9 @@
         {command = "--no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
-        #{command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i /etc/wallpaper"; } #fill
+        {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/wallpaper"; } #fill
         /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
-        /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
+        {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
         {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
         {command = "--no-startup-id ${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5";}
         #{command = "--no-startup-id ${pkgs.dunst}/bin/dunst";}
@@ -123,11 +179,13 @@
         /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/ 
         /*{command = "--no-startup-id mate-panel"; }*/
         {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
-        {command = "--no-startup-id mate-notification-daemon"; }
+        /*{command = "--no-startup-id mate-notification-daemon"; }
         {command = "--no-startup-id GDK_BACKEND=x11 mate-settings-daemon"; }
-        {command = "--no-startup-id caja -n --force-desktop"; }
+        {command = "--no-startup-id caja -n --force-desktop"; }*/
 
         {command = "--no-startup-id blueman-applet"; }
+
+        {command = "--no-startup-id solaar -w hide"; }
 
         /*{command = "--no-startup-id volctl";}*/
         /*{command = "--no-startup-id ${pkgs.ayatana-indicator-datetime}/libexec/ayatana-indicator-datetime/ayatana-indicator-datetime-service";}
@@ -138,16 +196,16 @@
         {command = "--no-startup-id ${pkgs.ayatana-indicator-sound}/libexec/ayatana-indicator-sound/ayatana-indicator-sound-service";}*/
       ];
       keybindings = lib.mkOptionDefault {
-        /*"XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86AudioStop"              = "exec ${pkgs.playerctl}/bin/playerctl stop";
         "XF86AudioPrev"              = "exec ${pkgs.playerctl}/bin/playerctl previous";
         "XF86AudioNext"              = "exec ${pkgs.playerctl}/bin/playerctl next";
         "shift+XF86AudioPrev"        = "exec ${pkgs.playerctl}/bin/playerctl position 10-";
         "shift+XF86AudioNext"        = "exec ${pkgs.playerctl}/bin/playerctl position 10+";
-        "shift+XF86AudioowerVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1-";
+        "shift+XF86AudioLowerVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1-";
         "shift+XF86AudioRaiseVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1+";
 
-        "${alt}+XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";*/
+        #"${alt}+XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
         /*"${modifier}+minus" = "";*/
         "${modifier}+equal" = "gaps inner current toggle 10";
