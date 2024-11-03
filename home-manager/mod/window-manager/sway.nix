@@ -15,7 +15,7 @@
     wl-clipboard
     grim
     slurp
-    wf-recorder
+    #wf-recorder #broken 03-11-2024
 
     #dunst
 

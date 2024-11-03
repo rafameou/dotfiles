@@ -20,7 +20,7 @@
     ghostscript
     sioyek
 
-    apostrophe
+    #apostrophe #broken 03-11-2024, not needed
     zettlr
 
 
