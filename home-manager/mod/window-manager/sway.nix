@@ -21,6 +21,8 @@
 
     wayland-pipewire-idle-inhibit
 
+    blueman
+
     mate.mate-polkit
   ];
 
@@ -162,7 +164,9 @@
       };
       startup = [
         /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
-        {command = "--no-startup-id dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK";}
+        {command = "--no-startup-id systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
+        {command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
+
         {command = "--no-startup-id nm-applet --indicator";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
         {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/wallpaper"; } #fill
@@ -183,9 +187,9 @@
         {command = "--no-startup-id GDK_BACKEND=x11 mate-settings-daemon"; }
         {command = "--no-startup-id caja -n --force-desktop"; }*/
 
-        {command = "--no-startup-id blueman-applet"; }
+        {command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }
 
-        {command = "--no-startup-id solaar -w hide"; }
+        {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
 
         /*{command = "--no-startup-id volctl";}*/
         /*{command = "--no-startup-id ${pkgs.ayatana-indicator-datetime}/libexec/ayatana-indicator-datetime/ayatana-indicator-datetime-service";}

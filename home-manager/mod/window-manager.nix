@@ -15,14 +15,13 @@
 
     #gnome.dconf-editor
 
-    /*kdePackages.ark
+    kdePackages.ark
     kdePackages.konsole
     kdePackages.kpat
     kdePackages.kmines
     kdePackages.kcalc
     kdePackages.kalk
-    kdePackages.discover
-    kdePackages.kdeconnect-kde*/
+    kdePackages.kdeconnect-kde
  
     lxqt.pcmanfm-qt
     lxqt.pavucontrol-qt

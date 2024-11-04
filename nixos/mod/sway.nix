@@ -2,6 +2,7 @@
 {
   services.xserver.displayManager.startx.enable = true;
   services.xserver.displayManager.lightdm.enable = false;
+  services.displayManager.ly.enable = true;
   #enable sway
   programs.sway = {
     enable = true;

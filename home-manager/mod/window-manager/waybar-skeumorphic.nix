@@ -145,7 +145,7 @@
             phone = "";
             portable = "";
             car = "";
-            default = ["" "" ""];
+            default = ["󰕿" "󰖀" "󰕾"];
           };
           on-click = "pavucontrol-qt";
         };
@@ -198,6 +198,7 @@
           background-color: transparent;
           color: #ffffff;
           border-radius: 0%;
+          transition-duration: .2s;
         }
 
       #workspaces button:hover {

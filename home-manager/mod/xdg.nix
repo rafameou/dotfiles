@@ -40,22 +40,22 @@
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
-        "application/x-gnome-saved-search" = "org.gnome.Nautilus.desktop";
-        "inode/directory" = "org.gnome.Nautilus.desktop";
+        "application/x-gnome-saved-search" = "pcmanfm-qt.desktop";
+        "inode/directory" = "pcmanfm-qt.desktop";
 
-        # move this stuff to each desktop's dot nix file
-        "image/tiff" = "org.gnome.Loupe.desktop";
-        "image/jpx" = "org.gnome.Loupe.desktop";
-        "image/png" = "org.gnome.Loupe.desktop";
-        "image/gif" = "org.gnome.Loupe.desktop";
-        "image/jpeg" = "org.gnome.Loupe.desktop";
-        "image/bmp" = "org.gnome.Loupe.desktop";
-        "image/jp2" = "org.gnome.Loupe.desktop";
+        # move this stuff to each desktop's dot nix file        
+        "image/tiff" = "vimiv.desktop";
+        "image/jpx" = "vimiv.desktop";
+        "image/png" = "vimiv.desktop";
+        "image/gif" = "vimiv.desktop";
+        "image/jpeg" = "vimiv.desktop";
+        "image/bmp" = "vimiv.desktop";
+        "image/jp2" = "vimiv.desktop";
 
-        "application/x-tar" = "org.gnome.FileRoller.desktop";
-        "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
-        "application/vnd.rar" = "org.gnome.FileRoller.desktop"; 
-        "application/zip" = "org.gnome.FileRoller.desktop";
+        "application/x-tar" = "org.kde.ark.desktop";
+        "application/x-7z-compressed" = "org.kde.ark.desktop";
+        "application/vnd.rar" = "org.kde.ark.desktop"; 
+        "application/zip" = "org.kde.ark.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
       };

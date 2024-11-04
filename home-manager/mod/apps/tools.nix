@@ -7,6 +7,7 @@
     #./separated/kitty.nix
     ./separated/rclone.nix
     ./separated/zathura.nix
+    ./separated/vimiv.nix
   ];
   home.packages = with pkgs; [
     flatpak
