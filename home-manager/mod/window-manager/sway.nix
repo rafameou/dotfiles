@@ -22,6 +22,7 @@
     wayland-pipewire-idle-inhibit
 
     blueman
+    swaynotificationcenter
 
     mate.mate-polkit
   ];
@@ -168,6 +169,7 @@
         {command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
 
         {command = "--no-startup-id nm-applet --indicator";}
+        {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
         {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
         {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/wallpaper"; } #fill
         /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
@@ -224,6 +226,8 @@
 
         "Print"          = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy";
         "${modifier}+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
+
+        "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
       };
     };
     /*extraSessionCommands = ''*/

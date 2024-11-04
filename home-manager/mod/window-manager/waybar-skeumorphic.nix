@@ -1,4 +1,4 @@
-{lib, ...}:
+{lib, pkgs,...}:
 {
   # https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/waybar.nix
   imports = [ ../nix-colors.nix ];
@@ -13,7 +13,7 @@
 
       modules-left   = [ "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "sway/window"];
       #modules-center = [ "sway/window" ];
-      modules-right  = [ "tray" "idle_inhibitor" "custom/weather" "pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "keyboard-state" "sway/language" "battery" "battery#bat2" "clock" ];
+      modules-right  = [ "tray" "idle_inhibitor" "custom/weather" "pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "keyboard-state" "sway/language" "battery" "battery#bat2" "clock" "custom/notification" ];
 
       "sway/workspaces" = {
         all-outputs = true;
@@ -149,77 +149,99 @@
           };
           on-click = "pavucontrol-qt";
         };
-      }];
 
-      style = ''
-        * {
-          font-family: terminus;
-          font-size: 16px;
-          border-radius: 5px;
-        }
+      "custom/notification"= {
+        "tooltip"= false;
+        "format"= "{icon}";
+        "format-icons"= {
+          "notification"= "<span foreground='red'><sup></sup></span>";
+          "none"= "";
+          "dnd-notification"= "<span foreground='red'><sup></sup></span>";
+          "dnd-none"= "";
+          "inhibited-notification"= "<span foreground='red'><sup></sup></span>";
+          "inhibited-none"= "";
+          "dnd-inhibited-notification"= "<span foreground='red'><sup></sup></span>";
+          "dnd-inhibited-none"= "";
+        };
+        "return-type"= "json";
+        "exec-if"= "which swaync-client";
+        "exec"= "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+        "on-click"= "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+        "on-click-right"= "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+        "escape"= true;
+      };
+    }];
 
-        window#waybar { 
-          background: linear-gradient(180deg, rgba(50,48,47,0.9) 0%, rgba(29, 32, 33,1) 100%);
-          color: #ffffff;
-          transition-property: background-color;
-          transition-duration: .5s;
-          border-radius: 0px;
-        }
+    style = ''
+    * {
+      font-family: terminus;
+      font-size: 16px;
+      border-radius: 5px;
+    }
 
-        window#waybar.hidden {
-          opacity: 0.2;
-        }
+    window#waybar { 
+      background: linear-gradient(180deg, rgba(50,48,47,0.9) 0%, rgba(29, 32, 33,1) 100%);
+      color: #ffffff;
+      transition-property: background-color;
+      transition-duration: .5s;
+      border-radius: 0px;
+    }
 
-        window#waybar.termite {
-          background-color: #3F3F3F;
-        }
+    window#waybar.hidden {
+      opacity: 0.2;
+    }
 
-        window#waybar.chromium {
-          background-color: #000000;
-          border: none;
-        }
+    window#waybar.termite {
+      background-color: #3F3F3F;
+    }
 
-        button {
-          box-shadow: inset 0 -3px transparent;
-          border: none;
-          border-radius: 0;
-          min-height: 24px;
-          min-width: 16px;
-        }
+    window#waybar.chromium {
+      background-color: #000000;
+      border: none;
+    }
 
-        /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-        button:hover {
-          background: inherit;
-          /*box-shadow: inset 0 -3px #ffffff;*/
-        }
+    button {
+      box-shadow: inset 0 -3px transparent;
+      border: none;
+      border-radius: 0;
+      min-height: 24px;
+      min-width: 16px;
+    }
+
+    /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+    button:hover {
+      background: inherit;
+      /*box-shadow: inset 0 -3px #ffffff;*/
+    }
 
       #workspaces button {
-          padding: 0 5px;
-          background-color: transparent;
-          color: #ffffff;
-          border-radius: 0%;
-          transition-duration: .2s;
-        }
+        padding: 0 5px;
+        background-color: transparent;
+        color: #ffffff;
+        border-radius: 0%;
+        transition-duration: .2s;
+      }
 
       #workspaces button:hover {
-          background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
-        }
+        background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
+      }
 
       #workspaces button.focused {
-          background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);
-          color: #000000;
-        }
+        background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);
+        color: #000000;
+      }
 
       #workspaces button.urgent {
-          background: radial-gradient(circle, rgba(231,77,75,1) 0%, rgba(0,0,0,0) 100%);
+        background: radial-gradient(circle, rgba(231,77,75,1) 0%, rgba(0,0,0,0) 100%);
 
-        }
+      }
 
       #mode {
-          background-color: #64727D;
-          border-bottom: 3px solid #ffffff;
-        }
+        background-color: #64727D;
+        border-bottom: 3px solid #ffffff;
+      }
 
+      #custom-notification,
       #clock,
       #battery,
       #cpu,
@@ -246,17 +268,17 @@
 
       #window,
       #workspaces {
-          margin: 0 4px;
-        }
+        margin: 0 4px;
+      }
 
       #waybar.empty #window {
         border: none;
         background: none;
-        }
+      }
 
-        
+
       #battery.charging, #battery.plugged {
-          color: #00ff00;
+        color: #00ff00;
       }
 
       #temperature.critical,
@@ -264,17 +286,17 @@
       #battery.critical:not(.charging),
       #network.disconnected,
       #pulseaudio.muted {
-          color: #ff0000;
-        }
+        color: #ff0000;
+      }
 
       #tray > .passive {
-          -gtk-icon-effect: dim;
-        }
+        -gtk-icon-effect: dim;
+      }
 
       #tray > .needs-attention {
-          -gtk-icon-effect: highlight;
-          background-color: #eb4d4b;
-        }
+        -gtk-icon-effect: highlight;
+        background-color: #eb4d4b;
+      }
       '';
     };
   }

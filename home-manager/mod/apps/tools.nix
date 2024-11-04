@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [ 
-    ./separated/dunst.nix 
+    #./separated/dunst.nix 
     ./separated/foot.nix
     ./separated/fuzzel.nix
     #./separated/kitty.nix
