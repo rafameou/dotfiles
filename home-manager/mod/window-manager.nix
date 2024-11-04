@@ -16,10 +16,6 @@
     #gnome.dconf-editor
 
     kdePackages.ark
-    kdePackages.konsole
-    kdePackages.kpat
-    kdePackages.kmines
-    kdePackages.kcalc
     kdePackages.kalk
     kdePackages.kdeconnect-kde
  
