@@ -1,7 +1,7 @@
 { lib, config, pkgs, ... }:
 {
   imports = [
-    ./waybar-skeumorphic.nix
+    ./waybar.nix
     #inputs.wayland-pipewire-idle-inhibit.homeModules.default
   ];
   home.packages = with pkgs; [

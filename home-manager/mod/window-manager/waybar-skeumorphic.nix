@@ -7,7 +7,7 @@
     enable = true;
     settings = [{
       layer = "bottom";
-      position = "bottom";
+      position = "top";
       height = 30;#25;
       spacing = 5;
 
