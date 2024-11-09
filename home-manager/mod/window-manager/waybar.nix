@@ -9,7 +9,7 @@
       layer = "bottom";
       position = "top";
       height = 24;#25;
-      spacing = 2;
+      spacing = 10;
 
       modules-left   = [ "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "sway/window"];
       #modules-center = [ "sway/window" ];
@@ -35,8 +35,8 @@
         capslhock = true;
         format = "{name}{icon}";
         format-icons = {
-          locked = "";
-          unlocked = "";
+          locked = "LCK";
+          unlocked = "UNL";
         };
       };
 
@@ -112,7 +112,7 @@
         };
 
         "sway/language" = {
-          format = "{variant}";
+          format = "{}";
           on-click = "swaymsg input type:keyboard xkb_switch_layout next";
         };
 
@@ -148,13 +148,13 @@
         "tooltip"= false;
         "format"= "{icon}";
         "format-icons"= {
-          "notification"= "<span foreground='red'><sup></sup></span>";
+          "notification"= "*";
           "none"= "";
-          "dnd-notification"= "<span foreground='red'><sup></sup></span>";
+          "dnd-notification"= "*";
           "dnd-none"= "";
-          "inhibited-notification"= "<span foreground='red'><sup></sup></span>";
+          "inhibited-notification"= "*";
           "inhibited-none"= "";
-          "dnd-inhibited-notification"= "<span foreground='red'><sup></sup></span>";
+          "dnd-inhibited-notification"= "*";
           "dnd-inhibited-none"= "";
         };
         "return-type"= "json";
@@ -168,7 +168,7 @@
 
     style = ''
     * {
-      font-family: terminus;
+      font-family: CozetteVector;
       font-size: 18px;
       border-radius: 0px;
       transition-duration: 0;
@@ -232,33 +232,6 @@
         border-bottom: 3px solid #ffffff;
       }
 
-      #custom-notification,
-      #clock,
-      #battery,
-      #cpu,
-      #memory,
-      #disk,
-      #temperature,
-      #backlight,
-      #network,
-      #pulseaudio,
-      #wireplumber,
-      #custom-media,
-      #custom-weather,
-      #mode,
-      #idle_inhibitor,
-      #scratchpad,
-      #language,
-      #mpd  {
-        padding: 0 2px;
-        border-right: 1px solid #FBF1C7; 
-      }
-
-      #tray {
-        padding: 0 2px;
-        border-right: 0; 
-      }
-
       #window,
       #workspaces {
         margin: 0 4px;
@@ -269,6 +242,10 @@
         background: none;
       }
 
+
+      .modules-right > widget {
+        background: rgba(80,73,69,0.9);
+      }
 
       #battery.charging, #battery.plugged {
         color: #00ff00;

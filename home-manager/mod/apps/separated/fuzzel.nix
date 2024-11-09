@@ -6,7 +6,7 @@
     settings = {
       main = {
         icon-theme = "hicolor";
-        font = "terminus";
+        font = "CozetteVector";
         line-height = 16;
       };
       colors = {
