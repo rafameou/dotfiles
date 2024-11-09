@@ -14,5 +14,15 @@
     #itch #marked as broken 24/03/24
     heroic
     protonup-qt
+    (pkgs.unityhub.override {
+      extraLibs = pkgs: with pkgs; [
+        openssl_1_1
+        openssl_legacy
+      ];
+    })
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "openssl-1.1.1w"
   ];
 }
