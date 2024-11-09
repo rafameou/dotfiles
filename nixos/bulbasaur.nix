@@ -18,7 +18,7 @@
     ./mod/distrobox.nix 
     ./mod/env.nix
     ./mod/flatpak.nix
-    ./mod/desktop-environment/kde.nix
+    ./mod/sway.nix
   ];
   
   /* ... changes to only this sytem */
