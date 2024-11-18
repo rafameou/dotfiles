@@ -58,9 +58,9 @@ in
     };
 
     home.pointerCursor = {
-      name = "Oxygen_Zion";
-      package = pkgs.kdePackages.oxygen;
-      /*size = 16;*/
+      name = "phinger-cursors-light";
+      package = pkgs.phinger-cursors;
+      size = 32;
       x11.enable = true;
       gtk.enable = true;
     };
@@ -107,8 +107,8 @@ in
         /*name = "matefaenzadark";*/
       };
       cursorTheme = {
-        name = "Oxygen_Zion";
-        package = pkgs.kdePackages.oxygen;
+        name = "phinger-cursors-light";
+        package = pkgs.phinger-cursors;
       };
 
       gtk2.extraConfig = ''

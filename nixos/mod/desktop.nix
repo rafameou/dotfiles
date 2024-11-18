@@ -45,6 +45,12 @@
     totem #caja
     gnome-epub-thumbnailer
     f3d
+    poppler_utils
+    atool
+    colordiff
+    chafa
+    jq
+    glow
   ];
 
   services.fwupd.enable = true;
