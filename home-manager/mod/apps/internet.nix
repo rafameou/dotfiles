@@ -27,5 +27,9 @@
     #kdePackages.neochat #broken 21-05
     #whatsapp-for-linux
     stremio
+
+    protonvpn-gui
+    protonmail-desktop
+    protonmail-bridge
   ];
 }

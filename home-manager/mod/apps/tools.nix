@@ -29,5 +29,6 @@
     pavucontrol
     android-file-transfer
     kdePackages.filelight
+    doublecmd
   ];
 }

@@ -3,6 +3,7 @@
   imports = [ 
     ./separated/neovim.nix
     #./separated/vscode.nix
+    ./separated/lf.nix
   ];
   home.packages = with pkgs; [
     gimp

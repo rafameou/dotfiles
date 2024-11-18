@@ -40,6 +40,11 @@
     "/mnt/Extra" = { 
       device = "/dev/disk/by-uuid/167b330f-ec39-4481-a35d-eb8894d14553";
       fsType = "btrfs";
+      options = [
+        "x-gvfs-show"
+        "nofail"
+        "exec"
+      ];
     };
     /*"/mnt/Extra2" = { 
     device = "/dev/disk/by-uuid/30c8e8dd-7a12-449a-ae59-f26262c5a8ff";
