@@ -97,11 +97,11 @@
         };
 
         network = {
-          format-wifi = "{essid} ({signalStrength}%) ";
-          format-ethernet = " {ifname}";
-          tooltip-format = "{ifname} via {gwaddr} at {ipaddr} ";
-          format-linked = "{ifname} (No IP) ";
-          format-disconnected = "Disconnected ⚠";
+          format-wifi = " {signalStrength}%";
+          format-ethernet = "";
+          tooltip-format = " {ifname} via {gwaddr} at {ipaddr}";
+          format-linked = "  No IP";
+          format-disconnected = "⚠ Offline";
         };
 
         pulseaudio = {
