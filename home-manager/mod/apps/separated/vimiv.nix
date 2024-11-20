@@ -27,7 +27,7 @@
       base0f = #${config.colorScheme.palette.base0F}
 
       ; Additional custom overrides, e.g.
-      font = 10pt Fira Sans
+      font = 12pt Fira Sans
       ; thumbnail.padding = 32
 
       ; vim:ft=dosini

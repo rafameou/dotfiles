@@ -35,7 +35,7 @@ in
         style=Breeze
 
         [Fonts]
-        fixed="CozzetteHiDpi,16,-1,5,50,0,0,0,0,0,Regular"
+        fixed="FiraCode Nerd Font Mono,12,-1,5,50,0,0,0,0,0,Regular"
         general="Fira Sans,12,-1,5,50,0,0,0,0,0,Regular"
       '';
 
@@ -47,7 +47,7 @@ in
         style=Oxygen
 
         [Fonts]
-        fixed="CozzetteHiDpi,16,-1,5,50,0,0,0,0,0,Regular"
+        fixed="FiraCode Nerd Font Mono,12,-1,5,50,0,0,0,0,0,Regular"
         general="Fira Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
       '';
     };

@@ -174,7 +174,7 @@
 
     style = ''
     * {
-      font-family: terminus;
+      font-family: Fira Sans;
       font-size: 16px;
       border-radius: 5px;
     }

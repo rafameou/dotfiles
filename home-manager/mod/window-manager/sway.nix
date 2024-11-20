@@ -70,12 +70,12 @@
     config = rec {
       modifier = "Mod4";
       fonts = {
-        names = ["CozetteVector"];
+        names = ["Fira Sans"];
         style = "Regular";
         size = 12.0;
       }; 
       #menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
-      menu = ''BEMENU_OPTS="--fn 'CozetteVector Regular 16' --tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}e5' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}e5' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}e5' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}e5' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}e5' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
+      menu = ''BEMENU_OPTS="--fn 'Fira Sans Regular 16' --tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}e5' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}e5' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}e5' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}e5' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}e5' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
       #menu = "fuzzel";
       bars = [
         /*{

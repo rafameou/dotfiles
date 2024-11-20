@@ -31,8 +31,8 @@ unredir-if-possible = false;
     config = rec {
       modifier = "Mod4";
       fonts = {
-        names = ["Fira Mono"];
-        size = 10.0;
+        names = ["Fira Sans"];
+        size = 12.0;
       };
       /*colors stolen from https://github.com/Haze-sh/base16-bemenu/"*/
       menu = ''${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"'';
