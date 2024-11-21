@@ -8,7 +8,7 @@
   home.packages = with pkgs; [
     gimp
     onlyoffice-bin 
-    libreoffice-qt6-fresh 
+    libreoffice-qt-fresh 
     hunspell
     hunspellDicts.pt_BR
     corefonts

@@ -4,9 +4,9 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = false;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
-  boot.loader.grub.extraEntries = ''
+  /*boot.loader.grub.extraEntries = ''
 menuentry 'Windows XP' --class windows {
 	insmod part_msdos
 	insmod ntfs
@@ -16,5 +16,5 @@ menuentry 'Windows XP' --class windows {
 	drivemap -s (hd0) ${"$"}{root}
 	ntldr /ntldr
 }
-  '';
+  '';*/
 }
