@@ -6,7 +6,7 @@
     ./mod/zsh.nix
 
     ./mod/apps/edit.nix
-    #./mod/apps/games.nix
+    ./mod/apps/games.nix
     ./mod/apps/internet.nix
     ./mod/apps/tools.nix
     #./mod/apps/separated/retroarch.nix

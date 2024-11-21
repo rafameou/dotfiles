@@ -29,7 +29,6 @@
     stremio
 
     protonvpn-gui
-    protonmail-desktop
     protonmail-bridge
   ];
 }
