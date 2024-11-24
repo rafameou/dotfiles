@@ -30,17 +30,20 @@ in
       plugins = with vimPlugins; [
         { 
           plugin = gruvbox-nvim; 
+          type = "lua";
           config = ''
-            lua << END
             vim.o.background = "dark" -- or "light" for light mode
             vim.cmd([[colorscheme gruvbox]])
-            END
+            vim.cmd('highlight Normal guibg=none')
+            vim.cmd('highlight NonText guibg=none')
+            vim.cmd('highlight Normal ctermbg=none')
+            vim.cmd('highlight NonText ctermbg=none')
           '';
         }
         {
           plugin = nvim-tree-lua;
+          type = "lua";
           config = ''
-            lua << END
             -- disable netrw at the very start of your init.lua
             vim.g.loaded_netrw = 1
             vim.g.loaded_netrwPlugin = 1
@@ -60,15 +63,14 @@ in
               --  require("nvim-tree.api").tree.toggle({ focus = false, find_file = true, })
             --end
             -- vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree });
-            END
           '';
         }
         { plugin = nvim-treesitter.withAllGrammars; }
         { plugin = nvim-lspconfig; }
         {
           plugin = luasnip;
+          type = "lua";
           config = ''
-            lua << END
             local luasnip = require'luasnip';
             local s = luasnip.snippet;
             local sn = luasnip.snippet_node;
@@ -136,13 +138,12 @@ in
               -- math
               s("\\frac", { t("\\frac{"), i(1), t("}{"), i(2), t("}"), }),
             });
-            END
           '';
         }
         {
           plugin = cmp-nvim-lsp;
+          type = "lua";
           config = ''
-            lua << END
             -- mostly stolen from rafaelrc7's dotfile
             local lspconfig = require "lspconfig"
             local capabilities = require("cmp_nvim_lsp").default_capabilities()
@@ -264,7 +265,6 @@ in
               },
               capabilities = capabilities,
             }
-            END
           '';
         }
         { plugin = cmp-buffer; }
@@ -273,8 +273,8 @@ in
         { plugin = cmp_luasnip; }
         {
           plugin = nvim-cmp;
+          type = "lua";
           config = ''
-            lua << END
             local cmp = require'cmp';
             cmp.setup({
               snippet = {
@@ -298,7 +298,6 @@ in
                 { name = 'luasnip' },
               });
             });
-            END
           '';
         }
         { plugin = vim-nix; }
@@ -314,20 +313,26 @@ in
         }
         { plugin = img-clip-nvim; }
         { plugin = markview-nvim; }
+        { plugin = comment-nvim; }
+        { 
+          plugin = lualine-nvim;
+          type = "lua";
+          config = ''
+            require("lualine").setup {
+	      options = {
+		icons_enabled = true,
+		theme = "auto",
+              },
+            }
+          '';
+        }
       ];
 
-      extraConfig = ''
-        filetype plugin indent on
-        syntax enable
-        set colorcolumn=80,120
-
-        highlight Normal guibg=none
-        highlight NonText guibg=none
-        highlight Normal ctermbg=none
-        highlight NonText ctermbg=none
-      '';
-
       extraLuaConfig = ''
+        vim.cmd('filetype plugin indent on')
+        vim.cmd('syntax enable')
+        vim.opt.colorcolumn = "80,120"
+
         vim.opt.clipboard:append('unnamedplus');
         -- spelling
         vim.opt.spelllang = 'pt_br';
