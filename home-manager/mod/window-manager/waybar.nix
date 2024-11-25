@@ -97,11 +97,11 @@
         };
 
         network = {
-          format-wifi = " {signalStrength}%";
-          format-ethernet = "";
-          tooltip-format = " {ifname} via {gwaddr} at {ipaddr}";
-          format-linked = "  No IP";
-          format-disconnected = "⚠ Offline";
+          format-wifi = "  {signalStrength}%";
+          format-ethernet = "  {ifname}";
+          tooltip-format = "   {ifname} via {gwaddr} at {ipaddr}";
+          format-linked = "   No IP";
+          format-disconnected = " ⚠  Offline";
         };
 
         pulseaudio = {
@@ -111,7 +111,7 @@
           format-bluetooth-muted = "{icon}  󰝟    {format_source}";
           format-muted = "󰝟 {format_source}";
           format-source = "  {volume}%";
-          format-source-muted = "";
+          format-source-muted = "  ";
           format-icons = {
             headphone = "";
             hands-free = "";
@@ -140,7 +140,7 @@
           "format"= "{icon}";
           "format-icons"= {
             "notification"= "*";
-            "none"= "";
+            "none"= " ";
             "dnd-notification"= "*";
             "dnd-none"= "";
             "inhibited-notification"= "*";
@@ -177,7 +177,7 @@
       * {
       font-family: Fira Sans;
       font-size: 18px;
-      border-radius: 0px;
+      border-radius: 0;
       transition-duration: 0;
       }
 
@@ -203,10 +203,12 @@
     #taskbar button {
       padding-top: 0;
       padding-bottom: 0;
+      background: #504945;
       }
 
+      #taskbar button.hover,
       #taskbar button.active {
-       background: rgba(80,73,69,0.9); 
+       background: #32302F; 
       }
 
       button {
@@ -229,13 +231,12 @@
         color: #A89984;
         border-radius: 0%;
         transition-duration: .2s;
+        background: #504945;
       }
 
-      #workspaces button:hover {
-        color: #FBF1C7;
-      }
-
+      #workspaces button:hover,
       #workspaces button.focused {
+        background: #32302F;
         color: #FBF1C7;
       }
 
@@ -259,11 +260,11 @@
       }
 
       .modules-right > widget {
-        background: rgba(80,73,69,0.9);
+        background: #504945;
       }
 
       #battery.charging, #battery.plugged {
-        background-color: #00ff00;
+        background-color: #98971A;
       }
 
       #temperature.critical,
@@ -271,7 +272,7 @@
       #battery.critical:not(.charging),
       #network.disconnected,
       #pulseaudio.muted {
-        background-color: #ff0000;
+        background-color: #98971A;
       }
 
       #tray > .passive {

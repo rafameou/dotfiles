@@ -183,9 +183,9 @@
         };
         /*workspaceAutoBackAndForth = true;
         workspaceLayout = "default";*/
-        /*gaps = {
-        inner = 10;
-        };*/
+        # gaps = {
+        #   inner = 10;
+        # };
         floating = {
           border = 1;
           titlebar = true; #doesnt work
