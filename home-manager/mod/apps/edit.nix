@@ -6,7 +6,8 @@
     ./separated/lf.nix
   ];
   home.packages = with pkgs; [
-    gimp
+    gimp 
+    darktable
     onlyoffice-bin 
     libreoffice-qt-fresh 
     hunspell
