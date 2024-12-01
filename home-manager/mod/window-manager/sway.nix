@@ -224,7 +224,7 @@
 
         {command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }
 
-        {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
+        # {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
 
         /*{command = "--no-startup-id volctl";}*/
         /*{command = "--no-startup-id ${pkgs.ayatana-indicator-datetime}/libexec/ayatana-indicator-datetime/ayatana-indicator-datetime-service";}

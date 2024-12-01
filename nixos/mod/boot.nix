@@ -8,5 +8,5 @@
   #};
   boot.loader.efi.canTouchEfiVariables = true;
   boot.bootspec.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 }

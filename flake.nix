@@ -60,7 +60,8 @@
           #stylix.nixosModules.stylix 
           solaar.nixosModules.default
           ./nixos/chikorita.nix 
-          chaotic.nixosModules.default];
+          chaotic.nixosModules.default
+        ];
       };
       treecko = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
@@ -68,7 +69,8 @@
           #stylix.nixosModules.stylix 
           solaar.nixosModules.default
           ./nixos/treecko.nix 
-          chaotic.nixosModules.default];
+          chaotic.nixosModules.default
+        ];
       };
       oddish = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config

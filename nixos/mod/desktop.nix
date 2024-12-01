@@ -21,9 +21,9 @@
     fira
     fira-mono
     fira-code
-    fira-code-nerdfont
+    nerd-fonts.fira-code 
     terminus_font
-    terminus-nerdfont
+    nerd-fonts.terminess-ttf
     montserrat
     cozette
   ];

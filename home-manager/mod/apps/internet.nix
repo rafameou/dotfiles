@@ -15,7 +15,7 @@
     };
   };
   home.packages = with pkgs; [
-    thunderbird-128
+    #thunderbird-128
     google-chrome 
     telegram-desktop
     vesktop
@@ -29,6 +29,6 @@
     stremio
 
     protonvpn-gui
-    protonmail-bridge
+    #protonmail-bridge
   ];
 }

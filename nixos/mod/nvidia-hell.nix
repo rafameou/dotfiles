@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   #"open with dedicated graphics card" on gnome
   services.switcherooControl.enable = true;
@@ -20,4 +20,5 @@
     # Bus ID of the NVIDIA GPU. You can find it using lspci, either under 3D or VGA
     nvidiaBusId = "PCI:1:0:0";
   };
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.beta;
 }
