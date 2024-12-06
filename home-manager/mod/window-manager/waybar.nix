@@ -9,7 +9,7 @@
       layer = "bottom";
       position = "top";
       height = 24;#25;
-      spacing = 10;
+      spacing = 5; #10;
 
       modules-left   = [ "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "wlr/taskbar"];
       #modules-center = [ "sway/window" ];
@@ -182,7 +182,7 @@
       }
 
       window#waybar { 
-      background: rgba(50,48,47,0.9);
+      background: 0; /*rgba(50,48,47,0.9);*/
       color: #FBF1C7;
       border-radius: 0px;
       }
@@ -249,10 +249,10 @@
         border-bottom: 3px solid #ffffff;
       }
 
-      #window,
+      /*#window,
       #workspaces {
         margin: 0 4px;
-      }
+      }*/
 
       #waybar.empty #window {
         border: none;

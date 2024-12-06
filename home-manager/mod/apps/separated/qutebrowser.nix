@@ -22,11 +22,14 @@ in*/
     };
     settings = {
       url.start_pages = "https://start.duckduckgo.com/";
-      tabs.show = "multiple";
-      tabs.tabs_are_windows = true;
-      statusbar.show = "in-mode";
+      #tabs.show = "multiple";
+      #tabs.tabs_are_windows = true;
+      #statusbar.show = "in-mode";
       fonts.default_family = "Fira Sans";
+      fonts.default_size = "12pt"; # 16 is too huge
       /*window.transparent = true;*/
+      auto_save.session = true;
+      input.insert_mode.auto_leave = false;
       /*----------------------------------|
       |- Stolen from Misterio77's config -|
       |----------------------------------*/
@@ -34,7 +37,7 @@ in*/
         webpage = {
           preferred_color_scheme = config.colorScheme.variant;
           darkmode = {
-            enabled = true;
+            enabled = false;
             policy.images = "smart";#"smart-simple";
             policy.page = "smart";
           };

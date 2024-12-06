@@ -16,10 +16,10 @@
   };
   home.packages = with pkgs; [
     #thunderbird-128
-    google-chrome 
-    telegram-desktop
-    vesktop
-    zapzap
+    #google-chrome 
+    #telegram-desktop
+    #vesktop
+    #zapzap
     #spotify
     /*pkgs.nixpkgs-master.*/bitwarden
     komikku
