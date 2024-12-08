@@ -6,7 +6,7 @@
     settings = {
       main = {
         icon-theme = "hicolor";
-        font = "CozetteVector";
+        font = "FiraCode Nerd Font Mono";
         line-height = 16;
       };
       colors = {

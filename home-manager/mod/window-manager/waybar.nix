@@ -11,9 +11,9 @@
       height = 24;#25;
       spacing = 5; #10;
 
-      modules-left   = [ "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "wlr/taskbar"];
+      modules-left   = [ "custom/startmenu" "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "wlr/taskbar"];
       #modules-center = [ "sway/window" ];
-      modules-right  = [ "idle_inhibitor"  "pulseaudio" "network" "cpu" "memory" "temperature" "backlight" "sway/language" "battery" "systemd-failed-units" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
+      modules-right  = [ "idle_inhibitor"  "pulseaudio" /*"network"*/ "cpu" "memory" "temperature" "backlight" /*"hyprland/language" "sway/language"*/ "battery" "systemd-failed-units" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
 
       "sway/workspaces" = {
         all-outputs = true;
@@ -23,6 +23,11 @@
           "focused" = "";
           "default" = "";
         };
+      };
+
+      "custom/startmenu" = {
+        format = "󱄅 Iniciar";
+        on-click = "fuzzel";
       };
 
       /*"sway/window" = {
@@ -132,7 +137,7 @@
         "wlr/taskbar" = {
           #icon-size= 20;
           on-click = "activate";
-          #format = "{icon} {title:.16}";
+          # format = "{icon} {title}";
         };
 
         "custom/notification"= {
@@ -200,6 +205,7 @@
       border: none;
       }
 
+      #custom-startmenu,
     #taskbar button {
       padding-top: 0;
       padding-bottom: 0;

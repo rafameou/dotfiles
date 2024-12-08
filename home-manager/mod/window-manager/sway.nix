@@ -1,68 +1,13 @@
 { lib, config, pkgs, ... }:
 {
   imports = [
-    ./waybar.nix
     #inputs.wayland-pipewire-idle-inhibit.homeModules.default
   ];
   home.packages = with pkgs; [
-    brightnessctl
-    playerctl
-
     swaybg
     /*swww*/
     swaylock
-    cliphist
-    wl-clipboard
-    grim
-    slurp
-    wf-recorder 
-
-    #dunst
-
-    wayland-pipewire-idle-inhibit
-
-    blueman
-    swaynotificationcenter
-
-    mate.mate-polkit
   ];
-
-  programs.fuzzel.enable = true;
-
-  services = {
-    swayidle = {
-      enable = true;
-      systemdTarget = "sway-session.target";
-      timeouts = [
-        { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
-        { timeout = 600; command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
-        resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
-      ];
-      events = [
-        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
-      ];
-    };
-  };
-
-  systemd.user.services = {
-    wayland-idle-pipewire-inhibit-serv = {
-      Unit = {
-        Wants = "sway-session.target";
-        After = "sway-session.target";
-      };
-
-      Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5";
-        Restart = "on-failure";
-        RestartSec = 30;
-      };
-
-      Install = {
-        WantedBy = [ "sway-session.target" ];
-      };
-    };
-  };
 
   wayland.windowManager.sway = {
     enable = true;
@@ -75,52 +20,52 @@
         size = 12.0;
       }; 
       #menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
-      menu = ''BEMENU_OPTS="--fn 'Fira Sans Regular 16' --tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}e5' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}e5' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}e5' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}e5' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}e5' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
-      #menu = "fuzzel";
+      #menu = ''BEMENU_OPTS="--fn 'Fira Sans Regular 16' --tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}e5' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}e5' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}e5' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}e5' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}e5' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
+      menu = "fuzzel";
       bars = [
         /*{
-          fonts = {
-            names = ["CozetteHiDpi"];
-            style = "Regular";
-            size = 12.0;
-          };
-          position = "top";
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+        fonts = {
+        names = ["CozetteHiDpi"];
+        style = "Regular";
+        size = 12.0;
+        };
+        position = "top";
+        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
           #/---------------------------------------------------------|
           #| Stolen from https://github.com/tinted-theming/base16-i3/ |
           #|---------------------------------------------------------/
           colors = {
-            background = "#${config.colorScheme.palette.base00}e5";
-            separator = "#${config.colorScheme.palette.base01}";
-            statusline = "#${config.colorScheme.palette.base04}";
-            focusedWorkspace = {
-              border = "#${config.colorScheme.palette.base05}";
-              background = "#${config.colorScheme.palette.base0D}"; 
-              text = "#${config.colorScheme.palette.base00}";
-            };
-            activeWorkspace = {
-              border = "#${config.colorScheme.palette.base05}";
-              background = "#${config.colorScheme.palette.base03}";  
-              text = "#${config.colorScheme.palette.base00}";
-            };
-            inactiveWorkspace = {
-              border = "#${config.colorScheme.palette.base03}";
-              background = "#${config.colorScheme.palette.base01}";
-              text = "#${config.colorScheme.palette.base05}";
-            };
-            urgentWorkspace = {
-              border = "#${config.colorScheme.palette.base08}";
-              background = "#${config.colorScheme.palette.base08}";
-              text = "#${config.colorScheme.palette.base00}";
-            };
-            bindingMode = {
-              border = "#${config.colorScheme.palette.base00}";
-              background = "#${config.colorScheme.palette.base0A}";
-              text = "#${config.colorScheme.palette.base00}";
-            };
+          background = "#${config.colorScheme.palette.base00}e5";
+          separator = "#${config.colorScheme.palette.base01}";
+          statusline = "#${config.colorScheme.palette.base04}";
+          focusedWorkspace = {
+          border = "#${config.colorScheme.palette.base05}";
+          background = "#${config.colorScheme.palette.base0D}"; 
+          text = "#${config.colorScheme.palette.base00}";
           };
-        }*/
-        { command = "${pkgs.waybar}/bin/waybar"; }
+          activeWorkspace = {
+          border = "#${config.colorScheme.palette.base05}";
+          background = "#${config.colorScheme.palette.base03}";  
+          text = "#${config.colorScheme.palette.base00}";
+          };
+          inactiveWorkspace = {
+          border = "#${config.colorScheme.palette.base03}";
+          background = "#${config.colorScheme.palette.base01}";
+          text = "#${config.colorScheme.palette.base05}";
+          };
+          urgentWorkspace = {
+          border = "#${config.colorScheme.palette.base08}";
+          background = "#${config.colorScheme.palette.base08}";
+          text = "#${config.colorScheme.palette.base00}";
+          };
+          bindingMode = {
+          border = "#${config.colorScheme.palette.base00}";
+          background = "#${config.colorScheme.palette.base0A}";
+          text = "#${config.colorScheme.palette.base00}";
+          };
+          };
+          }*/
+          { command = "${pkgs.waybar}/bin/waybar"; }
         ];
         colors = {
           focused = {
@@ -208,33 +153,18 @@
           /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
           {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
           {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
-          {command = "--no-startup-id ${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5";}
-        #{command = "--no-startup-id ${pkgs.dunst}/bin/dunst";}
 
-        {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
-        {command = "--no-startup-id ${pkgs.trayscale}/bin/trayscale --hide=window";}
+          {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
+          {command = "--no-startup-id ${pkgs.trayscale}/bin/trayscale --hide=window";}
 
-        /*mate stuff*/
-        /*https://github.com/mate-desktop/mate-wayland-session/blob/master/session/mate-wayland-components.sh#L42*/ 
-        /*{command = "--no-startup-id mate-panel"; }*/
-        {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
-        /*{command = "--no-startup-id mate-notification-daemon"; }
-        {command = "--no-startup-id GDK_BACKEND=x11 mate-settings-daemon"; }
-        {command = "--no-startup-id caja -n --force-desktop"; }*/
-
-        {command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }
-
+          {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
+          {command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }
         # {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
-
-        /*{command = "--no-startup-id volctl";}*/
-        /*{command = "--no-startup-id ${pkgs.ayatana-indicator-datetime}/libexec/ayatana-indicator-datetime/ayatana-indicator-datetime-service";}
-        {command = "--no-startup-id ${pkgs.ayatana-indicator-display}/libexec/ayatana-indicator-display/ayatana-indicator-display-service";}
-        {command = "--no-startup-id ${pkgs.ayatana-indicator-messages}/libexec/ayatana-indicator-messages/ayatana-indicator-messages-service";}
-        {command = "--no-startup-id ${pkgs.ayatana-indicator-power}/libexec/ayatana-indicator-power/ayatana-indicator-power-service";}
-        {command = "--no-startup-id ${pkgs.ayatana-indicator-session}/libexec/ayatana-indicator-session/ayatana-indicator-session-service";}
-        {command = "--no-startup-id ${pkgs.ayatana-indicator-sound}/libexec/ayatana-indicator-sound/ayatana-indicator-sound-service";}*/
       ];
       keybindings = lib.mkOptionDefault {
+        "${modifier}+q" = "exec qutebrowser";
+        "${modifier}+c" = "exec octave --gui";
+
         "XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
         "XF86AudioStop"              = "exec ${pkgs.playerctl}/bin/playerctl stop";
         "XF86AudioPrev"              = "exec ${pkgs.playerctl}/bin/playerctl previous";
@@ -258,7 +188,7 @@
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
         "Print"          = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy";
-        "${modifier}+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
+        "${modifier}+Ctrl+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
 
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
       };

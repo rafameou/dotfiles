@@ -30,6 +30,7 @@ in*/
       /*window.transparent = true;*/
       auto_save.session = true;
       input.insert_mode.auto_leave = false;
+      input.insert_mode.auto_enter = false;
       /*----------------------------------|
       |- Stolen from Misterio77's config -|
       |----------------------------------*/

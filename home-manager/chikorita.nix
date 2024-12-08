@@ -38,6 +38,11 @@
     };
   };
 
+  wayland.windowManager.hyprland.settings.monitor = [
+          "HDMI-A-1, 1920x1080@60, 0x0, 1"
+          "eDP-1, disable"
+        ];
+
   xdg.configFile = {
     "wayfire.ini".text = ''
       [output:eDP-1]

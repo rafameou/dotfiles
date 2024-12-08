@@ -8,6 +8,7 @@
     enable = true;
     #package = null;
   };
+  programs.hyprland.enable = true; # enable Hyprland
   services.displayManager.sessionPackages = [ pkgs.sway ];
   #Enable Keyring for stuff like github-desktop
   services.gnome.gnome-keyring.enable = true;

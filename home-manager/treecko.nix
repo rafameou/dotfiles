@@ -27,4 +27,9 @@
     xkb_variant = lib.mkForce "thinkpad,nativo";
     xkb_numlock = lib.mkForce "disabled,disabled";
   };
+
+  wayland.windowManager.hyprland.settings.input = {
+    kb_variant = "thinkpad,nativo";
+    numlock_by_default = false;
+  };
 }
