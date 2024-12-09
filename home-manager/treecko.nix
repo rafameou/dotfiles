@@ -32,4 +32,9 @@
     kb_variant = lib.mkForce "thinkpad,nativo";
     numlock_by_default = lib.mkForce false;
   };
+
+  wayland.windowManager.hyprland.settings.monitor = [
+    "eDP-1, preferred, auto, 1"
+    ", preferred, auto, 1"
+        ];
 }

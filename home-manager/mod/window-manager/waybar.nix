@@ -26,7 +26,7 @@
       };
 
       "custom/startmenu" = {
-        format = "󱄅 ";
+        format = "Start";
         on-click = "fuzzel";
       };
 
@@ -182,14 +182,12 @@
       * {
       font-family: Fira Sans;
       font-size: 18px;
-      border-radius: 0;
       transition-duration: 0;
       }
 
       window#waybar { 
       background: 0; /*rgba(50,48,47,0.9);*/
       color: #FBF1C7;
-      border-radius: 0px;
       }
 
       window#waybar.hidden {
@@ -282,7 +280,7 @@
       #battery.critical:not(.charging),
       #network.disconnected,
       #pulseaudio.muted {
-        background-color: #98971A;
+        background-color: #CC241D;
       }
 
       #tray > .passive {
