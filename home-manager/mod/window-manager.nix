@@ -88,7 +88,8 @@
       listener = [
         {
           timeout = 300;
-          on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
+          #on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
+          on-timeout = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
         }
         {
           timeout = 600;
