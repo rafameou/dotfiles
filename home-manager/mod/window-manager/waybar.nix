@@ -11,9 +11,9 @@
       height = 24;#25;
       spacing = 5; #10;
 
-      modules-left   = [ "custom/startmenu" "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "wlr/taskbar"];
-      #modules-center = [ "sway/window" ];
-      modules-right  = [ "idle_inhibitor"  "pulseaudio" /*"network"*/ "cpu" "memory" "temperature" "backlight" /*"hyprland/language" "sway/language"*/ "battery" "systemd-failed-units" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
+      modules-left   = [ ];
+      modules-center = [ "custom/startmenu" "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" /*"wlr/taskbar"*/ "idle_inhibitor"  "pulseaudio" /*"network"*/ "cpu" "memory" "temperature" "backlight" /*"hyprland/language" "sway/language"*/ "battery" "systemd-failed-units" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
+      modules-right  = [  ];
 
       "sway/workspaces" = {
         all-outputs = true;
@@ -26,7 +26,7 @@
       };
 
       "custom/startmenu" = {
-        format = "󱄅 Iniciar";
+        format = "󱄅 ";
         on-click = "fuzzel";
       };
 
@@ -210,6 +210,7 @@
       padding-top: 0;
       padding-bottom: 0;
       background: #504945;
+      border-radius: 100%;
       }
 
       #taskbar button.hover,
@@ -220,7 +221,7 @@
       button {
       box-shadow: inset 0 -3px transparent;
       border: none;
-      border-radius: 0;
+      border-radius: 100%;
       min-height: 24px;
       min-width: 16px;
       }
@@ -235,11 +236,12 @@
         padding: 0 5px;
         background-color: transparent;
         color: #A89984;
-        border-radius: 0%;
+        border-radius: 100%;
         transition-duration: .2s;
         background: #504945;
       }
 
+      #workspaces button.active,
       #workspaces button:hover,
       #workspaces button.focused {
         background: #32302F;
@@ -265,8 +267,10 @@
         background: none;
       }
 
-      .modules-right > widget {
+      .modules-center > widget {
         background: #504945;
+        padding: 5px;
+        border-radius: 5px;
       }
 
       #battery.charging, #battery.plugged {

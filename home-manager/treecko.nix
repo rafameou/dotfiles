@@ -29,7 +29,7 @@
   };
 
   wayland.windowManager.hyprland.settings.input = {
-    kb_variant = "thinkpad,nativo";
-    numlock_by_default = false;
+    kb_variant = lib.mkForce "thinkpad,nativo";
+    numlock_by_default = lib.mkForce false;
   };
 }
