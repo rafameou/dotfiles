@@ -11,9 +11,9 @@
       height = 24;#25;
       spacing = 5; #10;
 
-      modules-left   = [ ];
-      modules-center = [ "custom/startmenu" "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" /*"wlr/taskbar"*/ "idle_inhibitor"  "pulseaudio" /*"network"*/ "cpu" "memory" "temperature" "backlight" /*"hyprland/language" "sway/language"*/ "battery" "systemd-failed-units" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
-      modules-right  = [  ];
+      modules-left   = [ "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" /*"wlr/taskbar"*/ ];
+      modules-center = [  ];
+      modules-right  = ["idle_inhibitor"  "pulseaudio" /*"network"*/ "cpu" "memory" "temperature" "backlight" /*"hyprland/language" "sway/language"*/ "battery" "systemd-failed-units" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
 
       "sway/workspaces" = {
         all-outputs = true;
@@ -186,7 +186,8 @@
       }
 
       window#waybar { 
-      background: 0; /*rgba(50,48,47,0.9);*/
+      background: linear-gradient(180deg, rgba(50,48,47,0.9) 0%, rgba(29, 32, 33,1) 100%);
+; /*rgba(50,48,47,0.9);*/
       color: #FBF1C7;
       }
 
@@ -240,9 +241,11 @@
       }
 
       #workspaces button.active,
-      #workspaces button:hover,
-      #workspaces button.focused {
-        background: #32302F;
+      #workspaces button.focused,
+      #workspaces button:hover {
+        /*background: #32302F;*/
+        background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
+        /*background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);*/
         color: #FBF1C7;
       }
 
@@ -265,14 +268,12 @@
         background: none;
       }
 
-      .modules-center > widget {
-        background: #504945;
-        padding: 5px;
-        border-radius: 5px;
+      .modules-right > widget {
+        background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0) 100%);
       }
 
       #battery.charging, #battery.plugged {
-        background-color: #98971A;
+        color: #B8BB26;
       }
 
       #temperature.critical,
@@ -280,7 +281,7 @@
       #battery.critical:not(.charging),
       #network.disconnected,
       #pulseaudio.muted {
-        background-color: #CC241D;
+        color: #B8BB26;
       }
 
       #tray > .passive {
