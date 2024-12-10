@@ -281,7 +281,7 @@
       #battery.critical:not(.charging),
       #network.disconnected,
       #pulseaudio.muted {
-        color: #B8BB26;
+        color: #FB4934;
       }
 
       #tray > .passive {
