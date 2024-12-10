@@ -191,6 +191,7 @@
         "${modifier}+Ctrl+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
 
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+        "${modifier}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
       };
     };
     /*extraSessionCommands = ''*/
