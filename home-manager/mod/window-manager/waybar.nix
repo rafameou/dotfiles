@@ -56,14 +56,22 @@
       idle_inhibitor = {
         format = "{icon}";
         format-icons = {
-          "activated" = "";
-          "deactivated" = "";
+          "activated" = "<span color='#FABD2F'> </span>";
+          "deactivated" = "<span color='#D3869B'></span>";
         };
       };
 
       cpu = {
-        format = "{icon} {usage}%";
-        format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+        format = "{icon} {usage}%</span>";
+        format-icons = [
+          "<span color='#B8BB26'>▁" 
+          "<span color='#8EC07C'>▂" 
+          "<span color='#83A598'>▃" 
+          "<span color='#FABD2F'>▄" 
+          "<span color='#FE8019'>▅" 
+          "<span color='#FE8019'>▆" 
+          "<span color='#FB4934'>▇" 
+          "<span color='#FB4934'>█"];
         tooltip = false;
       };
 
@@ -73,8 +81,12 @@
 
       temperature = {
         critical-threshold = 80;
-        format = "{icon} {temperatureC}°C";
-        format-icons = ["" "" ""];
+        format = "{icon} {temperatureC}°C</span>";
+        format-icons = [
+          "<span color='#B8BB26'>"
+          "<span color='#FABD2F'>" 
+          "<span color='#FB4934'>"
+        ];
       };
 
       backlight = {
@@ -89,11 +101,17 @@
             warning = 30;
             critical = 15;
           };
-          format = "{icon}  {capacity}% {power:.3}W";
-          format-charging = "󰂅  {capacity}% {power:.3}W";
-          format-plugged = "  {capacity}% {power:.3}W";
+          format = "{icon}  {capacity}% {power:.3}W</span>";
+          format-charging = "<span color='#8EC07C'>󰂅  {capacity}% {power:.3}W</span>";
+          format-plugged = "<span color='#8EC07C'>  {capacity}% {power:.3}W</span>";
           format-alt = "{time} {icon} ";
-          format-icons = ["" "" "" "" ""];
+          format-icons = [
+            "<span color='#FB4934'>" 
+            "<span color='#FE8019'>" 
+            "<span color='#8EC07C'>" 
+            "<span color='#B8BB26'>" 
+            "<span color='#B8BB26'>"
+          ];
         };
 
         "sway/language" = {
@@ -144,13 +162,13 @@
           "tooltip"= false;
           "format"= "{icon}";
           "format-icons"= {
-            "notification"= "*";
+            "notification"= "<span color='#FABD2F'>*</span>";
             "none"= " ";
-            "dnd-notification"= "*";
+            "dnd-notification"= "<span color='#FABD2F'>*</span>";
             "dnd-none"= "";
-            "inhibited-notification"= "*";
+            "inhibited-notification"= "<span color='#FB4934'>*</span>";
             "inhibited-none"= "";
-            "dnd-inhibited-notification"= "*";
+            "dnd-inhibited-notification"= "<span color='#FB4934'>*</span>";
             "dnd-inhibited-none"= "";
           };
           "return-type"= "json";
@@ -250,7 +268,7 @@
       }
 
       #workspaces button.urgent {
-        color: #CC241D;
+        color: #FB4934;
       }
 
       #mode {
@@ -272,13 +290,7 @@
         background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0) 100%);
       }
 
-      #battery.charging, #battery.plugged {
-        color: #B8BB26;
-      }
-
-      #temperature.critical,
       #wireplumber.muted,
-      #battery.critical:not(.charging),
       #network.disconnected,
       #pulseaudio.muted {
         color: #FB4934;

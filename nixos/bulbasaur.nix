@@ -31,6 +31,7 @@
     };
   };
 
+  #https://forums.linuxmint.com/viewtopic.php?t=427633
   boot.kernelParams = ["tsc=unstable"];
 
   services.geoclue2.enable = true;

@@ -43,7 +43,7 @@
         "$mod + SHIFT, Q, killactive"
         "$mod + SHIFT, S, pin"
         "$mod + SHIFT, SPACE, togglefloating"
-        "$mod + SHIFT, E, exit"
+        "$mod + SHIFT, E, exec, ${pkgs.wlogout}/bin/wlogout"
         # "$mod + CTRL, L, exec, ${pkgs.hyprlock}/bin/hyprlock --immediate"
         "$mod + CTRL, L, exec, ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"
         "$mod + SHIFT, N, exec, ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw"
@@ -148,6 +148,15 @@
         animations = {
           enabled = true;
           first_launch_animation = true;
+          bezier = [
+            "overshot, 0.05, 0.9, 0.1, 1.1"
+          ];
+          animation = [
+            "windows, 1, 4, default, popin 80%"
+            "fade, 1, 4, default"
+            "borderangle, 0"
+            "workspaces, 1, 4, overshot, slidefade"
+          ];
         };
 
         input = {
