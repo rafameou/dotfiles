@@ -149,7 +149,7 @@
           {command = "--no-startup-id nm-applet --indicator";}
           {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
           {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
-          {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m tile -i ~/wallpaper"; } #fill
+          {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/wallpaper"; } #fill
           /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
           {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
           {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }

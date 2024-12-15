@@ -1,6 +1,5 @@
 { config, ... }:
 {
-  imports = [ ../../nix-colors.nix ];
   programs.foot = {
     enable = true;
     settings = {

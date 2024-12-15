@@ -8,6 +8,7 @@
     ./separated/rclone.nix
     ./separated/zathura.nix
     ./separated/vimiv.nix
+    ./separated/wlogout.nix
   ];
   home.packages = with pkgs; [
     flatpak

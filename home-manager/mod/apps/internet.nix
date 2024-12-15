@@ -2,7 +2,7 @@
 {
   imports = [
     ./separated/liferea.nix
-    #./separated/luakit.nix
+    ./separated/luakit.nix
     ./separated/qutebrowser.nix
   ];
   programs = {

@@ -21,7 +21,7 @@
         "nm-applet --indicator"
         "${pkgs.swaynotificationcenter}/bin/swaync"
         "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"
-        "${pkgs.swaybg}/bin/swaybg -m tile -i ~/wallpaper"
+        "${pkgs.swaybg}/bin/swaybg -m fill -i ~/wallpaper"
         "${pkgs.udiskie}/bin/udiskie -t"
         "${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"
         "${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator"

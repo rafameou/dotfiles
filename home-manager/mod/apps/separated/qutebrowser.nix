@@ -7,7 +7,6 @@ hash = "sha256-lp7HWYuD4aUyX1nRipldEojZVIvQmsxjYATdyHWph0g=";
 };
 in*/
 {
-  imports = [ ../../nix-colors.nix ];
   /*xdg.configFile."qutebrowser/catppuccin".source = catpuccin;*/
   programs.qutebrowser = {
     enable = true;

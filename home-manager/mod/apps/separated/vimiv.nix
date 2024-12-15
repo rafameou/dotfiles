@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-  imports = [../../nix-colors.nix];
   home.packages = with pkgs; [ vimiv-qt ];
   xdg.configFile = {
     "vimiv/styles/nix-colors".text = ''

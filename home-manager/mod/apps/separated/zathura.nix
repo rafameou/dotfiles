@@ -1,6 +1,5 @@
 { config, inputs, ... }:
 {
-  imports = [ ../../nix-colors.nix ];
   programs.zathura = {
     enable = true;
     options = {

@@ -2,6 +2,7 @@
 {
   imports = [
     ./mod/home-manager.nix
+    ./mod/nix-colors.nix
     #./mod/xdg.nix
     #./mod/zsh.nix
 

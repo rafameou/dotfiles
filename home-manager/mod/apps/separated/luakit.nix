@@ -5,6 +5,8 @@
     -- settings
     local settings = require "settings";
     settings.window.home_page = "https://duckduckgo.com";
+    settings.application.prefer_dark_mode = true;
+
     --
 
     -- search engines
@@ -24,14 +26,16 @@
     --  "<description>",
     --  function (w) w:enter_cmd("<command>") end}
 
-      {"<Shift-o>", "Open URL in a new tab.", function (w) w:enter_cmd(":winopen ") end},
-      {"q", "Quit", function (w) close_win() end},
+      {"<Shift-o>", "Open URL in a new tab.", function (w) w:enter_cmd(":tabopen ") end},
+      {"q", "Quit", function (w) w:close_tab() end},
     });
-    --modes.remap_binds("normal", {
-    --  {"q", "d", true}
-    --});
-    --
 
+    -- follow with letters
+    local select = require "select"
+    select.label_maker = function (s)
+      local chars = s.charset("asdfqwerzxcv")
+      return s.trim(s.sort(s.reverse(chars)))
+    end
   '';
 
 }

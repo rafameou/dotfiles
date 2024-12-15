@@ -1,6 +1,5 @@
 { config, ... }:
 {
-  imports = [ ../../nix-colors.nix ];
   programs.fuzzel = {
     enable = true;
     settings = {
