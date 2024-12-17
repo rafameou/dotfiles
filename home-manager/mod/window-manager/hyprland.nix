@@ -28,6 +28,7 @@
         "${pkgs.trayscale}/bin/trayscale --hide=window"
         "polkit-mate-authentication-agent-1"
         "${pkgs.blueman}/bin/blueman-applet"
+        "flameshot"
       ];
 
       bind = [
@@ -36,7 +37,8 @@
         "$mod, Q, exec, qutebrowser"
         "$mod, C, exec, octave --gui"
 
-        ", Print, exec, ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy"
+        #", Print, exec, ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy"
+        ", Print, exec, flameshot gui"
         "$mod, F, fullscreen, 0"
         "$mod, M, fullscreen, 1"
         "$mod + SHIFT, F, fullscreen, 2"
@@ -203,6 +205,16 @@
           inactive_timeout = 5;
           default_monitor = "";
         };
+
+        windowrulev2 = [
+          # Stolen from https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/hyprland.nix
+          # Fix flameshot on multiple monitors
+          "pin, class:(flameshot), title:(flameshot)"
+          "suppressevent fullscreen, class:(flameshot), title:(flameshot)"
+          "float, class:(flameshot), title:(flameshot)"
+          "monitor 0, class:(flameshot), title:(flameshot)"
+          "move 0 0, class:(flameshot), title:(flameshot)"
+        ];
       };
 
       systemd = {

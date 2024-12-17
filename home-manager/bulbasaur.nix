@@ -24,4 +24,5 @@
   ];
 
   /* ... changes to only this sytem */
+    nixpkgs.overlays = [(pkgs.hyprland.override { legacyRenderer = true; })];
 }

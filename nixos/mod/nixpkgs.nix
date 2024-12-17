@@ -18,7 +18,9 @@
         nixpkgs-unstable = inputs.nixpkgs-unstable-legacyPackages.${pkgs.system};
         nixpkgs-master = inputs.nixpkgs-master.legacyPackages.${pkgs.system};
         nixpkgs-staging-next = inputs.nixpkgs-staging-next.legacyPackages.${pkgs.system};
-      })*/
+        })*/
+
+      (final: prev: { flameshot = prev.flameshot.override { enableWlrSupport = true; };})
 
       (self: super:
         let

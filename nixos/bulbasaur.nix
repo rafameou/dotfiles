@@ -20,6 +20,8 @@
     ./mod/flatpak.nix
     ./mod/sway.nix
   ];
+
+  nixpkgs.overlays = [(pkgs.hyprland.override { legacyRenderer = true; })];
   
   /* ... changes to only this sytem */
   networking.hostName = "bulbasaur"; # Define your hostname.
