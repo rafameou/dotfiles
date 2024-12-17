@@ -24,5 +24,5 @@
   ];
 
   /* ... changes to only this sytem */
-  nixpkgs.overlays = [(final: prev: { hyprland = prev.hyprland.override { legacyRenderer = true; };})];
+  #nixpkgs.overlays = [(final: prev: { hyprland = prev.hyprland.override { legacyRenderer = true; };})];
 }
