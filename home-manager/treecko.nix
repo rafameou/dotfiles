@@ -24,9 +24,16 @@
   ];
 
   /* ... changes to only this sytem */
-  wayland.windowManager.sway.config.input."type:keyboard" = {
-    xkb_variant = lib.mkForce "thinkpad,nativo";
-    xkb_numlock = lib.mkForce "disabled,disabled";
+  wayland.windowManager.sway.config = {
+    input."type:keyboard" = {
+      xkb_variant = lib.mkForce "thinkpad,nativo";
+      xkb_numlock = lib.mkForce "disabled,disabled";
+    };
+    output = {
+      eDP-1 = {
+        scale = "1.5";
+      };
+    };
   };
 
   wayland.windowManager.hyprland.settings.input = {
@@ -35,7 +42,7 @@
   };
 
   wayland.windowManager.hyprland.settings.monitor = [
-    "eDP-1, preferred, auto, 1"
+    "eDP-1, preferred, auto, 1.5"
     ", preferred, auto, 1"
         ];
 }
