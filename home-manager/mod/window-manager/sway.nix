@@ -25,12 +25,12 @@
       bars = [
         /*{
         fonts = {
-        names = ["CozetteHiDpi"];
+        names = ["Fira Sans"];
         style = "Regular";
         size = 12.0;
         };
-        position = "top";
-        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+        position = "bottom";
+        statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
           #/---------------------------------------------------------|
           #| Stolen from https://github.com/tinted-theming/base16-i3/ |
           #|---------------------------------------------------------/
@@ -144,7 +144,7 @@
         startup = [
           /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
           {command = "--no-startup-id systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
-          {command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
+          #{command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
 
           {command = "--no-startup-id nm-applet --indicator";}
           {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
@@ -176,7 +176,7 @@
 
         #"${alt}+XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
-        /*"${modifier}+minus" = "";*/
+        "${modifier}+minus" = "exec ${pkgs.lua}/bin/lua ${./change_res_sway.lua}";
         "${modifier}+equal" = "gaps inner current toggle 10";
 
         "XF86AudioMute"        = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
