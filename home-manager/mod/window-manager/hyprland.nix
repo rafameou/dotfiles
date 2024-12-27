@@ -17,6 +17,7 @@
     settings = {
       "$mod" = "SUPER";
       exec-once = [
+        "systemctl --user restart xdg-desktop-portal-gtk"
         "waybar"
         "nm-applet --indicator"
         "${pkgs.swaynotificationcenter}/bin/swaync"

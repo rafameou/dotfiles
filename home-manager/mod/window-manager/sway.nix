@@ -144,7 +144,8 @@
         startup = [
           /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
           {command = "--no-startup-id systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
-          #{command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
+          {command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
+          {command = "--no-startup-id systemctl --user restart xdg-desktop-portal-gtk";}
 
           {command = "--no-startup-id nm-applet --indicator";}
           {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
@@ -159,6 +160,7 @@
 
           {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
           {command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }
+          {command = "--no-startup-id ${pkgs.flameshot}/bin/flameshot";} #In case flameshot service doesnt work.
         # {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
       ];
       keybindings = lib.mkOptionDefault {
