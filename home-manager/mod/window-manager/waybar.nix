@@ -14,7 +14,7 @@
 
       modules-left   = [ "custom/startmenu" "custom/scale" "custom/terminal" "custom/filebrowser" "custom/webbrowser" "custom/screenshot" "custom/close" "custom/maximize" "custom/fullscreen" "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "sway/window" /*"wlr/taskbar"*/ ];
       modules-center = [  ];
-      modules-right  = ["idle_inhibitor"  "pulseaudio" "backlight" "systemd-failed-units" /*"network" "hyprland/language" "sway/language"*/ "cpu" "memory" /*"user"*/ "battery" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
+      modules-right  = ["idle_inhibitor"  "pulseaudio" "backlight" "systemd-failed-units" /*"network" "hyprland/language" "sway/language"*/ "cpu" "memory" /*"user"*/ "battery" "privacy" "custom/weather" "custom/notification" "tray" "clock" "custom/logout"];
 
       "sway/workspaces" = {
         all-outputs = true;
@@ -33,7 +33,7 @@
 
       "custom/startmenu" = {
         format = " ";
-        on-click = "fuzzel";
+        on-click = "fuzzel -a bottom-left";
       };
 
       "custom/scale" = {
@@ -75,6 +75,11 @@
       "custom/fullscreen" = {
         format = " ";
         on-click = "swaymsg fullscreen";
+      };
+
+      "custom/logout" = {
+        format = "󰩈 ";
+        on-click = "wlogout";
       };
 
       /*"sway/window" = {
