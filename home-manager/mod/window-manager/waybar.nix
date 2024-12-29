@@ -5,15 +5,16 @@
 
   programs.waybar = {
     enable = true;
-    settings = [{
+    settings = [
+    {
       layer = "bottom";
       position = "bottom";
       height = 24;#25;
       spacing = 5; #10;
 
-      modules-left   = [ "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" /*"wlr/taskbar"*/ ];
+      modules-left   = [ "custom/startmenu" "custom/scale" "custom/terminal" "custom/filebrowser" "custom/webbrowser" "custom/screenshot" "custom/close" "custom/maximize" "custom/fullscreen" "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "sway/window" /*"wlr/taskbar"*/ ];
       modules-center = [  ];
-      modules-right  = ["idle_inhibitor"  "pulseaudio" /*"network"*/ "cpu" "memory" "temperature" "backlight" /*"hyprland/language" "sway/language"*/ "battery" "systemd-failed-units" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
+      modules-right  = ["idle_inhibitor"  "pulseaudio" "backlight" "systemd-failed-units" /*"network" "hyprland/language" "sway/language"*/ "cpu" "memory" /*"user"*/ "battery" "privacy" "custom/weather" "custom/notification" "tray" "clock" ];
 
       "sway/workspaces" = {
         all-outputs = true;
@@ -25,9 +26,55 @@
         };
       };
 
+      "sway/window" = {
+        icon-size = 20;
+        icon = true;
+      };
+
       "custom/startmenu" = {
-        format = "Start";
+        format = " ";
         on-click = "fuzzel";
+      };
+
+      "custom/scale" = {
+        format = "󰍋 ";
+        on-click = "${pkgs.lua}/bin/lua ${./change_res_sway.lua}";
+      };
+
+      "custom/terminal" = {
+        format = " ";
+        on-click = "foot";
+      };
+
+      "custom/filebrowser" = {
+        format = " ";
+        on-click = "pcmanfm-qt";
+      };
+
+      "custom/webbrowser" = {
+        format = "󰖟 ";
+        on-click = "qutebrowser";
+      };
+
+      "custom/screenshot" = {
+        format = "󰄀 ";
+        #on-click = "flameshot gui";
+        on-click = "${pkgs.lua}/bin/lua ${./flameshot_bad_scale.lua}";
+      };
+
+      "custom/close" = {
+        format = "󰧻 ";
+        on-click = "swaymsg kill";
+      };
+
+      "custom/maximize" = {
+        format = " ";
+        on-click = "swaymsg gaps inner current toggle 10";
+      };
+
+      "custom/fullscreen" = {
+        format = " ";
+        on-click = "swaymsg fullscreen";
       };
 
       /*"sway/window" = {
@@ -61,33 +108,7 @@
         };
       };
 
-      cpu = {
-        format = "{icon} {usage}%</span>";
-        format-icons = [
-          "<span color='#B8BB26'>▁" 
-          "<span color='#8EC07C'>▂" 
-          "<span color='#83A598'>▃" 
-          "<span color='#FABD2F'>▄" 
-          "<span color='#FE8019'>▅" 
-          "<span color='#FE8019'>▆" 
-          "<span color='#FB4934'>▇" 
-          "<span color='#FB4934'>█"];
-        tooltip = false;
-      };
 
-      memory = {
-        format = "  {used} GiB";
-      };
-
-      temperature = {
-        critical-threshold = 80;
-        format = "{icon} {temperatureC}°C</span>";
-        format-icons = [
-          "<span color='#B8BB26'>"
-          "<span color='#FABD2F'>" 
-          "<span color='#FB4934'>"
-        ];
-      };
 
       backlight = {
           # "device" = "acpi_video1";
@@ -114,18 +135,7 @@
           ];
         };
 
-        "sway/language" = {
-          format = "{}";
-          on-click = "swaymsg input type:keyboard xkb_switch_layout next";
-        };
 
-        network = {
-          format-wifi = "  {signalStrength}%";
-          format-ethernet = "  {ifname}";
-          tooltip-format = "   {ifname} via {gwaddr} at {ipaddr}";
-          format-linked = "   No IP";
-          format-disconnected = " ⚠  Offline";
-        };
 
         pulseaudio = {
           scroll-step = 1;
@@ -150,12 +160,6 @@
         tray = {
           # icon-size = 21;
           spacing = 10;
-        };
-
-        "wlr/taskbar" = {
-          #icon-size= 20;
-          on-click = "activate";
-          # format = "{icon} {title}";
         };
 
         "custom/notification"= {
@@ -185,6 +189,61 @@
           interval= 3600;
           exec= "wttrbar --lang pt --location ponta-grossa";
           return-type= "json";
+        };
+
+                      "wlr/taskbar" = {
+          icon-size= 20;
+          on-click = "activate";
+          format = "{icon} {title}";
+        };
+
+                "sway/language" = {
+          format = "{}";
+          on-click = "swaymsg input type:keyboard xkb_switch_layout next";
+        };
+
+        network = {
+          format-wifi = "  {signalStrength}%";
+          format-ethernet = "  {ifname}";
+          tooltip-format = "   {ifname} via {gwaddr} at {ipaddr}";
+          format-linked = "   No IP";
+          format-disconnected = " ⚠  Offline";
+        };
+
+              cpu = {
+        format = "{icon} {usage}%</span>";
+        format-icons = [
+          "<span color='#B8BB26'>▁" 
+          "<span color='#8EC07C'>▂" 
+          "<span color='#83A598'>▃" 
+          "<span color='#FABD2F'>▄" 
+          "<span color='#FE8019'>▅" 
+          "<span color='#FE8019'>▆" 
+          "<span color='#FB4934'>▇" 
+          "<span color='#FB4934'>█"];
+        tooltip = false;
+      };
+
+      memory = {
+        format = "  {used} GiB";
+      };
+
+      temperature = {
+        critical-threshold = 80;
+        format = "{icon} {temperatureC}°C</span>";
+        format-icons = [
+          "<span color='#B8BB26'>"
+          "<span color='#FABD2F'>" 
+          "<span color='#FB4934'>"
+        ];
+        hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input";
+      };
+
+                user = {
+          format = "{work_H}:{work_M}";
+          weight = 20;
+          height = 20;
+          icon = true;
         };
 
         clock = {
@@ -222,12 +281,11 @@
       border: none;
       }
 
-      #custom-startmenu,
     #taskbar button {
       padding-top: 0;
       padding-bottom: 0;
       background: #504945;
-      border-radius: 100%;
+      border-radius: 0%;
       }
 
       #taskbar button.hover,

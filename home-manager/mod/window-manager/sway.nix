@@ -153,6 +153,7 @@
           {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m fill -i ~/wallpaper"; } #fill
           /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
           {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
+          /*{command = "--no-startup-id pcmanfm-qt --desktop --daemon-mode -w ~/wallpaper --wallpaper-mode=tile";}*/
           {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
 
           {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
@@ -190,7 +191,8 @@
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
         #"Print"          = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy";
-        "Print" = "exec --no-startup-id flameshot gui";
+        #"Print" = "exec --no-startup-id flameshot gui";
+        "Print" = "exec --no-startup-id ${pkgs.lua}/bin/lua ${./flameshot_bad_scale.lua}";
         "${modifier}+Ctrl+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
 
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
