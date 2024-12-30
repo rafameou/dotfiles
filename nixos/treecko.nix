@@ -51,18 +51,6 @@
     };
   };
 
-  fileSystems = {
-    "/mnt/Extra" = { 
-      device = "/dev/disk/by-uuid/f10cf797-557d-4592-8dfa-26788eff52bd";
-      fsType = "btrfs";
-      options = [
-        "x-gvfs-show"
-        "nofail"
-        "exec"
-      ];
-    };
-  };
-
   services.geoclue2.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
