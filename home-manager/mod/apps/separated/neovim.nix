@@ -1,12 +1,12 @@
 { config, inputs, pkgs, ... }:
 let
   nvim-spell-pt-utf8-dictionary = builtins.fetchurl {
-    url = "http://ftp.vim.org/vim/runtime/spell/pt.utf-8.spl";
+    url = "https://ftp.nluug.nl/pub/vim/runtime/spell/pt.utf-8.spl";
     sha256 = "3e5fc100b6951b783cfb3386ada43cb39839553e04faa415af5cf5bd5d6ab63b";
   };
 
   nvim-spell-pt-latin-dictionary = builtins.fetchurl {
-    url = "http://ftp.vim.org/vim/runtime/spell/pt.latin1.spl";
+    url = "https://ftp.nluug.nl/pub/vim/runtime/spell/pt.latin1.spl";
     sha256 = "3c1c362335424c890e683ec99674df8b69dc706b1366fbc205e3955436518680";
   };
 in

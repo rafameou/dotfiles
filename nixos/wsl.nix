@@ -5,14 +5,21 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ pkgs, inputs, ... }:
+{ lib, pkgs, inputs, ... }:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
-    <nixos-wsl/modules>
+    #<nixos-wsl/modules>
     ./mod/nix.nix
     ./mod/nixpkgs.nix
+    ./mod/desktop.nix
+    ./mod/env.nix
+    ./mod/time.nix
+    ./mod/user.nix
+    ./mod/zsh.nix
   ];
+
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
   /* ... changes to only this sytem */
   networking.hostName = "wsl"; # Define your hostname.

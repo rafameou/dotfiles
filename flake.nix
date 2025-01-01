@@ -45,7 +45,7 @@
     nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { nixpkgs, home-manager, plasma-manager, solaar, chaotic, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, plasma-manager, solaar, chaotic, nixos-wsl, ... }@inputs: {
     nixosConfigurations = {
       bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
@@ -77,7 +77,8 @@
       wsl = nixpkgs.lib.nixosSystem {
 	specialArgs = {inherit inputs; }; # Pass flake inputs to our config
 	modules = [
-	  nixos-wsl.nixosModules.default
+          nixos-wsl.nixosModules.default
+          solaar.nixosModules.default
           ./nixos/wsl.nix
 	  chaotic.nixosModules.default
 	];
