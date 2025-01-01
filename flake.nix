@@ -41,6 +41,8 @@
 
     solaar.url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
     solaar.inputs.nixpkgs.follows = "nixpkgs";
+
+    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs = { nixpkgs, home-manager, plasma-manager, solaar, chaotic, ... }@inputs: {
@@ -71,6 +73,14 @@
           ./nixos/treecko.nix 
           chaotic.nixosModules.default
         ];
+      };
+      wsl = nixpkgs.lib.nixosSystem {
+	specialArgs = {inherit inputs; }; # Pass flake inputs to our config
+	modules = [
+	  nixos-wsl.nixosModules.default
+          ./nixos/wsl.nix
+	  chaotic.nixosModules.default
+	];
       };
       oddish = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
