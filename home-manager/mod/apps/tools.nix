@@ -20,7 +20,7 @@
     unar
     unzip
     zip
-    xsane
+    #xsane #broken 03-01-2025
     virt-viewer
     freerdp
     htop lm_sensors powerstat
