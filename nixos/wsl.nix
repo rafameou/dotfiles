@@ -31,8 +31,12 @@
     };
   };
 
-  wsl.enable = true;
-  wsl.defaultUser = "rafameou";
+  wsl = {
+    enable = true;
+    defaultUser = "rafameou";
+    startMenuLaunchers = true;
+    useWindowsDriver = true;
+  };
 
   services.xserver.displayManager.lightdm.enable = false;
 
