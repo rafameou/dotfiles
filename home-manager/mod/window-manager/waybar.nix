@@ -1,4 +1,4 @@
-{lib, pkgs,...}:
+{inputs, config, lib, pkgs,...}:
 {
   # https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/waybar.nix
   imports = [ ../nix-colors.nix ];
@@ -6,86 +6,121 @@
   programs.waybar = {
     enable = true;
     settings = [
-    {
-      layer = "bottom";
-      position = "bottom";
-      height = 24;#25;
-      spacing = 5; #10;
+            {
+        layer = "bottom";
+        position = "top";
+        name = "top";
+        modules-left = ["hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "wlr/taskbar"];
+        modules-center = ["sway/window"];
+        modules-right = ["user"];
+        height = 24;#25;
+        spacing = 5; #10;
 
-      modules-left   = [ "custom/startmenu" "custom/scale" "custom/terminal" "custom/filebrowser" "custom/webbrowser" "custom/screenshot" "custom/close" "custom/maximize" "custom/fullscreen" "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" "custom/media" "sway/window" /*"wlr/taskbar"*/ ];
-      modules-center = [  ];
-      modules-right  = ["idle_inhibitor"  "pulseaudio" "backlight" "systemd-failed-units" /*"network" "hyprland/language" "sway/language"*/ "cpu" "memory" /*"user"*/ "battery" "privacy" "custom/weather" "custom/notification" "tray" "clock" "custom/logout"];
-
-      "sway/workspaces" = {
-        all-outputs = true;
-        format = "{name}{icon}";
-        format-icons = {
-          "urgent" = "";
-          "focused" = "";
-          "default" = "";
+        "sway/workspaces" = {
+          all-outputs = true;
+          format = "{name}{icon}";
+          format-icons = {
+            "urgent" = "";
+            "focused" = "";
+            "default" = "";
+          };
         };
-      };
 
-      "sway/window" = {
-        icon-size = 20;
-        icon = true;
-      };
+        "sway/window" = {
+          icon-size = 20;
+          icon = false;
+        };
 
-      "custom/startmenu" = {
-        format = " ";
-        on-click = "fuzzel -a bottom-left";
-      };
+        "sway/scratchpad" = {
+          format = "{icon} {count}";
+          show-empty = false;
+          format-icons = ["" ""];
+          tooltip = true;
+          tooltip-format = "{app}: {title}";
+        };
 
-      "custom/scale" = {
-        format = "󰍋 ";
-        on-click = "${pkgs.lua}/bin/lua ${./change_res_sway.lua}";
-      };
+        "wlr/taskbar" = {
+          icon-size= 20;
+          on-click = "activate";
+          format = "{icon}";
+        };
 
-      "custom/terminal" = {
-        format = " ";
-        on-click = "foot";
-      };
+      user = {
+        format = "󰄛{user} (up {work_d}:{work_H}:{work_M})";
+        weight = 20;
+        height = 20;
+        icon = false;
+        };
+      }
+      {
+        layer = "bottom";
+        position = "bottom";
+        name = "bottom";
+        height = 24;#25;
+        spacing = 5; #10;
 
-      "custom/filebrowser" = {
-        format = " ";
-        on-click = "pcmanfm-qt";
-      };
+        modules-left   = [ "custom/startmenu" "custom/scale" "custom/terminal" "custom/filebrowser" "custom/webbrowser" "custom/screenshot" "custom/close" "custom/maximize" "custom/fullscreen" ];
+        modules-center = [  ];
+        modules-right  = ["idle_inhibitor"  "pulseaudio" "backlight" "systemd-failed-units" /*"network" "hyprland/language" "sway/language"*/ "cpu" "memory" /*"user"*/ "battery" "privacy" "custom/weather" "custom/notification" "tray" "clock" "custom/logout"];
 
-      "custom/webbrowser" = {
-        format = "󰖟 ";
-        on-click = "qutebrowser";
-      };
+        tray = {
+          # icon-size = 21;
+          spacing = 10;
+        };
 
-      "custom/screenshot" = {
-        format = "󰄀 ";
+        "custom/startmenu" = {
+          format = "st";
+          on-click = "fuzzel -a bottom-left";
+        };
+
+        "custom/scale" = {
+          format = "󰍋{}";
+          interval = "once";
+          exec = "sleep 1s && swaymsg -rt get_outputs | jq -r '.[0].scale'";
+          on-click = "${pkgs.lua}/bin/lua ${./change_res_sway.lua}";
+          on-click-right = "swaymsg output '*' scale 1";
+        };
+
+        "custom/terminal" = {
+          format = "ft";
+          on-click = "foot";
+        };
+
+        "custom/filebrowser" = {
+          format = "pc";
+          on-click = "pcmanfm-qt";
+        };
+
+        "custom/webbrowser" = {
+          format = "󰖟web";
+          on-click = "qutebrowser";
+        };
+
+        "custom/screenshot" = {
+          format = "󰄀scr";
         #on-click = "flameshot gui";
         on-click = "${pkgs.lua}/bin/lua ${./flameshot_bad_scale.lua}";
       };
 
       "custom/close" = {
-        format = "󰧻 ";
+        format = "󰧻k";
         on-click = "swaymsg kill";
       };
 
       "custom/maximize" = {
-        format = " ";
+        format = "m";
         on-click = "swaymsg gaps inner current toggle 10";
       };
 
       "custom/fullscreen" = {
-        format = " ";
+        format = "f";
         on-click = "swaymsg fullscreen";
       };
 
       "custom/logout" = {
-        format = "󰩈 ";
+        format = "󰩈";
         on-click = "wlogout";
       };
-
-      /*"sway/window" = {
-      icon = true;
-      icon-size = 16;
-      };*/
 
       keyboard-state = {
         numlock = true;
@@ -95,14 +130,6 @@
           locked = "LCK";
           unlocked = "UNL";
         };
-      };
-
-      "sway/scratchpad" = {
-        format = "{icon} {count}";
-        show-empty = false;
-        format-icons = ["" ""];
-        tooltip = true;
-        tooltip-format = "{app}: {title}";
       };
 
       idle_inhibitor = {
@@ -117,7 +144,7 @@
 
       backlight = {
           # "device" = "acpi_video1";
-          format = "{icon} {percent}%";
+          format = "{icon}{percent}%";
           format-icons = ["" "" "" "" "" "" "" "" ""];
         };
 
@@ -127,10 +154,10 @@
             warning = 30;
             critical = 15;
           };
-          format = "{icon}  {capacity}% {power:.3}W</span>";
-          format-charging = "<span color='#8EC07C'>󰂅  {capacity}% {power:.3}W</span>";
-          format-plugged = "<span color='#8EC07C'>  {capacity}% {power:.3}W</span>";
-          format-alt = "{time} {icon} ";
+          format = "{icon}{capacity}% {power:.3}W</span>";
+          format-charging = "<span color='#8EC07C'>󰂅{capacity}% {power:.3}W</span>";
+          format-plugged = "<span color='#8EC07C'>{capacity}% {power:.3}W</span>";
+          format-alt = "{time}{icon} ";
           format-icons = [
             "<span color='#FB4934'>" 
             "<span color='#FE8019'>" 
@@ -144,12 +171,12 @@
 
         pulseaudio = {
           scroll-step = 1;
-          format = "{icon}  {volume}% {format_source}";
-          format-bluetooth = "{icon}  {volume}%    {format_source}";
-          format-bluetooth-muted = "{icon}  󰝟    {format_source}";
-          format-muted = "󰝟 {format_source}";
-          format-source = "  {volume}%";
-          format-source-muted = "  ";
+          format = "{icon}{volume}%{format_source}";
+          format-bluetooth = "{icon}{volume}%{format_source}";
+          format-bluetooth-muted = "{icon}󰝟{format_source}";
+          format-muted = "󰝟{format_source}";
+          format-source = "{volume}%";
+          format-source-muted = "";
           format-icons = {
             headphone = "";
             hands-free = "";
@@ -162,17 +189,12 @@
           on-click = "pavucontrol-qt";
         };
 
-        tray = {
-          # icon-size = 21;
-          spacing = 10;
-        };
-
         "custom/notification"= {
           "tooltip"= false;
           "format"= "{icon}";
           "format-icons"= {
             "notification"= "<span color='#FABD2F'>*</span>";
-            "none"= " ";
+            "none"= "";
             "dnd-notification"= "<span color='#FABD2F'>*</span>";
             "dnd-none"= "";
             "inhibited-notification"= "<span color='#FB4934'>*</span>";
@@ -196,41 +218,35 @@
           return-type= "json";
         };
 
-                      "wlr/taskbar" = {
-          icon-size= 20;
-          on-click = "activate";
-          format = "{icon} {title}";
-        };
-
-                "sway/language" = {
-          format = "{}";
-          on-click = "swaymsg input type:keyboard xkb_switch_layout next";
+        "sway/language" = {
+        format = "{}";
+        on-click = "swaymsg input type:keyboard xkb_switch_layout next";
         };
 
         network = {
-          format-wifi = "  {signalStrength}%";
-          format-ethernet = "  {ifname}";
-          tooltip-format = "   {ifname} via {gwaddr} at {ipaddr}";
-          format-linked = "   No IP";
-          format-disconnected = " ⚠  Offline";
+        format-wifi = "{signalStrength}%";
+        format-ethernet = "{ifname}";
+        tooltip-format = "{ifname} via {gwaddr} at {ipaddr}";
+        format-linked = "No IP";
+        format-disconnected = "⚠Offline";
         };
 
-              cpu = {
-        format = "{icon} {usage}%</span>";
+        cpu = {
+        format = "{icon}{usage}%</span>";
         format-icons = [
-          "<span color='#B8BB26'>▁" 
-          "<span color='#8EC07C'>▂" 
-          "<span color='#83A598'>▃" 
-          "<span color='#FABD2F'>▄" 
-          "<span color='#FE8019'>▅" 
-          "<span color='#FE8019'>▆" 
-          "<span color='#FB4934'>▇" 
-          "<span color='#FB4934'>█"];
+        "<span color='#B8BB26'>▁" 
+        "<span color='#8EC07C'>▂" 
+        "<span color='#83A598'>▃" 
+        "<span color='#FABD2F'>▄" 
+        "<span color='#FE8019'>▅" 
+        "<span color='#FE8019'>▆" 
+        "<span color='#FB4934'>▇" 
+        "<span color='#FB4934'>█"];
         tooltip = false;
       };
 
       memory = {
-        format = "  {used} GiB";
+        format = "{used}GiB";
       };
 
       temperature = {
@@ -244,59 +260,78 @@
         hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input";
       };
 
-                user = {
-          format = "{work_H}:{work_M}";
-          weight = 20;
-          height = 20;
-          icon = true;
-        };
-
         clock = {
-          timezone = lib.mkDefault "America/Sao_Paulo";
-          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-          format = "{:%T %d/%m/%Y}";
-          interval = 1;
+        timezone = lib.mkDefault "America/Sao_Paulo";
+        tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+        format = "󰥔{:%T %d/%m/%Y}";
+        interval = 1;
+        calendar = {
+          mode = "year";
+          mode-mon-col = 3;
+          weeks-pos = "right";
+          on-scroll = 1;
+          format-months = "<span color='#ffead3'><b>{}</b></span>";
+          format-days = "<span color='#ecc6d9'><b>{}</b></span>";
+          format-weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+          format-weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+          format-today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+          on-click-right = "mode";
+          on-scroll-up = "tz_up";
+          on-scroll-down = "tz_down";
+          #on-scroll-up = "shift_up";
+          #on-scroll-down = "shift_down";
         };
+      };
       }
-    ];
+        ];
 
-    style = ''
-      * {
-      font-family: Fira Sans;
-      font-size: 18px;
-      transition-duration: 0;
-      }
+        style = ''
+        * {
+        font-family: Fira Sans, FiraCode Nerd Font Mono, Fira Sans;
+        font-size: 18px;
+        transition-duration: 0;
+        }
 
-      window#waybar { 
-      background: linear-gradient(180deg, rgba(50,48,47,0.9) 0%, rgba(29, 32, 33,1) 100%);
-; /*rgba(50,48,47,0.9);*/
-      color: #FBF1C7;
-      }
+        window#waybar { 
+        color: #${config.colorScheme.palette.base05};
+          }
 
-      window#waybar.hidden {
-      opacity: 0.2;
-      }
+        window#waybar.bottom {
+        background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 0%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base01}, 0.9) 100%); 
+          }
 
-      window#waybar.termite {
-      background-color: #3F3F3F;
-      }
+        window#waybar.top {
+        background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base01}, 0.9) 0%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%); 
+        }
 
-      window#waybar.chromium {
-      background-color: #000000;
-      border: none;
-      }
+        window#waybar.hidden {
+        opacity: 0.2;
+        }
 
-    #taskbar button {
-      padding-top: 0;
-      padding-bottom: 0;
-      background: #504945;
-      border-radius: 0%;
-      }
+        window#waybar.termite {
+        background-color: #3F3F3F;
+        }
 
-      #taskbar button.hover,
-      #taskbar button.active {
-       background: #32302F; 
-      }
+        window#waybar.chromium {
+        background-color: #000000;
+        border: none;
+        }
+
+#taskbar button {
+	padding-top: 0;
+	padding-bottom: 0;
+	box-shadow: inset 0 0 0 1px #${config.colorScheme.palette.base02};
+	border-radius: 5px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 5px;
+	background: radial-gradient(ellipse, rgba(80, 73, 69, 0.9) 0%, rgba(0,0,0,0) 100%);
+}
+
+#taskbar button.hover,
+#taskbar button.active {
+	background: radial-gradient(ellipse, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 0%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 1) 100%);
+}
 
       button {
       box-shadow: inset 0 -3px transparent;
@@ -313,60 +348,62 @@
       }
 
       #workspaces button {
-        padding: 0 5px;
-        background-color: transparent;
-        color: #A89984;
-        border-radius: 100%;
-        transition-duration: .2s;
-        background: #504945;
+      padding: 0 5px;
+      background-color: transparent;
+      color: #A89984;
+      border-radius: 100%;
+      transition-duration: .2s;
+      background: #${config.colorScheme.palette.base02};
       }
 
       #workspaces button.active,
       #workspaces button.focused,
       #workspaces button:hover {
-        /*background: #32302F;*/
-        background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
-        /*background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);*/
-        color: #FBF1C7;
+      /*background: ;*/
+      background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
+      /*background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);*/
+      color: #${config.colorScheme.palette.base05};
       }
 
       #workspaces button.urgent {
-        color: #FB4934;
+      color: #FB4934;
       }
 
       #mode {
-        background-color: #64727D;
-        border-bottom: 3px solid #ffffff;
+      background-color: #64727D;
+      border-bottom: 3px solid #ffffff;
       }
 
       /*#window,
       #workspaces {
-        margin: 0 4px;
+      margin: 0 4px;
       }*/
 
       #waybar.empty #window {
-        border: none;
-        background: none;
+      border: none;
+      background: none;
       }
 
-      .modules-right > widget {
-        background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0) 100%);
+          .modules-right > widget {
+          border-radius: 5px;
+          box-shadow: inset 0 0 0 1px #504945;
+      background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0) 100%);
       }
 
       #wireplumber.muted,
       #network.disconnected,
       #pulseaudio.muted {
-        color: #FB4934;
+      color: #FB4934;
       }
 
       #tray > .passive {
-        -gtk-icon-effect: dim;
+      -gtk-icon-effect: dim;
       }
 
       #tray > .needs-attention {
-        -gtk-icon-effect: highlight;
-        background-color: #eb4d4b;
+      -gtk-icon-effect: highlight;
+      background-color: #eb4d4b;
       }
-    '';
-  };
-}
+      '';
+      };
+      }

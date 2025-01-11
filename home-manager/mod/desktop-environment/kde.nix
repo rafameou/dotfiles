@@ -15,7 +15,8 @@
     kde-gruvbox
     gruvbox-dark-gtk
 
-    (callPackage ./kde/crystal-dock.nix {})
+    #(callPackage ./kde/crystal-dock.nix {})
+    crystal-dock
 
     /* -- for neovim --*/
     wl-clipboard
@@ -59,38 +60,15 @@
 
   programs.plasma = {
     enable = true;
-    /*workspace = {
-    lookAndFeel = null;#"org.kde.oxygen";
-    theme = "default";#"oxygen";
-    colorScheme = "Gruvbox";#"Oxygen";
-    iconTheme = "breeze-dark";#"oxygen";
-    cursor.theme = "breeze_cursors";#"Oxygen_Zion";
-    soundTheme = "ocean";
-    splashScreen = {
-    engine = "none";
-    theme = "None";
-    };
-    windowDecorations = {
-    library = "org.kde.oxygen";
-    theme = "Oxygen";
-    };
-      #wallpaper = config.stylix.image;
-      };*/
-      /*startup = {
-      startupScript = {
-      trayscale.text = "ktailctl";
-      crystal-dock.text = "crystal-dock";
-      };
-      };*/
-      panels = 
-      [ 
-        {
-          location = "top";
-          floating = false;
-          height = 24;
-          widgets = 
-          [
-                      {
+    panels = 
+    [ 
+      {
+        location = "top";
+        floating = false;
+        height = 24;
+        widgets = 
+        [
+          {
             name = "org.kde.plasma.kickoff";
             config.General = {
               icon = "kde-symbolic";#"nix-snowflake-white";
@@ -113,8 +91,18 @@
               };
             };
           }
-          "org.kde.plasma.appmenu"
+          "org.kde.plasma.pager"
+          #"org.kde.plasma.appmenu"
           "org.kde.plasma.panelspacer"
+          {
+            name = "org.kde.plasma.systemtray";
+            config = {
+              General = {
+                iconSpacing = "1";
+                showAllItems = "true";
+              };
+            };
+          }
           {
             name = "org.kde.plasma.digitalclock";
             config.Appearance = {
@@ -125,42 +113,6 @@
           }
         ];
       }
-      /*{
-        location = "bottom";
-        floating = false;
-        alignment = "center";
-        height = 40;
-        widgets = [
-          {
-            name = "org.kde.plasma.kickoff";
-            config.General = {
-              icon = "kde-symbolic";#"nix-snowflake-white";
-              showRecentDocs = "false";
-              useCustomButtonImage = "true";
-            };
-          }
-            "org.kde.plasma.pager"
-            {
-              name = "org.kde.plasma.icontasks";
-              config = {
-                General = { 
-                  launchers="applications:firefox.desktop,applications:google-chrome.desktop,aplications:thunderbird.desktop,applications:bitwarden.desktop,applications:org.telegram.desktop.desktop,applications:vesktop.desktop,applications:com.rtosta.zapzap.desktop,applications:org.kde.konsole.desktop,applications:org.kde.dolphin.desktop,applications:org.octave.Octave.desktop,applications:onlyoffice-desktopeditors.desktop,applications:startcenter.desktop,applications:org.kde.kpat.desktop,applications:org.strawberrymusicplayer.strawberry.desktop,applications:feishin.desktop,applications:smartcode-stremio.desktop,applications:org.kde.plasma-systemmonitor.desktop";
-                  showOnlyCurrentActivity="false";
-                  showOnlyCurrentDesktop="false";
-                };
-              };
-            }
-          {
-            name = "org.kde.plasma.systemtray";
-            config = {
-              General = {
-                iconSpacing = "1";
-                showAllItems = "true";
-              };
-            };
-          }
-        ];
-      }*/
     ];
 
     kwin = {
@@ -172,12 +124,12 @@
         shakeCursor.enable = true;
         translucency.enable = true;
         wobblyWindows.enable = true;
-        cube.enable = true;
+        cube.enable = false;
         blur.enable = false;
       };
       virtualDesktops = {
-        rows = 2;
-        number = 4;
+        rows = 1;
+        number = 10;
       };
       borderlessMaximizedWindows = true;
       nightLight = {
@@ -208,10 +160,24 @@
         "Switch to Desktop 2" = [ "Meta+2" ];
         "Switch to Desktop 3" = [ "Meta+3" ];
         "Switch to Desktop 4" = [ "Meta+4" ];
+        "Switch to Desktop 5" = [ "Meta+5" ];
+        "Switch to Desktop 6" = [ "Meta+6" ];
+        "Switch to Desktop 7" = [ "Meta+7" ];
+        "Switch to Desktop 8" = [ "Meta+8" ];
+        "Switch to Desktop 9" = [ "Meta+9" ];
+        "Switch to Desktop 0" = [ "Meta+0" ]; 
         "Window to Desktop 1" = [ "Meta+Shift+1" ];
         "Window to Desktop 2" = [ "Meta+Shift+2" ];
         "Window to Desktop 3" = [ "Meta+Shift+3" ];
         "Window to Desktop 4" = [ "Meta+Shift+4" ];
+        "Window to Desktop 5" = [ "Meta+Shift+5" ];
+        "Window to Desktop 6" = [ "Meta+Shift+6" ];
+        "Window to Desktop 7" = [ "Meta+Shift+7" ];
+        "Window to Desktop 8" = [ "Meta+Shift+8" ];
+        "Window to Desktop 9" = [ "Meta+Shift+9" ];
+        "Window to Desktop 0" = [ "Meta+Shift+0" ]; 
+
+        "Show Desktop" = []; # Meta + D
       };
 
       "plasmashell" = {
@@ -219,6 +185,15 @@
         "activate task manager entry 2" = [];
         "activate task manager entry 3" = [];
         "activate task manager entry 4" = [];
+        "activate task manager entry 5" = [];
+        "activate task manager entry 6" = [];
+        "activate task manager entry 7" = [];
+        "activate task manager entry 8" = [];
+        "activate task manager entry 9" = [];
+        "activate task manager entry 10" = [];
+
+        "manage activities" = []; # Meta + Q
+        "next activity" = []; # Meta + A 
       };
 
       "org.kde.dolphin.desktop"."_launch" = "Meta+E";
@@ -253,10 +228,6 @@
     configFile = {
       "baloofilerc"."Basic Settings"."Indexing-Enabled" = false;
 
-      /*"kdeglobals" = {
-      "KDE"."widgetStyle" = "Oxygen";
-      };*/
-
       "ksmserverrc"."General"."loginMode" = "emptySession";
 
       "krunnerrc" = {
@@ -271,8 +242,6 @@
         "VariantList" = ",thinkpad,alt-intl";
       };
 
-      /*"plasmarc"."Theme"."name" = "oxygen";*/
-
       "plasma-localerc"."Formats"."LANG" = "pt_BR.UTF-8";
     };
   };
@@ -284,7 +253,7 @@
         colorScheme = "Gruvbox";
         font = {
           name = "FiraCode Nerd Font Mono";
-          size = 10;
+          size = 12;
         };
       }
     ];
@@ -294,8 +263,8 @@
   home.file = {
     ".crystal-dock-2/KDE/panel_1.conf".text = ''
       [General]
-      autoHide=true
-      launchers="firefox;google-chrome;thunderbird;bitwarden;org.telegram.desktop;vesktop;org.kde.konsole;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;feishin;smartcode-stremio;virt-manager;org.kde.plasma-systemmonitor"
+      autoHide=false
+      launchers="org.qutebrowser.qutebrowser;luakit;foot;org.kde.konsole;bitwarden;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;Zettlr;ghostwriter;gimp;org.kde.krita;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;feishin;smartcode-stremio;virt-manager;org.kde.plasma-systemmonitor"
       position=1
       screen=0
       showApplicationMenu=false

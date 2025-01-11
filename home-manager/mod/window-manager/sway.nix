@@ -129,7 +129,7 @@
         /*workspaceAutoBackAndForth = true;
         workspaceLayout = "default";*/
         gaps = {
-          inner = 10;
+          inner = 0; #10
         };
         floating = {
           border = 1;

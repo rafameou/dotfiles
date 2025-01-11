@@ -25,7 +25,8 @@
 
     #apostrophe #broken 03-11-2024, not needed
     zettlr
-
+    kdePackages.ghostwriter
+    kdePackages.kmplot
 
     kdePackages.kdenlive
     krita

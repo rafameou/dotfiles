@@ -9,7 +9,7 @@
     ./mod/zsh.nix
     ./mod/bluetooth.nix
     ./mod/desktop.nix
-    #./mod/qemu.nix 
+    ./mod/qemu.nix 
     ./mod/pipewire.nix
     ./mod/nvidia-hell.nix
     ./mod/ssd.nix
@@ -20,6 +20,7 @@
     ./mod/env.nix
     ./mod/flatpak.nix
     ./mod/sway.nix
+    #./mod/desktop-environment/kde.nix
 
     #./mod/navidrome.nix
     #./mod/nextcloud.nix
@@ -38,8 +39,8 @@
 
   fileSystems = {
     "/mnt/Extra" = { 
-      device = "/dev/disk/by-uuid/167b330f-ec39-4481-a35d-eb8894d14553";
-      fsType = "btrfs";
+      device = "/dev/disk/by-uuid/f2738fa6-3895-4e23-8d7f-f29314c3dd0e";
+      fsType = "ext4";
       options = [
         "x-gvfs-show"
         "nofail"
