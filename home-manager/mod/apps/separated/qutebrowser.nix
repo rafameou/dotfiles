@@ -1,11 +1,14 @@
-{ config, pkgs, ... }:
-/*let catpuccin = pkgs.fetchFromGitHub {
-owner = "catppuccin";
-repo = "qutebrowser";
-rev = "78bb72b4c60b421c8ea64dd7c960add6add92f83";
-hash = "sha256-lp7HWYuD4aUyX1nRipldEojZVIvQmsxjYATdyHWph0g=";
-};
-in*/
+{ inputs, config, pkgs, ... }:
+let 
+/*catpuccin = pkgs.fetchFromGitHub {
+  owner = "catppuccin";
+  repo = "qutebrowser";
+  rev = "78bb72b4c60b421c8ea64dd7c960add6add92f83";
+  hash = "sha256-lp7HWYuD4aUyX1nRipldEojZVIvQmsxjYATdyHWph0g=";
+  };*/
+  tr = "0.9";
+  trTab = "0";
+in
 {
   /*xdg.configFile."qutebrowser/catppuccin".source = catpuccin;*/
   programs.qutebrowser = {
@@ -26,7 +29,7 @@ in*/
       #statusbar.show = "in-mode";
       fonts.default_family = "Fira Sans";
       fonts.default_size = "12pt"; # 16 is too huge
-      /*window.transparent = true;*/
+      window.transparent = true;
       auto_save.session = true;
       input.insert_mode.auto_leave = false;
       input.insert_mode.auto_enter = false;
@@ -85,7 +88,7 @@ in*/
           };
         };
         downloads = {
-          bar.bg = "#${config.colorScheme.palette.base00}";
+          bar.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${tr})";
           error.fg = "#${config.colorScheme.palette.base08}";
           start = {
             bg = "#${config.colorScheme.palette.base0D}";
@@ -124,23 +127,23 @@ in*/
           selected.bg = "#${config.colorScheme.palette.base02}";
         };
         statusbar = {
-          caret.bg = "#${config.colorScheme.palette.base00}";
+          caret.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${tr})";
           caret.fg = "#${config.colorScheme.palette.base0D}";
           caret.selection.bg = "#${config.colorScheme.palette.base00}";
           caret.selection.fg = "#${config.colorScheme.palette.base0D}";
-          command.bg = "#${config.colorScheme.palette.base01}";
+          command.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base01}, ${tr})";
           command.fg = "#${config.colorScheme.palette.base04}";
-          command.private.bg = "#${config.colorScheme.palette.base01}";
+          command.private.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base01}, ${tr})";
           command.private.fg = "#${config.colorScheme.palette.base0E}";
-          insert.bg = "#${config.colorScheme.palette.base00}";
+          insert.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${tr})";
           insert.fg = "#${config.colorScheme.palette.base0C}";
-          normal.bg = "#${config.colorScheme.palette.base00}";
+          normal.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${tr})";
           normal.fg = "#${config.colorScheme.palette.base05}";
-          passthrough.bg = "#${config.colorScheme.palette.base00}";
+          passthrough.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${tr})";
           passthrough.fg = "#${config.colorScheme.palette.base0A}";
-          private.bg = "#${config.colorScheme.palette.base00}";
+          private.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${tr})";
           private.fg = "#${config.colorScheme.palette.base0E}";
-          progress.bg = "#${config.colorScheme.palette.base0D}";
+          progress.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base0D}, ${tr})";
           url.error.fg = "#${config.colorScheme.palette.base08}";
           url.fg = "#${config.colorScheme.palette.base05}";
           url.hover.fg = "#${config.colorScheme.palette.base09}";
@@ -149,26 +152,26 @@ in*/
           url.warn.fg = "#${config.colorScheme.palette.base0E}";
         };
         tabs = {
-          bar.bg = "#${config.colorScheme.palette.base00}";
-          even.bg = "#${config.colorScheme.palette.base00}";
-          even.fg = "#${config.colorScheme.palette.base05}";
+          bar.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${tr})";
+          even.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${trTab})";
+          even.fg = "#${config.colorScheme.palette.base05}"; 
           indicator.error = "#${config.colorScheme.palette.base08}";
           indicator.start = "#${config.colorScheme.palette.base0D}";
           indicator.stop = "#${config.colorScheme.palette.base0C}";
-          odd.bg = "#${config.colorScheme.palette.base00}";
-          odd.fg = "#${config.colorScheme.palette.base05}";
-          pinned.even.bg = "#${config.colorScheme.palette.base0B}";
-          pinned.even.fg = "#${config.colorScheme.palette.base00}";
-          pinned.odd.bg = "#${config.colorScheme.palette.base0B}";
-          pinned.odd.fg = "#${config.colorScheme.palette.base00}";
-          pinned.selected.even.bg = "#${config.colorScheme.palette.base02}";
-          pinned.selected.even.fg = "#${config.colorScheme.palette.base05}";
-          pinned.selected.odd.bg = "#${config.colorScheme.palette.base02}";
-          pinned.selected.odd.fg = "#${config.colorScheme.palette.base05}";
-          selected.even.bg = "#${config.colorScheme.palette.base02}";
-          selected.even.fg = "#${config.colorScheme.palette.base05}";
-          selected.odd.bg = "#${config.colorScheme.palette.base02}";
-          selected.odd.fg = "#${config.colorScheme.palette.base05}";
+          odd.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${trTab})";
+          odd.fg = "#${config.colorScheme.palette.base05}"; 
+          pinned.even.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base0B}, ${trTab})";
+          pinned.even.fg = "#${config.colorScheme.palette.base05}"; #base00
+          pinned.odd.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base0B}, ${trTab})";
+          pinned.odd.fg = "#${config.colorScheme.palette.base05}"; #base00
+          pinned.selected.even.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, ${trTab})";
+          pinned.selected.even.fg = "#${config.colorScheme.palette.base0B}"; #base05
+          pinned.selected.odd.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, ${trTab})";
+          pinned.selected.odd.fg = "#${config.colorScheme.palette.base0B}"; #base05
+          selected.even.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, ${trTab})";
+          selected.even.fg = "#${config.colorScheme.palette.base0B}"; #base05
+          selected.odd.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, ${trTab})";
+          selected.odd.fg = "#${config.colorScheme.palette.base0B}"; #base05
         };
       };
     };

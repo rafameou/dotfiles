@@ -68,6 +68,9 @@
 
   environment.systemPackages = [
     pkgs.screen
+    pkgs.xdotool
+    pkgs.xorg.xwininfo
+    pkgs.yad
   ];
 
   services.xserver.displayManager.setupCommands = ''
@@ -128,6 +131,7 @@
     enable = true;
     extraPackages = with pkgs; [
       gamescope
+      steamtinkerlaunch
     ];
   };
 

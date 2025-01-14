@@ -9,7 +9,7 @@
     ./mod/bluetooth.nix
     ./mod/zsh.nix
     ./mod/desktop.nix
-    #./mod/qemu.nix 
+    ./mod/qemu.nix 
     ./mod/pipewire.nix
     ./mod/ssd.nix
     ./mod/time.nix

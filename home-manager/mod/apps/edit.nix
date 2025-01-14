@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [ 
+    ./separated/mpv.nix
     ./separated/neovim.nix
     #./separated/vscode.nix
     ./separated/flameshot.nix
@@ -16,7 +17,6 @@
     corefonts
     vistafonts
     feishin strawberry-qt6 
-    mpv
     texlive.combined.scheme-full
     cherrytree
     imagemagick
