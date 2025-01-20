@@ -65,12 +65,14 @@
   services.openssh.openFirewall = false;
   programs.firejail.enable = true;
   programs.fuse.userAllowOther = true;
+  services.ollama.enable = true;
 
   environment.systemPackages = [
     pkgs.screen
     pkgs.xdotool
     pkgs.xorg.xwininfo
     pkgs.yad
+    pkgs.nodejs_23
   ];
 
   services.xserver.displayManager.setupCommands = ''
