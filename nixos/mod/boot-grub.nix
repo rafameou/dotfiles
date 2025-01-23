@@ -4,7 +4,7 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages; #6.13 broken
 
   /*boot.loader.grub.extraEntries = ''
 menuentry 'Windows XP' --class windows {

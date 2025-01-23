@@ -16,7 +16,8 @@
     hunspellDicts.pt_BR
     corefonts
     vistafonts
-    feishin strawberry-qt6 
+    #feishin #broken 22-01-2025, electron, not needed
+    strawberry-qt6 
     texlive.combined.scheme-full
     cherrytree
     imagemagick
