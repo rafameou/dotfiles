@@ -329,9 +329,18 @@ in
       ];
 
       extraLuaConfig = ''
-        vim.cmd('filetype plugin indent on')
-        vim.cmd('syntax enable')
-        vim.opt.colorcolumn = "80,120"
+        vim.cmd('filetype plugin indent on');
+        vim.cmd('syntax enable');
+        vim.opt.colorcolumn = "80,120";
+        vim.opt.list = true;
+        vim.opt.listchars = {
+          tab = "» ",
+          space = "·",
+          trail = "·",
+          extends = "›",
+          precedes = "‹",
+          nbsp = "␣",
+        };
 
         vim.opt.clipboard:append('unnamedplus');
         -- spelling

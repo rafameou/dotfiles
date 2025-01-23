@@ -22,7 +22,7 @@
     ./mod/sway.nix
     #./mod/desktop-environment/kde.nix
 
-    #./mod/navidrome.nix
+    ./mod/navidrome.nix
     #./mod/nextcloud.nix
   ];
 
