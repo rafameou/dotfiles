@@ -6,6 +6,7 @@
     ./treecko-hw.nix
     ./mod/boot.nix
 
+    ./mod/sway.nix
     ./mod/tlp.nix
   ];
 
