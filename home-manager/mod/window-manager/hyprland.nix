@@ -29,7 +29,6 @@
         "${pkgs.trayscale}/bin/trayscale --hide=window"
         "polkit-mate-authentication-agent-1"
         "${pkgs.blueman}/bin/blueman-applet"
-        "flameshot"
       ];
 
       bind = [
@@ -39,7 +38,7 @@
         "$mod, C, exec, octave --gui"
 
         #", Print, exec, ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy"
-        ", Print, exec, flameshot gui"
+        ", Print, exec, ${pkgs.grim}/bin/grim -g '$(${pkgs.slurp}/bin/slurp)' - | ${pkgs.swappy}/bin/swappy -f -"
         "$mod, F, fullscreen, 0"
         "$mod, M, fullscreen, 1"
         "$mod + SHIFT, F, fullscreen, 2"

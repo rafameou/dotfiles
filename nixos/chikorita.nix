@@ -1,28 +1,15 @@
 { config, pkgs, inputs, ... }:
 {
   imports = [ 
-    inputs.home-manager.nixosModules.home-manager
+    ./mod/base.nix
+
     ./chikorita-hw.nix
     ./mod/boot.nix
-    ./mod/nix.nix
-    ./mod/nixpkgs.nix
-    ./mod/zsh.nix
-    ./mod/bluetooth.nix
-    ./mod/desktop.nix
-    ./mod/qemu.nix 
-    ./mod/pipewire.nix
     ./mod/nvidia-hell.nix
-    ./mod/ssd.nix
-    ./mod/time.nix
-    ./mod/user.nix
-    ./mod/printer.nix
-    ./mod/distrobox.nix 
-    ./mod/env.nix
-    ./mod/flatpak.nix
-    ./mod/sway.nix
-    #./mod/desktop-environment/kde.nix
 
+    ./mod/sway.nix
     ./mod/navidrome.nix
+    ./mod/ssh.nix
     #./mod/nextcloud.nix
   ];
 
@@ -53,16 +40,13 @@
     };*/
   };
 
-  services.geoclue2.enable = true;
-
   services.gnome.gnome-remote-desktop.enable = true;
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
     AllowHibernation=no
   '';
 
-  services.openssh.enable = true;
-  services.openssh.openFirewall = false;
+
   programs.firejail.enable = true;
   programs.fuse.userAllowOther = true;
   services.ollama.enable = true;

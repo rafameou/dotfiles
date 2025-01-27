@@ -161,7 +161,6 @@
 
             {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
             {command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }
-            {command = "--no-startup-id ${pkgs.flameshot}/bin/flameshot";} #In case flameshot service doesnt work.
         # {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
       ];
       keybindings = lib.mkOptionDefault {
@@ -192,7 +191,7 @@
 
         #"Print"          = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy";
         #"Print" = "exec --no-startup-id flameshot gui";
-        "Print" = "exec --no-startup-id ${pkgs.lua}/bin/lua ${./flameshot_bad_scale.lua}";
+        "Print" = "exec --no-startup-id ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.swappy}/bin/swappy -f -";
         "${modifier}+Ctrl+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
 
         "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";

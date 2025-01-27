@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
@@ -36,13 +36,5 @@
       "org.gnome.gitlab.YaLTeR.Identity"
       "io.mrarm.mcpelauncher"
     ];
-  };
-
-  services.dbus.enable = true;
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gnome pkgs.xdg-desktop-portal-kde ];
-    config.common.default = "*";
   };
 }

@@ -7,6 +7,7 @@
     #./separated/kitty.nix
     ./separated/rclone.nix
     ./separated/zathura.nix
+    ./separated/solaar.nix
     ./separated/vimiv.nix
     ./separated/wlogout.nix
   ];
