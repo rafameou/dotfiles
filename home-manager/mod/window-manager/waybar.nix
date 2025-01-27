@@ -14,7 +14,7 @@
 
         modules-left   = [ "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" /*"custom/media" "wlr/taskbar"*/ ];
         modules-center = [ ];
-        modules-right  = ["idle_inhibitor"  "pulseaudio" "systemd-failed-units" /*"network" "hyprland/language" "sway/language"*/ "cpu" "memory" "battery" "privacy" "user" "backlight" "clock" "custom/weather" "custom/notification" "tray" "custom/logout"];
+        modules-right  = ["idle_inhibitor"  "pulseaudio" "systemd-failed-units" /*"network" "hyprland/language" "sway/language"*/ "cpu" "memory" "memory#swap" "battery" "privacy" "user" "backlight" "clock" "custom/weather" "custom/notification" "tray" "custom/logout"];
 
         tray = {
           # icon-size = 21;
@@ -184,7 +184,11 @@
           };
 
           memory = {
-            format = "{used}GiB";
+            format = "󰍛{used}/{total}G";
+          };
+
+          "memory#swap" = {
+            format = "󰓡{swapUsed}/{swapTotal}G";
           };
 
           temperature = {
