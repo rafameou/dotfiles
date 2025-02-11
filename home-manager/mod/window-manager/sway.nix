@@ -23,20 +23,20 @@
       #menu = ''BEMENU_OPTS="--fn 'Fira Sans Regular 16' --tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}e5' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}e5' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}e5' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}e5' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}e5' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
       menu = "fuzzel";
       bars = [
-        /*{
+        {
           fonts = {
             names = ["Fira Sans"];
-            style = "Regular";
+            style = "Bold";
             size = 12.0;
           };
-          position = "bottom";
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
+          position = "top";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
           #/---------------------------------------------------------|
           #| Stolen from https://github.com/tinted-theming/base16-i3/ |
           #|---------------------------------------------------------/
           colors = {
-            background = "#${config.colorScheme.palette.base00}e5";
-            separator = "#${config.colorScheme.palette.base01}";
+            background = "#${config.colorScheme.palette.base00}e5"; #transp e5
+            separator = "#${config.colorScheme.palette.base05}"; #01
             statusline = "#${config.colorScheme.palette.base04}";
             focusedWorkspace = {
               border = "#${config.colorScheme.palette.base05}";
@@ -64,8 +64,8 @@
               text = "#${config.colorScheme.palette.base00}";
             };
           };
-        }*/
-        { command = "${pkgs.waybar}/bin/waybar"; }
+        }
+        /*{ command = "${pkgs.waybar}/bin/waybar"; }*/
       ];
       colors = {
         focused = {

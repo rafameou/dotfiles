@@ -92,20 +92,15 @@ in
         size = 12;
       };
       theme = {
-        /*name = "Gruvbox-Dark-BL-LB";
-        package = pkgs.gruvbox-gtk-theme;*/
         name = "${config.colorScheme.slug}";
         package = gtkThemeFromScheme {
           scheme = config.colorScheme;
         };
       };
-      iconTheme = {
-        /*name = "oomox-gruvbox-dark";
-        package = pkgs.gruvbox-dark-icons-gtk;*/
+      /*iconTheme = {
         name = "Gruvbox-Plus-Dark";
         package = pkgs.gruvbox-plus-icons;
-        /*name = "matefaenzadark";*/
-      };
+      };*/
       cursorTheme = {
         name = "phinger-cursors-light";
         package = pkgs.phinger-cursors;

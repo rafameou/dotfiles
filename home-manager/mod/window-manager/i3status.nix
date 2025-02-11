@@ -3,12 +3,10 @@
   programs.i3status-rust = {
     enable = true;
     bars = {
-      bottom = {
-        theme = "native";#"gruvbox-dark";
+      top = {
+        theme = "native";
         icons = "material-nf";
         blocks = [
-          /*{ block = "focused_window"; }*/
-          { block = "music"; }
           {
             block = "sound";
             headphones_indicator = true;
@@ -47,25 +45,23 @@
           { block = "disk_space"; }
           { 
             block = "memory"; 
-            format = " $icon $mem_used_percents.eng(w:2) ";
-            format_alt = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi)($mem_used_percents.eng(w:2)) $icon_swap $swap_used_percents.eng(w:2) ";
+            format = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi) ";
+          }
+          {
+            block = "memory";
+            format = " $icon_swap $swap_used.eng(prefix:Mi)/$swap_total.eng(prefix:Mi) ";
           }
           { block = "cpu"; }
           { 
             block = "net";
-            format = " $icon {$ssid($signal_strength)|Wired}";
+            format = " $icon {$ssid($signal_strength)|Wired} ";
             format_alt = " $icon {$ssid($signal_strength $frequency)|Wired} via $device ";
             interval = 10;
           }
           { block = "backlight"; }
           {
-            block = "hueshift";
-            step = 0;
-          }
-          { 
-            block = "keyboard_layout"; 
-            driver = "sway";
-            format = " $variant ";
+            block = "uptime";
+            interval = 3600;
           }
           /*{
           block = "toggle";
@@ -74,10 +70,21 @@
           command_on = "systemctl --user start swayidle";
           command_off = "systemctl --user stop swayidle";
           }*/
-          /*{ 
+          { 
             block = "notify"; 
-            format = " NOT $icon ";
-          }*/
+            format = " $icon {($notification_count.eng(w:1)) |}";
+            driver = "swaync";
+            click = [
+              {
+                button = "left";
+                action = "show";
+              }
+              {
+                button = "right";
+                action = "toggle_paused";
+              }
+            ];
+          }
           { block = "battery"; }
           { 
             block = "time"; 
