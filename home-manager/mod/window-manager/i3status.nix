@@ -60,8 +60,8 @@
           }*/
           { 
             block = "battery";
-            format = " $icon $percentage ($power) ";
-            full_format = " $icon $power ";
+            format = " $icon $percentage {($power) |}";
+            full_format = " $icon {$power |}";
           }
           { 
             block = "time"; 
