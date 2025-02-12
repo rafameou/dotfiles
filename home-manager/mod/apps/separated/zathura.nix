@@ -9,7 +9,7 @@
       |- Stolen from Misterio77's config -|
       |----------------------------------*/
       #https://github.com/Misterio77/nix-colors/issues/41
-      default-bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9)";#"#${config.colorScheme.palette.base00}";
+      default-bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 1)";#"#${config.colorScheme.palette.base00}";
       default-fg = "#${config.colorScheme.palette.base01}";
       statusbar-bg = "#${config.colorScheme.palette.base02}";
       statusbar-fg = "#${config.colorScheme.palette.base04}";

@@ -6,8 +6,8 @@ let
   rev = "78bb72b4c60b421c8ea64dd7c960add6add92f83";
   hash = "sha256-lp7HWYuD4aUyX1nRipldEojZVIvQmsxjYATdyHWph0g=";
   };*/
-  tr = "0.9";
-  trTab = "0";
+  tr = "1";
+  trTab = "1";
 in
 {
   /*xdg.configFile."qutebrowser/catppuccin".source = catpuccin;*/

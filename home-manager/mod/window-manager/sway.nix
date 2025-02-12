@@ -25,17 +25,17 @@
       bars = [
         {
           fonts = {
-            names = ["Fira Sans"];
-            style = "Bold";
+            names = ["Fira Sans" "Font Awesome 6 Free"];
+            style = "Regular";
             size = 12.0;
           };
-          position = "top";
-          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-top.toml";
+          position = "bottom";
+          statusCommand = "${pkgs.i3status-rust}/bin/i3status-rs ~/.config/i3status-rust/config-bottom.toml";
           #/---------------------------------------------------------|
           #| Stolen from https://github.com/tinted-theming/base16-i3/ |
           #|---------------------------------------------------------/
           colors = {
-            background = "#${config.colorScheme.palette.base00}e5"; #transp e5
+            background = "#${config.colorScheme.palette.base00}"; #transp e5
             separator = "#${config.colorScheme.palette.base05}"; #01
             statusline = "#${config.colorScheme.palette.base04}";
             focusedWorkspace = {
@@ -129,16 +129,16 @@
           /*workspaceAutoBackAndForth = true;
           workspaceLayout = "default";*/
           gaps = {
-            inner = 0; #10
+            inner = 10; #10
           };
           floating = {
-            border = 1;
+            border = 2;
             titlebar = true; #doesnt work
           };
           window = {
-            border = 1;
+            border = 2;
             titlebar = false;
-            hideEdgeBorders = "smart";
+            #hideEdgeBorders = "smart";
             commands = [ ];
           };
           startup = [
@@ -147,20 +147,19 @@
             {command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
             {command = "--no-startup-id systemctl --user restart xdg-desktop-portal-gtk";}
 
-            {command = "--no-startup-id nm-applet --indicator";}
+            /*{command = "--no-startup-id nm-applet --indicator";}*/
             {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
             {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
             {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m tile -i ~/wallpaper"; } #fill
             /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
-            {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
-            /*{command = "--no-startup-id pcmanfm-qt --desktop --daemon-mode -w ~/wallpaper --wallpaper-mode=tile";}*/
+            /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
+            {command = "--no-startup-id pcmanfm-qt --desktop --daemon-mode -w ~/wallpaper --wallpaper-mode=tile";}
             {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
 
-            {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
-            {command = "--no-startup-id ${pkgs.trayscale}/bin/trayscale --hide=window";}
+            /*{command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}*/
 
             {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
-            {command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }
+            /*{command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }*/
         # {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
       ];
       keybindings = lib.mkOptionDefault {

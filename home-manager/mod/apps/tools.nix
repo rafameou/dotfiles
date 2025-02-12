@@ -27,7 +27,6 @@
     htop lm_sensors powerstat
     nixos-icons
     mesa-demos
-    trayscale
     pavucontrol
     android-file-transfer
     kdePackages.filelight

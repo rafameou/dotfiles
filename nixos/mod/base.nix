@@ -36,5 +36,6 @@
     #./distrobox.nix
     ./flatpak.nix
     ./printer.nix
+    ./tailscale.nix
   ];
 }

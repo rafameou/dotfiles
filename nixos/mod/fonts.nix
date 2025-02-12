@@ -11,5 +11,8 @@
     nerd-fonts.terminess-ttf
     montserrat
     cozette
+    font-awesome
+    font-awesome_5
+    font-awesome_4
   ];
 }

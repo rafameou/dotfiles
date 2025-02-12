@@ -7,7 +7,7 @@
         font = "FiraCode Nerd Font Mono:size=16";
       };
       colors = {
-        alpha = "0.9";
+        alpha = "1";
         foreground="${config.colorScheme.palette.base05}";
         background="${config.colorScheme.palette.base00}";
         regular0="${config.colorScheme.palette.base00}";

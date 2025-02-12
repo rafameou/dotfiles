@@ -3,9 +3,9 @@
   programs.i3status-rust = {
     enable = true;
     bars = {
-      top = {
+      bottom = {
         theme = "native";
-        icons = "material-nf";
+        icons = "awesome6";
         blocks = [
           {
             block = "sound";
@@ -13,7 +13,7 @@
             click = [
               {
                 button = "left";
-                cmd = "pavucontrol";
+                cmd = "pavucontrol-qt";
               }
             ];
           }
@@ -32,17 +32,6 @@
               }*/
             ];
           }
-          {
-            block = "kdeconnect";
-          }
-          /*{
-            block = "temperature";
-            interval = 10;
-            format = " $icon $max" ;
-            inputs = ["Core 0" "CPU"];
-            chip = "*-isa-*";
-          }*/
-          { block = "disk_space"; }
           { 
             block = "memory"; 
             format = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi) ";
@@ -54,14 +43,13 @@
           { block = "cpu"; }
           { 
             block = "net";
-            format = " $icon {$ssid($signal_strength)|Wired} ";
+            format = " $icon $ip ";
             format_alt = " $icon {$ssid($signal_strength $frequency)|Wired} via $device ";
             interval = 10;
           }
           { block = "backlight"; }
           {
             block = "uptime";
-            interval = 3600;
           }
           /*{
           block = "toggle";
@@ -70,6 +58,19 @@
           command_on = "systemctl --user start swayidle";
           command_off = "systemctl --user stop swayidle";
           }*/
+          { 
+            block = "battery";
+            format = " $icon $percentage ($power) ";
+            full_format = " $icon $power ";
+          }
+          { 
+            block = "time"; 
+            interval = 10;
+            format = {
+              full = " $icon $timestamp.datetime(f:'%a %d/%m %R:%S', l:pt_BR) ";
+              short = " $icon $timestamp.datetime(f:%R) ";
+            };
+          }
           { 
             block = "notify"; 
             format = " $icon {($notification_count.eng(w:1)) |}";
@@ -84,15 +85,6 @@
                 action = "toggle_paused";
               }
             ];
-          }
-          { block = "battery"; }
-          { 
-            block = "time"; 
-            interval = 10;
-            format = {
-              full = " $icon $timestamp.datetime(f:'%a %d/%m %R:%S', l:pt_BR) ";
-              short = " $icon $timestamp.datetime(f:%R) ";
-            };
           }
         ];
       };

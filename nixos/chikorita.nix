@@ -51,6 +51,8 @@
   programs.fuse.userAllowOther = true;
   services.ollama.enable = true;
 
+  services.tailscale.useRoutingFeatures = "both";
+
   environment.systemPackages = [
     pkgs.screen
     pkgs.xdotool
