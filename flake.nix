@@ -52,7 +52,7 @@
         modules = [ 
           #stylix.nixosModules.stylix
           solaar.nixosModules.default
-          ./nixos/bulbasaur.nix 
+          ./nixos/system/bulbasaur.nix 
           chaotic.nixosModules.default
         ];
       };
@@ -61,7 +61,7 @@
         modules = [ 
           #stylix.nixosModules.stylix 
           solaar.nixosModules.default
-          ./nixos/chikorita.nix 
+          ./nixos/system/chikorita.nix 
           chaotic.nixosModules.default
         ];
       };
@@ -70,7 +70,7 @@
         modules = [ 
           #stylix.nixosModules.stylix 
           solaar.nixosModules.default
-          ./nixos/treecko.nix 
+          ./nixos/system/treecko.nix 
           chaotic.nixosModules.default
         ];
       };
@@ -79,7 +79,7 @@
 	modules = [
           nixos-wsl.nixosModules.default
           solaar.nixosModules.default
-          ./nixos/wsl.nix
+          ./nixos/system/wsl.nix
 	  chaotic.nixosModules.default
 	];
       };
@@ -87,7 +87,7 @@
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
           #stylix.nixosModules.stylix
-          ./nixos/oddish.nix 
+          ./nixos/system/oddish.nix 
         ];
       };
     };

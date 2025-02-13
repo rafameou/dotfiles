@@ -1,7 +1,7 @@
 # Personal NixOS Flake
 
 ```sh
-sudo nixos-rebuild --flake .#$(hostname) switch |& nom
+nh os switch .
 ```
 
 ## To-do list
