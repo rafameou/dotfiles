@@ -153,7 +153,7 @@
             {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m tile -i ~/wallpaper"; } #fill
             /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
             /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
-            {command = "--no-startup-id pcmanfm-qt --desktop --daemon-mode -w ~/wallpaper --wallpaper-mode=tile";}
+            {command = "--no-startup-id pcmanfm-qt --daemon-mode -w ~/wallpaper --wallpaper-mode=tile";} #--desktop
             {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
 
             /*{command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}*/

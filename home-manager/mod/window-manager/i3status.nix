@@ -32,6 +32,10 @@
               }*/
             ];
           }
+          {
+            block = "temperature";
+            format = " $icon $max ";
+          }
           { 
             block = "memory"; 
             format = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi) ";
@@ -40,7 +44,10 @@
             block = "memory";
             format = " $icon_swap $swap_used.eng(prefix:Mi)/$swap_total.eng(prefix:Mi) ";
           }
-          { block = "cpu"; }
+          { 
+            block = "cpu";
+            format = " $icon $utilization{ $boost|} ";
+          }
           { 
             block = "net";
             format = " $icon $ip ";
