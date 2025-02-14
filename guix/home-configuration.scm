@@ -9,7 +9,8 @@
 	     (gnu packages)
 	     (gnu services)
 	     (guix gexp)
-	     (gnu home services shells))
+	     (gnu home services shells)
+	     (gnu home services dotfiles))
 
 (home-environment
   ;; Abaixo está a lista de pacotes que aparecerão no seu
