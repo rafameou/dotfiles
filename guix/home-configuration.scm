@@ -80,4 +80,4 @@
 			   (home-dotfiles-configuration
 			     (layout 'plain)
 			     (directories `("files"))))
-	    %base-home-services)))
+	    %base-home-services))))
