@@ -117,7 +117,7 @@ mode "resize" {
 }
 
 bar {
-  font pango:Fira Sans, Font Awesome 6 Free Regular 12.000000
+  font pango:Fira Sans, FontAwesome Regular 12.000000
   position bottom
   status_command i3status-rs ~/.config/i3status-rust/config-bottom.toml
   swaybar_command swaybar

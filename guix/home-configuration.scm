@@ -17,9 +17,7 @@
   ;; perfil pessoal, em ~/.guix-home/profile.
   (packages (specifications->packages 
 	      (list "waybar"
-		    "font-fira-sans"
-		    "font-fira-mono"
-		    "font-fira-code"
+		    "i3status-rust"
 		    "fuzzel"
 		    "foot"
 		    "dmenu"
@@ -40,6 +38,14 @@
 		    "gammastep"
 		    ;;"blueman"
 		    "mate-polkit"
+
+		    "qt5ct"
+		    "qt6ct"
+
+		    "font-fira-sans"
+		    "font-fira-mono"
+		    "font-fira-code"
+		    "font-awesome"
 
 		    ;;"neovim"
 		    "lf"
@@ -71,12 +77,7 @@
   ;; Abaixo está a lista de serviços Home. Para procurar por serviços
   ;; disponíveis, execute 'guix home search KEYWORD' em um terminal.
   (services
-    (append (list (service home-bash-service-type
-			   (home-bash-configuration
-			     (aliases '())
-			     (bashrc (list (local-file "./.bashrc" "bashrc")))
-			     (bash-profile (list (local-file "./.bash_profile"
-							     "bash_profile")))))
+    (append (list (service home-bash-service-type)
 		  (service home-dotfiles-service-type
 			   (home-dotfiles-configuration
 			     (layout 'plain)

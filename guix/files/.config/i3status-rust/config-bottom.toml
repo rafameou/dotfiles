@@ -11,12 +11,6 @@ block = "sound"
 device_kind = "source"
 
 [[block]]
-block = "privacy"
-
-[[block.driver]]
-name = "v4l"
-
-[[block]]
 block = "temperature"
 format = " $icon $max "
 
@@ -71,7 +65,7 @@ action = "toggle_paused"
 button = "right"
 
 [icons]
-icons = "awesome6"
+icons = "awesome4"
 
 [theme]
 theme = "native"

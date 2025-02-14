@@ -32,39 +32,46 @@
   ;; for packages and 'guix install PACKAGE' to install a package.
   (packages (append (list (specification->package "git")
 			  (specification->package "sway")
-			  (specification->package "neovim")
-			  %base-packages))
+			  (specification->package "swaylock")
+			  (specification->package "neovim"))
+		    %base-packages))
 
-	    ;; Below is the list of system services.  To search for available
-	    ;; services, run 'guix system search KEYWORD' in a terminal.
-	    (services
-	      (append (list (service cups-service-type)
-			    (service zram-device-service-type
-				     (zram-device-configuration
-				       (size "8G")
-				       (compression-algorithm 'zstd)))
-			    (set-xorg-configuration
-			      (xorg-configuration (keyboard-layout keyboard-layout))))
+  ;; Below is the list of system services.  To search for available
+  ;; services, run 'guix system search KEYWORD' in a terminal.
+  (services
+    (append (list (service cups-service-type)
+		  (service zram-device-service-type
+			   (zram-device-configuration
+			     (size "8G")
+			     (compression-algorithm 'zstd)))
+		  (service screen-locker-service-type
+			   (screen-locker-configuration
+			     (name "swaylock")
+			     (program (file-append swaylock "/bin/swaylock"))
+			     (using-pam? #t)
+			     (using-setuid? #f)))
+		  (set-xorg-configuration
+		    (xorg-configuration (keyboard-layout keyboard-layout))))
 
-		      ;; This is the default list of services we
-		      ;; are appending to.
-		      %desktop-services))
+	    ;; This is the default list of services we
+	    ;; are appending to.
+	    %desktop-services))
 
-	    (bootloader (bootloader-configuration
-			  (bootloader grub-bootloader)
-			  (targets (list "/dev/sda"))
-			  (keyboard-layout keyboard-layout)))
+  (bootloader (bootloader-configuration
+		(bootloader grub-bootloader)
+		(targets (list "/dev/sda"))
+		(keyboard-layout keyboard-layout)))
 
-	    (swap-devices (list (swap-space
-				  (target (uuid
-					    "23a3fb6f-7f88-4da7-aca0-61b8608c7e62")))))
+  (swap-devices (list (swap-space
+			(target (uuid
+				  "23a3fb6f-7f88-4da7-aca0-61b8608c7e62")))))
 
-	    ;; The list of file systems that get "mounted".  The unique
-	    ;; file system identifiers there ("UUIDs") can be obtained
-	    ;; by running 'blkid' in a terminal.
-	    (file-systems (cons* (file-system
-				   (mount-point "/")
-				   (device (uuid
-					     "b6900906-edcd-4c08-b440-ff21c55d6a08"
-					     'ext4))
-				   (type "ext4")) %base-file-systems)))
+  ;; The list of file systems that get "mounted".  The unique
+  ;; file system identifiers there ("UUIDs") can be obtained
+  ;; by running 'blkid' in a terminal.
+  (file-systems (cons* (file-system
+			 (mount-point "/")
+			 (device (uuid
+				   "b6900906-edcd-4c08-b440-ff21c55d6a08"
+				   'ext4))
+			 (type "ext4")) %base-file-systems)))

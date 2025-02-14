@@ -22,17 +22,6 @@
             device_kind = "source";
           }
           {
-            block = "privacy";
-            driver = [
-              {
-                name = "v4l";
-              }
-              /*{
-                name = "pipewire";
-              }*/
-            ];
-          }
-          {
             block = "temperature";
             format = " $icon $max ";
           }
