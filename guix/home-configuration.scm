@@ -80,5 +80,5 @@
 		  (service home-dotfiles-service-type
 			   (home-dotfiles-configuration
 			     (layout 'plain)
-			     (directories `("files"))))
-	    %base-home-services))))
+			     (directories `("files")))))
+	    %base-home-services)))
