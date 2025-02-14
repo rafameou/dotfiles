@@ -1,0 +1,232 @@
+[
+  {
+    "backlight": {
+      "format": "{icon}{percent}%",
+      "format-icons": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    "battery": {
+      "format": "{icon}{capacity}% {power:.3}W</span>",
+      "format-alt": "{time}{icon} ",
+      "format-charging": "<span color='#8EC07C'>󰂅{capacity}% {power:.3}W</span>",
+      "format-icons": [
+        "<span color='#FB4934'>",
+        "<span color='#FE8019'>",
+        "<span color='#8EC07C'>",
+        "<span color='#B8BB26'>",
+        "<span color='#B8BB26'>"
+      ],
+      "format-plugged": "<span color='#8EC07C'>{capacity}% {power:.3}W</span>",
+      "states": {
+        "critical": 15,
+        "good": 95,
+        "warning": 30
+      }
+    },
+    "clock": {
+      "calendar": {
+        "format-days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "format-months": "<span color='#ffead3'><b>{}</b></span>",
+        "format-today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+        "format-weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "format-weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "mode": "year",
+        "mode-mon-col": 3,
+        "on-click-right": "mode",
+        "on-scroll": 1,
+        "on-scroll-down": "tz_down",
+        "on-scroll-up": "tz_up",
+        "weeks-pos": "right"
+      },
+      "format": "󰥔{:%T %d/%m/%Y}",
+      "interval": 1,
+      "timezone": "America/Sao_Paulo",
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "cpu": {
+      "format": "{icon}{usage}%</span>",
+      "format-icons": [
+        "<span color='#B8BB26'>▁",
+        "<span color='#8EC07C'>▂",
+        "<span color='#83A598'>▃",
+        "<span color='#FABD2F'>▄",
+        "<span color='#FE8019'>▅",
+        "<span color='#FE8019'>▆",
+        "<span color='#FB4934'>▇",
+        "<span color='#FB4934'>█"
+      ],
+      "tooltip": false
+    },
+    "custom/logout": {
+      "format": "󰩈",
+      "on-click": "wlogout"
+    },
+    "custom/notification": {
+      "escape": true,
+      "exec": "/nix/store/7pblb3k18az12yqllqvj222p0bpy6j06-SwayNotificationCenter-0.10.1/bin/swaync-client -swb",
+      "exec-if": "which swaync-client",
+      "format": "{icon}",
+      "format-icons": {
+        "dnd-inhibited-none": "",
+        "dnd-inhibited-notification": "<span color='#FB4934'>*</span>",
+        "dnd-none": "",
+        "dnd-notification": "<span color='#FABD2F'>*</span>",
+        "inhibited-none": "",
+        "inhibited-notification": "<span color='#FB4934'>*</span>",
+        "none": "",
+        "notification": "<span color='#FABD2F'>*</span>"
+      },
+      "on-click": "/nix/store/7pblb3k18az12yqllqvj222p0bpy6j06-SwayNotificationCenter-0.10.1/bin/swaync-client -t -sw",
+      "on-click-right": "/nix/store/7pblb3k18az12yqllqvj222p0bpy6j06-SwayNotificationCenter-0.10.1/bin/swaync-client -d -sw",
+      "return-type": "json",
+      "tooltip": false
+    },
+    "custom/weather": {
+      "exec": "wttrbar --lang pt --location ponta-grossa",
+      "format": "{}°C",
+      "interval": 3600,
+      "return-type": "json",
+      "tooltip": true
+    },
+    "height": 24,
+    "idle_inhibitor": {
+      "format": "{icon}",
+      "format-icons": {
+        "activated": "<span color='#FABD2F'></span>",
+        "deactivated": "<span color='#D3869B'></span>"
+      }
+    },
+    "keyboard-state": {
+      "capslhock": true,
+      "format": "{name}{icon}",
+      "format-icons": {
+        "locked": "LCK",
+        "unlocked": "UNL"
+      },
+      "numlock": true
+    },
+    "layer": "bottom",
+    "memory": {
+      "format": "󰍛{used}/{total}G"
+    },
+    "memory#swap": {
+      "format": "󰓡{swapUsed}/{swapTotal}G"
+    },
+    "modules-center": [],
+    "modules-left": [
+      "hyprland/workspaces",
+      "sway/workspaces",
+      "sway/mode",
+      "sway/scratchpad"
+    ],
+    "modules-right": [
+      "idle_inhibitor",
+      "pulseaudio",
+      "systemd-failed-units",
+      "cpu",
+      "memory",
+      "memory#swap",
+      "battery",
+      "privacy",
+      "user",
+      "backlight",
+      "clock",
+      "custom/weather",
+      "custom/notification",
+      "tray",
+      "custom/logout"
+    ],
+    "network": {
+      "format-disconnected": "⚠Offline",
+      "format-ethernet": "{ifname}",
+      "format-linked": "No IP",
+      "format-wifi": "{signalStrength}%",
+      "tooltip-format": "{ifname} via {gwaddr} at {ipaddr}"
+    },
+    "position": "top",
+    "pulseaudio": {
+      "format": "{icon}{volume}%{format_source}",
+      "format-bluetooth": "{icon}{volume}%{format_source}",
+      "format-bluetooth-muted": "{icon}󰝟{format_source}",
+      "format-icons": {
+        "car": "",
+        "default": [
+          "󰕿",
+          "󰖀",
+          "󰕾"
+        ],
+        "hands-free": "",
+        "headphone": "",
+        "headset": "",
+        "phone": "",
+        "portable": ""
+      },
+      "format-muted": "󰝟{format_source}",
+      "format-source": "{volume}%",
+      "format-source-muted": "",
+      "on-click": "pavucontrol-qt",
+      "scroll-step": 1
+    },
+    "spacing": 5,
+    "sway/language": {
+      "format": "{}",
+      "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
+    },
+    "sway/scratchpad": {
+      "format": "{icon} {count}",
+      "format-icons": [
+        "",
+        ""
+      ],
+      "show-empty": false,
+      "tooltip": true,
+      "tooltip-format": "{app}: {title}"
+    },
+    "sway/window": {
+      "icon": false,
+      "icon-size": 20
+    },
+    "sway/workspaces": {
+      "all-outputs": true,
+      "format": "{name}{icon}",
+      "format-icons": {
+        "default": "",
+        "focused": "",
+        "urgent": ""
+      }
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{icon} {temperatureC}°C</span>",
+      "format-icons": [
+        "<span color='#B8BB26'>",
+        "<span color='#FABD2F'>",
+        "<span color='#FB4934'>"
+      ],
+      "hwmon-path": "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input"
+    },
+    "tray": {
+      "spacing": 5
+    },
+    "user": {
+      "format": "󰄛up {work_d}d{work_H}h{work_M}m",
+      "height": 20,
+      "icon": false,
+      "weight": 20
+    },
+    "wlr/taskbar": {
+      "format": "{icon}",
+      "icon-size": 20,
+      "on-click": "activate"
+    }
+  }
+]

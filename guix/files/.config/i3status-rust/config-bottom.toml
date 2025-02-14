@@ -1,0 +1,77 @@
+[[block]]
+block = "sound"
+headphones_indicator = true
+
+[[block.click]]
+button = "left"
+cmd = "pavucontrol-qt"
+
+[[block]]
+block = "sound"
+device_kind = "source"
+
+[[block]]
+block = "privacy"
+
+[[block.driver]]
+name = "v4l"
+
+[[block]]
+block = "temperature"
+format = " $icon $max "
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used.eng(prefix:Mi)/$mem_total.eng(prefix:Mi) "
+
+[[block]]
+block = "memory"
+format = " $icon_swap $swap_used.eng(prefix:Mi)/$swap_total.eng(prefix:Mi) "
+
+[[block]]
+block = "cpu"
+format = " $icon $utilization{ $boost|} "
+
+[[block]]
+block = "net"
+format = " $icon $ip "
+format_alt = " $icon {$ssid($signal_strength $frequency)|Wired} via $device "
+interval = 10
+
+[[block]]
+block = "backlight"
+
+[[block]]
+block = "uptime"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage {($power) |}"
+full_format = " $icon {$power |}"
+
+[[block]]
+block = "time"
+interval = 10
+
+[block.format]
+full = " $icon $timestamp.datetime(f:'%a %d/%m %R:%S', l:pt_BR) "
+short = " $icon $timestamp.datetime(f:%R) "
+
+[[block]]
+block = "notify"
+driver = "swaync"
+format = " $icon {($notification_count.eng(w:1)) |}"
+
+[[block.click]]
+action = "show"
+button = "left"
+
+[[block.click]]
+action = "toggle_paused"
+button = "right"
+
+[icons]
+icons = "awesome6"
+
+[theme]
+theme = "native"

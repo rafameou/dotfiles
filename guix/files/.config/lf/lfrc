@@ -1,0 +1,18 @@
+
+
+
+
+
+
+
+
+set previewer ctpv
+map i $ctpv "$f" | less -R
+
+
+
+set sixel true
+&ctpv -s $id
+cmd on-quit %ctpv -e $id
+set cleaner ctpvclear
+

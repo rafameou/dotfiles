@@ -1,0 +1,111 @@
+        * {
+        font-family: Fira Sans, FiraCode Nerd Font Mono, Fira Sans;
+        font-size: 18px;
+        transition-duration: 0;
+        }
+
+          window#waybar {
+                  color: #d5c4a1;
+          background: linear-gradient(180deg, rgba(80,73,69, 0.9) 50%, rgba(50,48,47, 0.9) 100%);
+        }
+
+        window#waybar.hidden {
+        opacity: 0.2;
+        }
+
+        window#waybar.termite {
+        background-color: #3F3F3F;
+        }
+
+        window#waybar.chromium {
+        background-color: #000000;
+        border: none;
+        }
+
+#taskbar button {
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: inset 0 0 0 1px #504945;
+    border-radius: 5px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 5px;
+    background: radial-gradient(ellipse, rgba(80, 73, 69, 0.9) 0%, rgba(0,0,0,0) 100%);
+    }
+
+#taskbar button.hover,
+#taskbar button.active {
+    background: radial-gradient(ellipse, rgba(50,48,47, 0.9) 0%, rgba(80,73,69, 1) 100%);
+    }
+
+    button {
+    box-shadow: inset 0 -3px transparent;
+    border: none;
+    border-radius: 100%;
+    min-height: 24px;
+    min-width: 16px;
+    }
+
+    /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+    button:hover {
+    background: inherit;
+    /*box-shadow: inset 0 -3px #ffffff;*/
+    }
+
+      #workspaces button {
+          padding: 0 5px;
+          background-color: transparent;
+          color: #A89984;
+          border-radius: 100%;
+          transition-duration: .2s;
+          background: #504945;
+          }
+
+      #workspaces button.active,
+      #workspaces button.focused,
+      #workspaces button:hover {
+          /*background: ;*/
+          background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
+          /*background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);*/
+          color: #d5c4a1;
+          }
+
+      #workspaces button.urgent {
+          color: #FB4934;
+          }
+
+      #mode {
+          background-color: #64727D;
+          border-bottom: 3px solid #ffffff;
+          }
+
+          /*#window,
+      #workspaces {
+          margin: 0 4px;
+          }*/
+
+      #waybar.empty #window {
+          border: none;
+          background: none;
+          }
+
+          .modules-right > widget {
+          border-radius: 5px;
+          box-shadow: inset 0 0 0 1px #504945;
+          background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0) 100%);
+          }
+
+      #wireplumber.muted,
+      #network.disconnected,
+      #pulseaudio.muted {
+          color: #FB4934;
+          }
+
+      #tray > .passive {
+          -gtk-icon-effect: dim;
+          }
+
+      #tray > .needs-attention {
+          -gtk-icon-effect: highlight;
+          background-color: #eb4d4b;
+          }
