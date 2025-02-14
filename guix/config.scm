@@ -11,6 +11,7 @@
 ;; used in this configuration.
 (use-modules (gnu) (gnu services linux))
 (use-service-modules cups desktop networking ssh xorg)
+(use-package-modules wm)
 
 (operating-system
   (locale "pt_BR.utf8")
