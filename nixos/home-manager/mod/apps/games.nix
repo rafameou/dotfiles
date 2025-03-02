@@ -4,7 +4,7 @@
     #./separated/retroarch.nix
   ];
   home.packages = with pkgs; [
-    easyrpg-player
+    #easyrpg-player #broken 02/03/25
     crispy-doom
     dsda-doom
     dsda-launcher
