@@ -10,20 +10,20 @@
     gnomeExtensions.appindicator
     gnomeExtensions.alphabetical-app-grid
     /*gnomeExtensions.favourites-in-appgrid*/
-    gnomeExtensions.hot-edge
-    gnomeExtensions.caffeine
+    /*gnomeExtensions.hot-edge*/
+    #gnomeExtensions.caffeine
     gnomeExtensions.tailscale-status
     #gnomeExtensions.wiggle
-    gnomeExtensions.gsconnect
+    /*gnomeExtensions.gsconnect
     gnomeExtensions.space-bar
-    #gnomeExtensions.dash-to-dock
     gnomeExtensions.add-to-desktop
     gnomeExtensions.gtk4-desktop-icons-ng-ding
-    #gnomeExtensions.just-perfection
+    #gnomeExtensions.just-perfection*/
     gnomeExtensions.solaar-extension
-    gnomeExtensions.weather-oclock
+    gnomeExtensions.dash-to-dock
+    /*gnomeExtensions.weather-oclock
     gnomeExtensions.activate_gnome
-    gnomeExtensions.blur-my-shell
+    gnomeExtensions.blur-my-shell*/
     # ---- gnome fixes ----
     adw-gtk3
     adwaita-qt
@@ -38,7 +38,6 @@
 
     planify
     eyedropper
-    ptyxis
     newsflash
     resources
     gnome-decoder
@@ -74,6 +73,10 @@
     "org/gnome/mutter" = {
       dynamic-workspaces = true;
       edge-tiling = true;
+      experimental-features = [
+        "scale-monitor-framebuffer" 
+        "xwayland-native-scaling"
+      ];
     };
     "org/gnome/shell/keybindings" = {
       switch-to-application-1 = ["<Super><Control>1"];
@@ -121,7 +124,7 @@
       show-battery-percentage = true;
       font-name = "Fira Sans 11";
       document-font-name = "Fira Sans 11";
-      monospace-font-name = "CozetteHiDpi Medium 16";
+      monospace-font-name = "FiraCode Nerd Font Mono 16";
       gtk-theme = "Adwaita";#"adw-gtk3-dark";
       color-scheme = "prefer-dark";
       #cursor-theme = "phinger-cursors-light";
@@ -138,53 +141,42 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
-        "firefox.desktop"
-        "google-chrome.desktop"
-        "geary.desktop"
-        "io.gitlab.news_flash.NewsFlash.desktop"
-        "io.github.alainm23.planify.desktop"
-        "Zettlr.desktop"
-        "bitwarden.desktop"
+        "org.qutebrowser.qutebrowser.desktop"
+        "librewolf.desktop"
+        "foot.desktop"
+        "emacs.desktop"
         "org.telegram.desktop.desktop"
-        "vesktop.desktop"
-        "com.rtosta.zapzap.desktop"
         "org.gnome.Nautilus.desktop"
-        "org.gnome.Ptyxis.desktop"
+        "gimp.desktop" 
+        "org.nicotine_plus.Nicotine.desktop"
+        "org.gnome.SystemMonitor.desktop" 
+        "org.gnome.Settings.desktop" 
         "org.octave.Octave.desktop"
-        "onlyoffice-desktopeditors.desktop"
-        "startcenter.desktop"
-        "org.strawberrymusicplayer.strawberry.desktop"
-        "feishin.desktop"
-        "smartcode-stremio.desktop"
-        "net.nokyan.Resources.desktop"
       ];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
         "appindicatorsupport@rgcjonas.gmail.com"
         "AlphabeticalAppGrid@stuarthayhurst"
+        "solaar-extension@sidevesh"
+        #"caffeine@patapon.info"
+        "tailscale-status@maxgallup.github.com"
         /*"favourites-in-appgrid@harshadgavali.gitlab.org"*/
         /*"hotedge@jonathan.jdoda.ca"*/
-        "caffeine@patapon.info"
-        "tailscale-status@maxgallup.github.com"
-        "gsconnect@andyholmes.github.io"
+        /*"gsconnect@andyholmes.github.io"*/
         /*"space-bar@luchrioh"*/
-        /*"dash-to-dock@micxgx.gmail.com"*/
+        "dash-to-dock@micxgx.gmail.com"
         /*"gtk4-ding@smedius.gitlab.com"*/
         /*"add-to-desktop@tommimon.github.com"*/
-        "apps-menu@gnome-shell-extensions.gcampax.github.com" 
-        "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"
-        /*"just-perfection-desktop@just-perfection"*/
-        "solaar-extension@sidevesh"
-        "weatheroclock@CleoMenezesJr.github.io"
-        "blur-my-shell@aunetx"
+        /*"apps-menu@gnome-shell-extensions.gcampax.github.com"*/
+        /*"places-menu@gnome-shell-extensions.gcampax.github.com"
+        "window-list@gnome-shell-extensions.gcampax.github.com"*/
       ];
       disabled-extensions = [];
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme=false;
-      background-opacity=0.80000000000000004;
+      background-opacity=0.90000000000000004;
       custom-theme-shrink=true;
       dash-max-icon-size=48;
       dock-fixed=true;
@@ -193,11 +185,11 @@
       height-fraction=0.90000000000000002;
       hot-keys=false;
       icon-size-fixed=true;
-      max-alpha=0.80000000000000004;
-      running-indicator-style="METRO";
+      max-alpha=0.90000000000000004;
+      running-indicator-style="DOTS";
       show-apps-at-top=false;
       show-mounts-network=true;
-      transparency-mode="DYNAMIC";
+      transparency-mode="FIXED";
     };
     "org/gnome/shell/extensions/just-perfection" = {
       activities-button = false;
@@ -216,11 +208,11 @@
       show-on-all-monitors = true;
     };
     "org/gnome/desktop/app-folders" = {
-      /*https://github.com/BenJetson/gnome-dash-fix*/
-      #folder-children = [];
-      folder-children = ["accessories" "chrome-apps" "games" "graphics" 
+      #https://github.com/BenJetson/gnome-dash-fix
+      folder-children = [];
+      /*folder-children = ["accessories" "chrome-apps" "games" "graphics" 
       "internet" "office" "programming" "science" "sound---video" 
-      "system-tools" "universal-access" "wine"];
+      "system-tools" "universal-access" "wine"];*/
     };
     "org/gnome/desktop/app-folders/folders/accessories" = {
       name = "Accessories";

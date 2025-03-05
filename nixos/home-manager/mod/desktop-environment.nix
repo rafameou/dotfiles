@@ -14,7 +14,7 @@
 
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -b -d 5";
+        ExecStart = "${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5";
         Restart = "on-failure";
         RestartSec = 30;
       };

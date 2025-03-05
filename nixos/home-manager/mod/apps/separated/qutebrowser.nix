@@ -30,6 +30,7 @@ in
       fonts.default_family = "Fira Sans";
       fonts.default_size = "12pt"; # 16 is too huge
       window.transparent = true;
+      window.hide_decoration = true;
       auto_save.session = true;
       input.insert_mode.auto_leave = false;
       input.insert_mode.auto_enter = false;

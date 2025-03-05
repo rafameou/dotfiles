@@ -11,7 +11,7 @@
 ;; used in this configuration.
 (use-modules (gnu) (gnu services linux))
 (use-service-modules cups desktop networking ssh xorg)
-(use-package-modules wm)
+;;(use-package-modules wm)
 
 (operating-system
   (locale "pt_BR.utf8")
@@ -32,25 +32,24 @@
   ;; under their own account: use 'guix search KEYWORD' to search
   ;; for packages and 'guix install PACKAGE' to install a package.
   (packages (append (list (specification->package "git")
-			  (specification->package "sway")
-			  (specification->package "swaylock")
 			  (specification->package "neovim"))
 		    %base-packages))
 
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
   (services
-    (append (list (service cups-service-type)
+    (append (list (service gnome-desktop-service-type)
+	      	  (service cups-service-type)
 		  (service zram-device-service-type
 			   (zram-device-configuration
 			     (size "8G")
 			     (compression-algorithm 'zstd)))
-		  (service screen-locker-service-type
-			   (screen-locker-configuration
-			     (name "swaylock")
-			     (program (file-append swaylock "/bin/swaylock"))
-			     (using-pam? #t)
-			     (using-setuid? #f)))
+		  ;;(service screen-locker-service-type
+			   ;;(screen-locker-configuration
+			     ;;(name "swaylock")
+			     ;;(program (file-append swaylock "/bin/swaylock"))
+			     ;;(using-pam? #t)
+			     ;;(using-setuid? #f)))
 		  (set-xorg-configuration
 		    (xorg-configuration (keyboard-layout keyboard-layout))))
 

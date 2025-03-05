@@ -6,22 +6,25 @@
     ./separated/qutebrowser.nix
   ];
   programs = {
-    firefox = {
+    librewolf = {
       enable = true; 
-      #package = pkgs.floorp;
-      /*nativeMessagingHosts = with pkgs; [
-        firefoxpwa
-      ];*/
+      settings = {
+        "webgl.disabled" = false;
+        #"privacy.resistFingerprinting" = false;
+        "privacy.clearOnShutdown.history" = false;
+        "privacy.clearOnShutdown.cookies" = false;
+        "network.cookie.lifetimePolicy" = 0;
+        "identity.fxaccounts.enabled" = true;
+        "middlemouse.paste" = false;
+        "general.autoScroll" = true;
+      };
     };
   };
+
   home.packages = with pkgs; [
-    #thunderbird-128
-    #google-chrome 
-    #telegram-desktop
-    #vesktop
-    #zapzap
-    #spotify
-    /*pkgs.nixpkgs-master.*/bitwarden
+    ungoogled-chromium
+    telegram-desktop
+    bitwarden
     komikku
     #kdePackages.tokodon
     #kdePackages.neochat #broken 21-05

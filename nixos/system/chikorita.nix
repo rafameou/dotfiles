@@ -7,7 +7,8 @@
     ./mod/boot.nix
     ./mod/nvidia-hell.nix
 
-    ./mod/sway.nix
+    #./mod/sway.nix
+    ./mod/desktop-environment/gnome.nix
     ./mod/navidrome.nix
     ./mod/ssh.nix
     #./mod/nextcloud.nix

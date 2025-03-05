@@ -99,6 +99,7 @@ c.input.insert_mode.auto_enter = False
 c.input.insert_mode.auto_leave = False
 c.url.start_pages = "https://start.duckduckgo.com/"
 c.window.transparent = True
+c.window.hide_decoration = True
 c.url.searchengines['DEFAULT'] = "https://duckduckgo.com/?q={}&start=1"
 c.url.searchengines['aw'] = "https://wiki.archlinux.org/?search={}"
 c.url.searchengines['g'] = "https://www.google.com/search?hl=en&q={}"

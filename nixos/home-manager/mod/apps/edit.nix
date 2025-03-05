@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   imports = [ 
+    ./separated/emacs.nix
     ./separated/mpv.nix
     ./separated/neovim.nix
     #./separated/vscode.nix
