@@ -16,7 +16,10 @@
   ;; Abaixo está a lista de pacotes que aparecerão no seu
   ;; perfil pessoal, em ~/.guix-home/profile.
   (packages (specifications->packages 
-	      (list "foot"
+	      (list "gnome-shell-extension-appindicator"
+		    "gnome-shell-extension-dash-to-dock"
+		    "foot"
+		    "glib:bin"
 
 		    "qt5ct"
 		    "qt6ct"

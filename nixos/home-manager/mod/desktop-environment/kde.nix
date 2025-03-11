@@ -1,8 +1,8 @@
 { config, inputs, pkgs, ... }:
 {
-  imports = [
-    inputs.plasma-manager.homeManagerModules.plasma-manager
-  ];
+  # imports = [
+  #   inputs.plasma-manager.homeManagerModules.plasma-manager
+  # ];
 
   /*qt = {
   enable = true;
@@ -58,7 +58,7 @@
     kaffeine
   ];
 
-  programs.plasma = {
+/*  programs.plasma = {
     enable = true;
     panels = 
     [ 
@@ -198,7 +198,6 @@
 
       "org.kde.dolphin.desktop"."_launch" = "Meta+E";
     };
-    /**/
     fonts = {
       general = {
         family = "Fira Sans";
@@ -258,7 +257,7 @@
       }
     ];
     defaultProfile = "abacate";
-  };
+  };*/
 
   home.file = {
     ".crystal-dock-2/KDE/panel_1.conf".text = ''

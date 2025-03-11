@@ -12,10 +12,10 @@
   services.gnome.gnome-keyring.enable = true;
   #programs.seahorse.enable = true;
 
-  qt = {
-    enable = true;
-    platformTheme = "kde";
-  };
+  # qt = {
+  #   enable = true;
+  #   platformTheme = "kde";
+  # };
 
   environment.systemPackages = with pkgs; [
     /* -- appmenu -- */

@@ -6,7 +6,7 @@
     ./bulbasaur-hw.nix
     ./mod/boot-grub.nix
 
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/kde.nix
   ];
 
   #nixpkgs.overlays = [(final: prev: { hyprland = prev.hyprland.override { legacyRenderer = true; };})];

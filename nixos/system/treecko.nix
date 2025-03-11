@@ -6,7 +6,7 @@
     ./treecko-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/kde.nix
     ./mod/tlp.nix
   ];
 

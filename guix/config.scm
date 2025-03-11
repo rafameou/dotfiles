@@ -38,7 +38,7 @@
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
   (services
-    (append (list (service gnome-desktop-service-type)
+    (append (list (service plasma-desktop-service-type)
 	      	  (service cups-service-type)
 		  (service zram-device-service-type
 			   (zram-device-configuration
