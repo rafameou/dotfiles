@@ -20,9 +20,9 @@
     # everything match nicely? Try nix-colors!
     nix-colors.url = "github:misterio77/nix-colors";
 
-    plasma-manager.url = "github:pjones/plasma-manager";
-    plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
-    plasma-manager.inputs.home-manager.follows = "home-manager";
+    #plasma-manager.url = "github:pjones/plasma-manager";
+    #plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
+    #plasma-manager.inputs.home-manager.follows = "home-manager";
 
     bing-mate.url = "github:rafameou/bing-mate";
     bing-mate.inputs.nixpkgs.follows = "nixpkgs";
@@ -35,17 +35,17 @@
     markview-nvim.url = "github:OXY2DEV/markview.nvim";
     markview-nvim.flake = false;
 
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
+    #nix-flatpak.url = "github:gmodena/nix-flatpak";
 
     chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     solaar.url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
     solaar.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
+    #nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { nixpkgs, home-manager, plasma-manager, solaar, chaotic, nixos-wsl, ... }@inputs: {
+  outputs = { nixpkgs, home-manager, /*plasma-manager,*/ solaar, chaotic, /*nixos-wsl,*/ ... }@inputs: {
     nixosConfigurations = {
       bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
@@ -74,7 +74,7 @@
           chaotic.nixosModules.default
         ];
       };
-      wsl = nixpkgs.lib.nixosSystem {
+      /*wsl = nixpkgs.lib.nixosSystem {
 	specialArgs = {inherit inputs; }; # Pass flake inputs to our config
 	modules = [
           nixos-wsl.nixosModules.default
@@ -82,7 +82,7 @@
           ./nixos/system/wsl.nix
 	  chaotic.nixosModules.default
 	];
-      };
+      };*/
       oddish = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
