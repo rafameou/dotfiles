@@ -24,10 +24,11 @@
   home.packages = with pkgs; [
     ungoogled-chromium
     telegram-desktop
+    vesktop
     bitwarden
     komikku
-    #kdePackages.tokodon
-    #kdePackages.neochat #broken 21-05
+    kdePackages.tokodon
+    #kdePackages.neochat #broken 20-03
     #whatsapp-for-linux
     stremio
 

@@ -6,9 +6,9 @@
       main = {
         font = "FiraCode Nerd Font Mono:size=16";
       };
-      csd = {
+      /*csd = {
         preferred = "none";
-      };
+      };*/
       colors = {
         alpha = "1";
         foreground="${config.colorScheme.palette.base05}";

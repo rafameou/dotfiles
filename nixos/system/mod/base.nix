@@ -34,7 +34,7 @@
     ./solaar.nix
     ./qemu.nix
     #./distrobox.nix
-    ./flatpak.nix
+    #./flatpak.nix #extremely annoying and keep breaking
     ./printer.nix
     ./tailscale.nix
   ];

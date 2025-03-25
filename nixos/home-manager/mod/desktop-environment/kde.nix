@@ -53,6 +53,8 @@
     kdePackages.plasmatube
     #labplot
 
+    kdePackages.wallpaper-engine-plugin
+
     ktailctl
 
     kaffeine
@@ -259,7 +261,7 @@
     defaultProfile = "abacate";
   };*/
 
-  home.file = {
+/*  home.file = {
     ".crystal-dock-2/KDE/panel_1.conf".text = ''
       [General]
       autoHide=false
@@ -270,7 +272,7 @@
       showClock=false
       showPager=false
       showTaskManager=true
-      visibility=0
+      visibility=3
     '';
     ".crystal-dock-2/KDE/appearance.conf".text = ''
       [General]
@@ -298,5 +300,5 @@
       [TaskManager]
       currentDesktopTasksOnly=false
     '';
-  };
+  };*/
 }
