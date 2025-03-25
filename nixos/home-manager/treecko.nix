@@ -3,7 +3,7 @@
   imports = [
     ./mod/home-manager.nix
     ./mod/nix-colors.nix
-    ./mod/xdg-gnome.nix
+    ./mod/xdg-kde.nix
     ./mod/zsh.nix
 
     ./mod/apps/edit.nix
