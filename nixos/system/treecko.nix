@@ -20,6 +20,10 @@
     };
   };
 
+  environment.systemPackages = [
+    pkgs.android-studio
+  ];
+
   boot.kernelParams = [ "amd_pstate=guided" ]; 
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion

@@ -38,4 +38,6 @@
     ./printer.nix
     ./tailscale.nix
   ];
+
+  services.flatpak.enable = true;
 }
