@@ -26,6 +26,14 @@
 
   boot.kernelParams = [ "amd_pstate=guided" ]; 
 
+  programs.steam = {
+    enable = true;
+    extraPackages = with pkgs; [
+      gamescope
+      steamtinkerlaunch
+    ];
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 
