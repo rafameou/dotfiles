@@ -8,6 +8,9 @@
     #./separated/flameshot.nix
     ./separated/lf.nix
   ];
+
+  programs.zed-editor.enable = true;
+
   home.packages = with pkgs; [
     gimp 
     darktable
