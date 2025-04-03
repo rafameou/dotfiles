@@ -9,7 +9,10 @@
     ./separated/lf.nix
   ];
 
-  programs.zed-editor.enable = true;
+  programs.zed-editor = {
+    enable = true;
+    package = pkgs.zed-editor-fhs;
+  };
 
   home.packages = with pkgs; [
     gimp 
