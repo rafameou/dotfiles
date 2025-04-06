@@ -9,6 +9,7 @@
           "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tg" = "org.telegram.desktop.desktop;";
+          "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop;";
         };
       };
       defaultApplications = {
@@ -36,9 +37,11 @@
         "x-scheme-handler/http" = "librewolf.desktop";
         "x-scheme-handler/https" = "librewolf.desktop";
         "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+        "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
 
         /* heroic keeps adding this line */
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
+        "x-scheme-handler/discord" = "vesktop.desktop";
 
         "application/x-gnome-saved-search" = "org.kde.dolphin.desktop";
         "inode/directory" = "org.kde.dolphin.desktop";

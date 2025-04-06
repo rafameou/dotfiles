@@ -54,6 +54,8 @@
     #labplot
 
     kdePackages.wallpaper-engine-plugin
+    kdePackages.applet-window-buttons6
+    kara
 
     ktailctl
 
@@ -261,11 +263,11 @@
     defaultProfile = "abacate";
   };*/
 
-/*  home.file = {
+ home.file = {
     ".crystal-dock-2/KDE/panel_1.conf".text = ''
       [General]
       autoHide=false
-      launchers="org.qutebrowser.qutebrowser;luakit;foot;org.kde.konsole;bitwarden;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;Zettlr;ghostwriter;gimp;org.kde.krita;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;feishin;smartcode-stremio;virt-manager;org.kde.plasma-systemmonitor"
+      launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;emacs;org.kde.konsole;bitwarden;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;com.zettlr.zettlr;zettlr;dev.zed.zed;gimp;org.kde.krita;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;smartcode-stremio;xsane;virt-manager;org.kde.plasma-systemmonitor;org.kde.discover"
       position=1
       screen=0
       showApplicationMenu=false
@@ -278,7 +280,7 @@
       [General]
       activeIndicatorColor=#b8bb26
       backgroundColor=#f4282828
-      borderColor=#1d2021
+      borderColor=#b1c4de
       floatingMargin=2
       inactiveIndicatorColor=#b16286
       maximumIconSize=128
@@ -300,5 +302,5 @@
       [TaskManager]
       currentDesktopTasksOnly=false
     '';
-  };*/
+  };
 }
