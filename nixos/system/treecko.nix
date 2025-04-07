@@ -30,6 +30,18 @@
     ];
   };
 
+  fileSystems = {
+    "/mnt/Extra" = { 
+      device = "/dev/disk/by-uuid/8ca22250-372a-4fd4-9a98-0c4a362bbeba";
+      fsType = "ext4";
+      options = [
+        "x-gvfs-show"
+        "nofail"
+        "exec"
+      ];
+    };
+  };
+
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";
 
