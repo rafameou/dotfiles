@@ -7,7 +7,7 @@
     ./mod/boot.nix
 
     ./mod/desktop-environment/kde.nix
-    ./mod/tlp.nix
+    #./mod/tlp.nix
   ];
 
   /* ... changes to only this sytem */
@@ -19,10 +19,6 @@
       rafameou = import ../home-manager/treecko.nix;
     };
   };
-
-  environment.systemPackages = [
-    pkgs.android-studio
-  ];
 
   boot.kernelParams = [ "amd_pstate=guided" ]; 
 
