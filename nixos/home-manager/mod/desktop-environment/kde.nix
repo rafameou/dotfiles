@@ -267,7 +267,7 @@
     ".crystal-dock-2/KDE/panel_1.conf".text = ''
       [General]
       autoHide=false
-      launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;emacs;org.kde.konsole;bitwarden;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;com.zettlr.zettlr;zettlr;dev.zed.zed;gimp;org.kde.krita;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;smartcode-stremio;xsane;virt-manager;org.kde.plasma-systemmonitor;org.kde.discover"
+      launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;emacs;org.kde.konsole;bitwarden;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;codium;gimp;org.kde.krita;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;smartcode-stremio;xsane;virt-manager;org.kde.plasma-systemmonitor;org.kde.discover"
       position=1
       screen=0
       showApplicationMenu=false
@@ -278,11 +278,11 @@
     '';
     ".crystal-dock-2/KDE/appearance.conf".text = ''
       [General]
-      activeIndicatorColor=#b8bb26
-      backgroundColor=#f4282828
-      borderColor=#b1c4de
+      activeIndicatorColor=#689D6A
+      backgroundColor=#1D2021
+      borderColor=#D65D0E
       floatingMargin=2
-      inactiveIndicatorColor=#b16286
+      inactiveIndicatorColor=#CC241D
       maximumIconSize=128
       minimumIconSize=48
       panelStyle=0

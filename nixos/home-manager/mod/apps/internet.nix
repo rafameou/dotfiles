@@ -24,7 +24,7 @@
   home.packages = with pkgs; [
     ungoogled-chromium
     telegram-desktop
-    vesktop
+    vesktop arrpc
     bitwarden
     komikku
     kdePackages.tokodon

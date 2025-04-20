@@ -9,9 +9,14 @@
     ./separated/lf.nix
   ];
 
-  programs.zed-editor = {
+  # programs.zed-editor = {
+  #   enable = true;
+  #   package = pkgs.zed-editor-fhs;
+  # };
+
+  programs.vscode = {
     enable = true;
-    package = pkgs.zed-editor-fhs;
+    package = pkgs.vscodium-fhs;
   };
 
   home.packages = with pkgs; [
@@ -32,7 +37,7 @@
     sioyek
 
     #apostrophe #broken 03-11-2024, not needed
-    zettlr
+    # zettlr
     kdePackages.ghostwriter
     kdePackages.kmplot
 
