@@ -53,6 +53,8 @@
     kdePackages.plasmatube
     #labplot
 
+    kdePackages.markdownpart
+
     kdePackages.wallpaper-engine-plugin
     kdePackages.applet-window-buttons6
     kara
@@ -267,7 +269,7 @@
     ".crystal-dock-2/KDE/panel_1.conf".text = ''
       [General]
       autoHide=false
-      launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;emacs;org.kde.konsole;bitwarden;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;codium;gimp;org.kde.krita;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;smartcode-stremio;xsane;virt-manager;org.kde.plasma-systemmonitor;org.kde.discover"
+      launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;emacs;org.kde.konsole;bitwarden;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;codium;org.kde.kate;gimp;org.kde.krita;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;smartcode-stremio;xsane;virt-manager;org.kde.plasma-systemmonitor;org.kde.discover"
       position=1
       screen=0
       showApplicationMenu=false
