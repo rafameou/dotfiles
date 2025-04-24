@@ -265,7 +265,7 @@
     defaultProfile = "abacate";
   };*/
 
- home.file = {
+/* home.file = {
     ".crystal-dock-2/KDE/panel_1.conf".text = ''
       [General]
       autoHide=false
@@ -304,5 +304,5 @@
       [TaskManager]
       currentDesktopTasksOnly=false
     '';
-  };
+  };*/
 }
