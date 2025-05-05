@@ -20,7 +20,7 @@
   };
 
   home.packages = with pkgs; [
-    gimp 
+    gimp3 
     darktable
     onlyoffice-bin 
     libreoffice-qt-fresh 
