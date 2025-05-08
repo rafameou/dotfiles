@@ -49,7 +49,7 @@ in
       ls = "ls --color=auto";
       sudo = "sudo "; # Makes commands after sudo keep colour (https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/zsh.nix)
     };
-    initExtra = ''
+    initContent = ''
       autoload -U colors && colors
       prompt() {
         PS1="%{%F{154}%}%n%{%f%}@%{%F{45}%}%m%{%f%}:%{%F{87}%}%~ %{%f%}%# "
