@@ -1,11 +1,11 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./window-manager/theme.nix
-    ./window-manager/i3status.nix
+    # ./window-manager/theme.nix
+    # ./window-manager/i3status.nix
     ./window-manager/sway.nix
-    ./window-manager/hyprland.nix
-    ./window-manager/waybar.nix
+    # ./window-manager/hyprland.nix
+    # ./window-manager/waybar.nix
     #./window-manager/i3.nix
   ];
 
@@ -16,9 +16,9 @@
     kdePackages.ark
     kdePackages.kalk
     kdePackages.kdeconnect-kde
-    lxqt.pcmanfm-qt
-    lxqt.pavucontrol-qt
-    lxqt.qps
+    # lxqt.pcmanfm-qt
+    # lxqt.pavucontrol-qt
+    # lxqt.qps
     #j4-dmenu-desktop
     #bemenu
     #nvidia-system-monitor-qt
@@ -74,32 +74,32 @@
     };
   };
   
-  services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-        ignore_dbus_inhibit = false;
-        #lock_cmd = "${pkgs.hyprlock}/bin/hyprlock --immediate";
-        lock_cmd = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
-        ignore_systemd_inhibit = false;
-      };
-
-      listener = [
-        {
-          timeout = 300;
-          #on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
-          on-timeout = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
-        }
-        {
-          timeout = 600;
-          on-timeout = "hyprctl dispatch dpms off";
-          on-resume = "hyprctl dispatch dpms on";
-        }
-      ];
-    };
-  };
-  systemd.user.services.hypridle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
+  # services.hypridle = {
+  #   enable = true;
+  #   settings = {
+  #     general = {
+  #       after_sleep_cmd = "hyprctl dispatch dpms on";
+  #       ignore_dbus_inhibit = false;
+  #       #lock_cmd = "${pkgs.hyprlock}/bin/hyprlock --immediate";
+  #       lock_cmd = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
+  #       ignore_systemd_inhibit = false;
+  #     };
+  #
+  #     listener = [
+  #       {
+  #         timeout = 300;
+  #         #on-timeout = "${pkgs.hyprlock}/bin/hyprlock";
+  #         on-timeout = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
+  #       }
+  #       {
+  #         timeout = 600;
+  #         on-timeout = "hyprctl dispatch dpms off";
+  #         on-resume = "hyprctl dispatch dpms on";
+  #       }
+  #     ];
+  #   };
+  # };
+  # systemd.user.services.hypridle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
   
   # programs.hyprlock = {
   #   enable = true;

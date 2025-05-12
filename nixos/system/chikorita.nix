@@ -52,6 +52,20 @@
   programs.fuse.userAllowOther = true;
   services.ollama.enable = true;
 
+  services.searx = {
+    enable = true;
+    environmentFile = "/home/rafameou/.searxng.env";
+    settings = {
+      server = {
+        bind_address = "0.0.0.0";
+      };
+      search = {
+        autocomplete = "duckduckgo";
+        formats = ["html" "json" "rss"];
+      };
+    };
+  };
+
   services.tailscale.useRoutingFeatures = "both";
 
   environment.systemPackages = [

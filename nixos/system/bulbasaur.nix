@@ -8,6 +8,7 @@
 
     ./mod/desktop-environment/kde.nix
     ./mod/desktop-environment/lxqt.nix
+    ./mod/sway.nix
   ];
 
   #nixpkgs.overlays = [(final: prev: { hyprland = prev.hyprland.override { legacyRenderer = true; };})];
