@@ -74,7 +74,7 @@
     pkgs.xdotool
     pkgs.xorg.xwininfo
     pkgs.yad
-    pkgs.nodejs_23
+    pkgs.nodejs_24
   ];
 
   services.xserver.displayManager.setupCommands = ''

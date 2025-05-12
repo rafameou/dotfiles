@@ -16,7 +16,7 @@
     /* - sway - */
     ./mod/window-manager.nix
     /* - other desktops - */
-    ./mod/desktop-environment.nix
+    #./mod/desktop-environment.nix
     #./mod/desktop-environment/gnome.nix
     #./mod/desktop-environment/kde.nix
     #./mod/desktop-environment/mate.nix
@@ -36,7 +36,7 @@
       };
       HDMI-A-1 = {
         mode = "1920x1080@60.000Hz";
-        scale = "1.25";
+        scale = "1.0";
       };
     };
   };

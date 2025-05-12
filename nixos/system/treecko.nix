@@ -6,7 +6,8 @@
     ./treecko-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/kde.nix
+    ./mod/desktop-environment/lxqt.nix
+    ./mod/sway.nix
     #./mod/tlp.nix
   ];
 

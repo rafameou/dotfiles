@@ -22,6 +22,7 @@
       #menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
       #menu = ''BEMENU_OPTS="--fn 'Fira Sans Regular 16' --tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}e5' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}e5' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}e5' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}e5' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}e5' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
       menu = "fuzzel";
+      # menu = "lxqt-runner"; #buggy on wayland
       bars = [
         # {
         #   fonts = {
@@ -66,6 +67,7 @@
         #   };
         # }
         /*{ command = "${pkgs.waybar}/bin/waybar"; }*/
+        {command = "lxqt-panel"; }
       ];
       colors = {
         focused = {
@@ -145,9 +147,14 @@
             /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
             {command = "--no-startup-id systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
             {command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
-            # {command = "--no-startup-id systemctl --user restart xdg-desktop-portal-gtk";}
+            {command = "--no-startup-id systemctl --user restart xdg-desktop-portal-gtk";}
+            {command = "--no-startup-id lxqt-session"; }
+            {command = "--no-startup-id pcmanfm-qt --daemon-mode --desktop";}
+            {command = "--no-startup-id lxqt-policykit-agent";}
+            {command = "--no-startup-id lxqt-notificationd" ;}
+            {command = "--no-startup-id lxqt-powermanagement"; }
 
-            /*{command = "--no-startup-id nm-applet --indicator";}*/
+            {command = "--no-startup-id nm-applet --indicator";}
             # {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
             {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
             # {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m tile -i ~/wallpaper"; } #fill
@@ -158,7 +165,7 @@
 
             /*{command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}*/
 
-            {command = "--no-startup-id polkit-mate-authentication-agent-1"; }
+            #{command = "--no-startup-id polkit-mate-authentication-agent-1"; }
             /*{command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }*/
         # {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
       ];
@@ -193,7 +200,7 @@
         "Print" = "exec --no-startup-id ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.swappy}/bin/swappy -f -";
         "${modifier}+Ctrl+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
 
-        "${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+        #"${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
         "${modifier}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
       };
     };
@@ -207,6 +214,9 @@
       #layer_effects "menu" shadows enable;
 
       for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+      for_window [app_id="^lxqt-.*$"] floating enable
+      for_window [app_id="cmst"] floating enable
+      for_window [app_id="kvantummanager"] floating enable
     '';
 
     systemd.enable = true;

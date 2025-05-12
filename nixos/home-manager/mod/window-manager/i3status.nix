@@ -54,34 +54,34 @@
           command_on = "systemctl --user start swayidle";
           command_off = "systemctl --user stop swayidle";
           }*/
-          { 
-            block = "battery";
-            format = " $icon $percentage {($power) |}";
-            full_format = " $icon {$power |}";
-          }
-          { 
-            block = "time"; 
-            interval = 10;
-            format = {
-              full = " $icon $timestamp.datetime(f:'%a %d/%m %R:%S', l:pt_BR) ";
-              short = " $icon $timestamp.datetime(f:%R) ";
-            };
-          }
-          { 
-            block = "notify"; 
-            format = " $icon {($notification_count.eng(w:1)) |}";
-            driver = "swaync";
-            click = [
-              {
-                button = "left";
-                action = "show";
-              }
-              {
-                button = "right";
-                action = "toggle_paused";
-              }
-            ];
-          }
+          # { 
+          #   block = "battery";
+          #   format = " $icon $percentage {($power) |}";
+          #   full_format = " $icon {$power |}";
+          # }
+          # { 
+          #   block = "time"; 
+          #   interval = 10;
+          #   format = {
+          #     full = " $icon $timestamp.datetime(f:'%a %d/%m %R:%S', l:pt_BR) ";
+          #     short = " $icon $timestamp.datetime(f:%R) ";
+          #   };
+          # }
+          # { 
+          #   block = "notify"; 
+          #   format = " $icon {($notification_count.eng(w:1)) |}";
+          #   driver = "swaync";
+          #   click = [
+          #     {
+          #       button = "left";
+          #       action = "show";
+          #     }
+          #     {
+          #       button = "right";
+          #       action = "toggle_paused";
+          #     }
+          #   ];
+          # }
         ];
       };
     };
