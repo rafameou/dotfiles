@@ -8,7 +8,7 @@
       animation = "doom";
       clock = "%c";
       initial_info_text = "(42) 98402-6139 rafameow@proton.me";
-      vi_mode = "true";
+      vi_mode = "false";
       min_refresh_delta = "500";
     };
   };
@@ -17,7 +17,7 @@
     enable = true;
     #package = null;
   };
-  programs.hyprland.enable = true; # enable Hyprland
+  #programs.hyprland.enable = true; # enable Hyprland
   services.displayManager.sessionPackages = [ pkgs.sway ];
   #Enable Keyring for stuff like github-desktop
   services.gnome.gnome-keyring.enable = true;

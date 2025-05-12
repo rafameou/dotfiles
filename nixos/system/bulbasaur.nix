@@ -6,7 +6,6 @@
     ./bulbasaur-hw.nix
     ./mod/boot-grub.nix
 
-    ./mod/desktop-environment/kde.nix
     ./mod/desktop-environment/lxqt.nix
     ./mod/sway.nix
   ];
