@@ -67,7 +67,6 @@
         #   };
         # }
         /*{ command = "${pkgs.waybar}/bin/waybar"; }*/
-        {command = "lxqt-panel"; }
       ];
       colors = {
         focused = {
@@ -151,8 +150,10 @@
             {command = "--no-startup-id lxqt-session"; }
             {command = "--no-startup-id pcmanfm-qt --daemon-mode --desktop";}
             {command = "--no-startup-id lxqt-policykit-agent";}
-            {command = "--no-startup-id lxqt-notificationd" ;}
-            {command = "--no-startup-id lxqt-powermanagement"; }
+            # wait for lxqt-panel
+            {command = "--no-startup-id sleep 1 && lxqt-panel";}
+            {command = "--no-startup-id sleep 2 && lxqt-notificationd" ;}
+            {command = "--no-startup-id sleep 2 && lxqt-powermanagement"; }
 
             {command = "--no-startup-id nm-applet --indicator";}
             # {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
