@@ -2,7 +2,7 @@
 {
   imports = [
     # ./window-manager/theme.nix
-    # ./window-manager/i3status.nix
+    ./window-manager/i3status.nix
     ./window-manager/sway.nix
     # ./window-manager/hyprland.nix
     # ./window-manager/waybar.nix

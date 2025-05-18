@@ -6,6 +6,8 @@
   xdg.portal.lxqt.enable = true;
 
   programs.labwc.enable = true;
+  #programs.miriway.enable = true;
+  #programs.niri.enable = true;
   environment.systemPackages = with pkgs; [
     labwc-tweaks
     

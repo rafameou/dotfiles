@@ -37,11 +37,19 @@
             block = "cpu";
             format = " $icon $utilization{ $boost|} ";
           }
+          {
+            block = "disk_space";
+          }
           { 
             block = "net";
             format = " $icon $ip ";
             format_alt = " $icon {$ssid($signal_strength $frequency)|Wired} via $device ";
             interval = 10;
+          }
+          {
+            block = "keyboard_layout";
+            driver = "sway";
+            format = " $layout ($variant) ";
           }
           { block = "backlight"; }
           {

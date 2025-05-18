@@ -2,16 +2,16 @@
 {
   services.xserver.displayManager.startx.enable = true;
   services.xserver.displayManager.lightdm.enable = false;
-  services.displayManager.ly = {
-    enable = true;
-    settings = {
-      animation = "doom";
-      clock = "%c";
-      initial_info_text = "(42) 98402-6139 rafameow@proton.me";
-      vi_mode = "false";
-      min_refresh_delta = "500";
-    };
-  };
+  # services.displayManager.ly = {
+  #   enable = true;
+  #   settings = {
+  #     animation = "doom";
+  #     clock = "%c";
+  #     initial_info_text = "(42) 98402-6139 rafameow@proton.me";
+  #     vi_mode = "false";
+  #     min_refresh_delta = "500";
+  #   };
+  # };
   #enable sway
   programs.sway = {
     enable = true;
