@@ -33,7 +33,7 @@
     #dunst
     wayland-pipewire-idle-inhibit
     blueman
-    swaynotificationcenter
+    #swaynotificationcenter
     mate.mate-polkit
     brightnessctl
     playerctl
