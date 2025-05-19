@@ -44,18 +44,18 @@
         "inode/directory" = "pcmanfm-qt.desktop";
 
         # move this stuff to each desktop's dot nix file        
-        "image/tiff" = "vimiv.desktop";
-        "image/jpx" = "vimiv.desktop";
-        "image/png" = "vimiv.desktop";
-        "image/gif" = "vimiv.desktop";
-        "image/jpeg" = "vimiv.desktop";
-        "image/bmp" = "vimiv.desktop";
-        "image/jp2" = "vimiv.desktop";
+        "image/tiff" = "lximage-qt.desktop";
+        "image/jpx" = "lximage-qt.desktop";
+        "image/png" = "lximage-qt.desktop";
+        "image/gif" = "lximage-qt.desktop";
+        "image/jpeg" = "lximage-qt.desktop";
+        "image/bmp" = "lximage-qt.desktop";
+        "image/jp2" = "lximage-qt.desktop";
 
-        "application/x-tar" = "org.kde.ark.desktop";
-        "application/x-7z-compressed" = "org.kde.ark.desktop";
-        "application/vnd.rar" = "org.kde.ark.desktop"; 
-        "application/zip" = "org.kde.ark.desktop";
+        "application/x-tar" = "lxqt-archiver.desktop";
+        "application/x-7z-compressed" = "lxqt-archiver.desktop";
+        "application/vnd.rar" = "lxqt-archiver.desktop"; 
+        "application/zip" = "lxqt-archiver.desktop";
 
         "application/pdf" = "org.pwmt.zathura.desktop";
       };

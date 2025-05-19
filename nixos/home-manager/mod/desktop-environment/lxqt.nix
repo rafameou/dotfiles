@@ -8,6 +8,15 @@
     })
   ];
 
+  home.pointerCursor = {
+    name = "Hackneyed";
+    package = pkgs.hackneyed;
+    size = 36;
+    x11.enable = true;
+    gtk.enable = true;
+    sway.enable = true;
+  };
+
   /*link .config/sway/config to /.config/lxqt/wayland/lxqt-sway.config*/
   xdg.configFile."lxqt/wayland/lxqt-sway.config".text = ''
       include ~/.config/sway/*
