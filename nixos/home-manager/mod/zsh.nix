@@ -1,6 +1,11 @@
-{ config, inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 let
-  inherit (inputs.nix-colors.lib-contrib {inherit pkgs;}) shellThemeFromScheme;
+  inherit (inputs.nix-colors.lib-contrib { inherit pkgs; }) shellThemeFromScheme;
 in
 {
   programs.zsh = {
@@ -20,27 +25,33 @@ in
         file = "nix-shell.plugin.zsh";
         src = "${zsh-nix-shell}/share/zsh-nix-shell";
       }
-      /*{
-      name = "zsh-completions";
-      file = "zsh-completions.plugin.zsh";
-      src = "${zsh-completions}/share/zsh-completions";
-      }*/
-      /*{
-        name = "zsh-autocomplete";
-        file = "zsh-autocomplete.plugin.zsh";
-        src = "${zsh-autocomplete}/share/zsh-autocomplete";
-      }*/
+      /*
+        {
+        name = "zsh-completions";
+        file = "zsh-completions.plugin.zsh";
+        src = "${zsh-completions}/share/zsh-completions";
+        }
+      */
+      /*
+        {
+          name = "zsh-autocomplete";
+          file = "zsh-autocomplete.plugin.zsh";
+          src = "${zsh-autocomplete}/share/zsh-autocomplete";
+        }
+      */
       {
         name = "zsh-vi-mode";
         file = "zsh-vi-mode.plugin.zsh";
         src = "${zsh-vi-mode}/share/zsh-vi-mode";
       }
     ];
-    /*oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-      theme = "dstufft";
-    };*/
+    /*
+      oh-my-zsh = {
+        enable = true;
+        plugins = [ "git" ];
+        theme = "dstufft";
+      };
+    */
     shellAliases = {
       diff = "diff --color=auto";
       dmesg = "dmesg --color=always";

@@ -25,17 +25,18 @@
     };
   };
 
-
-  /*stylix = {
-  enable = true;
-  autoEnable = false;
-  targets = {
-  i3.enable = true;
-  nixvim.enable = true;
-  sway.enable = true;
-  vim.enable = true;
-  vscode.enable = true;
-  zathura.enable = true;
-  };
-  };*/
+  /*
+    stylix = {
+    enable = true;
+    autoEnable = false;
+    targets = {
+    i3.enable = true;
+    nixvim.enable = true;
+    sway.enable = true;
+    vim.enable = true;
+    vscode.enable = true;
+    zathura.enable = true;
+    };
+    };
+  */
 }

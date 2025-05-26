@@ -5,7 +5,12 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ lib, pkgs, inputs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     inputs.home-manager.nixosModules.home-manager
@@ -21,11 +26,15 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
-  /* ... changes to only this sytem */
+  # ... changes to only this sytem
   networking.hostName = "wsl"; # Define your hostname.
   home-manager = {
     backupFileExtension = "hm-backup";
-    extraSpecialArgs = { inherit inputs /*outputs*/; };
+    extraSpecialArgs = {
+      inherit
+        inputs # outputs
+        ;
+    };
     users = {
       rafameou = import ../home-manager/wsl.nix;
     };

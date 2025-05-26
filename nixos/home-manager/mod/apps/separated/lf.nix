@@ -16,5 +16,5 @@
 
   xdg.configFile."ctpv/config".text = ''
     set chafasixel
-    '';
+  '';
 }

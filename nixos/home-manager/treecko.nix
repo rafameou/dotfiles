@@ -1,4 +1,4 @@
-{ lib, pkgs, ... } :
+{ lib, pkgs, ... }:
 {
   imports = [
     ./mod/home-manager.nix
@@ -13,9 +13,9 @@
     #./mod/apps/separated/retroarch.nix
     #./mod/apps/separated/rclone-server.nix
 
-    /* - sway - */
+    # - sway -
     ./mod/window-manager.nix
-    /* - other desktops - */
+    # - other desktops -
     #./mod/desktop-environment.nix
     #./mod/desktop-environment/gnome.nix
     #./mod/desktop-environment/kde.nix
@@ -24,7 +24,7 @@
     ./mod/desktop-environment/lxqt.nix
   ];
 
-  /* ... changes to only this sytem */
+  # ... changes to only this sytem
   wayland.windowManager.sway.config = {
     input."type:keyboard" = {
       xkb_variant = lib.mkForce "thinkpad,nativo";
@@ -45,5 +45,5 @@
   wayland.windowManager.hyprland.settings.monitor = [
     "eDP-1, preferred, auto, 1.5"
     ", preferred, auto, 1"
-        ];
+  ];
 }

@@ -1,10 +1,11 @@
-{ lib
-, fetchFromGitHub
-, stdenv
-, gnome-icon-theme
-, gtk3
-, hicolor-icon-theme
-, humanity-icon-theme
+{
+  lib,
+  fetchFromGitHub,
+  stdenv,
+  gnome-icon-theme,
+  gtk3,
+  hicolor-icon-theme,
+  humanity-icon-theme,
 }:
 
 stdenv.mkDerivation rec {

@@ -9,7 +9,7 @@
         line-height = 16;
       };
       colors = {
-        background = "${config.colorScheme.palette.base00}ff";#7d";#e6";
+        background = "${config.colorScheme.palette.base00}ff"; # 7d";#e6";
         text = "${config.colorScheme.palette.base05}ff";
         match = "${config.colorScheme.palette.base0D}ff";
         selection = "${config.colorScheme.palette.base03}ff";
@@ -22,5 +22,5 @@
         radius = 0;
       };
     };
-  }; 
+  };
 }

@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   # Bootloader.
-  boot.loader.systemd-boot.enable = true; #lib.mkForce false; #true;
+  boot.loader.systemd-boot.enable = true; # lib.mkForce false; #true;
   #boot.lanzaboote = {
   #  enable = true;
   #  pkiBundle = "/etc/secureboot";

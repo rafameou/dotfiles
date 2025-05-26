@@ -65,16 +65,25 @@
       enable = true;
       systemdTarget = "sway-session.target";
       timeouts = [
-        { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
-        { timeout = 600; command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
-        resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\""; }
+        {
+          timeout = 300;
+          command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
+        }
+        {
+          timeout = 600;
+          command = "${pkgs.sway}/bin/swaymsg \"output * power off\"";
+          resumeCommand = "${pkgs.sway}/bin/swaymsg \"output * power on\"";
+        }
       ];
       events = [
-        { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000"; }
+        {
+          event = "before-sleep";
+          command = "${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
+        }
       ];
     };
   };
-  
+
   # services.hypridle = {
   #   enable = true;
   #   settings = {
@@ -101,7 +110,7 @@
   #   };
   # };
   # systemd.user.services.hypridle.Install.WantedBy = lib.mkForce [ "hyprland-session.target" ];
-  
+
   # programs.hyprlock = {
   #   enable = true;
   #   settings = {

@@ -10,7 +10,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager"; #/release-23.05";
+    home-manager.url = "github:nix-community/home-manager"; # /release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # TODO: Add any other flake you might need
@@ -48,54 +48,65 @@
     #nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { nixpkgs, home-manager, /*plasma-manager,*/ niri, solaar, chaotic, /*nixos-wsl,*/ ... }@inputs: {
-    nixosConfigurations = {
-      bulbasaur = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ 
-          niri.nixosModules.niri
-          #stylix.nixosModules.stylix
-          solaar.nixosModules.default
-          ./nixos/system/bulbasaur.nix 
-          chaotic.nixosModules.default
-        ];
-      };
-      chikorita = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ 
-          niri.nixosModules.niri
-          #stylix.nixosModules.stylix 
-          solaar.nixosModules.default
-          ./nixos/system/chikorita.nix 
-          chaotic.nixosModules.default
-        ];
-      };
-      treecko = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ 
-          niri.nixosModules.niri
-          #stylix.nixosModules.stylix 
-          solaar.nixosModules.default
-          ./nixos/system/treecko.nix 
-          chaotic.nixosModules.default
-        ];
-      };
-      /*wsl = nixpkgs.lib.nixosSystem {
-	specialArgs = {inherit inputs; }; # Pass flake inputs to our config
-	modules = [
-          nixos-wsl.nixosModules.default
-          solaar.nixosModules.default
-          ./nixos/system/wsl.nix
-	  chaotic.nixosModules.default
-	];
-      };*/
-      oddish = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-        modules = [ 
-          #stylix.nixosModules.stylix
-          ./nixos/system/oddish.nix 
-        ];
+  outputs =
+    {
+      nixpkgs,
+      home-manager, # plasma-manager,
+      niri,
+      solaar,
+      chaotic, # nixos-wsl,
+      ...
+    }@inputs:
+    {
+      nixosConfigurations = {
+        bulbasaur = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          modules = [
+            niri.nixosModules.niri
+            #stylix.nixosModules.stylix
+            solaar.nixosModules.default
+            ./nixos/system/bulbasaur.nix
+            chaotic.nixosModules.default
+          ];
+        };
+        chikorita = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          modules = [
+            niri.nixosModules.niri
+            #stylix.nixosModules.stylix
+            solaar.nixosModules.default
+            ./nixos/system/chikorita.nix
+            chaotic.nixosModules.default
+          ];
+        };
+        treecko = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          modules = [
+            niri.nixosModules.niri
+            #stylix.nixosModules.stylix
+            solaar.nixosModules.default
+            ./nixos/system/treecko.nix
+            chaotic.nixosModules.default
+          ];
+        };
+        /*
+          wsl = nixpkgs.lib.nixosSystem {
+          	specialArgs = {inherit inputs; }; # Pass flake inputs to our config
+          	modules = [
+                    nixos-wsl.nixosModules.default
+                    solaar.nixosModules.default
+                    ./nixos/system/wsl.nix
+          	  chaotic.nixosModules.default
+          	];
+                };
+        */
+        oddish = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          modules = [
+            #stylix.nixosModules.stylix
+            ./nixos/system/oddish.nix
+          ];
+        };
       };
     };
-  };
 }

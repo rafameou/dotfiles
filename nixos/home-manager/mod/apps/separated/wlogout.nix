@@ -3,56 +3,56 @@
   programs.wlogout = {
     enable = true;
     style = ''
-      * {
-        background-image: none;
-        box-shadow: none;
-      }
+            * {
+              background-image: none;
+              box-shadow: none;
+            }
 
-      window {
-        background: 0;
-      }
+            window {
+              background: 0;
+            }
 
-      button {
-      border-radius: 0;
-      border-color: black;
-        text-decoration-color: #FFFFFF;
-      color: #${config.colorScheme.palette.base05};
-        background-color: #${config.colorScheme.palette.base00};
-        border-style: solid;
-        border-width: 1px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 25%;
-      }
+            button {
+            border-radius: 0;
+            border-color: black;
+              text-decoration-color: #FFFFFF;
+            color: #${config.colorScheme.palette.base05};
+              background-color: #${config.colorScheme.palette.base00};
+              border-style: solid;
+              border-width: 1px;
+              background-repeat: no-repeat;
+              background-position: center;
+              background-size: 25%;
+            }
 
-      button:focus, button:active, button:hover {
-        background-color: #${config.colorScheme.palette.base01};
-        outline-style: none;
-      }
+            button:focus, button:active, button:hover {
+              background-color: #${config.colorScheme.palette.base01};
+              outline-style: none;
+            }
 
-#lock {
-      background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
-      }
+      #lock {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+            }
 
-#logout {
-      background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
-      }
+      #logout {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+            }
 
-#suspend {
-      background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
-      }
+      #suspend {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
+            }
 
-#hibernate {
-      background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
-      }
+      #hibernate {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
+            }
 
-#shutdown {
-      background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
-      }
+      #shutdown {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+            }
 
-#reboot {
-      background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
-      }
+      #reboot {
+            background-image: image(url("${pkgs.wlogout}/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+            }
     '';
 
     layout = [
@@ -69,7 +69,7 @@
         "keybind" = "h";
       }
       {
-        "label"= "logout";
+        "label" = "logout";
         "action" = "loginctl terminate-user $USER";
         "text" = "Logout";
         "keybind" = "e";

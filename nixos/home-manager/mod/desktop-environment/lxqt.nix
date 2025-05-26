@@ -7,7 +7,7 @@
       colorVariants = [ "default" ];
     })
 
-    (callPackage ./kde/crystal-dock.nix {})
+    (callPackage ./kde/crystal-dock.nix { })
   ];
 
   home.pointerCursor = {
@@ -19,18 +19,20 @@
     sway.enable = true;
   };
 
-  /*xdg.configFile."lxqt/wayland/lxqt-sway.config".text = ''
+  /*
+    xdg.configFile."lxqt/wayland/lxqt-sway.config".text = ''
       include ~/.config/sway/*
-      '';*/
-    xdg.configFile."lxqt/wayland/lxqt-sway.config".source = config.xdg.configFile."sway/config".source;
+      '';
+  */
+  xdg.configFile."lxqt/wayland/lxqt-sway.config".source = config.xdg.configFile."sway/config".source;
 
-    # If you get an error in this line, comment it, niri validate probably stopped something.
-    #xdg.configFile."lxqt/wayland/lxqt-niri.kdl".source = config.xdg.configFile."niri/config.kdl".source;
+  # If you get an error in this line, comment it, niri validate probably stopped something.
+  #xdg.configFile."lxqt/wayland/lxqt-niri.kdl".source = config.xdg.configFile."niri/config.kdl".source;
 
-    # This is a debug option, probably will stop working soon.
-    xdg.configFile."lxqt/wayland/lxqt-niri.kdl".text = config.programs.niri.finalConfig;
+  # This is a debug option, probably will stop working soon.
+  xdg.configFile."lxqt/wayland/lxqt-niri.kdl".text = config.programs.niri.finalConfig;
 
-  /* Palette stolen from https://github.com/AzumaHazuki/lxqt-themes-gruvbox/blob/main/palettes/Gruvbox-Dark */
+  # Palette stolen from https://github.com/AzumaHazuki/lxqt-themes-gruvbox/blob/main/palettes/Gruvbox-Dark
   xdg.configFile."lxqt/lxqt.conf".text = ''
     [General]
     __userfile__=true

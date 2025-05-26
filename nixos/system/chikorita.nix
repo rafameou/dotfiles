@@ -1,6 +1,11 @@
-{ config, pkgs, inputs, ... }:
 {
-  imports = [ 
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
+{
+  imports = [
     ./mod/base.nix
 
     ./chikorita-hw.nix
@@ -19,16 +24,20 @@
   networking.hostName = "chikorita"; # Define your hostname.
   home-manager = {
     backupFileExtension = "hm-backup";
-    extraSpecialArgs = { inherit inputs /*outputs*/; };
+    extraSpecialArgs = {
+      inherit
+        inputs # outputs
+        ;
+    };
     users = {
       rafameou = import ../home-manager/chikorita.nix;
     };
   };
 
-  /* ... changes to only this sytem */
+  # ... changes to only this sytem
 
   fileSystems = {
-    "/mnt/Extra" = { 
+    "/mnt/Extra" = {
       device = "/dev/disk/by-uuid/f2738fa6-3895-4e23-8d7f-f29314c3dd0e";
       fsType = "ext4";
       options = [
@@ -37,10 +46,12 @@
         "exec"
       ];
     };
-    /*"/mnt/Extra2" = { 
-    device = "/dev/disk/by-uuid/30c8e8dd-7a12-449a-ae59-f26262c5a8ff";
-    fsType = "ext4";
-    };*/
+    /*
+      "/mnt/Extra2" = {
+      device = "/dev/disk/by-uuid/30c8e8dd-7a12-449a-ae59-f26262c5a8ff";
+      fsType = "ext4";
+      };
+    */
   };
 
   services.gnome.gnome-remote-desktop.enable = true;
@@ -48,7 +59,6 @@
     AllowSuspend=no
     AllowHibernation=no
   '';
-
 
   programs.firejail.enable = true;
   programs.fuse.userAllowOther = true;
@@ -63,7 +73,11 @@
       };
       search = {
         autocomplete = "duckduckgo";
-        formats = ["html" "json" "rss"];
+        formats = [
+          "html"
+          "json"
+          "rss"
+        ];
       };
     };
   };

@@ -7,10 +7,15 @@ let
   mount_directory_proton = "${config.home.homeDirectory}/ProtonDrive";
 in
 {
-  home.packages = with pkgs; [ rclone fuse3 ];
-  /*---------------------------------------------------------------------------------------------|
-  | Stolen from https://github.com/rafaelrc7/dotfiles/blob/master/modules/home/rclone-gdrive.nix |
-  |---------------------------------------------------------------------------------------------*/
+  home.packages = with pkgs; [
+    rclone
+    fuse3
+  ];
+  /*
+    ---------------------------------------------------------------------------------------------|
+    | Stolen from https://github.com/rafaelrc7/dotfiles/blob/master/modules/home/rclone-gdrive.nix |
+    |---------------------------------------------------------------------------------------------
+  */
   systemd.user.services = {
     rclone-gdrive = {
       Unit = {
@@ -26,9 +31,11 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_gdrive}";
         Restart = "on-failure";
         RestartSec = 30;
-        /*--------------------------------------------------------------------------------|
-        | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
-        |---------------------------------------------------------------------------------*/
+        /*
+          --------------------------------------------------------------------------------|
+          | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
+          |---------------------------------------------------------------------------------
+        */
         Environment = [ "PATH=/run/wrappers/bin/:$PATH" ];
       };
 
@@ -50,9 +57,11 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_mega}";
         Restart = "on-failure";
         RestartSec = 30;
-        /*--------------------------------------------------------------------------------|
-        | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
-        |---------------------------------------------------------------------------------*/
+        /*
+          --------------------------------------------------------------------------------|
+          | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
+          |---------------------------------------------------------------------------------
+        */
         Environment = [ "PATH=/run/wrappers/bin/:$PATH" ];
       };
 
@@ -74,9 +83,11 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_onedrive}";
         Restart = "on-failure";
         RestartSec = 30;
-        /*--------------------------------------------------------------------------------|
-        | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
-        |---------------------------------------------------------------------------------*/
+        /*
+          --------------------------------------------------------------------------------|
+          | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
+          |---------------------------------------------------------------------------------
+        */
         Environment = [ "PATH=/run/wrappers/bin/:$PATH" ];
       };
 
@@ -98,9 +109,11 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_koofr}";
         Restart = "on-failure";
         RestartSec = 30;
-        /*--------------------------------------------------------------------------------|
-        | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
-        |---------------------------------------------------------------------------------*/
+        /*
+          --------------------------------------------------------------------------------|
+          | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
+          |---------------------------------------------------------------------------------
+        */
         Environment = [ "PATH=/run/wrappers/bin/:$PATH" ];
       };
 
@@ -122,9 +135,11 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_proton}";
         Restart = "on-failure";
         RestartSec = 30;
-        /*--------------------------------------------------------------------------------|
-        | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
-        |---------------------------------------------------------------------------------*/
+        /*
+          --------------------------------------------------------------------------------|
+          | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
+          |---------------------------------------------------------------------------------
+        */
         Environment = [ "PATH=/run/wrappers/bin/:$PATH" ];
       };
 

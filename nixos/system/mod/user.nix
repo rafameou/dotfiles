@@ -4,7 +4,11 @@
   users.users.rafameou = {
     isNormalUser = true;
     description = "Rafael Mazzutti";
-    extraGroups = [ "audio" "networkmanager" "wheel" ];
+    extraGroups = [
+      "audio"
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   documentation = {
@@ -19,7 +23,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    man-pages man-pages-posix
+    man-pages
+    man-pages-posix
     git
     vim
     wget

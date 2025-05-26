@@ -7,7 +7,7 @@
   services.desktopManager.plasma6.enable = true;
   #services.xserver.desktopManager.lxqt.enable = true;
   #services.xserver.displayManager.defaultSession = "plasmawayland";
-  
+
   #Enable Keyring for stuff like github-desktop
   services.gnome.gnome-keyring.enable = true;
   #programs.seahorse.enable = true;
@@ -18,16 +18,18 @@
   # };
 
   environment.systemPackages = with pkgs; [
-    /* -- appmenu -- */
+    # -- appmenu --
     #appmenu-gtk3-module # breaks everything
     libappindicator-gtk3
 
-    /* -----------------------------------------|
-    | decided to move to here, since they kinda |
-    | are like system packages                  |
-    |------------------------------------------*/
+    /*
+      -----------------------------------------|
+      | decided to move to here, since they kinda |
+      | are like system packages                  |
+      |------------------------------------------
+    */
     kdePackages.oxygen
-    kdePackages.oxygen.qt5 
+    kdePackages.oxygen.qt5
     kdePackages.oxygen-sounds
     kdePackages.oxygen-icons
   ];

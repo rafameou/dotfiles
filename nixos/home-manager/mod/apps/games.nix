@@ -9,7 +9,7 @@
     dsda-doom
     dsda-launcher
     prismlauncher
-    runelite 
+    runelite
     #steam #fix steam games: SDL_VIDEODRIVER=x11 prime-run %command% -vulkan
     #itch #marked as broken 24/03/24
     heroic

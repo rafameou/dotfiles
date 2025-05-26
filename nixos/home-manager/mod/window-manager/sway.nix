@@ -1,11 +1,16 @@
-{ lib, config, pkgs, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   imports = [
     #inputs.wayland-pipewire-idle-inhibit.homeModules.default
   ];
   home.packages = with pkgs; [
     swaybg
-    /*swww*/
+    # swww
     swaylock
   ];
 
@@ -15,18 +20,21 @@
     config = rec {
       modifier = "Mod4";
       fonts = {
-        names = ["Fira Sans"];
+        names = [ "Fira Sans" ];
         style = "Regular";
         size = 12.0;
-      }; 
+      };
       #menu = "${pkgs.nixpkgs-stable.j4-dmenu-desktop}/bin/j4-dmenu-desktop | wmenu | xargs swaymsg exec --";
-      #menu = ''BEMENU_OPTS="--fn 'Fira Sans Regular 16' --tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}e5' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}e5' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}e5' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}e5' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}e5' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"''; 
+      #menu = ''BEMENU_OPTS="--fn 'Fira Sans Regular 16' --tb '#${config.colorScheme.palette.base03}' --tf '#${config.colorScheme.palette.base06}' --fb '#${config.colorScheme.palette.base00}e5' --ff '#${config.colorScheme.palette.base06}' --nb '#${config.colorScheme.palette.base00}e5' --nf '#${config.colorScheme.palette.base04}' --hb '#${config.colorScheme.palette.base02}e5' --hf '#${config.colorScheme.palette.base0A}' --sb '#${config.colorScheme.palette.base02}e5' --sf '#${config.colorScheme.palette.base0A}' --scb '#${config.colorScheme.palette.base00}e5' --scf '#${config.colorScheme.palette.base0E}'" ${pkgs.j4-dmenu-desktop}/bin/j4-dmenu-desktop --dmenu="${pkgs.bemenu}/bin/bemenu -i -l 10"'';
       menu = "fuzzel";
       # menu = "lxqt-runner"; #buggy on wayland
       bars = [
         {
           fonts = {
-            names = ["Fira Sans" "Font Awesome 6 Free"];
+            names = [
+              "Fira Sans"
+              "Font Awesome 6 Free"
+            ];
             style = "Regular";
             size = 12.0;
           };
@@ -37,17 +45,17 @@
           #| Stolen from https://github.com/tinted-theming/base16-i3/ |
           #|---------------------------------------------------------/
           colors = {
-            background = "#${config.colorScheme.palette.base00}e5"; #transp e5
-            separator = "#${config.colorScheme.palette.base05}"; #01
+            background = "#${config.colorScheme.palette.base00}e5"; # transp e5
+            separator = "#${config.colorScheme.palette.base05}"; # 01
             statusline = "#${config.colorScheme.palette.base04}";
             focusedWorkspace = {
               border = "#${config.colorScheme.palette.base05}";
-              background = "#${config.colorScheme.palette.base0D}"; 
+              background = "#${config.colorScheme.palette.base0D}";
               text = "#${config.colorScheme.palette.base00}";
             };
             activeWorkspace = {
               border = "#${config.colorScheme.palette.base05}";
-              background = "#${config.colorScheme.palette.base03}";  
+              background = "#${config.colorScheme.palette.base03}";
               text = "#${config.colorScheme.palette.base00}";
             };
             inactiveWorkspace = {
@@ -67,7 +75,7 @@
             };
           };
         }
-        /*{ command = "${pkgs.waybar}/bin/waybar"; }*/
+        # { command = "${pkgs.waybar}/bin/waybar"; }
       ];
       colors = {
         focused = {
@@ -105,82 +113,90 @@
           indicator = "#${config.colorScheme.palette.base00}";
           childBorder = "#${config.colorScheme.palette.base00}";
         };
-        background = "#${config.colorScheme.palette.base07}"; 
+        background = "#${config.colorScheme.palette.base07}";
       };
-      terminal = "foot"; 
+      terminal = "foot";
       input = {
         "type:keyboard" = {
-        xkb_layout = "br,br";
-        xkb_model = "abnt2,abnt2";
-        xkb_variant = ",nativo";
-        xkb_numlock = "enabled,enabled";
-            #xkb_options = "grp:alt_shift_toggle";
-            };
-            "type:touchpad" = {
-              dwt = "enabled";
-              tap = "enabled";
-              middle_emulation = "enabled";
-            };
-          };
-          focus = {
-            followMouse = true;
-            wrapping = "no";
-            mouseWarping = true;
-            newWindow = "smart";
-          };
-          /*workspaceAutoBackAndForth = true;
-          workspaceLayout = "default";*/
-          gaps = {
-            inner = 0; #10
-          };
-          floating = {
-            border = 1;
-            titlebar = true; #doesnt work
-          };
-          window = {
-            border = 1;
-            titlebar = true;
-            hideEdgeBorders = "smart";
-            commands = [ ];
-          };
-          startup = [
-            /* https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start */
-            {command = "--no-startup-id systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
-            {command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";}
-            {command = "--no-startup-id systemctl --user restart xdg-desktop-portal-gtk";}
-            {command = "--no-startup-id lxqt-session"; }
-            {command = "--no-startup-id pcmanfm-qt --daemon-mode --desktop";}
-            {command = "--no-startup-id lxqt-policykit-agent";}
-            # wait for lxqt-panel
-            {command = "--no-startup-id sleep 1 && lxqt-panel";}
-            {command = "--no-startup-id sleep 2 && lxqt-notificationd" ;}
-            {command = "--no-startup-id sleep 2 && lxqt-powermanagement"; }
+          xkb_layout = "br,br";
+          xkb_model = "abnt2,abnt2";
+          xkb_variant = ",nativo";
+          xkb_numlock = "enabled,enabled";
+          #xkb_options = "grp:alt_shift_toggle";
+        };
+        "type:touchpad" = {
+          dwt = "enabled";
+          tap = "enabled";
+          middle_emulation = "enabled";
+        };
+      };
+      focus = {
+        followMouse = true;
+        wrapping = "no";
+        mouseWarping = true;
+        newWindow = "smart";
+      };
+      /*
+        workspaceAutoBackAndForth = true;
+        workspaceLayout = "default";
+      */
+      gaps = {
+        inner = 0; # 10
+      };
+      floating = {
+        border = 1;
+        titlebar = true; # doesnt work
+      };
+      window = {
+        border = 1;
+        titlebar = true;
+        hideEdgeBorders = "smart";
+        commands = [ ];
+      };
+      startup = [
+        # https://github.com/swaywm/sway/wiki#gtk-applications-take-20-seconds-to-start
+        {
+          command = "--no-startup-id systemctl --user import-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";
+        }
+        {
+          command = "--no-startup-id dbus-update-activation-environment WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME";
+        }
+        { command = "--no-startup-id systemctl --user restart xdg-desktop-portal-gtk"; }
+        { command = "--no-startup-id lxqt-session"; }
+        { command = "--no-startup-id pcmanfm-qt --daemon-mode --desktop"; }
+        { command = "--no-startup-id lxqt-policykit-agent"; }
+        # wait for lxqt-panel
+        { command = "--no-startup-id sleep 1 && lxqt-panel"; }
+        { command = "--no-startup-id sleep 2 && lxqt-notificationd"; }
+        { command = "--no-startup-id sleep 2 && lxqt-powermanagement"; }
 
-            {command = "--no-startup-id nm-applet --indicator";}
-            # {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
-            {command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
-            # {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m tile -i ~/wallpaper"; } #fill
-            /*{command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}*/
-            /*{command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }*/
-            # {command = "--no-startup-id pcmanfm-qt --daemon-mode -w ~/wallpaper --wallpaper-mode=tile";} #--desktop
-            {command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
+        { command = "--no-startup-id nm-applet --indicator"; }
+        # {command = "--no-startup-id ${pkgs.swaynotificationcenter}/bin/swaync";}
+        {
+          command = "--no-startup-id ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store";
+        }
+        # {command = "--no-startup-id ${pkgs.swaybg}/bin/swaybg -m tile -i ~/wallpaper"; } #fill
+        # {command = "--no-startup-id ${pkgs.swww}/bin/swww init & ${pkgs.swww}/bin/swww img ~/back";}
+        # {command = "--no-startup-id ${pkgs.udiskie}/bin/udiskie -t"; }
+        # {command = "--no-startup-id pcmanfm-qt --daemon-mode -w ~/wallpaper --wallpaper-mode=tile";} #--desktop
+        { command = "--no-startup-id ${pkgs.gammastep}/bin/gammastep -l geoclue2 -m wayland"; }
 
-            /*{command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}*/
+        # {command = "--no-startup-id ${pkgs.kdePackages.kdeconnect-kde}/bin/kdeconnect-indicator";}
 
-            #{command = "--no-startup-id polkit-mate-authentication-agent-1"; }
-            /*{command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }*/
+        #{command = "--no-startup-id polkit-mate-authentication-agent-1"; }
+        # {command = "--no-startup-id ${pkgs.blueman}/bin/blueman-applet"; }
         # {command = "--no-startup-id solaar --window hide --battery-icons solaar"; }
       ];
       keybindings = lib.mkOptionDefault {
         "${modifier}+q" = "exec librewolf";
         "${modifier}+c" = "exec octave --gui";
 
-        "XF86AudioPlay"              = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
-        "XF86AudioStop"              = "exec ${pkgs.playerctl}/bin/playerctl stop";
-        "XF86AudioPrev"              = "exec ${pkgs.playerctl}/bin/playerctl previous";
-        "XF86AudioNext"              = "exec ${pkgs.playerctl}/bin/playerctl next";
-        "shift+XF86AudioPrev"        = "exec ${pkgs.playerctl}/bin/playerctl position 10-";
-        "shift+XF86AudioNext"        = "exec ${pkgs.playerctl}/bin/playerctl position 10+";
+        "XF86AudioPlay" = "exec ${pkgs.playerctl}/bin/playerctl play-pause";
+        "XF86AudioStop" = "exec ${pkgs.playerctl}/bin/playerctl stop";
+        "XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl previous";
+        "XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl next";
+        "shift+XF86AudioPrev" = "exec ${pkgs.playerctl}/bin/playerctl position 10-";
+        "shift+XF86AudioNext" = "exec ${pkgs.playerctl}/bin/playerctl position 10+";
         "shift+XF86AudioLowerVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1-";
         "shift+XF86AudioRaiseVolume" = "exec ${pkgs.playerctl}/bin/playerctl volume 0.1+";
 
@@ -189,24 +205,26 @@
         "${modifier}+minus" = "exec ${pkgs.lua}/bin/lua ${./change_res_sway.lua}";
         "${modifier}+equal" = "gaps inner current toggle 10";
 
-        "XF86AudioMute"        = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
         "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
-        "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
-        "XF86AudioMicMute"     = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+        "XF86AudioRaiseVolume" =
+          "exec ${pkgs.wireplumber}/bin/wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioMicMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
 
-        "XF86MonBrightnessUp"   = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
+        "XF86MonBrightnessUp" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%+";
         "XF86MonBrightnessDown" = "exec ${pkgs.brightnessctl}/bin/brightnessctl set 10%-";
 
         #"Print"          = "exec ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.wl-clipboard}/bin/wl-copy";
         #"Print" = "exec --no-startup-id flameshot gui";
-        "Print" = "exec --no-startup-id ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.swappy}/bin/swappy -f -";
-        "${modifier}+Ctrl+l"  = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
+        "Print" =
+          "exec --no-startup-id ${pkgs.slurp}/bin/slurp | ${pkgs.grim}/bin/grim -g - - | ${pkgs.swappy}/bin/swappy -f -";
+        "${modifier}+Ctrl+l" = "exec --no-startup-id ${pkgs.swaylock}/bin/swaylock -Ffk -c 000000";
 
         #"${modifier}+Shift+n" = "exec ${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
         "${modifier}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
       };
     };
-    /*extraSessionCommands = ''*/
+    # extraSessionCommands = ''
     extraConfig = ''
       #blur enable
       #blur_xray disable

@@ -3,7 +3,7 @@
   services.dunst = {
     enable = true;
     settings = {
-      /*https://github.com/tinted-theming/base16-dunst/*/
+      # https://github.com/tinted-theming/base16-dunst/
       global = {
         frame_color = "#${config.colorScheme.palette.base05}";
         separator_color = "#${config.colorScheme.palette.base05}";

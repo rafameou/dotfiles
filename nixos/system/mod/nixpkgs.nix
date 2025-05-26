@@ -13,23 +13,30 @@
       #   });
       # })
 
-      /*(final: prev: {
+      /*
+        (final: prev: {
         nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.system};
         nixpkgs-unstable = inputs.nixpkgs-unstable-legacyPackages.${pkgs.system};
         nixpkgs-master = inputs.nixpkgs-master.legacyPackages.${pkgs.system};
         nixpkgs-staging-next = inputs.nixpkgs-staging-next.legacyPackages.${pkgs.system};
-        })*/
+        })
+      */
 
-      (final: prev: { flameshot = prev.flameshot.override { enableWlrSupport = true; };})
+      (final: prev: { flameshot = prev.flameshot.override { enableWlrSupport = true; }; })
 
-      (self: super:
+      (
+        self: super:
         let
           img-clip-nvim = super.vimUtils.buildVimPlugin {
             name = "img-clip-nvim";
             src = inputs.img-clip-nvim;
           };
         in
-        { vimPlugins = super.vimPlugins // { inherit img-clip-nvim; }; }
+        {
+          vimPlugins = super.vimPlugins // {
+            inherit img-clip-nvim;
+          };
+        }
       )
     ];
     # Configure your nixpkgs instance

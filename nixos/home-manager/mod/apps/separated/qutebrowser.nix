@@ -1,25 +1,32 @@
-{ inputs, config, pkgs, ... }:
-let 
-/*catpuccin = pkgs.fetchFromGitHub {
-  owner = "catppuccin";
-  repo = "qutebrowser";
-  rev = "78bb72b4c60b421c8ea64dd7c960add6add92f83";
-  hash = "sha256-lp7HWYuD4aUyX1nRipldEojZVIvQmsxjYATdyHWph0g=";
-  };*/
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
+let
+  /*
+    catpuccin = pkgs.fetchFromGitHub {
+    owner = "catppuccin";
+    repo = "qutebrowser";
+    rev = "78bb72b4c60b421c8ea64dd7c960add6add92f83";
+    hash = "sha256-lp7HWYuD4aUyX1nRipldEojZVIvQmsxjYATdyHWph0g=";
+    };
+  */
   tr = "1";
   trTab = "1";
 in
 {
-  /*xdg.configFile."qutebrowser/catppuccin".source = catpuccin;*/
+  # xdg.configFile."qutebrowser/catppuccin".source = catpuccin;
   programs.qutebrowser = {
     enable = true;
     package = (pkgs.qutebrowser.override { enableWideVine = true; });
     loadAutoconfig = true;
     searchEngines = {
       DEFAULT = "https://duckduckgo.com/?q={}&start=1";
-      w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";  
-      aw = "https://wiki.archlinux.org/?search={}";  
-      nw = "https://nixos.wiki/index.php?search={}";  
+      w = "https://en.wikipedia.org/wiki/Special:Search?search={}&go=Go&ns0=1";
+      aw = "https://wiki.archlinux.org/?search={}";
+      nw = "https://nixos.wiki/index.php?search={}";
       g = "https://www.google.com/search?hl=en&q={}";
     };
     settings = {
@@ -34,15 +41,17 @@ in
       auto_save.session = true;
       input.insert_mode.auto_leave = false;
       input.insert_mode.auto_enter = false;
-      /*----------------------------------|
-      |- Stolen from Misterio77's config -|
-      |----------------------------------*/
+      /*
+        ----------------------------------|
+        |- Stolen from Misterio77's config -|
+        |----------------------------------
+      */
       colors = {
         webpage = {
           preferred_color_scheme = config.colorScheme.variant;
           darkmode = {
             enabled = false;
-            policy.images = "smart";#"smart-simple";
+            policy.images = "smart"; # "smart-simple";
             policy.page = "smart";
           };
           #bg = "#ffffff";
@@ -155,24 +164,24 @@ in
         tabs = {
           bar.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${tr})";
           even.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${trTab})";
-          even.fg = "#${config.colorScheme.palette.base05}"; 
+          even.fg = "#${config.colorScheme.palette.base05}";
           indicator.error = "#${config.colorScheme.palette.base08}";
           indicator.start = "#${config.colorScheme.palette.base0D}";
           indicator.stop = "#${config.colorScheme.palette.base0C}";
           odd.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, ${trTab})";
-          odd.fg = "#${config.colorScheme.palette.base05}"; 
+          odd.fg = "#${config.colorScheme.palette.base05}";
           pinned.even.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base0B}, ${trTab})";
-          pinned.even.fg = "#${config.colorScheme.palette.base05}"; #base00
+          pinned.even.fg = "#${config.colorScheme.palette.base05}"; # base00
           pinned.odd.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base0B}, ${trTab})";
-          pinned.odd.fg = "#${config.colorScheme.palette.base05}"; #base00
+          pinned.odd.fg = "#${config.colorScheme.palette.base05}"; # base00
           pinned.selected.even.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, ${trTab})";
-          pinned.selected.even.fg = "#${config.colorScheme.palette.base0B}"; #base05
+          pinned.selected.even.fg = "#${config.colorScheme.palette.base0B}"; # base05
           pinned.selected.odd.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, ${trTab})";
-          pinned.selected.odd.fg = "#${config.colorScheme.palette.base0B}"; #base05
+          pinned.selected.odd.fg = "#${config.colorScheme.palette.base0B}"; # base05
           selected.even.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, ${trTab})";
-          selected.even.fg = "#${config.colorScheme.palette.base0B}"; #base05
+          selected.even.fg = "#${config.colorScheme.palette.base0B}"; # base05
           selected.odd.bg = "rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, ${trTab})";
-          selected.odd.fg = "#${config.colorScheme.palette.base0B}"; #base05
+          selected.odd.fg = "#${config.colorScheme.palette.base0B}"; # base05
         };
       };
     };
@@ -184,36 +193,35 @@ in
     };
     greasemonkey = [
       (pkgs.writeText "yt-adblock.js" ''
-// ==UserScript==
-// @name         Auto Skip YouTube Ads
-// @version      1.1.0
-// @description  Speed up and skip YouTube ads automatically
-// @author       jso8910
-// @match        *://*.youtube.com/*
-// @exclude      *://*.youtube.com/subscribe_embed?*
-// ==/UserScript==
-setInterval(() => {
-    const btn = document.querySelector('.videoAdUiSkipButton,.ytp-ad-skip-button')
-    if (btn) {
-        btn.click()
-    }
-    const ad = [...document.querySelectorAll('.ad-showing')][0];
-    if (ad) {
-        const video = document.querySelector('video')
-        video.muted = true;
-        video.hidden = true;
+        // ==UserScript==
+        // @name         Auto Skip YouTube Ads
+        // @version      1.1.0
+        // @description  Speed up and skip YouTube ads automatically
+        // @author       jso8910
+        // @match        *://*.youtube.com/*
+        // @exclude      *://*.youtube.com/subscribe_embed?*
+        // ==/UserScript==
+        setInterval(() => {
+            const btn = document.querySelector('.videoAdUiSkipButton,.ytp-ad-skip-button')
+            if (btn) {
+                btn.click()
+            }
+            const ad = [...document.querySelectorAll('.ad-showing')][0];
+            if (ad) {
+                const video = document.querySelector('video')
+                video.muted = true;
+                video.hidden = true;
 
-        // This is not necessarily available right at the start
-        if(video.duration != NaN) {
-            video.currentTime = video.duration;
-        }
+                // This is not necessarily available right at the start
+                if(video.duration != NaN) {
+                    video.currentTime = video.duration;
+                }
 
-        // 16 seems to be the highest rate that works, mostly this isn't needed
-        video.playbackRate = 16;
-    }
-}, 50)
-        '')
+                // 16 seems to be the highest rate that works, mostly this isn't needed
+                video.playbackRate = 16;
+            }
+        }, 50)
+      '')
     ];
   };
 }
-

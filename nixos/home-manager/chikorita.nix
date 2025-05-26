@@ -1,4 +1,4 @@
-{ pkgs, ... } :
+{ pkgs, ... }:
 {
   imports = [
     ./mod/home-manager.nix
@@ -13,9 +13,9 @@
     #./mod/apps/separated/retroarch.nix
     #./mod/apps/separated/rclone-server.nix
 
-    /* - sway - */
+    # - sway -
     ./mod/window-manager.nix
-    /* - other desktops - */
+    # - other desktops -
     #./mod/desktop-environment.nix
     #./mod/desktop-environment/gnome.nix
     #./mod/desktop-environment/kde.nix
@@ -24,8 +24,8 @@
     ./mod/desktop-environment/lxqt.nix
   ];
 
-  /* ... changes to only this sytem */
-  /*wayland.windowManager.sway.config.startup = [{command = "--no-startup-id fix";}];*/
+  # ... changes to only this sytem
+  # wayland.windowManager.sway.config.startup = [{command = "--no-startup-id fix";}];
   wayland.windowManager.sway = {
     extraOptions = [
       "--unsupported-gpu"
@@ -42,9 +42,9 @@
   };
 
   wayland.windowManager.hyprland.settings.monitor = [
-          "HDMI-A-1, 1920x1080@60, 0x0, 1.25"
-          "eDP-1, disable"
-        ];
+    "HDMI-A-1, 1920x1080@60, 0x0, 1.25"
+    "eDP-1, disable"
+  ];
 
   programs.niri.settings = {
     outputs = {

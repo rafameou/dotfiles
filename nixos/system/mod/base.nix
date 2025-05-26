@@ -1,21 +1,21 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    /* -- home-manager -- */
+    # -- home-manager --
     inputs.home-manager.nixosModules.home-manager
 
-    /* -- nix and nixpkgs configs -- */
+    # -- nix and nixpkgs configs --
     ./nix.nix
     ./nixpkgs.nix
 
-    /* -- hardware-related -- */
+    # -- hardware-related --
     ./bluetooth.nix
     ./swap.nix
     ./fstrim.nix
     ./fwupd.nix
     ./graphics.nix
 
-    /* -- user and desktop -- */
+    # -- user and desktop --
     ./xserver.nix
     ./dconf.nix
     ./fonts.nix
@@ -27,8 +27,7 @@
     ./thumbnail.nix
     #./stylix.nix
 
-
-    /* -- services and apps -- */
+    # -- services and apps --
     ./geoclue.nix
     ./zsh.nix
     ./solaar.nix

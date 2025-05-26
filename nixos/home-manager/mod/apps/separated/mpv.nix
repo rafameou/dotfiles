@@ -5,5 +5,5 @@
     config = {
       ytdl-format = "best[height<=1080]";
     };
-  };  
+  };
 }

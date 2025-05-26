@@ -1,6 +1,12 @@
-{inputs, config, lib, pkgs,...}:
 {
-  /* https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/waybar.nix */
+  inputs,
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  # https://github.com/rafaelrc7/dotfiles/blob/master/users/rafael/waybar.nix
   imports = [ ../nix-colors.nix ];
 
   programs.waybar = {
@@ -9,43 +15,74 @@
       {
         layer = "bottom";
         position = "top";
-        height = 24;#25;
-        spacing = 5; #10;
+        height = 24; # 25;
+        spacing = 5; # 10;
 
-        modules-left   = [ "hyprland/workspaces" "sway/workspaces" "sway/mode" "sway/scratchpad" /*"custom/media" "wlr/taskbar"*/ ];
+        modules-left = [
+          "hyprland/workspaces"
+          "sway/workspaces"
+          "sway/mode"
+          "sway/scratchpad" # "custom/media" "wlr/taskbar"
+        ];
         modules-center = [ ];
-        modules-right  = ["idle_inhibitor"  "pulseaudio" "systemd-failed-units" /*"network" "hyprland/language" "sway/language"*/ "cpu" "memory" "memory#swap" "battery" "privacy" "user" "backlight" "clock" "custom/weather" "custom/notification" "tray" "custom/logout"];
+        modules-right = [
+          "idle_inhibitor"
+          "pulseaudio"
+          "systemd-failed-units" # "network" "hyprland/language" "sway/language"
+          "cpu"
+          "memory"
+          "memory#swap"
+          "battery"
+          "privacy"
+          "user"
+          "backlight"
+          "clock"
+          "custom/weather"
+          "custom/notification"
+          "tray"
+          "custom/logout"
+        ];
 
         tray = {
           # icon-size = 21;
           spacing = 5;
         };
 
-        "custom/notification"= {
-          "tooltip"= false;
-          "format"= "{icon}";
-          "format-icons"= {
-            "notification"= "<span color='#FABD2F'>*</span>";
-            "none"= "";
-            "dnd-notification"= "<span color='#FABD2F'>*</span>";
-            "dnd-none"= "";
-            "inhibited-notification"= "<span color='#FB4934'>*</span>";
-            "inhibited-none"= "";
-            "dnd-inhibited-notification"= "<span color='#FB4934'>*</span>";
-            "dnd-inhibited-none"= "";
+        "custom/notification" = {
+          "tooltip" = false;
+          "format" = "{icon}";
+          "format-icons" = {
+            "notification" = "<span color='#FABD2F'>*</span>";
+            "none" = "";
+            "dnd-notification" = "<span color='#FABD2F'>*</span>";
+            "dnd-none" = "";
+            "inhibited-notification" = "<span color='#FB4934'>*</span>";
+            "inhibited-none" = "";
+            "dnd-inhibited-notification" = "<span color='#FB4934'>*</span>";
+            "dnd-inhibited-none" = "";
           };
-          "return-type"= "json";
-          "exec-if"= "which swaync-client";
-          "exec"= "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
-          "on-click"= "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-          "on-click-right"= "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
-          "escape"= true;
+          "return-type" = "json";
+          "exec-if" = "which swaync-client";
+          "exec" = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+          "on-click" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+          "on-click-right" = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+          "escape" = true;
         };
 
         backlight = {
           # "device" = "acpi_video1";
           format = "{icon}{percent}%";
-          format-icons = ["" "" "" "" "" "" "" "" ""];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+            ""
+          ];
         };
 
         "sway/workspaces" = {
@@ -66,13 +103,16 @@
         "sway/scratchpad" = {
           format = "{icon} {count}";
           show-empty = false;
-          format-icons = ["" ""];
+          format-icons = [
+            ""
+            ""
+          ];
           tooltip = true;
           tooltip-format = "{app}: {title}";
         };
 
         "wlr/taskbar" = {
-          icon-size= 20;
+          icon-size = 20;
           on-click = "activate";
           format = "{icon}";
         };
@@ -118,15 +158,13 @@
           format-plugged = "<span color='#8EC07C'>{capacity}% {power:.3}W</span>";
           format-alt = "{time}{icon} ";
           format-icons = [
-            "<span color='#FB4934'>" 
-            "<span color='#FE8019'>" 
-            "<span color='#8EC07C'>" 
-            "<span color='#B8BB26'>" 
+            "<span color='#FB4934'>"
+            "<span color='#FE8019'>"
+            "<span color='#8EC07C'>"
+            "<span color='#B8BB26'>"
             "<span color='#B8BB26'>"
           ];
         };
-
-
 
         pulseaudio = {
           scroll-step = 1;
@@ -143,17 +181,21 @@
             phone = "";
             portable = "";
             car = "";
-            default = ["󰕿" "󰖀" "󰕾"];
+            default = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
           };
           on-click = "pavucontrol-qt";
         };
 
         "custom/weather" = {
           format = "{}°C";
-          tooltip=  true;
-          interval= 3600;
-          exec= "wttrbar --lang pt --location ponta-grossa";
-          return-type= "json";
+          tooltip = true;
+          interval = 3600;
+          exec = "wttrbar --lang pt --location ponta-grossa";
+          return-type = "json";
         };
 
         "sway/language" = {
@@ -172,173 +214,174 @@
         cpu = {
           format = "{icon}{usage}%</span>";
           format-icons = [
-            "<span color='#B8BB26'>▁" 
-            "<span color='#8EC07C'>▂" 
-            "<span color='#83A598'>▃" 
-            "<span color='#FABD2F'>▄" 
-            "<span color='#FE8019'>▅" 
-            "<span color='#FE8019'>▆" 
-            "<span color='#FB4934'>▇" 
-            "<span color='#FB4934'>█"];
-            tooltip = false;
-          };
-
-          memory = {
-            format = "󰍛{used}/{total}G";
-          };
-
-          "memory#swap" = {
-            format = "󰓡{swapUsed}/{swapTotal}G";
-          };
-
-          temperature = {
-            critical-threshold = 80;
-            format = "{icon} {temperatureC}°C</span>";
-            format-icons = [
-              "<span color='#B8BB26'>"
-              "<span color='#FABD2F'>" 
-              "<span color='#FB4934'>"
-            ];
-            hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input";
-          };
-
-          clock = {
-            timezone = lib.mkDefault "America/Sao_Paulo";
-            tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-            format = "󰥔{:%T %d/%m/%Y}";
-            interval = 1;
-            calendar = {
-              mode = "year";
-              mode-mon-col = 3;
-              weeks-pos = "right";
-              on-scroll = 1;
-              format-months = "<span color='#ffead3'><b>{}</b></span>";
-              format-days = "<span color='#ecc6d9'><b>{}</b></span>";
-              format-weeks = "<span color='#99ffdd'><b>W{}</b></span>";
-              format-weekdays = "<span color='#ffcc66'><b>{}</b></span>";
-              format-today = "<span color='#ff6699'><b><u>{}</u></b></span>";
-              on-click-right = "mode";
-              on-scroll-up = "tz_up";
-              on-scroll-down = "tz_down";
-          #on-scroll-up = "shift_up";
-          #on-scroll-down = "shift_down";
+            "<span color='#B8BB26'>▁"
+            "<span color='#8EC07C'>▂"
+            "<span color='#83A598'>▃"
+            "<span color='#FABD2F'>▄"
+            "<span color='#FE8019'>▅"
+            "<span color='#FE8019'>▆"
+            "<span color='#FB4934'>▇"
+            "<span color='#FB4934'>█"
+          ];
+          tooltip = false;
         };
-      };
-    }
-  ];
 
-  style = ''
-        * {
-        font-family: Fira Sans, FiraCode Nerd Font Mono, Fira Sans;
-        font-size: 18px;
-        transition-duration: 0;
-        }
+        memory = {
+          format = "󰍛{used}/{total}G";
+        };
 
-          window#waybar {
-                  color: #${config.colorScheme.palette.base05};
-          background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 0.9) 50%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%);
-        }
+        "memory#swap" = {
+          format = "󰓡{swapUsed}/{swapTotal}G";
+        };
 
-        window#waybar.hidden {
-        opacity: 0.2;
-        }
+        temperature = {
+          critical-threshold = 80;
+          format = "{icon} {temperatureC}°C</span>";
+          format-icons = [
+            "<span color='#B8BB26'>"
+            "<span color='#FABD2F'>"
+            "<span color='#FB4934'>"
+          ];
+          hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input";
+        };
 
-        window#waybar.termite {
-        background-color: #3F3F3F;
-        }
+        clock = {
+          timezone = lib.mkDefault "America/Sao_Paulo";
+          tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
+          format = "󰥔{:%T %d/%m/%Y}";
+          interval = 1;
+          calendar = {
+            mode = "year";
+            mode-mon-col = 3;
+            weeks-pos = "right";
+            on-scroll = 1;
+            format-months = "<span color='#ffead3'><b>{}</b></span>";
+            format-days = "<span color='#ecc6d9'><b>{}</b></span>";
+            format-weeks = "<span color='#99ffdd'><b>W{}</b></span>";
+            format-weekdays = "<span color='#ffcc66'><b>{}</b></span>";
+            format-today = "<span color='#ff6699'><b><u>{}</u></b></span>";
+            on-click-right = "mode";
+            on-scroll-up = "tz_up";
+            on-scroll-down = "tz_down";
+            #on-scroll-up = "shift_up";
+            #on-scroll-down = "shift_down";
+          };
+        };
+      }
+    ];
 
-        window#waybar.chromium {
-        background-color: #000000;
-        border: none;
-        }
+    style = ''
+              * {
+              font-family: Fira Sans, FiraCode Nerd Font Mono, Fira Sans;
+              font-size: 18px;
+              transition-duration: 0;
+              }
 
-#taskbar button {
-    padding-top: 0;
-    padding-bottom: 0;
-    box-shadow: inset 0 0 0 1px #${config.colorScheme.palette.base02};
-    border-radius: 5px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    margin-left: 5px;
-    background: radial-gradient(ellipse, rgba(80, 73, 69, 0.9) 0%, rgba(0,0,0,0) 100%);
-    }
+                window#waybar {
+                        color: #${config.colorScheme.palette.base05};
+                background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 0.9) 50%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%);
+              }
 
-#taskbar button.hover,
-#taskbar button.active {
-    background: radial-gradient(ellipse, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 0%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 1) 100%);
-    }
+              window#waybar.hidden {
+              opacity: 0.2;
+              }
 
-    button {
-    box-shadow: inset 0 -3px transparent;
-    border: none;
-    border-radius: 100%;
-    min-height: 24px;
-    min-width: 16px;
-    }
+              window#waybar.termite {
+              background-color: #3F3F3F;
+              }
 
-    /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-    button:hover {
-    background: inherit;
-    /*box-shadow: inset 0 -3px #ffffff;*/
-    }
+              window#waybar.chromium {
+              background-color: #000000;
+              border: none;
+              }
 
-      #workspaces button {
-          padding: 0 5px;
-          background-color: transparent;
-          color: #A89984;
-          border-radius: 100%;
-          transition-duration: .2s;
-          background: #${config.colorScheme.palette.base02};
-          }
-
-      #workspaces button.active,
-      #workspaces button.focused,
-      #workspaces button:hover {
-          /*background: ;*/
-          background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
-          /*background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);*/
-          color: #${config.colorScheme.palette.base05};
-          }
-
-      #workspaces button.urgent {
-          color: #FB4934;
-          }
-
-      #mode {
-          background-color: #64727D;
-          border-bottom: 3px solid #ffffff;
-          }
-
-          /*#window,
-      #workspaces {
-          margin: 0 4px;
-          }*/
-
-      #waybar.empty #window {
-          border: none;
-          background: none;
-          }
-
-          .modules-right > widget {
+      #taskbar button {
+          padding-top: 0;
+          padding-bottom: 0;
+          box-shadow: inset 0 0 0 1px #${config.colorScheme.palette.base02};
           border-radius: 5px;
-          box-shadow: inset 0 0 0 1px #504945;
-          background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0) 100%);
+          margin-top: 0px;
+          margin-bottom: 0px;
+          margin-left: 5px;
+          background: radial-gradient(ellipse, rgba(80, 73, 69, 0.9) 0%, rgba(0,0,0,0) 100%);
           }
 
-      #wireplumber.muted,
-      #network.disconnected,
-      #pulseaudio.muted {
-          color: #FB4934;
+      #taskbar button.hover,
+      #taskbar button.active {
+          background: radial-gradient(ellipse, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 0%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 1) 100%);
           }
 
-      #tray > .passive {
-          -gtk-icon-effect: dim;
+          button {
+          box-shadow: inset 0 -3px transparent;
+          border: none;
+          border-radius: 100%;
+          min-height: 24px;
+          min-width: 16px;
           }
 
-      #tray > .needs-attention {
-          -gtk-icon-effect: highlight;
-          background-color: #eb4d4b;
+          /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+          button:hover {
+          background: inherit;
+          /*box-shadow: inset 0 -3px #ffffff;*/
           }
-  '';
-};
-    }
+
+            #workspaces button {
+                padding: 0 5px;
+                background-color: transparent;
+                color: #A89984;
+                border-radius: 100%;
+                transition-duration: .2s;
+                background: #${config.colorScheme.palette.base02};
+                }
+
+            #workspaces button.active,
+            #workspaces button.focused,
+            #workspaces button:hover {
+                /*background: ;*/
+                background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
+                /*background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);*/
+                color: #${config.colorScheme.palette.base05};
+                }
+
+            #workspaces button.urgent {
+                color: #FB4934;
+                }
+
+            #mode {
+                background-color: #64727D;
+                border-bottom: 3px solid #ffffff;
+                }
+
+                /*#window,
+            #workspaces {
+                margin: 0 4px;
+                }*/
+
+            #waybar.empty #window {
+                border: none;
+                background: none;
+                }
+
+                .modules-right > widget {
+                border-radius: 5px;
+                box-shadow: inset 0 0 0 1px #504945;
+                background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0) 100%);
+                }
+
+            #wireplumber.muted,
+            #network.disconnected,
+            #pulseaudio.muted {
+                color: #FB4934;
+                }
+
+            #tray > .passive {
+                -gtk-icon-effect: dim;
+                }
+
+            #tray > .needs-attention {
+                -gtk-icon-effect: highlight;
+                background-color: #eb4d4b;
+                }
+    '';
+  };
+}

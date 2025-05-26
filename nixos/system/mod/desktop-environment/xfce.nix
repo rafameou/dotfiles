@@ -11,15 +11,14 @@
   #services.gnome.gnome-keyring.enable = true;
 
   environment.systemPackages = with pkgs; [
-      #pulseaudio
-      #pavucontrol
+    #pulseaudio
+    #pavucontrol
 
-      #gnome.seahorse
-        
+    #gnome.seahorse
 
-      xfce.xfce4-eyes-plugin
-      xfce.xfce4-notes-plugin
-      xfce.xfce4-sensors-plugin
-      xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-eyes-plugin
+    xfce.xfce4-notes-plugin
+    xfce.xfce4-sensors-plugin
+    xfce.xfce4-pulseaudio-plugin
   ];
 }

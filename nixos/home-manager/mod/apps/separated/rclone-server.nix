@@ -2,11 +2,16 @@
 let
   mount_directory = "/mnt/Extra2/gdrive_music";
 in
-  {
-  home.packages = with pkgs; [ rclone fuse ];
-  /*---------------------------------------------------------------------------------------------|
-  | Stolen from https://github.com/rafaelrc7/dotfiles/blob/master/modules/home/rclone-gdrive.nix |
-  |---------------------------------------------------------------------------------------------*/
+{
+  home.packages = with pkgs; [
+    rclone
+    fuse
+  ];
+  /*
+    ---------------------------------------------------------------------------------------------|
+    | Stolen from https://github.com/rafaelrc7/dotfiles/blob/master/modules/home/rclone-gdrive.nix |
+    |---------------------------------------------------------------------------------------------
+  */
   systemd.user.services = {
     rclone-gdrive-server = {
       Unit = {
@@ -22,9 +27,11 @@ in
         #ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory}";
         Restart = "on-failure";
         RestartSec = 30;
-        /*--------------------------------------------------------------------------------|
-        | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
-        |---------------------------------------------------------------------------------*/
+        /*
+          --------------------------------------------------------------------------------|
+          | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
+          |---------------------------------------------------------------------------------
+        */
         Environment = [ "PATH=/run/wrappers/bin/:$PATH" ];
       };
 

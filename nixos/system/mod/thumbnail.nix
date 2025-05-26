@@ -9,7 +9,7 @@
     ffmpegthumbnailer
     freetype
     libgsf
-    totem #caja
+    totem # caja
     gnome-epub-thumbnailer
     f3d
     poppler_utils

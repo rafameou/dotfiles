@@ -7,7 +7,7 @@
   ];
   programs = {
     librewolf = {
-      enable = true; 
+      enable = true;
       settings = {
         "webgl.disabled" = false;
         #"privacy.resistFingerprinting" = false;
@@ -24,7 +24,8 @@
   home.packages = with pkgs; [
     ungoogled-chromium
     telegram-desktop
-    vesktop arrpc
+    vesktop
+    arrpc
     bitwarden
     komikku
     kdePackages.tokodon

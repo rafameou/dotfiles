@@ -8,9 +8,11 @@
   };
 
   # backup swap
-  swapDevices = [ {
-    device = "/var/lib/swapfile";
-    priority = 0;
-    size = 8*1024;
-  } ];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      priority = 0;
+      size = 8 * 1024;
+    }
+  ];
 }

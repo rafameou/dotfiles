@@ -5,7 +5,7 @@
       enable = true;
       associations = {
         added = {
-          /*gsconnect keeps adding this line, notice the ; :facepalm:*/
+          # gsconnect keeps adding this line, notice the ; :facepalm:
           "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tg" = "org.telegram.desktop.desktop;";
@@ -39,14 +39,14 @@
         "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
         "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop";
 
-        /* heroic keeps adding this line */
+        # heroic keeps adding this line
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
         "x-scheme-handler/discord" = "vesktop.desktop";
 
         "application/x-gnome-saved-search" = "org.kde.dolphin.desktop";
         "inode/directory" = "org.kde.dolphin.desktop";
 
-        # move this stuff to each desktop's dot nix file        
+        # move this stuff to each desktop's dot nix file
         "image/tiff" = "org.kde.gwenview.desktop";
         "image/jpx" = "org.kde.gwenview.desktop";
         "image/png" = "org.kde.gwenview.desktop";
@@ -57,7 +57,7 @@
 
         "application/x-tar" = "org.kde.ark.desktop";
         "application/x-7z-compressed" = "org.kde.ark.desktop";
-        "application/vnd.rar" = "org.kde.ark.desktop"; 
+        "application/vnd.rar" = "org.kde.ark.desktop";
         "application/zip" = "org.kde.ark.desktop";
 
         "application/pdf" = "org.kde.okular.desktop";

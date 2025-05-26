@@ -5,7 +5,7 @@
       enable = true;
       associations = {
         added = {
-          /*gsconnect keeps adding this line, notice the ; :facepalm:*/
+          # gsconnect keeps adding this line, notice the ; :facepalm:
           "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tg" = "org.telegram.desktop.desktop;";
@@ -37,13 +37,13 @@
         "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
         "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
 
-        /* heroic keeps adding this line */
+        # heroic keeps adding this line
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
 
         "application/x-gnome-saved-search" = "org.gnome.Nautilus.desktop";
         "inode/directory" = "org.gnome.Nautilus.desktop";
 
-        # move this stuff to each desktop's dot nix file        
+        # move this stuff to each desktop's dot nix file
         "image/tiff" = "org.gnome.Loupe.desktop";
         "image/jpx" = "org.gnome.Loupe.desktop";
         "image/png" = "org.gnome.Loupe.desktop";
@@ -54,7 +54,7 @@
 
         "application/x-tar" = "org.gnome.FileRoller.desktop";
         "application/x-7z-compressed" = "org.gnome.FileRoller.desktop";
-        "application/vnd.rar" = "org.gnome.FileRoller.desktop"; 
+        "application/vnd.rar" = "org.gnome.FileRoller.desktop";
         "application/zip" = "org.gnome.FileRoller.desktop";
 
         "application/pdf" = "org.gnome.Evince.desktop";

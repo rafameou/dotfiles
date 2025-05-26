@@ -12,17 +12,21 @@
     ./mod/niri.nix
   ];
 
-  /* ... changes to only this sytem */
+  # ... changes to only this sytem
   networking.hostName = "treecko"; # Define your hostname.
   home-manager = {
     backupFileExtension = "hm-backup";
-    extraSpecialArgs = { inherit inputs /*outputs*/; };
+    extraSpecialArgs = {
+      inherit
+        inputs # outputs
+        ;
+    };
     users = {
       rafameou = import ../home-manager/treecko.nix;
     };
   };
 
-  boot.kernelParams = [ "amd_pstate=guided" ]; 
+  boot.kernelParams = [ "amd_pstate=guided" ];
 
   programs.steam = {
     enable = true;
@@ -33,7 +37,7 @@
   };
 
   fileSystems = {
-    "/mnt/Extra" = { 
+    "/mnt/Extra" = {
       device = "/dev/disk/by-uuid/8ca22250-372a-4fd4-9a98-0c4a362bbeba";
       fsType = "ext4";
       options = [

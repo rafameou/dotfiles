@@ -3,25 +3,29 @@
   imports = [
     inputs.nix-flatpak.nixosModules.nix-flatpak
   ];
-  /* maybe we should move this to home-manager in the future */
+  # maybe we should move this to home-manager in the future
   services.flatpak = {
     enable = true;
     overrides = {
       global = {
-        /*Force Wayland by default*/
+        # Force Wayland by default
         Context = {
-          /* ln -s /run/current-system/sw/share/X11/fonts ~/.local/share/fonts */
+          # ln -s /run/current-system/sw/share/X11/fonts ~/.local/share/fonts
           filesystems = [
             "$HOME/.local/share/fonts:ro"
             "$HOME/.icons:ro"
           ];
-          sockets = ["wayland" "x11" "fallback-x11"];
+          sockets = [
+            "wayland"
+            "x11"
+            "fallback-x11"
+          ];
         };
 
         Environment = {
-          /*Fix un-themed cursor in some Wayland apps*/
+          # Fix un-themed cursor in some Wayland apps
           XCURSOR_PATH = "/run/host/user-share/icons:/run/host/share/icons";
-        }; 
+        };
       };
     };
     update.auto = {

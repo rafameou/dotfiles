@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
-  imports = [ 
-    #./separated/dunst.nix 
+  imports = [
+    #./separated/dunst.nix
     ./separated/foot.nix
     ./separated/fuzzel.nix
     #./separated/kitty.nix
@@ -21,10 +21,12 @@
     unar
     unzip
     zip
-    xsane 
+    xsane
     virt-viewer
     freerdp
-    htop lm_sensors powerstat
+    htop
+    lm_sensors
+    powerstat
     nixos-icons
     mesa-demos
     pavucontrol

@@ -1,6 +1,6 @@
 { pkgs, ... }:
 {
-  imports = [ 
+  imports = [
     ./separated/emacs.nix
     ./separated/mpv.nix
     ./separated/neovim.nix
@@ -21,16 +21,16 @@
 
   home.packages = with pkgs; [
     nixfmt-rfc-style
-    gimp3 
+    gimp3
     darktable
-    onlyoffice-bin 
-    libreoffice-qt-fresh 
+    onlyoffice-bin
+    libreoffice-qt-fresh
     hunspell
     hunspellDicts.pt_BR
     corefonts
     vistafonts
     #feishin #broken 22-01-2025, electron, not needed
-    strawberry-qt6 
+    strawberry-qt6
     texlive.combined.scheme-full
     cherrytree
     imagemagick
@@ -46,7 +46,7 @@
     krita
     kdePackages.kolourpaint
 
-    /*okular*/
+    # okular
     #gromit-mpx
     #speedcrunch
     #notepadqq

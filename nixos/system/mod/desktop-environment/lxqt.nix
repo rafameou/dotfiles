@@ -9,17 +9,19 @@
 
   environment.systemPackages = with pkgs; [
     labwc-tweaks
-    
-    /* -- appmenu -- */
+
+    # -- appmenu --
     #appmenu-gtk3-module # breaks everything
     libappindicator-gtk3
 
-    /* -----------------------------------------|
-    | decided to move to here, since they kinda |
-    | are like system packages                  |
-    |------------------------------------------*/
+    /*
+      -----------------------------------------|
+      | decided to move to here, since they kinda |
+      | are like system packages                  |
+      |------------------------------------------
+    */
     kdePackages.oxygen
-    kdePackages.oxygen.qt5 
+    kdePackages.oxygen.qt5
     kdePackages.oxygen-sounds
     kdePackages.oxygen-icons
   ];
