@@ -9,6 +9,7 @@
     ./mod/desktop-environment/lxqt.nix
     ./mod/sway.nix
     ./mod/tlp.nix
+    ./mod/niri.nix
   ];
 
   /* ... changes to only this sytem */

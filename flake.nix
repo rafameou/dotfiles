@@ -24,6 +24,9 @@
     #plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     #plasma-manager.inputs.home-manager.follows = "home-manager";
 
+    niri.url = "github:sodiboo/niri-flake";
+    niri.inputs.nixpkgs.follows = "nixpkgs";
+
     bing-mate.url = "github:rafameou/bing-mate";
     bing-mate.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -45,11 +48,12 @@
     #nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
-  outputs = { nixpkgs, home-manager, /*plasma-manager,*/ solaar, chaotic, /*nixos-wsl,*/ ... }@inputs: {
+  outputs = { nixpkgs, home-manager, /*plasma-manager,*/ niri, solaar, chaotic, /*nixos-wsl,*/ ... }@inputs: {
     nixosConfigurations = {
       bulbasaur = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
+          niri.nixosModules.niri
           #stylix.nixosModules.stylix
           solaar.nixosModules.default
           ./nixos/system/bulbasaur.nix 
@@ -59,6 +63,7 @@
       chikorita = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
+          niri.nixosModules.niri
           #stylix.nixosModules.stylix 
           solaar.nixosModules.default
           ./nixos/system/chikorita.nix 
@@ -68,6 +73,7 @@
       treecko = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; }; # Pass flake inputs to our config
         modules = [ 
+          niri.nixosModules.niri
           #stylix.nixosModules.stylix 
           solaar.nixosModules.default
           ./nixos/system/treecko.nix 

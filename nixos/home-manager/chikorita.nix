@@ -46,6 +46,17 @@
           "eDP-1, disable"
         ];
 
+  programs.niri.settings = {
+    outputs = {
+      "eDP-1".enable = false;
+      "HDMI-A-1".mode = {
+        width = 1920;
+        height = 1080;
+        refresh = 60.0;
+      };
+    };
+  };
+
   xdg.configFile = {
     "wayfire.ini".text = ''
       [output:eDP-1]

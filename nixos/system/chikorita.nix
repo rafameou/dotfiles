@@ -13,6 +13,7 @@
     ./mod/navidrome.nix
     ./mod/ssh.nix
     #./mod/nextcloud.nix
+    ./mod/niri.nix
   ];
 
   networking.hostName = "chikorita"; # Define your hostname.

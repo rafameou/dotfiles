@@ -20,6 +20,7 @@
   };
 
   home.packages = with pkgs; [
+    nixfmt-rfc-style
     gimp3 
     darktable
     onlyoffice-bin 
