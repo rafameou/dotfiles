@@ -11,7 +11,7 @@
     libgsf
     totem # caja
     gnome-epub-thumbnailer
-    f3d
+    #f3d # broken 25-05-2025
     poppler_utils
     atool
     colordiff
