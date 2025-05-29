@@ -81,6 +81,13 @@
           ];
         }
       ];
+      cursor = {
+        theme = "Hackneyed";
+        size = 36;
+      };
+      clipboard = {
+        disable-primary = true;
+      };
       prefer-no-csd = true;
       screenshot-path = null;
       window-rules = [
@@ -249,8 +256,8 @@
         "Mod+R".action = switch-preset-column-width;
         "Mod+Shift+R".action = switch-preset-window-height;
         "Mod+Ctrl+R".action = reset-window-height;
-        "Mod+F".action = maximize-column;
-        "Mod+Shift+F".action = fullscreen-window;
+        "Mod+F".action = fullscreen-window; # maximize-column;
+        "Mod+Shift+F".action = maximize-column; #fullscreen-window;
 
         "Mod+Ctrl+F".action = expand-column-to-available-width;
         "Mod+C".action = center-column;

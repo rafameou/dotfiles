@@ -10,6 +10,7 @@
           "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tg" = "org.telegram.desktop.desktop;";
           "x-scheme-handler/tonsite" = "org.telegram.desktop.desktop;";
+          "x-scheme-handler/discord" = "vesktop.desktop;";
         };
       };
       defaultApplications = {

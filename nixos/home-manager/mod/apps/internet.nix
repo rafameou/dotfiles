@@ -32,6 +32,8 @@
     #kdePackages.neochat #broken 20-03
     #whatsapp-for-linux
     stremio
+    signal-desktop
+    cinny-desktop #fluffychat
 
     protonvpn-gui
     #protonmail-bridge

@@ -37,6 +37,12 @@
     };
   };
 
+  programs.niri.settings = {
+    input.keyboard.xkb = {
+        variant = "thinkpad";
+    };
+  };
+
   wayland.windowManager.hyprland.settings.input = {
     kb_variant = lib.mkForce "thinkpad,nativo";
     numlock_by_default = lib.mkForce false;
