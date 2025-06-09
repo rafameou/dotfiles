@@ -21,6 +21,6 @@
         dart-code.flutter
         alexisvt.flutter-snippets
       ];
-    }
+    };
   };
 }
