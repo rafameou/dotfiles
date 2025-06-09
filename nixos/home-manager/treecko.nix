@@ -41,6 +41,9 @@
     input.keyboard.xkb = {
         variant = "thinkpad";
     };
+    eDP-1 = {
+        scale = "1.0";
+    };
   };
 
   wayland.windowManager.hyprland.settings.input = {

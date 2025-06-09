@@ -39,7 +39,7 @@
     icon_follow_color_scheme=true
     icon_theme=Colloid-Gruvbox-Dark
     palette_override=true
-    theme=graphite
+    theme=kvantum
     tool_bar_icon_size=24
     tool_button_style=ToolButtonTextBesideIcon
     wallpaper_override=false
@@ -81,7 +81,7 @@
     menu_file=/run/current-system/sw/etc/xdg/menus/lxqt-applications.menu
     ownIcon=true
     showText=true
-    text=Iniciar
+    text=Applications
     type=mainmenu
 
     [panel1]
@@ -99,7 +99,7 @@
     opacity=100
     panelSize=32
     plugins=mainmenu, desktopswitch, quicklaunch, taskbar, spacer, sysstat, sysstat2, sensors, statusnotifier, backlight, volume, worldclock, showdesktop
-    position=Bottom
+    position=Top
     reserve-space=true
     screen-name=
     show-delay=0

@@ -31,6 +31,8 @@
         "video/mpeg" = "mpv.desktop";
         "video/x-flic" = "mpv.desktop";
         "video/x-theora+ogg" = "mpv.desktop";
+        "x-scheme-handler/sgnl" = "signal.desktop";
+        "x-scheme-handler/signalcaptcha" = "signal.desktop";
 
         "text/html" = "librewolf.desktop";
 

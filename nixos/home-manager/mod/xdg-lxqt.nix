@@ -37,6 +37,8 @@
         "x-scheme-handler/http" = "librewolf.desktop";
         "x-scheme-handler/https" = "librewolf.desktop";
         "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+        "x-scheme-handler/sgnl" = "signal.desktop";
+        "x-scheme-handler/signalcaptcha" = "signal.desktop";
 
         # heroic keeps adding this line
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";

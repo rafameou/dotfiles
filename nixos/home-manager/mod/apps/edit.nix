@@ -4,7 +4,7 @@
     ./separated/emacs.nix
     ./separated/mpv.nix
     ./separated/neovim.nix
-    #./separated/vscode.nix
+    ./separated/vscodium.nix
     #./separated/flameshot.nix
     ./separated/lf.nix
   ];
@@ -13,11 +13,6 @@
   #   enable = true;
   #   package = pkgs.zed-editor-fhs;
   # };
-
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium-fhs;
-  };
 
   home.packages = with pkgs; [
     nixfmt-rfc-style
