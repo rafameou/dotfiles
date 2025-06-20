@@ -39,7 +39,7 @@
     icon_follow_color_scheme=true
     icon_theme=Colloid-Gruvbox-Dark
     palette_override=true
-    theme=kvantum
+    theme=dark
     tool_bar_icon_size=24
     tool_button_style=ToolButtonTextBesideIcon
     wallpaper_override=false
@@ -81,7 +81,7 @@
     menu_file=/run/current-system/sw/etc/xdg/menus/lxqt-applications.menu
     ownIcon=true
     showText=true
-    text=Applications
+    text=
     type=mainmenu
 
     [panel1]
@@ -93,12 +93,12 @@
     font-color=@Variant(\0\0\0\x43\0\xff\xff\0\0\0\0\0\0\0\0)
     hidable=false
     hide-on-overlap=false
-    iconSize=22
+    iconSize=20
     lineCount=1
     lockPanel=false
     opacity=100
-    panelSize=32
-    plugins=mainmenu, desktopswitch, quicklaunch, taskbar, spacer, sysstat, sysstat2, sensors, statusnotifier, backlight, volume, worldclock, showdesktop
+    panelSize=24
+    plugins=mainmenu, desktopswitch, quicklaunch, taskbar, spacer, statusnotifier, backlight, volume, worldclock, showdesktop
     position=Top
     reserve-space=true
     screen-name=

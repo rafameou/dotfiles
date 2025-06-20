@@ -13,28 +13,23 @@
         model = "abnt2";
       };
       layout = {
-        gaps = 10;
-        center-focused-column = "always";
+        gaps = 0; # 10
+        center-focused-column = "on-overflow"; #"always";
         focus-ring = {
-          enable = true;
-          width = 2;
+          enable = false;
+          width = 1;
           active.color = "#${config.colorScheme.palette.base05}";
           inactive.color = "#${config.colorScheme.palette.base01}";
-          /*
-            active-gradient = {
-              from = "#80c8ff";
-              to = "#bbddff";
-              angle = 45;
-            };
-            inactive-gradient = {
-              from = "#505050";
-              to = "#808080";
-              angle = 45;
-            };
-          */
+        };
+        border = {
+          enable = true;
+          width = 1;
+          active.color = "#${config.colorScheme.palette.base05}";
+          inactive.color = "#${config.colorScheme.palette.base01}";
+          #urgent.color = "#${config.colorScheme.palette.base08}";
         };
         shadow = {
-          enable = true;
+          enable = false;
           softness = 40;
           spread = 5;
           offset = {
@@ -51,6 +46,11 @@
             "sh"
             "-c"
             "lxqt-session && niri msg action quit -s"
+          ];
+        }
+        {
+          command = [
+            "waybar"
           ];
         }
         {
@@ -94,7 +94,7 @@
         {
           geometry-corner-radius =
             let
-              r = 12.0;
+              r = 0.0; # 12.0;
             in
             {
               top-left = r;
@@ -257,7 +257,7 @@
         "Mod+Shift+R".action = switch-preset-window-height;
         "Mod+Ctrl+R".action = reset-window-height;
         "Mod+F".action = fullscreen-window; # maximize-column;
-        "Mod+Shift+F".action = maximize-column; #fullscreen-window;
+        "Mod+Shift+F".action = maximize-column; # fullscreen-window;
 
         "Mod+Ctrl+F".action = expand-column-to-available-width;
         "Mod+C".action = center-column;

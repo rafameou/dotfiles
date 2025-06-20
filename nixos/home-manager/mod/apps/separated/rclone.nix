@@ -27,7 +27,7 @@ in
 
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full google: ${mount_directory_gdrive}";
+        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full  --transfers=45 --checkers=45 google: ${mount_directory_gdrive}";
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_gdrive}";
         Restart = "on-failure";
         RestartSec = 30;
@@ -53,7 +53,7 @@ in
 
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full mega: ${mount_directory_mega}";
+        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full  --transfers=45 --checkers=45 mega: ${mount_directory_mega}";
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_mega}";
         Restart = "on-failure";
         RestartSec = 30;
@@ -79,7 +79,7 @@ in
 
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full onedrive: ${mount_directory_onedrive}";
+        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full  --transfers=45 --checkers=45 onedrive: ${mount_directory_onedrive}";
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_onedrive}";
         Restart = "on-failure";
         RestartSec = 30;
@@ -105,7 +105,7 @@ in
 
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full koofr: ${mount_directory_koofr}";
+        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full  --transfers=45 --checkers=45 koofr: ${mount_directory_koofr}";
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_koofr}";
         Restart = "on-failure";
         RestartSec = 30;
@@ -131,7 +131,7 @@ in
 
       Service = {
         Type = "simple";
-        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full proton: ${mount_directory_proton}";
+        ExecStart = "${pkgs.rclone}/bin/rclone mount --vfs-cache-mode full  --transfers=45 --checkers=45 proton: ${mount_directory_proton}";
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_proton}";
         Restart = "on-failure";
         RestartSec = 30;

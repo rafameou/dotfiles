@@ -14,15 +14,17 @@
     settings = [
       {
         layer = "bottom";
-        position = "top";
+        position = "bottom";
         height = 24; # 25;
         spacing = 5; # 10;
 
         modules-left = [
-          "hyprland/workspaces"
-          "sway/workspaces"
-          "sway/mode"
-          "sway/scratchpad" # "custom/media" "wlr/taskbar"
+          #"hyprland/workspaces"
+          #"sway/workspaces"
+          "niri/workspaces"
+          #"sway/mode"
+          #"sway/scratchpad" # "custom/media" "wlr/taskbar"
+          "mpris"
         ];
         modules-center = [ ];
         modules-right = [
@@ -36,10 +38,10 @@
           "privacy"
           "user"
           "backlight"
-          "clock"
+          #"clock"
           "custom/weather"
-          "custom/notification"
-          "tray"
+          #"custom/notification"
+          #"tray"
           "custom/logout"
         ];
 
@@ -48,26 +50,28 @@
           spacing = 5;
         };
 
-        "custom/notification" = {
-          "tooltip" = false;
-          "format" = "{icon}";
-          "format-icons" = {
-            "notification" = "<span color='#FABD2F'>*</span>";
-            "none" = "";
-            "dnd-notification" = "<span color='#FABD2F'>*</span>";
-            "dnd-none" = "";
-            "inhibited-notification" = "<span color='#FB4934'>*</span>";
-            "inhibited-none" = "";
-            "dnd-inhibited-notification" = "<span color='#FB4934'>*</span>";
-            "dnd-inhibited-none" = "";
+        /*
+          "custom/notification" = {
+            "tooltip" = false;
+            "format" = "{icon}";
+            "format-icons" = {
+              "notification" = "<span color='#FABD2F'>*</span>";
+              "none" = "";
+              "dnd-notification" = "<span color='#FABD2F'>*</span>";
+              "dnd-none" = "";
+              "inhibited-notification" = "<span color='#FB4934'>*</span>";
+              "inhibited-none" = "";
+              "dnd-inhibited-notification" = "<span color='#FB4934'>*</span>";
+              "dnd-inhibited-none" = "";
+            };
+            "return-type" = "json";
+            "exec-if" = "which swaync-client";
+            "exec" = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+            "on-click" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+            "on-click-right" = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+            "escape" = true;
           };
-          "return-type" = "json";
-          "exec-if" = "which swaync-client";
-          "exec" = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
-          "on-click" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-          "on-click-right" = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
-          "escape" = true;
-        };
+        */
 
         backlight = {
           # "device" = "acpi_video1";
@@ -279,7 +283,8 @@
 
                 window#waybar {
                         color: #${config.colorScheme.palette.base05};
-                background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 0.9) 50%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%);
+                /*background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 0.9) 50%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%);*/
+                background-color: #${config.colorScheme.palette.base00};
               }
 
               window#waybar.hidden {
@@ -352,10 +357,10 @@
                 border-bottom: 3px solid #ffffff;
                 }
 
-                /*#window,
+            #window,
             #workspaces {
                 margin: 0 4px;
-                }*/
+                }
 
             #waybar.empty #window {
                 border: none;
