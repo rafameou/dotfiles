@@ -14,6 +14,7 @@
       };
       layout = {
         gaps = 0; # 10
+        always-center-single-column = true;
         center-focused-column = "on-overflow"; #"always";
         focus-ring = {
           enable = false;
