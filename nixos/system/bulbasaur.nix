@@ -32,6 +32,26 @@
     };
   };
 
+  fileSystems = {
+    "/mnt/Extra" = {
+      device = "/dev/disk/by-uuid/478603e4-74ea-444d-b1aa-e1c49f54853d";
+      fsType = "ext4";
+      options = [
+        "x-gvfs-show"
+        "nofail"
+        "exec"
+      ];
+    };
+  };
+
+  programs.steam = {
+    enable = true;
+    extraPackages = with pkgs; [
+      gamescope
+      steamtinkerlaunch
+    ];
+  };
+
   #https://forums.linuxmint.com/viewtopic.php?t=427633
   boot.kernelParams = [ "tsc=unstable" ];
 
