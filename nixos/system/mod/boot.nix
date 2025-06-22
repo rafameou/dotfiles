@@ -9,4 +9,5 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.bootspec.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.plymouth.enable = true;
 }

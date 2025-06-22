@@ -19,6 +19,7 @@
     ./mod/time.nix
     ./mod/zsh.nix
 
+    ./mod/greetd.nix
     ./mod/desktop-environment/lxqt.nix
   ];
 

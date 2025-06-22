@@ -39,7 +39,7 @@
     icon_follow_color_scheme=true
     icon_theme=Colloid-Gruvbox-Dark
     palette_override=true
-    theme=dark
+    theme=valendas
     tool_bar_icon_size=24
     tool_button_style=ToolButtonTextBesideIcon
     wallpaper_override=false

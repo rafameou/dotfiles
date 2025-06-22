@@ -2,7 +2,7 @@
 {
   programs.vscode = {
     enable = true;
-    package = pkgs.vscodium-fhs;
+    package = pkgs.vscodium;
     profiles.default = {
       extensions = with pkgs.vscode-extensions; [
         vscodevim.vim
@@ -18,8 +18,6 @@
         redhat.java
         redhat.vscode-xml
         redhat.vscode-yaml
-        dart-code.flutter
-        alexisvt.flutter-snippets
       ];
     };
   };

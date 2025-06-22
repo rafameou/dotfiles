@@ -13,6 +13,7 @@
     ./mod/nvidia-hell.nix
 
     #./mod/sway.nix
+    ./mod/greetd.nix
     ./mod/desktop-environment/lxqt.nix
     ./mod/sway.nix
     ./mod/navidrome.nix

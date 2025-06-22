@@ -284,7 +284,8 @@
                 window#waybar {
                         color: #${config.colorScheme.palette.base05};
                 /*background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 0.9) 50%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%);*/
-                background-color: #${config.colorScheme.palette.base00};
+                /*background-color: #${config.colorScheme.palette.base00};*/
+                background-color: rgba(0,0,0,0);
               }
 
               window#waybar.hidden {

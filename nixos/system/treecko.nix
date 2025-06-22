@@ -6,6 +6,7 @@
     ./treecko-hw.nix
     ./mod/boot.nix
 
+    ./mod/greetd.nix
     ./mod/desktop-environment/lxqt.nix
     ./mod/sway.nix
     ./mod/tlp.nix
@@ -36,19 +37,25 @@
     ];
   };
 
-  /*
-    fileSystems = {
-      "/mnt/Extra" = {
-        device = "/dev/disk/by-uuid/8ca22250-372a-4fd4-9a98-0c4a362bbeba";
-        fsType = "ext4";
-        options = [
-          "x-gvfs-show"
-          "nofail"
-          "exec"
-        ];
-      };
+  environment.systemPackages = [
+    pkgs.android-studio
+    pkgs.android-studio-tools
+    pkgs.dart
+    pkgs.flutterPackages-source.stable
+    pkgs.flutter
+  ];
+
+  fileSystems = {
+    "/mnt/Extra" = {
+      device = "/dev/disk/by-uuid/976df785-2a12-4187-b420-41576584e897";
+      fsType = "ext4";
+      options = [
+        "x-gvfs-show"
+        "nofail"
+        "exec"
+      ];
     };
-  */
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

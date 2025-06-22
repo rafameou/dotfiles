@@ -15,7 +15,7 @@
       layout = {
         gaps = 0; # 10
         always-center-single-column = true;
-        center-focused-column = "on-overflow"; #"always";
+        center-focused-column = "on-overflow"; # "always";
         focus-ring = {
           enable = false;
           width = 1;
@@ -42,6 +42,36 @@
         };
       };
       spawn-at-startup = [
+        {
+          command = [
+            "systemctl"
+            "--user"
+            "import-environment"
+            "WAYLAND_DISPLAY"
+            "DISPLAY"
+            "XDG_CURRENT_DESKTOP"
+            "XCURSOR_SIZE"
+            "XCURSOR_THEME"
+          ];
+        }
+        {
+          command = [
+            "dbus-update-activation-environment"
+            "WAYLAND_DISPLAY"
+            "DISPLAY"
+            "XDG_CURRENT_DESKTOP"
+            "XCURSOR_SIZE"
+            "XCURSOR_THEME"
+          ];
+        }
+        {
+          command = [
+            "systemctl"
+            "--user"
+            "restart"
+            "xdg-desktop-portal-gtk"
+          ];
+        }
         {
           command = [
             "sh"
