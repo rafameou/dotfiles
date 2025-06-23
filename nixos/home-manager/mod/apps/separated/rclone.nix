@@ -31,6 +31,8 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_gdrive}";
         Restart = "on-failure";
         RestartSec = 30;
+        KillMode = "process";
+        TimeoutSec = 5;
         /*
           --------------------------------------------------------------------------------|
           | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
@@ -57,6 +59,8 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_mega}";
         Restart = "on-failure";
         RestartSec = 30;
+        KillMode = "process";
+        TimeoutSec = 5;
         /*
           --------------------------------------------------------------------------------|
           | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
@@ -83,6 +87,8 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_onedrive}";
         Restart = "on-failure";
         RestartSec = 30;
+        KillMode = "process";
+        TimeoutSec = 5;
         /*
           --------------------------------------------------------------------------------|
           | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
@@ -109,6 +115,8 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_koofr}";
         Restart = "on-failure";
         RestartSec = 30;
+        KillMode = "process";
+        TimeoutSec = 5;
         /*
           --------------------------------------------------------------------------------|
           | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
@@ -135,6 +143,8 @@ in
         ExecStop = "${pkgs.fuse}/bin/fusermount -zu ${mount_directory_proton}";
         Restart = "on-failure";
         RestartSec = 30;
+        KillMode = "process";
+        TimeoutSec = 5;
         /*
           --------------------------------------------------------------------------------|
           | https://discourse.nixos.org/t/fusermount-systemd-service-in-home-manager/5157/4 |
