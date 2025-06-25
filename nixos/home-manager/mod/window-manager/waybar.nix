@@ -11,8 +11,8 @@
 
   programs.waybar = {
     enable = true;
-    settings = [
-      {
+    settings = {
+      bottomBar = {
         layer = "bottom";
         position = "bottom";
         height = 24; # 25;
@@ -24,13 +24,15 @@
           "niri/workspaces"
           #"sway/mode"
           #"sway/scratchpad" # "custom/media" "wlr/taskbar"
-          "mpris"
+          # "mpris"
         ];
         modules-center = [ ];
         modules-right = [
           "idle_inhibitor"
           "pulseaudio"
           "systemd-failed-units" # "network" "hyprland/language" "sway/language"
+          "network"
+          "temperature"
           "cpu"
           "memory"
           "memory#swap"
@@ -216,16 +218,16 @@
         };
 
         cpu = {
-          format = "{icon}{usage}%</span>";
+          format = "{icon}{usage}%";
           format-icons = [
-            "<span color='#B8BB26'>▁"
-            "<span color='#8EC07C'>▂"
-            "<span color='#83A598'>▃"
-            "<span color='#FABD2F'>▄"
-            "<span color='#FE8019'>▅"
-            "<span color='#FE8019'>▆"
-            "<span color='#FB4934'>▇"
-            "<span color='#FB4934'>█"
+            "<span color='#B8BB26'>▁</span>"
+            "<span color='#8EC07C'>▂</span>"
+            "<span color='#83A598'>▃</span>"
+            "<span color='#FABD2F'>▄</span>"
+            "<span color='#FE8019'>▅</span>"
+            "<span color='#FE8019'>▆</span>"
+            "<span color='#FB4934'>▇</span>"
+            "<span color='#FB4934'>█</span>"
           ];
           tooltip = false;
         };
@@ -246,7 +248,6 @@
             "<span color='#FABD2F'>"
             "<span color='#FB4934'>"
           ];
-          hwmon-path = "/sys/devices/platform/coretemp.0/hwmon/hwmon4/temp1_input";
         };
 
         clock = {
@@ -271,8 +272,8 @@
             #on-scroll-down = "shift_down";
           };
         };
-      }
-    ];
+      };
+    };
 
     style = ''
               * {

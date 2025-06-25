@@ -35,7 +35,7 @@
 
   fileSystems = {
     "/mnt/Extra" = {
-      device = "/dev/disk/by-uuid/478603e4-74ea-444d-b1aa-e1c49f54853d";
+      device = "/dev/disk/by-uuid/e9fce5e5-cfa2-449f-acbe-e37c66e7b8ad";
       fsType = "ext4";
       options = [
         "x-gvfs-show"

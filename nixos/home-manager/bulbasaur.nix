@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   imports = [
     ./mod/home-manager.nix
@@ -29,5 +29,10 @@
 
   programs.niri.settings = {
     animations.enable = false;
+  };
+
+  programs.waybar.settings.bottomBar = {
+    cpu.format = lib.mkForce "{icon0}{icon1}{usage}%";
+    temperature.hmon-path = lib.mkForce "/sys/devices/platform/coretemp.0/hwmon/hwmon3/temp2_input";
   };
 }

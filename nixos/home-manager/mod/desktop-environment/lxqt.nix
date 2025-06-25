@@ -39,7 +39,7 @@
     icon_follow_color_scheme=true
     icon_theme=Colloid-Gruvbox-Dark
     palette_override=true
-    theme=valendas
+    theme=dark
     tool_bar_icon_size=24
     tool_button_style=ToolButtonTextBesideIcon
     wallpaper_override=false
@@ -81,14 +81,14 @@
     menu_file=/run/current-system/sw/etc/xdg/menus/lxqt-applications.menu
     ownIcon=true
     showText=true
-    text=
+    text=Mimosa
     type=mainmenu
 
     [panel1]
     alignment=-1
     animation-duration=0
-    background-color=@Variant(\0\0\0\x43\0\xff\xff\0\0\0\0\0\0\0\0)
-    background-image=
+    background-color=#000000
+    background-image=@Variant(\0\0\0\x43\0\xff\xff\0\0\0\0\0\0\0\0)
     desktop=0
     font-color=@Variant(\0\0\0\x43\0\xff\xff\0\0\0\0\0\0\0\0)
     hidable=false
@@ -96,7 +96,7 @@
     iconSize=20
     lineCount=1
     lockPanel=false
-    opacity=100
+    opacity=0
     panelSize=24
     plugins=mainmenu, desktopswitch, quicklaunch, taskbar, spacer, statusnotifier, backlight, volume, worldclock, showdesktop
     position=Top
