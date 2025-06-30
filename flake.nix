@@ -52,7 +52,7 @@
     {
       nixpkgs,
       home-manager, # plasma-manager,
-      niri,
+      # niri,
       solaar,
       chaotic, # nixos-wsl,
       ...
