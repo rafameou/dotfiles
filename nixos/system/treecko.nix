@@ -6,11 +6,8 @@
     ./treecko-hw.nix
     ./mod/boot.nix
 
-    ./mod/greetd.nix
-    ./mod/desktop-environment/lxqt.nix
-    ./mod/sway.nix
+    ./mod/desktop-environment/gnome.nix
     ./mod/tlp.nix
-    ./mod/niri.nix
   ];
 
   # ... changes to only this sytem
@@ -36,14 +33,6 @@
       steamtinkerlaunch
     ];
   };
-
-  environment.systemPackages = [
-    pkgs.android-studio
-    pkgs.android-studio-tools
-    pkgs.dart
-    pkgs.flutterPackages-source.stable
-    pkgs.flutter
-  ];
 
   fileSystems = {
     "/mnt/Extra" = {

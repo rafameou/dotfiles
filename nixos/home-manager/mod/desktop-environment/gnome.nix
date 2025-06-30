@@ -34,11 +34,11 @@
       gnomeExtensions.activate_gnome
       gnomeExtensions.blur-my-shell
     */
+    gnomeExtensions.paperwm
     # ---- gnome fixes ----
     adw-gtk3
     adwaita-qt
     adwaita-qt6
-    libsForQt5.qt5.qtwayland
     kdePackages.qtwayland
 
     wl-clipboard
@@ -154,7 +154,7 @@
       #cursor-size = 32;
     };
     "org/gnome/desktop/peripherals/touchpad" = {
-      tap-to-click = true;
+      tap-to-click = false;
     };
     "org/gtk/settings/file-chooser" = {
       sort-directories-first = true;
@@ -164,7 +164,6 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
-        "org.qutebrowser.qutebrowser.desktop"
         "librewolf.desktop"
         "foot.desktop"
         "emacs.desktop"
@@ -188,7 +187,7 @@
         # "hotedge@jonathan.jdoda.ca"
         # "gsconnect@andyholmes.github.io"
         # "space-bar@luchrioh"
-        "dash-to-dock@micxgx.gmail.com"
+        # "dash-to-dock@micxgx.gmail.com"
         # "gtk4-ding@smedius.gitlab.com"
         # "add-to-desktop@tommimon.github.com"
         # "apps-menu@gnome-shell-extensions.gcampax.github.com"

@@ -31,14 +31,14 @@
         "video/mpeg" = "mpv.desktop";
         "video/x-flic" = "mpv.desktop";
         "video/x-theora+ogg" = "mpv.desktop";
+
+        "text/html" = "librewolf.desktop";
+
+        "x-scheme-handler/http" = "librewolf.desktop";
+        "x-scheme-handler/https" = "librewolf.desktop";
+        "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
         "x-scheme-handler/sgnl" = "signal.desktop";
         "x-scheme-handler/signalcaptcha" = "signal.desktop";
-
-        "text/html" = "org.qutebrowser.qutebrowser.desktop";
-
-        "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
-        "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
 
         # heroic keeps adding this line
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";

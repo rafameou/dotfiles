@@ -11,10 +11,7 @@
     ./bulbasaur-hw.nix
     ./mod/boot-grub.nix
 
-    ./mod/greetd.nix
-    ./mod/desktop-environment/lxqt.nix
-    ./mod/sway.nix
-    ./mod/niri.nix
+    ./mod/desktop-environment/gnome.nix
   ];
 
   #nixpkgs.overlays = [(final: prev: { hyprland = prev.hyprland.override { legacyRenderer = true; };})];
