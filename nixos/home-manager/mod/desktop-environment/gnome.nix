@@ -183,6 +183,7 @@
         "solaar-extension@sidevesh"
         #"caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
+        "paperwm@paperwm.github.com"
         # "favourites-in-appgrid@harshadgavali.gitlab.org"
         # "hotedge@jonathan.jdoda.ca"
         # "gsconnect@andyholmes.github.io"
@@ -197,6 +198,14 @@
         */
       ];
       disabled-extensions = [ ];
+    };
+    "org/gnome/shell/extensions/paperwm" = {
+      horizontal-margin = 1;
+      selection-border-radius-top = 1;
+      selection-border-size = 1;
+      vertical-margin = 1;
+      vertical-margin-bottom = 1;
+      window-gap = 1;
     };
     "org/gnome/shell/extensions/dash-to-dock" = {
       apply-custom-theme = false;
@@ -233,12 +242,21 @@
     };
     "org/gnome/desktop/app-folders" = {
       #https://github.com/BenJetson/gnome-dash-fix
-      folder-children = [ ];
-      /*
-        folder-children = ["accessories" "chrome-apps" "games" "graphics"
-        "internet" "office" "programming" "science" "sound---video"
-        "system-tools" "universal-access" "wine"];
-      */
+      #folder-children = [ ];
+      folder-children = [
+        "accessories"
+        "chrome-apps"
+        "games"
+        "graphics"
+        "internet"
+        "office"
+        "programming"
+        "science"
+        "sound---video"
+        "system-tools"
+        "universal-access"
+        "wine"
+      ];
     };
     "org/gnome/desktop/app-folders/folders/accessories" = {
       name = "Accessories";
