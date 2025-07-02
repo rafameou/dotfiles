@@ -29,6 +29,7 @@
     */
     gnomeExtensions.solaar-extension
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.vitals
     /*
       gnomeExtensions.weather-oclock
       gnomeExtensions.activate_gnome
@@ -46,6 +47,7 @@
 
     wayland-pipewire-idle-inhibit
 
+    ptyxis
     planify
     eyedropper
     newsflash
@@ -138,23 +140,23 @@
     };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:close"; # "appmenu:minimize,maximize,close";
-      titlebar-font = "Fira Sans 11";
+      #titlebar-font = "Fira Sans 11";
     };
     "org/gnome/desktop/interface" = {
       clock-show-date = true;
       clock-show-seconds = true;
       clock-show-weekday = true;
       show-battery-percentage = true;
-      font-name = "Fira Sans 11";
-      document-font-name = "Fira Sans 11";
-      monospace-font-name = "FiraCode Nerd Font Mono 16";
+      #font-name = "Fira Sans 11";
+      #document-font-name = "Fira Sans 11";
+      #monospace-font-name = "FiraCode Nerd Font Mono 16";
       gtk-theme = "Adwaita"; # "adw-gtk3-dark";
       color-scheme = "prefer-dark";
       #cursor-theme = "phinger-cursors-light";
       #cursor-size = 32;
     };
     "org/gnome/desktop/peripherals/touchpad" = {
-      tap-to-click = false;
+      tap-to-click = true;
     };
     "org/gtk/settings/file-chooser" = {
       sort-directories-first = true;
@@ -168,6 +170,7 @@
         "foot.desktop"
         "emacs.desktop"
         "org.telegram.desktop.desktop"
+        "vesktop.desktop"
         "org.gnome.Nautilus.desktop"
         "gimp.desktop"
         "org.nicotine_plus.Nicotine.desktop"
@@ -184,6 +187,7 @@
         #"caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
         "paperwm@paperwm.github.com"
+        "Vitals@CoreCoding.com"
         # "favourites-in-appgrid@harshadgavali.gitlab.org"
         # "hotedge@jonathan.jdoda.ca"
         # "gsconnect@andyholmes.github.io"

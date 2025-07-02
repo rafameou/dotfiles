@@ -60,4 +60,10 @@
       temperature.hmon-path = lib.mkForce "/sys/devices/platform/thinkpad_hwmon/hwmon/hwmon6/temp1_input";
     };
   */
+
+  dconf.settings = {
+    "org/gnome/desktop/peripherals/touchpad" = {
+      tap-to-click = lib.mkForce false;
+    };
+  };
 }
