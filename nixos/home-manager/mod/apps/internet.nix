@@ -33,7 +33,7 @@
     #whatsapp-for-linux
     stremio
     signal-desktop
-    cinny-desktop #fluffychat
+    element-desktop
 
     protonvpn-gui
     #protonmail-bridge

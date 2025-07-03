@@ -94,17 +94,19 @@
         "xwayland-native-scaling"
       ];
     };
-    "org/gnome/shell/keybindings" = {
-      switch-to-application-1 = [ "<Super><Control>1" ];
-      switch-to-application-2 = [ "<Super><Control>2" ];
-      switch-to-application-3 = [ "<Super><Control>3" ];
-      switch-to-application-4 = [ "<Super><Control>4" ];
-      switch-to-application-5 = [ "<Super><Control>5" ];
-      switch-to-application-6 = [ "<Super><Control>6" ];
-      switch-to-application-7 = [ "<Super><Control>7" ];
-      switch-to-application-8 = [ "<Super><Control>8" ];
-      switch-to-application-9 = [ "<Super><Control>9" ];
-    };
+    /*
+      "org/gnome/shell/keybindings" = {
+        switch-to-application-1 = [ "<Super><Control>1" ];
+        switch-to-application-2 = [ "<Super><Control>2" ];
+        switch-to-application-3 = [ "<Super><Control>3" ];
+        switch-to-application-4 = [ "<Super><Control>4" ];
+        switch-to-application-5 = [ "<Super><Control>5" ];
+        switch-to-application-6 = [ "<Super><Control>6" ];
+        switch-to-application-7 = [ "<Super><Control>7" ];
+        switch-to-application-8 = [ "<Super><Control>8" ];
+        switch-to-application-9 = [ "<Super><Control>9" ];
+      };
+    */
     "org/gnome/desktop/wm/keybindings" = {
       close = [
         "<Alt>F4"
@@ -112,28 +114,32 @@
       ];
       switch-to-workspace-1 = [
         "<Super>Home"
-        "<Super>1"
+        #"<Super>1"
       ];
-      switch-to-workspace-2 = [ "<Super>2" ];
-      switch-to-workspace-3 = [ "<Super>3" ];
-      switch-to-workspace-4 = [ "<Super>4" ];
-      switch-to-workspace-5 = [ "<Super>5" ];
-      switch-to-workspace-6 = [ "<Super>6" ];
-      switch-to-workspace-7 = [ "<Super>7" ];
-      switch-to-workspace-8 = [ "<Super>8" ];
-      switch-to-workspace-9 = [ "<Super>9" ];
+      /*
+        switch-to-workspace-2 = [ "<Super>2" ];
+        switch-to-workspace-3 = [ "<Super>3" ];
+        switch-to-workspace-4 = [ "<Super>4" ];
+        switch-to-workspace-5 = [ "<Super>5" ];
+        switch-to-workspace-6 = [ "<Super>6" ];
+        switch-to-workspace-7 = [ "<Super>7" ];
+        switch-to-workspace-8 = [ "<Super>8" ];
+        switch-to-workspace-9 = [ "<Super>9" ];
+      */
       move-to-workspace-1 = [
         "<Super><Shift>Home"
-        "<Super><Shift>1"
+        #"<Super><Shift>1"
       ];
-      move-to-workspace-2 = [ "<Super><Shift>2" ];
-      move-to-workspace-3 = [ "<Super><Shift>3" ];
-      move-to-workspace-4 = [ "<Super><Shift>4" ];
-      move-to-workspace-5 = [ "<Super><Shift>5" ];
-      move-to-workspace-6 = [ "<Super><Shift>6" ];
-      move-to-workspace-7 = [ "<Super><Shift>7" ];
-      move-to-workspace-8 = [ "<Super><Shift>8" ];
-      move-to-workspace-9 = [ "<Super><Shift>9" ];
+      /*
+        move-to-workspace-2 = [ "<Super><Shift>2" ];
+        move-to-workspace-3 = [ "<Super><Shift>3" ];
+        move-to-workspace-4 = [ "<Super><Shift>4" ];
+        move-to-workspace-5 = [ "<Super><Shift>5" ];
+        move-to-workspace-6 = [ "<Super><Shift>6" ];
+        move-to-workspace-7 = [ "<Super><Shift>7" ];
+        move-to-workspace-8 = [ "<Super><Shift>8" ];
+        move-to-workspace-9 = [ "<Super><Shift>9" ];
+      */
     };
     "org/gnome/shell/window-switcher" = {
       current-workspace-only = true;
@@ -143,6 +149,7 @@
       #titlebar-font = "Fira Sans 11";
     };
     "org/gnome/desktop/interface" = {
+      accent-color = "purple";
       clock-show-date = true;
       clock-show-seconds = true;
       clock-show-weekday = true;
@@ -150,7 +157,7 @@
       #font-name = "Fira Sans 11";
       #document-font-name = "Fira Sans 11";
       #monospace-font-name = "FiraCode Nerd Font Mono 16";
-      gtk-theme = "Adwaita"; # "adw-gtk3-dark";
+      gtk-theme = "adw-gtk3-dark";
       color-scheme = "prefer-dark";
       #cursor-theme = "phinger-cursors-light";
       #cursor-size = 32;
@@ -167,10 +174,13 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "librewolf.desktop"
-        "foot.desktop"
-        "emacs.desktop"
+        "chromium-browser.desktop"
+        "org.gnome.Ptyxis.desktop"
+        "codium.desktop"
         "org.telegram.desktop.desktop"
         "vesktop.desktop"
+        "signal.desktop"
+        "element-desktop.desktop"
         "org.gnome.Nautilus.desktop"
         "gimp.desktop"
         "org.nicotine_plus.Nicotine.desktop"
