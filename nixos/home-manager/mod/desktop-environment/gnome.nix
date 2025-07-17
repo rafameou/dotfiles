@@ -16,8 +16,8 @@
     gnomeExtensions.appindicator
     gnomeExtensions.alphabetical-app-grid
     # gnomeExtensions.favourites-in-appgrid
-    # gnomeExtensions.hot-edge
-    #gnomeExtensions.caffeine
+    gnomeExtensions.hot-edge
+    gnomeExtensions.caffeine
     gnomeExtensions.tailscale-status
     #gnomeExtensions.wiggle
     /*
@@ -30,6 +30,8 @@
     gnomeExtensions.solaar-extension
     gnomeExtensions.dash-to-dock
     gnomeExtensions.vitals
+    gnomeExtensions.weather-or-not
+    gnomeExtensions.status-area-horizontal-spacing
     /*
       gnomeExtensions.weather-oclock
       gnomeExtensions.activate_gnome
@@ -53,6 +55,11 @@
     newsflash
     resources
     gnome-decoder
+    tuba
+    valuta
+    polari
+    fractal
+    gnome-graphs
   ];
 
   #home.sessionVariables = {
@@ -194,12 +201,14 @@
         "appindicatorsupport@rgcjonas.gmail.com"
         "AlphabeticalAppGrid@stuarthayhurst"
         "solaar-extension@sidevesh"
-        #"caffeine@patapon.info"
+        "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
         "paperwm@paperwm.github.com"
         "Vitals@CoreCoding.com"
         # "favourites-in-appgrid@harshadgavali.gitlab.org"
-        # "hotedge@jonathan.jdoda.ca"
+        "hotedge@jonathan.jdoda.ca"
+        "weatherornot@somepaulo.github.io"
+        "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
         # "gsconnect@andyholmes.github.io"
         # "space-bar@luchrioh"
         # "dash-to-dock@micxgx.gmail.com"

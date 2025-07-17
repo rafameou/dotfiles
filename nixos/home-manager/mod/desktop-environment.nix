@@ -5,25 +5,25 @@
     android-file-transfer
   ];
 
-  systemd.user.services = {
-    wayland-idle-pipewire-inhibit-serv = {
-      Unit = {
-        Wants = "graphical-session.target";
-        After = "graphical-session.target";
-      };
+  # systemd.user.services = {
+  #   wayland-idle-pipewire-inhibit-serv = {
+  #     Unit = {
+  #       Wants = "graphical-session.target";
+  #       After = "graphical-session.target";
+  #     };
 
-      Service = {
-        Type = "simple";
-        ExecStart = "${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5 -b";
-        Restart = "on-failure";
-        RestartSec = 30;
-      };
+  #     Service = {
+  #       Type = "simple";
+  #       ExecStart = "${pkgs.wayland-pipewire-idle-inhibit}/bin/wayland-pipewire-idle-inhibit -d 5 -b";
+  #       Restart = "on-failure";
+  #       RestartSec = 30;
+  #     };
 
-      Install = {
-        WantedBy = [ "graphical-session.target" ];
-      };
-    };
-  };
+  #     Install = {
+  #       WantedBy = [ "graphical-session.target" ];
+  #     };
+  #   };
+  # };
 
   /*
     stylix = {
