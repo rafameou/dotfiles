@@ -19,7 +19,7 @@
   users.users.rafameou.extraGroups = [ "libvirtd" ];
   programs.virt-manager.enable = true;
   environment.systemPackages = with pkgs; [
-    libguestfs
+    #libguestfs #broken 18-07-2025
     virtiofsd
     spice-vdagent
     swtpm
