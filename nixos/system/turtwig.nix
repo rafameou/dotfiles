@@ -1,0 +1,53 @@
+{ pkgs, inputs, ... }:
+{
+  imports = [
+    ./mod/base.nix
+
+    ./turtwig-hw.nix
+    ./mod/boot.nix
+
+    ./mod/desktop-environment/gnome.nix
+  ];
+
+  # ... changes to only this sytem
+  networking.hostName = "turtwig"; # Define your hostname.
+  home-manager = {
+    backupFileExtension = "hm-backup";
+    extraSpecialArgs = {
+      inherit
+        inputs # outputs
+        ;
+    };
+    users = {
+      rafameou = import ../home-manager/turtwig.nix;
+    };
+  };
+
+  services.hardware.openrgb.enable = true;
+
+  #boot.kernelParams = [ "amd_pstate=guided" ];
+
+  programs.steam = {
+    enable = true;
+    extraPackages = with pkgs; [
+      gamescope
+      steamtinkerlaunch
+    ];
+  };
+
+  /*fileSystems = {
+    "/mnt/Extra" = {
+      device = "/dev/disk/by-uuid/976df785-2a12-4187-b420-41576584e897";
+      fsType = "ext4";
+      options = [
+        "x-gvfs-show"
+        "nofail"
+        "exec"
+      ];
+    };
+  };*/
+
+  # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
+  system.stateVersion = "23.05";
+
+}

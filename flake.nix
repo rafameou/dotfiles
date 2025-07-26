@@ -89,6 +89,16 @@
             chaotic.nixosModules.default
           ];
         };
+	turtwig = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          modules = [
+            #niri.nixosModules.niri
+            #stylix.nixosModules.stylix
+            solaar.nixosModules.default
+            ./nixos/system/turtwig.nix
+            chaotic.nixosModules.default
+          ];
+        };
         /*
           wsl = nixpkgs.lib.nixosSystem {
           	specialArgs = {inherit inputs; }; # Pass flake inputs to our config
