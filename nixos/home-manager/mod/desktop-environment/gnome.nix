@@ -20,13 +20,11 @@
     gnomeExtensions.caffeine
     gnomeExtensions.tailscale-status
     #gnomeExtensions.wiggle
-    /*
-      gnomeExtensions.gsconnect
-      gnomeExtensions.space-bar
-      gnomeExtensions.add-to-desktop
-      gnomeExtensions.gtk4-desktop-icons-ng-ding
-      #gnomeExtensions.just-perfection
-    */
+    gnomeExtensions.gsconnect
+    gnomeExtensions.space-bar
+    #gnomeExtensions.add-to-desktop
+    #gnomeExtensions.gtk4-desktop-icons-ng-ding
+    #gnomeExtensions.just-perfection
     gnomeExtensions.solaar-extension
     gnomeExtensions.dash-to-dock
     gnomeExtensions.vitals
@@ -102,19 +100,17 @@
         "variable-refresh-rate"
       ];
     };
-    /*
-      "org/gnome/shell/keybindings" = {
-        switch-to-application-1 = [ "<Super><Control>1" ];
-        switch-to-application-2 = [ "<Super><Control>2" ];
-        switch-to-application-3 = [ "<Super><Control>3" ];
-        switch-to-application-4 = [ "<Super><Control>4" ];
-        switch-to-application-5 = [ "<Super><Control>5" ];
-        switch-to-application-6 = [ "<Super><Control>6" ];
-        switch-to-application-7 = [ "<Super><Control>7" ];
-        switch-to-application-8 = [ "<Super><Control>8" ];
-        switch-to-application-9 = [ "<Super><Control>9" ];
-      };
-    */
+    "org/gnome/shell/keybindings" = {
+      switch-to-application-1 = [ "<Super><Control>1" ];
+      switch-to-application-2 = [ "<Super><Control>2" ];
+      switch-to-application-3 = [ "<Super><Control>3" ];
+      switch-to-application-4 = [ "<Super><Control>4" ];
+      switch-to-application-5 = [ "<Super><Control>5" ];
+      switch-to-application-6 = [ "<Super><Control>6" ];
+      switch-to-application-7 = [ "<Super><Control>7" ];
+      switch-to-application-8 = [ "<Super><Control>8" ];
+      switch-to-application-9 = [ "<Super><Control>9" ];
+    };
     "org/gnome/desktop/wm/keybindings" = {
       close = [
         "<Alt>F4"
@@ -122,7 +118,7 @@
       ];
       switch-to-workspace-1 = [
         "<Super>Home"
-        #"<Super>1"
+        "<Super>1"
       ];
       /*
         switch-to-workspace-2 = [ "<Super>2" ];
@@ -136,18 +132,16 @@
       */
       move-to-workspace-1 = [
         "<Super><Shift>Home"
-        #"<Super><Shift>1"
+        "<Super><Shift>1"
       ];
-      /*
-        move-to-workspace-2 = [ "<Super><Shift>2" ];
-        move-to-workspace-3 = [ "<Super><Shift>3" ];
-        move-to-workspace-4 = [ "<Super><Shift>4" ];
-        move-to-workspace-5 = [ "<Super><Shift>5" ];
-        move-to-workspace-6 = [ "<Super><Shift>6" ];
-        move-to-workspace-7 = [ "<Super><Shift>7" ];
-        move-to-workspace-8 = [ "<Super><Shift>8" ];
-        move-to-workspace-9 = [ "<Super><Shift>9" ];
-      */
+      move-to-workspace-2 = [ "<Super><Shift>2" ];
+      move-to-workspace-3 = [ "<Super><Shift>3" ];
+      move-to-workspace-4 = [ "<Super><Shift>4" ];
+      move-to-workspace-5 = [ "<Super><Shift>5" ];
+      move-to-workspace-6 = [ "<Super><Shift>6" ];
+      move-to-workspace-7 = [ "<Super><Shift>7" ];
+      move-to-workspace-8 = [ "<Super><Shift>8" ];
+      move-to-workspace-9 = [ "<Super><Shift>9" ];
     };
     "org/gnome/shell/window-switcher" = {
       current-workspace-only = true;
@@ -188,7 +182,9 @@
         "org.telegram.desktop.desktop"
         "vesktop.desktop"
         "signal.desktop"
-        "element-desktop.desktop"
+        "org.gnome.Fractal.desktop"
+        "io.github.alainm23.planify.desktop"
+        "dev.geopjr.Tuba.desktop"
         "org.gnome.Nautilus.desktop"
         "gimp.desktop"
         "org.nicotine_plus.Nicotine.desktop"
@@ -204,14 +200,14 @@
         "solaar-extension@sidevesh"
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
-        "paperwm@paperwm.github.com"
+        # "paperwm@paperwm.github.com"
         "Vitals@CoreCoding.com"
         # "favourites-in-appgrid@harshadgavali.gitlab.org"
         "hotedge@jonathan.jdoda.ca"
         "weatherornot@somepaulo.github.io"
         "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
         # "gsconnect@andyholmes.github.io"
-        # "space-bar@luchrioh"
+        "space-bar@luchrioh"
         # "dash-to-dock@micxgx.gmail.com"
         # "gtk4-ding@smedius.gitlab.com"
         # "add-to-desktop@tommimon.github.com"
