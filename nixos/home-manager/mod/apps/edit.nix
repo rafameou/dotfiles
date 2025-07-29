@@ -17,7 +17,7 @@
   home.packages = with pkgs; [
     nixfmt-rfc-style
     gimp3
-    #darktable #broken 18-07-2025
+    darktable #broken 18-07-2025
     onlyoffice-bin
     libreoffice-qt-fresh
     hunspell
@@ -26,7 +26,7 @@
     vistafonts
     #feishin #broken 22-01-2025, electron, not needed
     #strawberry-qt6 #broken 18-07-2025
-    texlive.combined.scheme-full
+    #texlive.combined.scheme-full
     cherrytree
     imagemagick
     ghostscript
