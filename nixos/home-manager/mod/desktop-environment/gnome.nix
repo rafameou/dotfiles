@@ -30,6 +30,7 @@
     gnomeExtensions.vitals
     gnomeExtensions.weather-or-not
     gnomeExtensions.status-area-horizontal-spacing
+    gnomeExtensions.bing-wallpaper-changer
     /*
       gnomeExtensions.weather-oclock
       gnomeExtensions.activate_gnome
@@ -208,6 +209,7 @@
         "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
         # "gsconnect@andyholmes.github.io"
         "space-bar@luchrioh"
+        "BingWallpaper@ineffable-gmail.com"
         # "dash-to-dock@micxgx.gmail.com"
         # "gtk4-ding@smedius.gitlab.com"
         # "add-to-desktop@tommimon.github.com"
