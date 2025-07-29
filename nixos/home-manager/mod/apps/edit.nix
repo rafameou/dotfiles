@@ -17,7 +17,7 @@
   home.packages = with pkgs; [
     nixfmt-rfc-style
     gimp3
-    darktable #broken 18-07-2025
+    #darktable #broken 29-07-2025
     onlyoffice-bin
     libreoffice-qt-fresh
     hunspell
