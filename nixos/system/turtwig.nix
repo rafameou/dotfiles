@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 {
   imports = [
     ./mod/base.nix
@@ -6,7 +6,7 @@
     ./turtwig-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/kde.nix
   ];
 
   # ... changes to only this sytem
@@ -23,9 +23,20 @@
     };
   };
 
-  services.hardware.openrgb.enable = true;
+  services.hardware.openrgb.enable = false;
 
-  #boot.kernelParams = [ "amd_pstate=guided" ];
+  # https://discourse.nixos.org/t/best-way-to-handle-boot-extramodulepackages-kernel-module-conflict/30729/4
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    it87
+  ];
+  boot.kernelParams = [ "acpi_enforce_resources=lax" ];
+  boot.kernelModules = [
+    "coretemp"
+    "it87"
+  ];
+  boot.extraModprobeConfig = ''
+    options it87 force_id=0x8628
+  '';
 
   programs.steam = {
     enable = true;
@@ -35,9 +46,9 @@
     ];
   };
 
-  /*fileSystems = {
+  fileSystems = {
     "/mnt/Extra" = {
-      device = "/dev/disk/by-uuid/976df785-2a12-4187-b420-41576584e897";
+      device = "/dev/disk/by-uuid/7d9b7793-c0a9-4efb-ba89-ce747a2c3f6f";
       fsType = "ext4";
       options = [
         "x-gvfs-show"
@@ -45,7 +56,7 @@
         "exec"
       ];
     };
-  };*/
+  };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

@@ -22,8 +22,8 @@
     kde-gruvbox
     gruvbox-dark-gtk
 
-    (callPackage ./kde/crystal-dock.nix { })
-    #crystal-dock
+    #(callPackage ./kde/crystal-dock.nix { })
+    crystal-dock
 
     # -- for neovim --
     wl-clipboard
