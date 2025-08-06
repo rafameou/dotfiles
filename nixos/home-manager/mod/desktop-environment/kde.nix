@@ -274,46 +274,46 @@
     };
   */
 
-  /*
-    home.file = {
-      ".crystal-dock-2/KDE/panel_1.conf".text = ''
-        [General]
-        autoHide=false
-        launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;emacs;org.kde.konsole;bitwarden;org.kde.dolphin;org.octave.Octave;onlyoffice-desktopeditors;startcenter;codium;org.kde.kate;gimp;org.kde.krita;org.kde.kpat;steam;org.strawberrymusicplayer.strawberry;smartcode-stremio;xsane;virt-manager;org.kde.plasma-systemmonitor;org.kde.discover"
-        position=1
-        screen=0
-        showApplicationMenu=false
-        showClock=false
-        showPager=false
-        showTaskManager=true
-        visibility=3
-      '';
-      ".crystal-dock-2/KDE/appearance.conf".text = ''
-        [General]
-        activeIndicatorColor=#689D6A
-        backgroundColor=#1D2021
-        borderColor=#D65D0E
-        floatingMargin=2
-        inactiveIndicatorColor=#CC241D
-        maximumIconSize=128
-        minimumIconSize=48
-        panelStyle=0
-        showBorder=true
-        spacingFactor=0.4
-        tooltipFontSize=12
+  home.file = {
+    ".crystal-dock-2/KDE/panel_1.conf".text = ''
+      [General]
+      autoHide=false
+      launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;signal;element-desktop;org.kde.konsole;bitwarden;org.kde.dolphin;onlyoffice-desktopeditors;startcenter;codium;org.kde.kate;gimp;org.kde.krita;org.kde.kpat;steam;org.nicotine_plus.Nicotine;smartcode-stremio;xsane;virt-manager;protonvpn-app;org.kde.plasma-systemmonitor"
+      position=1
+      screen=0
+      showApplicationMenu=false
+      showClock=false
+      showPager=false
+      showTaskManager=true
+      visibility=3
+    '';
+    ".crystal-dock-2/KDE/appearance.conf".text = ''
+      [General]
+      activeIndicatorColor=#ff8c00
+      backgroundColor=#1D2021
+      borderColor=#D65D0E
+      firstRunWindowCountIndicator=false
+      floatingMargin=2
+      inactiveIndicatorColor=#008b8b
+      maximumIconSize=128
+      minimumIconSize=48
+      panelStyle=0
+      showBorder=true
+      spacingFactor=0.4
+      tooltipFontSize=12
 
-        [Application%20Menu]
-        backgroundAlpha=0.8
-        fontSize=14
-        label=Applications
+      [Application%20Menu]
+      backgroundAlpha=0.8
+      fontSize=14
+      label=Applications
 
-        [Clock]
-        fontScaleFactor=1
-        use24HourClock=true
+      [Clock]
+      fontScaleFactor=1
+      use24HourClock=true
 
-        [TaskManager]
-        currentDesktopTasksOnly=false
-      '';
-    };
-  */
+      [TaskManager]
+      currentDesktopTasksOnly=false
+    '';
+  };
+
 }
