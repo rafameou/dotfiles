@@ -295,7 +295,7 @@
       firstRunWindowCountIndicator=false
       floatingMargin=2
       inactiveIndicatorColor=#008b8b
-      maximumIconSize=128
+      maximumIconSize=48
       minimumIconSize=48
       panelStyle=0
       showBorder=true
