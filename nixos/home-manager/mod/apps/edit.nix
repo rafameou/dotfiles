@@ -41,6 +41,9 @@
     krita
     kdePackages.kolourpaint
 
+    ciscoPacketTracer8
+    godot
+
     # okular
     #gromit-mpx
     #speedcrunch
