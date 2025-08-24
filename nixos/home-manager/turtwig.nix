@@ -24,5 +24,27 @@
     #./mod/desktop-environment/lxqt.nix
   ];
 
+  home.packages = with pkgs; [
+    usbutils
+  ];
+
+  systemd.user.services = {
+    cpu-cooler-display = {
+      Service = {
+        Type = "simple";
+        ExecStart = "${(pkgs.python312.withPackages (python-pkgs: [
+      python-pkgs.hidapi
+      python-pkgs.psutil
+    ]))}/bin/python /home/rafameou/GitHub/cpu-cooler-pichau-sage-v3/cpu_cooler.py";
+        Restart = "on-failure";
+        RestartSec = 5;
+      };
+
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+  };
+
   # ... changes to only this sytem
 }

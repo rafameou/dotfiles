@@ -23,7 +23,14 @@
     };
   };
 
-  services.hardware.openrgb.enable = false;
+  services.hardware.openrgb = {
+  	enable = true;
+	package = pkgs.openrgb-with-all-plugins;
+  };
+
+  services.udev.extraRules = ''
+	SUBSYSTEMS=="usb", ATTRS{idVendor}=="5131", ATTRS{idProduct}=="2007", MODE="0666"
+  '';
 
   # https://discourse.nixos.org/t/best-way-to-handle-boot-extramodulepackages-kernel-module-conflict/30729/4
   boot.extraModulePackages = with config.boot.kernelPackages; [
@@ -57,6 +64,8 @@
       ];
     };
   };
+
+  services.ollama.enable = true;
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "23.05";

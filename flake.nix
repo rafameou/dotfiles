@@ -45,6 +45,11 @@
     solaar.url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
     solaar.inputs.nixpkgs.follows = "nixpkgs";
 
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     #nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
@@ -55,6 +60,7 @@
       # niri,
       solaar,
       chaotic, # nixos-wsl,
+      winapps,
       ...
     }@inputs:
     {
