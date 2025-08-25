@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
     ./mod/base.nix
@@ -24,12 +29,24 @@
   };
 
   services.hardware.openrgb = {
-  	enable = true;
-	package = pkgs.openrgb-with-all-plugins;
+    enable = true;
+    package = pkgs.openrgb-with-all-plugins;
+  };
+
+  #https://garajau.com.br/2022/08/systemd-suspend-user-level
+  systemd.services = {
+    suspend-rafameou = {
+      after = [ "suspend.target" ];
+      serviceConfig = {
+        Type = "oneshot";
+        ExecStart = "${pkgs.systemd}/bin/systemctl --machine=rafameou@.host --user start --wait suspend.target";
+      };
+      wantedBy = [ "suspend.target" ];
+    };
   };
 
   services.udev.extraRules = ''
-	SUBSYSTEMS=="usb", ATTRS{idVendor}=="5131", ATTRS{idProduct}=="2007", MODE="0666"
+    	SUBSYSTEMS=="usb", ATTRS{idVendor}=="5131", ATTRS{idProduct}=="2007", MODE="0666"
   '';
 
   # https://discourse.nixos.org/t/best-way-to-handle-boot-extramodulepackages-kernel-module-conflict/30729/4
