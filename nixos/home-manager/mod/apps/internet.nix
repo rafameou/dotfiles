@@ -31,7 +31,7 @@
     kdePackages.tokodon
     #kdePackages.neochat #broken 20-03
     #whatsapp-for-linux
-    stremio
+    #stremio
     signal-desktop
     element-desktop
 
