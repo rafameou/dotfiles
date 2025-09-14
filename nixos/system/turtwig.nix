@@ -11,7 +11,7 @@
     ./turtwig-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/kde.nix
+    ./mod/desktop-environment/gnome.nix
   ];
 
   # ... changes to only this sytem

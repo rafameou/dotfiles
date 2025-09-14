@@ -31,6 +31,7 @@
     gnomeExtensions.weather-or-not
     gnomeExtensions.status-area-horizontal-spacing
     gnomeExtensions.bing-wallpaper-changer
+    gnomeExtensions.window-list
     /*
       gnomeExtensions.weather-oclock
       gnomeExtensions.activate_gnome
@@ -202,22 +203,20 @@
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
         # "paperwm@paperwm.github.com"
-        "Vitals@CoreCoding.com"
+        #"Vitals@CoreCoding.com"
         # "favourites-in-appgrid@harshadgavali.gitlab.org"
         "hotedge@jonathan.jdoda.ca"
         "weatherornot@somepaulo.github.io"
         "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
         # "gsconnect@andyholmes.github.io"
-        "space-bar@luchrioh"
+        #"space-bar@luchrioh"
         "BingWallpaper@ineffable-gmail.com"
         # "dash-to-dock@micxgx.gmail.com"
         # "gtk4-ding@smedius.gitlab.com"
         # "add-to-desktop@tommimon.github.com"
         # "apps-menu@gnome-shell-extensions.gcampax.github.com"
-        /*
-          "places-menu@gnome-shell-extensions.gcampax.github.com"
-          "window-list@gnome-shell-extensions.gcampax.github.com"
-        */
+        #"places-menu@gnome-shell-extensions.gcampax.github.com"
+        "window-list@gnome-shell-extensions.gcampax.github.com"
       ];
       disabled-extensions = [ ];
     };
