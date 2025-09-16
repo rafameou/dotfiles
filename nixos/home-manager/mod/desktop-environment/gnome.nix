@@ -178,20 +178,20 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "librewolf.desktop"
-        #"chromium-browser.desktop"
+        "chromium-browser.desktop"
         "org.gnome.Ptyxis.desktop"
         "codium.desktop"
         "org.telegram.desktop.desktop"
         "vesktop.desktop"
         "signal.desktop"
         "org.gnome.Fractal.desktop"
-        #"io.github.alainm23.planify.desktop"
-        #"dev.geopjr.Tuba.desktop"
-        #"org.gnome.Nautilus.desktop"
+        "io.github.alainm23.planify.desktop"
+        "dev.geopjr.Tuba.desktop"
+	"org.gnome.Nautilus.desktop"
         "gimp.desktop"
         "org.nicotine_plus.Nicotine.desktop"
         "org.gnome.SystemMonitor.desktop"
-        #"org.gnome.Settings.desktop"
+        "org.gnome.Settings.desktop"
         "org.octave.Octave.desktop"
       ];
       disable-user-extensions = false;
@@ -211,12 +211,12 @@
         # "gsconnect@andyholmes.github.io"
         #"space-bar@luchrioh"
         #"BingWallpaper@ineffable-gmail.com"
-        "dash-to-dock@micxgx.gmail.com"
+        # "dash-to-dock@micxgx.gmail.com"
         # "gtk4-ding@smedius.gitlab.com"
         # "add-to-desktop@tommimon.github.com"
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
         "places-menu@gnome-shell-extensions.gcampax.github.com"
-        #"window-list@gnome-shell-extensions.gcampax.github.com"
+        "window-list@gnome-shell-extensions.gcampax.github.com"
       ];
       disabled-extensions = [ ];
     };
