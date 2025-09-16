@@ -32,6 +32,8 @@
     gnomeExtensions.status-area-horizontal-spacing
     gnomeExtensions.bing-wallpaper-changer
     gnomeExtensions.window-list
+    gnomeExtensions.places-status-indicator
+    gnomeExtensions.applications-menu
     /*
       gnomeExtensions.weather-oclock
       gnomeExtensions.activate_gnome
@@ -122,8 +124,7 @@
         "<Super>Home"
         "<Super>1"
       ];
-      /*
-        switch-to-workspace-2 = [ "<Super>2" ];
+	switch-to-workspace-2 = [ "<Super>2" ];
         switch-to-workspace-3 = [ "<Super>3" ];
         switch-to-workspace-4 = [ "<Super>4" ];
         switch-to-workspace-5 = [ "<Super>5" ];
@@ -131,7 +132,6 @@
         switch-to-workspace-7 = [ "<Super>7" ];
         switch-to-workspace-8 = [ "<Super>8" ];
         switch-to-workspace-9 = [ "<Super>9" ];
-      */
       move-to-workspace-1 = [
         "<Super><Shift>Home"
         "<Super><Shift>1"
@@ -178,20 +178,20 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "librewolf.desktop"
-        "chromium-browser.desktop"
+        #"chromium-browser.desktop"
         "org.gnome.Ptyxis.desktop"
         "codium.desktop"
         "org.telegram.desktop.desktop"
         "vesktop.desktop"
         "signal.desktop"
         "org.gnome.Fractal.desktop"
-        "io.github.alainm23.planify.desktop"
-        "dev.geopjr.Tuba.desktop"
-        "org.gnome.Nautilus.desktop"
+        #"io.github.alainm23.planify.desktop"
+        #"dev.geopjr.Tuba.desktop"
+        #"org.gnome.Nautilus.desktop"
         "gimp.desktop"
         "org.nicotine_plus.Nicotine.desktop"
         "org.gnome.SystemMonitor.desktop"
-        "org.gnome.Settings.desktop"
+        #"org.gnome.Settings.desktop"
         "org.octave.Octave.desktop"
       ];
       disable-user-extensions = false;
@@ -207,16 +207,16 @@
         # "favourites-in-appgrid@harshadgavali.gitlab.org"
         #"hotedge@jonathan.jdoda.ca"
         "weatherornot@somepaulo.github.io"
-        #"status-area-horizontal-spacing@mathematical.coffee.gmail.com"
+        "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
         # "gsconnect@andyholmes.github.io"
         #"space-bar@luchrioh"
         #"BingWallpaper@ineffable-gmail.com"
-        # "dash-to-dock@micxgx.gmail.com"
+        "dash-to-dock@micxgx.gmail.com"
         # "gtk4-ding@smedius.gitlab.com"
         # "add-to-desktop@tommimon.github.com"
-        # "apps-menu@gnome-shell-extensions.gcampax.github.com"
-        #"places-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"
+        "apps-menu@gnome-shell-extensions.gcampax.github.com"
+        "places-menu@gnome-shell-extensions.gcampax.github.com"
+        #"window-list@gnome-shell-extensions.gcampax.github.com"
       ];
       disabled-extensions = [ ];
     };
@@ -238,7 +238,7 @@
       extend-height = true;
       height-fraction = 0.90000000000000002;
       hot-keys = false;
-      icon-size-fixed = true;
+      icon-size-fixed = false;
       max-alpha = 0.90000000000000004;
       running-indicator-style = "DOTS";
       show-apps-at-top = false;

@@ -35,7 +35,7 @@
     #./distrobox.nix
     #./flatpak.nix #extremely annoying and keep breaking
     ./printer.nix
-    #./tailscale.nix
+    ./tailscale.nix
   ];
 
   services.flatpak.enable = true;
