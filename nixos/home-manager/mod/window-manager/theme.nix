@@ -10,7 +10,7 @@ in
 {
   imports = [ ../nix-colors.nix ];
   home.packages = with pkgs; [
-    kdePackages.breeze-icons
+    #kdePackages.breeze-icons
     libsForQt5.qt5ct
     # libsForQt5.qtstyleplugin-kvantum
     libsForQt5.qt5.qtwayland
@@ -18,10 +18,10 @@ in
     kdePackages.qtwayland
     kdePackages.qt6ct
 
-    kdePackages.oxygen
-    kdePackages.oxygen.qt5
-    kdePackages.oxygen-sounds
-    kdePackages.oxygen-icons
+    #kdePackages.oxygen
+    #kdePackages.oxygen.qt5
+    #kdePackages.oxygen-sounds
+    #kdePackages.oxygen-icons
   ];
 
   xdg.configFile = {
@@ -49,7 +49,7 @@ in
       color_scheme_path=~/.config/qt-color-base16.conf
       custom_palette=true
       icon_theme=Gruvbox-Plus-Dark
-      style=Oxygen
+      style=Breeze
 
       [Fonts]
       fixed="FiraCode Nerd Font Mono,12,-1,5,50,0,0,0,0,0,Regular"
@@ -102,12 +102,10 @@ in
         scheme = config.colorScheme;
       };
     };
-    /*
-      iconTheme = {
-        name = "Gruvbox-Plus-Dark";
-        package = pkgs.gruvbox-plus-icons;
-      };
-    */
+    iconTheme = {
+      name = "Gruvbox-Plus-Dark";
+      package = pkgs.gruvbox-plus-icons;
+    };
     cursorTheme = {
       name = "phinger-cursors-light";
       package = pkgs.phinger-cursors;

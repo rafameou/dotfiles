@@ -11,7 +11,10 @@
     ./turtwig-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/lxqt.nix
+    ./mod/greetd.nix
+    ./mod/sway.nix
+    ./mod/niri.nix
   ];
 
   # ... changes to only this sytem
@@ -72,7 +75,7 @@
 
   fileSystems = {
     "/mnt/Extra" = {
-      device = "/dev/disk/by-uuid/7d9b7793-c0a9-4efb-ba89-ce747a2c3f6f";
+      device = "/dev/disk/by-uuid/4d4bee4d-043f-430c-a8b3-9df9e1631ef8";
       fsType = "ext4";
       options = [
         "x-gvfs-show"

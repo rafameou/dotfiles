@@ -3,7 +3,7 @@
   imports = [
     ./mod/home-manager.nix
     ./mod/nix-colors.nix
-    ./mod/xdg-gnome.nix
+    ./mod/xdg.nix
     ./mod/zsh.nix
 
     ./mod/apps/edit.nix
@@ -14,15 +14,27 @@
     #./mod/apps/separated/rclone-server.nix
 
     # - sway -
-    # ./mod/window-manager.nix
+    ./mod/window-manager.nix
     # - other desktops -
-    ./mod/desktop-environment.nix
-    ./mod/desktop-environment/gnome.nix
+    #./mod/desktop-environment.nix
+    #./mod/desktop-environment/gnome.nix
     #./mod/desktop-environment/kde.nix
     #./mod/desktop-environment/mate.nix
     #./mod/desktop-environment/xfce.nix
     #./mod/desktop-environment/lxqt.nix
   ];
+
+  programs.niri.settings = {
+    outputs."HDMI-A-1" = {
+      scale = 1.0;
+      mode = {
+        width = 1920;
+	height = 1080;
+      	refresh = 74.973;
+      };
+      variable-refresh-rate = true;
+    };
+  };
 
   home.packages = with pkgs; [
     usbutils

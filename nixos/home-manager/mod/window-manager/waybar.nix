@@ -25,6 +25,7 @@
           #"sway/mode"
           #"sway/scratchpad" # "custom/media" "wlr/taskbar"
           # "mpris"
+          "wlr/taskbar"
         ];
         modules-center = [ ];
         modules-right = [
@@ -40,10 +41,10 @@
           "privacy"
           "user"
           "backlight"
-          #"clock"
+          "clock"
           "custom/weather"
-          #"custom/notification"
-          #"tray"
+          "custom/notification"
+          "tray"
           "custom/logout"
         ];
 
@@ -52,28 +53,26 @@
           spacing = 5;
         };
 
-        /*
-          "custom/notification" = {
-            "tooltip" = false;
-            "format" = "{icon}";
-            "format-icons" = {
-              "notification" = "<span color='#FABD2F'>*</span>";
-              "none" = "";
-              "dnd-notification" = "<span color='#FABD2F'>*</span>";
-              "dnd-none" = "";
-              "inhibited-notification" = "<span color='#FB4934'>*</span>";
-              "inhibited-none" = "";
-              "dnd-inhibited-notification" = "<span color='#FB4934'>*</span>";
-              "dnd-inhibited-none" = "";
-            };
-            "return-type" = "json";
-            "exec-if" = "which swaync-client";
-            "exec" = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
-            "on-click" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
-            "on-click-right" = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
-            "escape" = true;
+        "custom/notification" = {
+          "tooltip" = false;
+          "format" = "{icon}";
+          "format-icons" = {
+            "notification" = "<span color='#FABD2F'>*</span>";
+            "none" = "";
+            "dnd-notification" = "<span color='#FABD2F'>*</span>";
+            "dnd-none" = "";
+            "inhibited-notification" = "<span color='#FB4934'>*</span>";
+            "inhibited-none" = "";
+            "dnd-inhibited-notification" = "<span color='#FB4934'>*</span>";
+            "dnd-inhibited-none" = "";
           };
-        */
+          "return-type" = "json";
+          "exec-if" = "which swaync-client";
+          "exec" = "${pkgs.swaynotificationcenter}/bin/swaync-client -swb";
+          "on-click" = "${pkgs.swaynotificationcenter}/bin/swaync-client -t -sw";
+          "on-click-right" = "${pkgs.swaynotificationcenter}/bin/swaync-client -d -sw";
+          "escape" = true;
+        };
 
         backlight = {
           # "device" = "acpi_video1";
@@ -284,7 +283,7 @@
 
                 window#waybar {
                         color: #${config.colorScheme.palette.base05};
-                /*background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 0.9) 50%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%);*/
+                background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 0.9) 50%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%);
                 /*background-color: #${config.colorScheme.palette.base00};*/
                 background-color: rgba(0,0,0,0);
               }

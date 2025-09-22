@@ -11,7 +11,7 @@
   };
 
   environment.etc."wlgreet-sway.config".text = ''
-    exec "${pkgs.greetd.wlgreet}/bin/wlgreet --command startlxqtwayland; swaymsg exit"
+    exec "${pkgs.wlgreet}/bin/wlgreet --command niri; swaymsg exit"
 
     bindsym Mod4+shift+e exec swaynag \
     	-t warning \

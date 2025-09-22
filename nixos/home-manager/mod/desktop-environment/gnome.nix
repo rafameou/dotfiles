@@ -22,9 +22,9 @@
     #gnomeExtensions.wiggle
     gnomeExtensions.gsconnect
     gnomeExtensions.space-bar
-    #gnomeExtensions.add-to-desktop
-    #gnomeExtensions.gtk4-desktop-icons-ng-ding
-    #gnomeExtensions.just-perfection
+    gnomeExtensions.add-to-desktop
+    gnomeExtensions.gtk4-desktop-icons-ng-ding
+    gnomeExtensions.just-perfection
     gnomeExtensions.solaar-extension
     gnomeExtensions.dash-to-dock
     gnomeExtensions.vitals
@@ -176,7 +176,7 @@
       sort-directories-first = true;
     };
     "org/gnome/shell" = {
-      favorite-apps = [
+      favorite-apps = [];/*[
         "librewolf.desktop"
         "chromium-browser.desktop"
         "org.gnome.Ptyxis.desktop"
@@ -193,7 +193,7 @@
         "org.gnome.SystemMonitor.desktop"
         "org.gnome.Settings.desktop"
         "org.octave.Octave.desktop"
-      ];
+      ];*/
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
@@ -206,17 +206,18 @@
         "Vitals@CoreCoding.com"
         # "favourites-in-appgrid@harshadgavali.gitlab.org"
         #"hotedge@jonathan.jdoda.ca"
-        "weatherornot@somepaulo.github.io"
+        #"weatherornot@somepaulo.github.io"
         "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
         # "gsconnect@andyholmes.github.io"
         #"space-bar@luchrioh"
         #"BingWallpaper@ineffable-gmail.com"
         # "dash-to-dock@micxgx.gmail.com"
-        # "gtk4-ding@smedius.gitlab.com"
-        # "add-to-desktop@tommimon.github.com"
+        "gtk4-ding@smedius.gitlab.com"
+        "add-to-desktop@tommimon.github.com"
         "apps-menu@gnome-shell-extensions.gcampax.github.com"
         "places-menu@gnome-shell-extensions.gcampax.github.com"
         "window-list@gnome-shell-extensions.gcampax.github.com"
+	"just-perfection-desktop@just-perfection"
       ];
       disabled-extensions = [ ];
     };
@@ -247,14 +248,17 @@
     };
     "org/gnome/shell/extensions/just-perfection" = {
       activities-button = false;
+      clock-menu-position = 1;
+      clock-menu-position-offset = 20;
       dash = false;
+      notification-banner-position = 2;
       startup-status = 0;
     };
     "org/gnome/shell/extensions/gtk4-ding" = {
       arrangeorder = "NAME";
       keep-arranged = true;
       show-network-volumes = true;
-      start-corner = "top-right";
+      start-corner = "top-left";
     };
     "org/gnome/shell/extensions/window-list" = {
       display-all-workspaces = true;

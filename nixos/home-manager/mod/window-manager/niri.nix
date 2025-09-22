@@ -13,7 +13,7 @@
         model = "abnt2";
       };
       layout = {
-        gaps = 0; # 10
+        gaps = 10;
         always-center-single-column = true;
         center-focused-column = "on-overflow"; # "always";
         focus-ring = {
@@ -74,13 +74,6 @@
         }
         {
           command = [
-            "sh"
-            "-c"
-            "lxqt-session && niri msg action quit -s"
-          ];
-        }
-        {
-          command = [
             "waybar"
           ];
         }
@@ -101,6 +94,20 @@
             "wayland"
           ];
         }
+        { command = [ "swaync" ]; }
+        {
+          command = [
+            "nm-applet"
+            "--indicator"
+          ];
+        }
+        { command = [ "blueman-tray" ]; }
+        {
+          command = [
+            "pcmanfm-qt"
+            "--daemon-mode"
+          ];
+        }
         { command = [ "xwayland-satellite" ]; }
         {
           command = [
@@ -111,9 +118,24 @@
             "regular"
           ];
         }
+        {
+          command = [
+            "openrgb"
+            "--startminimized"
+          ];
+        }
+        {
+          command = [
+            "swaybg"
+            "-m"
+            "tile"
+            "-i"
+            "/home/rafameou/wallpaper"
+          ];
+        }
       ];
       cursor = {
-        theme = "Hackneyed";
+        theme = "phinger-cursors-light";
         size = 36;
       };
       clipboard = {
@@ -125,7 +147,7 @@
         {
           geometry-corner-radius =
             let
-              r = 0.0; # 12.0;
+              r = 12.0;
             in
             {
               top-left = r;
@@ -150,6 +172,7 @@
         "ELECTRON_OZONE_PLATFORM_HINT" = "wayland";
         "_JAVA_AWT_WM_NONREPARENTING" = "1";
         "DISPLAY" = ":0";
+        "QT_QPA_PLATFORMTHEME" = "qt6ct";
       };
       binds = with config.lib.niri.actions; {
         "Mod+Shift+A".action = show-hotkey-overlay;

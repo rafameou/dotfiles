@@ -45,7 +45,7 @@
     krita
     kdePackages.kolourpaint
 
-    #ciscoPacketTracer8
+    ciscoPacketTracer8
     godot
 
     # okular

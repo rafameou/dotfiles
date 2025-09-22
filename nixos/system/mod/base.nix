@@ -23,7 +23,7 @@
     ./time.nix
     ./user.nix
     ./env.nix
-    ./dbus.nix
+    #./dbus.nix #not needed for niri
     ./thumbnail.nix
     #./stylix.nix
 

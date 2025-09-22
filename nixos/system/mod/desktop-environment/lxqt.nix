@@ -4,7 +4,7 @@
   #services.displayManager.sddm.enable = true;
   #services.displayManager.sddm.wayland.enable = true;
   services.xserver.desktopManager.lxqt.enable = true;
-  xdg.portal.lxqt.enable = true;
+  #xdg.portal.lxqt.enable = true;
 
   programs.labwc.enable = true;
 

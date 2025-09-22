@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    # ./window-manager/theme.nix
+    ./window-manager/theme.nix
     ./window-manager/i3status.nix
     ./window-manager/sway.nix
     ./window-manager/niri.nix
@@ -17,9 +17,10 @@
     kdePackages.ark
     kdePackages.kalk
     kdePackages.kdeconnect-kde
-    # lxqt.pcmanfm-qt
-    # lxqt.pavucontrol-qt
-    # lxqt.qps
+    lxqt.pcmanfm-qt
+    lxqt.pavucontrol-qt
+    lxqt.qps
+    xfce.thunar
     #j4-dmenu-desktop
     #bemenu
     #nvidia-system-monitor-qt
@@ -34,10 +35,10 @@
     #dunst
     wayland-pipewire-idle-inhibit
     blueman
-    #swaynotificationcenter
-    mate.mate-polkit
+    swaynotificationcenter
     brightnessctl
     playerctl
+    swaybg
   ];
 
   systemd.user.services = {
