@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   # Enable the XFCE Desktop Environment.
-  services.xserver.displayManager.lightdm.enable = false;
+  #services.xserver.displayManager.lightdm.enable = false;
   services.xserver.desktopManager.xfce.enable = true;
 
   #sound.enable = true;

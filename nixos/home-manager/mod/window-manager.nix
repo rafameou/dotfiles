@@ -17,10 +17,6 @@
     kdePackages.ark
     kdePackages.kalk
     kdePackages.kdeconnect-kde
-    lxqt.pcmanfm-qt
-    lxqt.pavucontrol-qt
-    lxqt.qps
-    xfce.thunar
     #j4-dmenu-desktop
     #bemenu
     #nvidia-system-monitor-qt

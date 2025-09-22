@@ -6,7 +6,7 @@
     ./treecko-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/lxqt.nix
+    ./mod/desktop-environment/xfce.nix
     ./mod/greetd.nix
     ./mod/sway.nix
     ./mod/niri.nix

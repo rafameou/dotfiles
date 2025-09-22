@@ -74,41 +74,59 @@
         }
         {
           command = [
-            "waybar"
-          ];
-        }
-        {
-          command = [
-            "wl-paste"
-            "--watch"
-            "cliphist"
-            "store"
-          ];
-        }
-        {
-          command = [
-            "gammastep"
-            "-l"
-            "geoclue2"
+            "swaybg"
             "-m"
-            "wayland"
-          ];
-        }
-        { command = [ "swaync" ]; }
-        {
-          command = [
-            "nm-applet"
-            "--indicator"
-          ];
-        }
-        { command = [ "blueman-tray" ]; }
-        {
-          command = [
-            "pcmanfm-qt"
-            "--daemon-mode"
+            "tile"
+            "-i"
+            "/home/rafameou/wallpaper"
           ];
         }
         { command = [ "xwayland-satellite" ]; }
+        { command = [ "xfce4-session" ]; }
+        /*
+          { command = ["xfdesktop"]}
+          {
+            command = [
+              "thunar"
+              "--daemon"
+            ];
+          }
+          {
+            command = [
+              "xfce4-panel"
+            ];
+          }
+          {
+            command = [
+              "wl-paste"
+              "--watch"
+              "cliphist"
+              "store"
+            ];
+          }
+          {
+            command = [
+              "gammastep"
+              "-l"
+              "geoclue2"
+              "-m"
+              "wayland"
+            ];
+          }
+          {
+            command = [
+              "nm-applet"
+              "--indicator"
+            ];
+          }
+          { command = [ "blueman-tray" ]; }
+          {
+            command = [
+              "openrgb"
+              "--startminimized"
+            ];
+          }
+        */
         {
           command = [
             "solaar"
@@ -116,21 +134,6 @@
             "hide"
             "-b"
             "regular"
-          ];
-        }
-        {
-          command = [
-            "openrgb"
-            "--startminimized"
-          ];
-        }
-        {
-          command = [
-            "swaybg"
-            "-m"
-            "tile"
-            "-i"
-            "/home/rafameou/wallpaper"
           ];
         }
       ];
@@ -178,7 +181,7 @@
         "Mod+Shift+A".action = show-hotkey-overlay;
         "Mod+T".action = spawn "foot";
         "Mod+D".action = spawn "fuzzel";
-        "Mod+P".action = spawn "pcmanfm-qt";
+        "Mod+P".action = spawn "thunar";
         "Mod+Alt+L".action = spawn "${pkgs.swaylock}/bin/swaylock" "-Ffk" "-c" "000000";
 
         "XF86AudioPlay".action = spawn "${pkgs.playerctl}/bin/playerctl" "play-pause";

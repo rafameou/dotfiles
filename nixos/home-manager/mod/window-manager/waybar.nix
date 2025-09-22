@@ -12,26 +12,43 @@
   programs.waybar = {
     enable = true;
     settings = {
-      bottomBar = {
+      trayBar = {
         layer = "bottom";
         position = "bottom";
+        height = 24;
+        spacing = 5;
+        modules-left = [ "wlr/taskbar" ];
+        modules-right = [ "niri/workspaces" ];
+
+        "wlr/taskbar" = {
+          icon-size = 20;
+          on-click = "activate";
+          format = "{icon} {title:.15}";
+        };
+      };
+      bottomBar = {
+        layer = "bottom";
+        position = "top";
         height = 24; # 25;
         spacing = 5; # 10;
 
         modules-left = [
+          "custom/applications"
+          "custom/places"
+          "custom/system"
           #"hyprland/workspaces"
           #"sway/workspaces"
-          "niri/workspaces"
+
           #"sway/mode"
           #"sway/scratchpad" # "custom/media" "wlr/taskbar"
           # "mpris"
-          "wlr/taskbar"
+          #"wlr/taskbar"
         ];
         modules-center = [ ];
         modules-right = [
           "idle_inhibitor"
           "pulseaudio"
-          "systemd-failed-units" # "network" "hyprland/language" "sway/language"
+          "systemd-failed-units" # "hyprland/language" "sway/language"
           "network"
           "temperature"
           "cpu"
@@ -39,7 +56,7 @@
           "memory#swap"
           "battery"
           "privacy"
-          "user"
+          #"user"
           "backlight"
           "clock"
           "custom/weather"
@@ -47,6 +64,21 @@
           "tray"
           "custom/logout"
         ];
+
+        "custom/applications" = {
+          format = " Applications";
+          on-click = "fuzzel -F categories -a top-left";
+        };
+
+        "custom/places" = {
+          format = " Places";
+          on-click = "xdg-open \"$(ls -1 -d $HOME/*/ | fuzzel -a top-left -d)\"";
+        };
+
+        "custom/system" = {
+          format = "󰌽 System";
+          on-click = "wlogout";
+        };
 
         tray = {
           # icon-size = 21;
@@ -116,22 +148,11 @@
           tooltip-format = "{app}: {title}";
         };
 
-        "wlr/taskbar" = {
-          icon-size = 20;
-          on-click = "activate";
-          format = "{icon}";
-        };
-
         user = {
           format = "󰄛up {work_d}d{work_H}h{work_M}m";
           weight = 20;
           height = 20;
           icon = false;
-        };
-
-        "custom/logout" = {
-          format = "󰩈";
-          on-click = "wlogout";
         };
 
         keyboard-state = {
@@ -275,119 +296,113 @@
     };
 
     style = ''
-              * {
-              font-family: Fira Sans, FiraCode Nerd Font Mono, Fira Sans;
-              font-size: 18px;
-              transition-duration: 0;
-              }
+      *{
+      font-family: Fira Sans, FiraCode Nerd Font Mono, Fira Sans;
+      font-size: 18px;
+      transition-duration: 0;
+      }
 
-                window#waybar {
-                        color: #${config.colorScheme.palette.base05};
-                background: linear-gradient(180deg, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 0.9) 50%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 100%);
-                /*background-color: #${config.colorScheme.palette.base00};*/
-                background-color: rgba(0,0,0,0);
-              }
+      window#waybar {
+      color: #${config.colorScheme.palette.base05};
+      background-color: #${config.colorScheme.palette.base00};
+      }
 
-              window#waybar.hidden {
-              opacity: 0.2;
-              }
+      window#waybar.hidden {
+      opacity: 0.2;
+      }
 
-              window#waybar.termite {
-              background-color: #3F3F3F;
-              }
+      window#waybar.termite {
+      background-color: #3F3F3F;
+      }
 
-              window#waybar.chromium {
-              background-color: #000000;
-              border: none;
-              }
+      window#waybar.chromium {
+      background-color: #000000;
+      border: none;
+      }
 
       #taskbar button {
-          padding-top: 0;
-          padding-bottom: 0;
-          box-shadow: inset 0 0 0 1px #${config.colorScheme.palette.base02};
-          border-radius: 5px;
-          margin-top: 0px;
-          margin-bottom: 0px;
-          margin-left: 5px;
-          background: radial-gradient(ellipse, rgba(80, 73, 69, 0.9) 0%, rgba(0,0,0,0) 100%);
-          }
+      padding-top: 0;
+      padding-bottom: 0;
+      box-shadow: inset 0 0 0 1px #${config.colorScheme.palette.base02};
+      margin-top: 0px;
+      margin-bottom: 0px;
+      margin-left: 5px;
+      background: radial-gradient(ellipse, rgba(80, 73, 69, 0.9) 0%, rgba(0,0,0,0) 100%);
+      }
 
       #taskbar button.hover,
       #taskbar button.active {
-          background: radial-gradient(ellipse, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 0%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 1) 100%);
-          }
+      background: radial-gradient(ellipse, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base00}, 0.9) 0%, rgba(${inputs.nix-colors.lib.conversions.hexToRGBString "," config.colorScheme.palette.base02}, 1) 100%);
+      }
 
-          button {
-          box-shadow: inset 0 -3px transparent;
-          border: none;
-          border-radius: 100%;
-          min-height: 24px;
-          min-width: 16px;
-          }
+      button {
+      box-shadow: inset 0 -3px transparent;
+      border: none;
+      min-height: 24px;
+      min-width: 16px;
+      }
 
-          /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-          button:hover {
-          background: inherit;
-          /*box-shadow: inset 0 -3px #ffffff;*/
-          }
+      button:hover {
+      background: inherit;
+      /*box-shadow: inset 0 -3px #ffffff;*/
+      }
 
-            #workspaces button {
-                padding: 0 5px;
-                background-color: transparent;
-                color: #A89984;
-                border-radius: 100%;
-                transition-duration: .2s;
-                background: #${config.colorScheme.palette.base02};
-                }
+      #workspaces button {
+      padding: 0 5px;
+      background-color: transparent;
+      color: #A89984;
+      transition-duration: .2s;
+      background: #${config.colorScheme.palette.base02};
+      }
 
-            #workspaces button.active,
-            #workspaces button.focused,
-            #workspaces button:hover {
-                /*background: ;*/
-                background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
-                /*background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);*/
-                color: #${config.colorScheme.palette.base05};
-                }
+      #workspaces button.active,
+      #workspaces button.focused,
+      #workspaces button:hover {
+      /*background: ;*/
+      background: radial-gradient(circle, rgba(150,150,150,1) 0%, rgba(0,0,0,0) 100%);
+      /*background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(0,0,0,0) 100%);*/
+      color: #${config.colorScheme.palette.base05};
+      }
 
-            #workspaces button.urgent {
-                color: #FB4934;
-                }
+      #workspaces button.urgent {
+      color: #FB4934;
+      }
 
-            #mode {
-                background-color: #64727D;
-                border-bottom: 3px solid #ffffff;
-                }
+      #mode {
+      background-color: #64727D;
+      border-bottom: 3px solid #ffffff;
+      }
 
-            #window,
-            #workspaces {
-                margin: 0 4px;
-                }
+      #window,
+      #workspaces {
+      margin: 0 4px;
+      }
 
-            #waybar.empty #window {
-                border: none;
-                background: none;
-                }
+      #waybar.empty #window {
+      border: none;
+      background: none;
+      }
 
-                .modules-right > widget {
-                border-radius: 5px;
-                box-shadow: inset 0 0 0 1px #504945;
-                background: radial-gradient(circle, rgba(70,70,70,0.5) 0%, rgba(0,0,0,0) 100%);
-                }
+      .modules-right > widget {
+      margin: 0 4px;
+      box-shadow: inset 0 0 0 1px #504945;
+      background: rgba(70,70,70,0.5);
+      }
 
-            #wireplumber.muted,
-            #network.disconnected,
-            #pulseaudio.muted {
-                color: #FB4934;
-                }
+      #wireplumber.muted,
+      #network.disconnected,
+      #pulseaudio.muted {
+      color: #FB4934;
+      }
 
-            #tray > .passive {
-                -gtk-icon-effect: dim;
-                }
+      #tray > .passive {
+      -gtk-icon-effect: dim;
+      }
 
-            #tray > .needs-attention {
-                -gtk-icon-effect: highlight;
-                background-color: #eb4d4b;
-                }
+      #tray > .needs-attention {
+      -gtk-icon-effect: highlight;
+      background-color: #eb4d4b;
+      }
     '';
   };
 }
