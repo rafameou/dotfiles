@@ -20,5 +20,8 @@
     xfce.xfce4-notes-plugin
     xfce.xfce4-sensors-plugin
     xfce.xfce4-pulseaudio-plugin
+    xfce.xfce4-weather-plugin
+    xfce.xfce4-systemload-plugin
+    xfce.xfce4-cpugraph-plugin
   ];
 }
