@@ -9,7 +9,6 @@
           "x-scheme-handler/sms" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tel" = "org.gnome.Shell.Extensions.GSConnect.desktop;";
           "x-scheme-handler/tg" = "org.telegram.desktop.desktop;";
-          "x-scheme-handler/discord" = "vesktop.desktop;";
         };
       };
       defaultApplications = {
@@ -39,6 +38,7 @@
         "x-scheme-handler/http" = "librewolf.desktop";
         "x-scheme-handler/https" = "librewolf.desktop";
         "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
+	"x-scheme-handler/discord" = "vesktop.desktop;";
 
         # heroic keeps adding this line
         "x-scheme-handler/heroic" = "com.heroicgameslauncher.hgl.desktop";
@@ -47,13 +47,13 @@
         "inode/directory" = "pcmanfm-qt.desktop";
 
         # move this stuff to each desktop's dot nix file
-        "image/tiff" = "vimiv.desktop";
-        "image/jpx" = "vimiv.desktop";
-        "image/png" = "vimiv.desktop";
-        "image/gif" = "vimiv.desktop";
-        "image/jpeg" = "vimiv.desktop";
-        "image/bmp" = "vimiv.desktop";
-        "image/jp2" = "vimiv.desktop";
+        "image/tiff" = "org.xfce.ristretto.desktop";
+        "image/jpx" = "org.xfce.ristretto.desktop";
+        "image/png" = "org.xfce.ristretto.desktop";
+        "image/gif" = "org.xfce.ristretto.desktop";
+        "image/jpeg" = "org.xfce.ristretto.desktop";
+        "image/bmp" = "org.xfce.ristretto.desktop";
+        "image/jp2" = "org.xfce.ristretto.desktop";
 
         "application/x-tar" = "org.kde.ark.desktop";
         "application/x-7z-compressed" = "org.kde.ark.desktop";
