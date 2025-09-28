@@ -5,6 +5,7 @@
     ./window-manager/i3status.nix
     ./window-manager/sway.nix
     ./window-manager/niri.nix
+    ./window-manager/labwc.nix
     # ./window-manager/hyprland.nix
     ./window-manager/waybar.nix
     #./window-manager/i3.nix

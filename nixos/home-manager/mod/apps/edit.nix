@@ -5,7 +5,7 @@
     ./separated/mpv.nix
     ./separated/neovim.nix
     ./separated/vscodium.nix
-    #./separated/flameshot.nix
+    ./separated/flameshot.nix
     ./separated/lf.nix
   ];
 

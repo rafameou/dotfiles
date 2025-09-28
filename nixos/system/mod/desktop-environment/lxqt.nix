@@ -6,11 +6,7 @@
   services.xserver.desktopManager.lxqt.enable = true;
   #xdg.portal.lxqt.enable = true;
 
-  programs.labwc.enable = true;
-
   environment.systemPackages = with pkgs; [
-    labwc-tweaks
-
     # -- appmenu --
     #appmenu-gtk3-module # breaks everything
     libappindicator-gtk3

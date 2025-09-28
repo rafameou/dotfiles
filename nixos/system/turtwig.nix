@@ -15,6 +15,7 @@
     ./mod/greetd.nix
     ./mod/sway.nix
     ./mod/niri.nix
+    ./mod/labwc.nix
   ];
 
   # ... changes to only this sytem

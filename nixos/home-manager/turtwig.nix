@@ -29,8 +29,8 @@
       scale = 1.0;
       mode = {
         width = 1920;
-	height = 1080;
-      	refresh = 74.973;
+        height = 1080;
+        refresh = 74.973;
       };
       variable-refresh-rate = true;
     };

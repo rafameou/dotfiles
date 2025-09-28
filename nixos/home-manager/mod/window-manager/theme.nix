@@ -71,9 +71,9 @@ in
   };
 
   dconf.settings = {
-    "org/gnome/desktop/wm/preferences" = {
+    /*"org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:";
-    };
+    };*/
     "org/gtk/settings/file-chooser" = {
       sort-directories-first = true;
     };

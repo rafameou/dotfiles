@@ -6,6 +6,7 @@
       General = {
         showStartupLaunchMessage = false;
         disabledGrimWarning = true;
+	useGrimAdapter = true;
         uiColor = "#${config.colorScheme.palette.base00}";
       };
       Shortcuts = {

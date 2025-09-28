@@ -44,6 +44,12 @@
     outputs."eDP-1".scale = 1.0;
   };
 
+  wayland.windowManager.labwc = {
+    environment = [
+      "XKB_DEFAULT_VARIANT=thinkpad"
+    ];
+  };
+
   wayland.windowManager.hyprland.settings.input = {
     kb_variant = lib.mkForce "thinkpad,nativo";
     numlock_by_default = lib.mkForce false;

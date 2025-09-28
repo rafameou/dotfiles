@@ -10,6 +10,7 @@
     ./mod/greetd.nix
     ./mod/sway.nix
     ./mod/niri.nix
+    ./mod/labwc.nix
     
     ./mod/tlp.nix
   ];

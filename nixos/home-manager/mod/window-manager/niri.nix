@@ -126,7 +126,7 @@
               "--startminimized"
             ];
           }
-        */
+        
         {
           command = [
             "solaar"
@@ -135,7 +135,7 @@
             "-b"
             "regular"
           ];
-        }
+        }*/
       ];
       cursor = {
         theme = "phinger-cursors-light";
