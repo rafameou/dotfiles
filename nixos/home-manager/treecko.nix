@@ -46,7 +46,7 @@
 
   wayland.windowManager.labwc = {
     environment = [
-      "XKB_DEFAULT_VARIANT=thinkpad"
+      "XKB_DEFAULT_LAYOUT=br(thinkpad)"
     ];
   };
 
