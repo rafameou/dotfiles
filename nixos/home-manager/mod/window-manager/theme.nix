@@ -106,10 +106,10 @@ in
       name = "Gruvbox-Plus-Dark";
       package = pkgs.gruvbox-plus-icons;
     };
-    cursorTheme = {
+    /*cursorTheme = {
       name = "phinger-cursors-light";
       package = pkgs.phinger-cursors;
-    };
+    };*/
 
     gtk2.extraConfig = ''
       gtk-enable-animations=1

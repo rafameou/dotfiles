@@ -23,5 +23,6 @@
     xfce.xfce4-weather-plugin
     xfce.xfce4-systemload-plugin
     xfce.xfce4-cpugraph-plugin
+    xfce.xfce4-whiskermenu-plugin
   ];
 }

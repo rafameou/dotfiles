@@ -21,10 +21,10 @@
     rc = {
       core = {
         adaptiveSync = "yes";
-        decoration = "client";
+        decoration = "server";
       };
       theme = {
-        name = "Onyx-Citrus";
+        name = "GTK";
         cornerRadius = 0;
         font = {
           "@name" = "Fira Sans";

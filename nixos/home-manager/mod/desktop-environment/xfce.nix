@@ -3,13 +3,17 @@
   home.packages = with pkgs; [
     arc-theme
     arc-icon-theme
-    cinnamon.mint-themes
-    cinnamon.mint-x-icons
+    colloid-gtk-theme
+    colloid-icon-theme
+    mint-themes
+    mint-y-icons
+    mint-x-icons
+    mint-cursor-themes
     zuki-themes
     greybird
   ];
 
-  services.gammastep.enable = true;
+  #services.gammastep.enable = true;
   #services.redshift.provider = "geoclue2";
 
   dconf.settings = {

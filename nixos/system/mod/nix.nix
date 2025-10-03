@@ -30,5 +30,5 @@
   };
 
   home-manager.backupFileExtension = "hm-backup";
-
+  home-manager.overwriteBackup = true;
 }
