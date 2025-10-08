@@ -11,6 +11,7 @@
     ./mod/sway.nix
     ./mod/niri.nix
     ./mod/labwc.nix
+    ./mod/wayfire.nix
     
     ./mod/tlp.nix
   ];

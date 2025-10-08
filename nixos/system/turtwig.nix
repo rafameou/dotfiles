@@ -16,6 +16,7 @@
     ./mod/sway.nix
     ./mod/niri.nix
     ./mod/labwc.nix
+    ./mod/wayfire.nix
   ];
 
   # ... changes to only this sytem
