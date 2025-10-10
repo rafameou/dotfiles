@@ -13,6 +13,18 @@
       #   });
       # })
 
+      (final: prev: {
+        xfce = prev.xfce.overrideScope (
+          gfinal: gprev: {
+            xfdesktop = gprev.xfdesktop.overrideAttrs (oldAttrs: {
+              patches = (oldAttrs.patches or []) ++ [
+                ./0001-Fix-the-broken-background-picture-setup-on-Wayland.patch
+              ];
+            });
+          }
+        );
+      })
+
       /*
         (final: prev: {
         nixpkgs-stable = inputs.nixpkgs-stable.legacyPackages.${pkgs.system};
