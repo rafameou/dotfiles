@@ -26,7 +26,7 @@
     telegram-desktop
     vesktop
     arrpc
-    bitwarden
+    bitwarden-desktop
     komikku
     kdePackages.tokodon
     #kdePackages.neochat #broken 20-03

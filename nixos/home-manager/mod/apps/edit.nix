@@ -22,12 +22,12 @@
     nixfmt-rfc-style
     gimp3
     darktable
-    onlyoffice-bin
+    onlyoffice-desktopeditors
     libreoffice-qt-fresh
     hunspell
     hunspellDicts.pt_BR
     corefonts
-    vistafonts
+    vista-fonts
     #feishin #broken 22-01-2025, electron, not needed
     strawberry # broken 18-07-2025
     #texlive.combined.scheme-full

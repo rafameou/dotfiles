@@ -197,7 +197,7 @@ in
 
           -- Elixir
           lspconfig.elixirls.setup{
-            cmd = { "${elixir_ls}/bin/elixir-ls" },
+            cmd = { "${elixir-ls}/bin/elixir-ls" },
             capabilities = capabilities,
           };
 
@@ -248,7 +248,7 @@ in
 
           -- Lua
           lspconfig.lua_ls.setup {
-            cmd = {"${sumneko-lua-language-server}/bin/lua-language-server"},
+            cmd = {"${lua-language-server}/bin/lua-language-server"},
             settings = {
               Lua = {
                       runtime = {
