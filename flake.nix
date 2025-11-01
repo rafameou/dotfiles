@@ -24,8 +24,8 @@
     #plasma-manager.inputs.nixpkgs.follows = "nixpkgs";
     #plasma-manager.inputs.home-manager.follows = "home-manager";
 
-    niri.url = "github:sodiboo/niri-flake";
-    niri.inputs.nixpkgs.follows = "nixpkgs";
+    #niri.url = "github:sodiboo/niri-flake";
+    #niri.inputs.nixpkgs.follows = "nixpkgs";
 
     bing-mate.url = "github:rafameou/bing-mate";
     bing-mate.inputs.nixpkgs.follows = "nixpkgs";
@@ -45,10 +45,10 @@
     solaar.url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
     solaar.inputs.nixpkgs.follows = "nixpkgs";
 
-    winapps = {
-      url = "github:winapps-org/winapps";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #winapps = {
+    #  url = "github:winapps-org/winapps";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     #nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
@@ -57,10 +57,10 @@
     {
       nixpkgs,
       home-manager, # plasma-manager,
-      niri,
+      #niri,
       solaar,
       chaotic, # nixos-wsl,
-      winapps,
+      #winapps,
       ...
     }@inputs:
     {
@@ -68,7 +68,7 @@
         bulbasaur = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
-            niri.nixosModules.niri
+            #niri.nixosModules.niri
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/bulbasaur.nix
@@ -78,7 +78,7 @@
         chikorita = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
-            niri.nixosModules.niri
+            #niri.nixosModules.niri
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/chikorita.nix
@@ -88,7 +88,7 @@
         treecko = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
-            niri.nixosModules.niri
+            #niri.nixosModules.niri
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/treecko.nix
@@ -98,7 +98,7 @@
 	turtwig = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
-            niri.nixosModules.niri
+            #niri.nixosModules.niri
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/turtwig.nix

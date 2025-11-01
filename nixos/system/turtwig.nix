@@ -14,7 +14,7 @@
     ./mod/desktop-environment/xfce.nix
     ./mod/greetd.nix
     ./mod/sway.nix
-    ./mod/niri.nix
+    #./mod/niri.nix
     ./mod/labwc.nix
     ./mod/wayfire.nix
   ];

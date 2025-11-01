@@ -20,7 +20,7 @@
     spice-vdagent
     swtpm
 
-    inputs.winapps.packages."${system}".winapps
-    inputs.winapps.packages."${system}".winapps-launcher
+    #inputs.winapps.packages."${system}".winapps
+    #inputs.winapps.packages."${system}".winapps-launcher
   ];
 }

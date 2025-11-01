@@ -24,7 +24,7 @@
     #./mod/desktop-environment/lxqt.nix
   ];
 
-  programs.niri.settings = {
+  /*programs.niri.settings = {
     outputs."HDMI-A-1" = {
       scale = 1.0;
       mode = {
@@ -34,7 +34,7 @@
       };
       variable-refresh-rate = true;
     };
-  };
+  };*/
 
   home.packages = with pkgs; [
     usbutils
