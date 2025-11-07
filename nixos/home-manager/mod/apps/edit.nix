@@ -36,6 +36,8 @@
     ghostscript
     sioyek
 
+    vlc
+
     #apostrophe #broken 03-11-2024, not needed
     # zettlr
     kdePackages.ghostwriter
