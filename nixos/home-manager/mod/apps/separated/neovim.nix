@@ -322,18 +322,20 @@ in
       { plugin = img-clip-nvim; }
       { plugin = markview-nvim; }
       { plugin = comment-nvim; }
-      {
-        plugin = lualine-nvim;
-        type = "lua";
-        config = ''
-                      require("lualine").setup {
-          	      options = {
-          		icons_enabled = true,
-          		theme = "auto",
-                        },
-                      }
-        '';
-      }
+      /*
+        {
+          plugin = lualine-nvim;
+          type = "lua";
+          config = ''
+                        require("lualine").setup {
+            	      options = {
+            		icons_enabled = true,
+            		theme = "auto",
+                          },
+                        }
+          '';
+        }
+      */
     ];
 
     extraLuaConfig = ''

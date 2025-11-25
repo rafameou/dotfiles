@@ -8,6 +8,7 @@
   programs = {
     librewolf = {
       enable = true;
+      package = pkgs.librewolf-bin;
       settings = {
         "webgl.disabled" = false;
         #"privacy.resistFingerprinting" = false;
