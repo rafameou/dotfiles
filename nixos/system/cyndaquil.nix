@@ -69,6 +69,9 @@
   programs.fuse.userAllowOther = true;
   services.ollama.enable = true;
 
+  services.adguardhome.enable = true;
+  programs.wayvnc.enable = true;
+
   services.searx = {
     enable = true;
     environmentFile = "/home/rafameou/.searxng.env";

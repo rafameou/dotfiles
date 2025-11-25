@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 {
   imports = [
-    ./window-manager/theme.nix
+    #./window-manager/theme.nix
     #./window-manager/i3status.nix
     ./window-manager/sway.nix
     #./window-manager/niri.nix
