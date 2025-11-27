@@ -64,7 +64,7 @@
       ];
     };
     "/mnt/arquivos-nvme" = {
-      device = "/dev/disk/by-uuid/a4d26eee-6109-457c-b3ef-f8a05618f70a";
+      device = "/dev/disk/by-uuid/392b4d2c-1a22-4002-b614-14c2811e165c";
       fsType = "btrfs";
       options = [
         "x-gvfs-show"
