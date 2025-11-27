@@ -72,7 +72,6 @@
         "exec"
       ];
     };
-    };
   };
 
   programs.firejail.enable = true;
