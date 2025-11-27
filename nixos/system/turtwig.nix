@@ -85,6 +85,15 @@
         "exec"
       ];
     };
+    "/mnt/Extra2" = {
+      device = "/dev/disk/by-uuid/44245f99-b706-4a79-85fc-e600f697f549";
+      fsType = "ext4";
+      options = [
+        "x-gvfs-show"
+        "nofail"
+        "exec"
+      ];
+    };
   };
 
   services.ollama.enable = true;

@@ -63,6 +63,16 @@
         "exec"
       ];
     };
+    "mnt/arquivos-nvme" = {
+      device = "/dev/disk/by-uuid/a4d26eee-6109-457c-b3ef-f8a05618f70a";
+      fsType = "btrfs";
+      options = [
+        "x-gvfs-show"
+        "nofail"
+        "exec"
+      ];
+    };
+    };
   };
 
   programs.firejail.enable = true;
