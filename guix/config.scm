@@ -17,7 +17,7 @@
   (locale "pt_BR.utf8")
   (timezone "America/Sao_Paulo")
   (keyboard-layout (keyboard-layout "br"))
-  (host-name "bulbasaur")
+  (host-name "oshawott")
 
   ;; The list of user accounts ('root' is implicit).
   (users (cons* (user-account
@@ -38,18 +38,18 @@
   ;; Below is the list of system services.  To search for available
   ;; services, run 'guix system search KEYWORD' in a terminal.
   (services
-    (append (list (service plasma-desktop-service-type)
+    (append (list (service xfce-desktop-service-type)
 	      	  (service cups-service-type)
 		  (service zram-device-service-type
 			   (zram-device-configuration
 			     (size "8G")
 			     (compression-algorithm 'zstd)))
-		  ;;(service screen-locker-service-type
-			   ;;(screen-locker-configuration
-			     ;;(name "swaylock")
-			     ;;(program (file-append swaylock "/bin/swaylock"))
-			     ;;(using-pam? #t)
-			     ;;(using-setuid? #f)))
+		  (service screen-locker-service-type
+			   (screen-locker-configuration
+			     (name "swaylock")
+			     (program (file-append swaylock "/bin/swaylock"))
+			     (using-pam? #t)
+			     (using-setuid? #f)))
 		  (set-xorg-configuration
 		    (xorg-configuration (keyboard-layout keyboard-layout))))
 
@@ -58,20 +58,24 @@
 	    %desktop-services))
 
   (bootloader (bootloader-configuration
-		(bootloader grub-bootloader)
-		(targets (list "/dev/sda"))
-		(keyboard-layout keyboard-layout)))
-
+                (bootloader grub-efi-bootloader)
+                (targets (list "/boot/efi"))
+                (keyboard-layout keyboard-layout)))
   (swap-devices (list (swap-space
-			(target (uuid
-				  "23a3fb6f-7f88-4da7-aca0-61b8608c7e62")))))
+                        (target (uuid
+                                 "f2574144-806a-44d6-b020-8a569381040a")))))
 
   ;; The list of file systems that get "mounted".  The unique
   ;; file system identifiers there ("UUIDs") can be obtained
   ;; by running 'blkid' in a terminal.
   (file-systems (cons* (file-system
-			 (mount-point "/")
-			 (device (uuid
-				   "b6900906-edcd-4c08-b440-ff21c55d6a08"
-				   'ext4))
-			 (type "ext4")) %base-file-systems)))
+                         (mount-point "/boot/efi")
+                         (device (uuid "9EED-5315"
+                                       'fat32))
+                         (type "vfat"))
+                       (file-system
+                         (mount-point "/")
+                         (device (uuid
+                                  "7645536e-a9df-4876-996a-1b6407013175"
+                                  'ext4))
+                         (type "ext4")) %base-file-systems)))

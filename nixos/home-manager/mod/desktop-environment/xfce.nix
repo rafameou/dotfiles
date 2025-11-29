@@ -13,6 +13,7 @@
     greybird
     theme-obsidian2
     iconpack-obsidian
+    elementary-xfce-icon-theme
   ];
 
   qt = {
