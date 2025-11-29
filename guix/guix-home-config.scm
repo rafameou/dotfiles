@@ -8,9 +8,14 @@
   #:use-module (gnu packages)
   #:use-module (gnu services)
   #:use-module (gnu system shadow)
-  #:use-module (nongnu packages)
-  #:use-module (radix packages)
-  #:use-module (sijo packages))
+
+  #:use-module (nongnu packages password-utils)
+  #:use-module (nongnu packages editors)
+  #:use-module (nongnu packages messaging)
+
+  #:use-module (radix packages toys)
+
+  #:use-module (sijo packages github-cli))
 
 (define home-config
   (home-environment
