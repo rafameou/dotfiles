@@ -5,8 +5,12 @@
   #:use-module (gnu home)
   #:use-module (gnu home services)
   #:use-module (gnu home services shells)
+  #:use-module (gnu packages)
   #:use-module (gnu services)
-  #:use-module (gnu system shadow))
+  #:use-module (gnu system shadow)
+  #:use-module (nongnu packages)
+  #:use-module (radix packages)
+  #:use-module (sijo packages))
 
 (define home-config
   (home-environment
@@ -15,15 +19,21 @@
     (packages (specifications->packages 
 	      (list "foot"
 		    "glib:bin"
+        "fuzzel"
+        "swaylock"
 
 		    "gimp"
 		    "libreoffice" "hunspell"
 		    "strawberry"
-		    "ghostwriter"
 		    "zathura"
+        "vlc"
+
+        "flameshot"
 
 		    "librewolf"
 		    "ungoogled-chromium"
+
+        "telegram-desktop"
 
 		    "rclone"
 		    "octave"
@@ -32,7 +42,18 @@
 		    "lm-sensors"
 		    "unzip"
 		    "nicotine+"
-		    "qbittorrent")))
+		    "qbittorrent"
+        
+        ;; nongnu
+        "bitwarden-desktop"
+        "vscodium"
+        "signal-desktop"
+        
+        ;;radix
+        "wayneko"
+        
+        ;;sijo
+        "github-cli")))
     (services
       (append
         (list
