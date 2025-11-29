@@ -45,12 +45,12 @@
 			   (zram-device-configuration
 			     (size "8G")
 			     (compression-algorithm 'zstd)))
-		  (service screen-locker-service-type
-			   (screen-locker-configuration
-			     (name "swaylock")
-			     (program (file-append swaylock "/bin/swaylock"))
-			     (using-pam? #t)
-			     (using-setuid? #f)))
+		  ;;(service screen-locker-service-type
+			   ;;(screen-locker-configuration
+			     ;;(name "swaylock")
+			     ;;(program (file-append swaylock "/bin/swaylock"))
+			     ;;(using-pam? #t)
+			     ;;(using-setuid? #f)))
 		  (set-xorg-configuration
 		    (xorg-configuration (keyboard-layout keyboard-layout))))
 

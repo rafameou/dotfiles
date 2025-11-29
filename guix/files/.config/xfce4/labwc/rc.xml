@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<labwc_config>
+  <core>
+    <adaptiveSync>yes</adaptiveSync>
+    <decoration>server</decoration>
+  </core>
+  <desktops number="1" />
+  <keyboard>
+    <default />
+    <keybind key="W-t">
+      <action name="Execute" command="foot" />
+    </keybind>
+    <keybind key="W-d">
+      <action name="Execute" command="fuzzel" />
+    </keybind>
+    <keybind key="W-F4">
+      <action name="None" />
+    </keybind>
+    <keybind key="W-l">
+      <action name="Execute" command="swaylock -Ffk -c 000000" />
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute" command="xfce4-screenshooter -f -m" />
+    </keybind>
+    <keybind key="Print">
+      <action name="Execute" command="flameshot gui" />
+    </keybind>
+    <keybind key="XF86AudioPlay">
+      <action name="Execute" command="playerctl play-pause" />
+    </keybind>
+    <keybind key="XF86AudioStop">
+      <action name="Execute" command="playerctl stop" />
+    </keybind>
+    <keybind key="XF86AudioPrev">
+      <action name="Execute" command="playerctl previous" />
+    </keybind>
+    <keybind key="XF86AudioNext">
+      <action name="Execute" command="playerctl next" />
+    </keybind>
+    <keybind key="Shift+XF86AudioPrev">
+      <action name="Execute" command="playerctl position 10-" />
+    </keybind>
+    <keybind key="Shift+XF86AudioNext">
+      <action name="Execute" command="playerctl position 10+" />
+    </keybind>
+    <keybind key="Shift+XF86AudioLowerVolume">
+      <action name="Execute" command="playerctl volume 0.1-" />
+    </keybind>
+    <keybind key="Shift+XF86AudioRaiseVolume">
+      <action name="Execute" command="playerctl volume 0.1+" />
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle" />
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute" command="wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-" />
+    </keybind>
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute" command="wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+" />
+    </keybind>
+    <keybind key="XF86AudioMicMute">
+      <action name="Execute" command="wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle" />
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute" command="brightnessctl set 10%+" />
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute" command="brightnessctl set 10%-" />
+    </keybind>
+    <keybind key="W-S-q">
+      <action name="Close" />
+    </keybind>
+    <keybind key="A-Tab">
+      <action name="NextWindow" />
+    </keybind>
+    <keybind key="W-Tab">
+      <action name="ToggleMaximize" />
+    </keybind>
+    <keybind key="W-1">
+      <action name="GoToDesktop" to="1" />
+    </keybind>
+    <keybind key="W-2">
+      <action name="GoToDesktop" to="2" />
+    </keybind>
+    <keybind key="W-3">
+      <action name="GoToDesktop" to="3" />
+    </keybind>
+    <keybind key="W-4">
+      <action name="GoToDesktop" to="4" />
+    </keybind>
+    <keybind key="W-S-equal">
+      <action name="ZoomIn" />
+    </keybind>
+    <keybind key="W-S-minus">
+      <action name="ZoomOut" />
+    </keybind>
+  </keyboard>
+  <snapping range="10" />
+  <theme>
+    <cornerRadius>0</cornerRadius>
+    <name>Onyx</name>
+  </theme>
+
+</labwc_config>
