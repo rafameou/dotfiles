@@ -1,7 +1,20 @@
 # Personal NixOS Flake
 
+## NixOS
+
 ```sh
-nh os switch .
+mkdir ~/.config/nix/
+echo "extra-experimental-features = nix-command flakes" > ~/.config/nix/nix.conf
+nh os switch . --hostname xyz
+```
+
+## Guix
+
+```sh
+cd guix
+guix pull -C channels.scm
+sudo guix system reconfigure config.scm
+guix home reconfigure guix-home-config.scm
 ```
 
 ## To-do list

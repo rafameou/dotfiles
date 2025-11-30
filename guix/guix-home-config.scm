@@ -38,7 +38,7 @@
 		    "librewolf"
 		    "ungoogled-chromium"
 
-        "telegram-desktop"
+	      ;;"telegram-desktop"
 
 		    "rclone"
 		    "octave"
@@ -49,7 +49,7 @@
 		    "nicotine+"
 		    "qbittorrent"
         
-        ;; nongnu
+        ;;nongnu
         "bitwarden-desktop"
         "vscodium"
         "signal-desktop"
