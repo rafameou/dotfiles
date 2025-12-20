@@ -81,6 +81,14 @@
   services.adguardhome.enable = true;
   programs.wayvnc.enable = true;
 
+  environment.systemPackages = [
+    pkgs.screen
+    pkgs.xdotool
+    pkgs.xorg.xwininfo
+    pkgs.yad
+    pkgs.nodejs_24
+  ];
+
   services.searx = {
     enable = true;
     environmentFile = "/home/rafameou/.searxng.env";

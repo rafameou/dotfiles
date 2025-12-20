@@ -13,7 +13,7 @@
       #   });
       # })
 
-      (final: prev: {
+      /*(final: prev: {
         xfce = prev.xfce.overrideScope (
           gfinal: gprev: {
             xfdesktop = gprev.xfdesktop.overrideAttrs (oldAttrs: {
@@ -23,7 +23,7 @@
             });
           }
         );
-      })
+      })*/
 
       /*
         (final: prev: {
