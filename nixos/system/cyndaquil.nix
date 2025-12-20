@@ -75,6 +75,8 @@
   services.ollama.enable = true;
 
   services.adguardhome.enable = true;
+  services.adguardhome.openFirewall = true;
+  networking.firewall.allowedTCPPorts = [ 53 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
   programs.wayvnc.enable = true;
 
