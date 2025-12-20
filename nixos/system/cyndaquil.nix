@@ -12,11 +12,11 @@
     ./mod/boot.nix
 
     ./mod/desktop-environment/xfce.nix
-    ./mod/greetd.nix
-    ./mod/sway.nix
+    #./mod/greetd.nix
+    #./mod/sway.nix
     #./mod/niri.nix
     ./mod/labwc.nix
-    ./mod/wayfire.nix
+    #./mod/wayfire.nix
 
     ./mod/navidrome.nix
     ./mod/ssh.nix
@@ -45,8 +45,8 @@
   };
 
   fileSystems = {
-    "/mnt/arquivos-ssd" = {
-      device = "/dev/disk/by-uuid/1c1dcfb2-8fba-470e-ac66-e65bf57da8a0";
+    "/mnt/arquivos-hdd2" = {
+      device = "/dev/disk/by-uuid/683fe0b2-1633-44a2-8bc5-1b176fdd8c6c";
       fsType = "btrfs";
       options = [
         "x-gvfs-show"
