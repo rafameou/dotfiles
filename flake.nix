@@ -40,7 +40,7 @@
 
     #nix-flatpak.url = "github:gmodena/nix-flatpak";
 
-    chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
+    #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
 
     solaar.url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
     solaar.inputs.nixpkgs.follows = "nixpkgs";
@@ -59,7 +59,7 @@
       home-manager, # plasma-manager,
       #niri,
       solaar,
-      chaotic, # nixos-wsl,
+      #chaotic, # nixos-wsl,
       #winapps,
       ...
     }@inputs:
@@ -72,7 +72,6 @@
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/bulbasaur.nix
-            chaotic.nixosModules.default
           ];
         };
         chikorita = nixpkgs.lib.nixosSystem {
@@ -82,7 +81,6 @@
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/chikorita.nix
-            chaotic.nixosModules.default
           ];
         };
         treecko = nixpkgs.lib.nixosSystem {
@@ -92,7 +90,6 @@
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/treecko.nix
-            chaotic.nixosModules.default
           ];
         };
         oshawott = nixpkgs.lib.nixosSystem {
@@ -102,7 +99,6 @@
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/oshawott.nix
-            chaotic.nixosModules.default
           ];
         };
 	turtwig = nixpkgs.lib.nixosSystem {
@@ -112,7 +108,6 @@
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/turtwig.nix
-            chaotic.nixosModules.default
           ];
         };
 	cyndaquil = nixpkgs.lib.nixosSystem {
@@ -122,7 +117,6 @@
             #stylix.nixosModules.stylix
             solaar.nixosModules.default
             ./nixos/system/cyndaquil.nix
-            chaotic.nixosModules.default
           ];
         };
         /*
@@ -132,7 +126,6 @@
                     nixos-wsl.nixosModules.default
                     solaar.nixosModules.default
                     ./nixos/system/wsl.nix
-          	  chaotic.nixosModules.default
           	];
                 };
         */
