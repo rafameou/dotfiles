@@ -16,6 +16,7 @@
     elementary-xfce-icon-theme
 
     swww
+    crystal-dock
   ];
 
   qt = {

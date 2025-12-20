@@ -36,13 +36,7 @@
     };
   };
 
-  programs.steam = {
-    enable = true;
-    extraPackages = with pkgs; [
-      gamescope
-      steamtinkerlaunch
-    ];
-  };
+  
 
   fileSystems = {
     "/mnt/arquivos-hdd2" = {
@@ -74,11 +68,14 @@
     };
   };
 
+  services.xserver.displayManager.lightdm.enable = false;
+
   programs.firejail.enable = true;
   programs.fuse.userAllowOther = true;
   services.ollama.enable = true;
 
   services.adguardhome.enable = true;
+  networking.firewall.allowedUDPPorts = [ 53 ];
   programs.wayvnc.enable = true;
 
   environment.systemPackages = [
