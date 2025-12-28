@@ -88,6 +88,7 @@
         "nofail"
         "exec"
       ];
+    };
     "/mnt/barracuda-old" = {
       device = "/dev/disk/by-uuid/cc129f96-9d07-43cb-b390-40a590718138";
       fsType = "ext4";
