@@ -31,8 +31,6 @@
     };
   };
 
-  
-
   fileSystems = {
     "/mnt/arquivos-hdd2" = {
       device = "/dev/disk/by-uuid/683fe0b2-1633-44a2-8bc5-1b176fdd8c6c";
@@ -64,10 +62,16 @@
   };
 
   services.xserver.displayManager.lightdm.enable = false;
+  # https://bcarpent.codes/posts/How_to_use_Gnome_Remote_Desktop_for_Headless_login/
+  # https://discourse.nixos.org/t/configuring-remote-desktop-access-with-gnome-remote-desktop/48023/4
+  # https://github.com/NixOS/nixpkgs/issues/361163
   services.gnome.gnome-remote-desktop.enable = true;
+  systemd.services."gnome-remote-desktop".wantedBy = [ "graphical.target" ];
   systemd.sleep.extraConfig = ''
     AllowSuspend=no
     AllowHibernation=no
+    AllowHybridSleep=no
+    AllowSuspendThenHibernate=no
   '';
 
   programs.firejail.enable = true;
