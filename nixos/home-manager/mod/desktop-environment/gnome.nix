@@ -190,6 +190,7 @@
         "org.gnome.Nautilus.desktop"
         "gimp.desktop"
         "org.nicotine_plus.Nicotine.desktop"
+        "io.gitlab.news_flash.NewsFlash.desktop"
         "org.gnome.SystemMonitor.desktop"
         "org.gnome.Settings.desktop"
         "org.octave.Octave.desktop"
