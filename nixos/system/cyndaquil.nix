@@ -11,12 +11,7 @@
     ./cyndaquil-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/xfce.nix
-    #./mod/greetd.nix
-    #./mod/sway.nix
-    #./mod/niri.nix
-    ./mod/labwc.nix
-    #./mod/wayfire.nix
+    ./mod/desktop-environment/gnome.nix
 
     ./mod/navidrome.nix
     ./mod/ssh.nix
@@ -69,6 +64,11 @@
   };
 
   services.xserver.displayManager.lightdm.enable = false;
+  services.gnome.gnome-remote-desktop.enable = true;
+  systemd.sleep.extraConfig = ''
+    AllowSuspend=no
+    AllowHibernation=no
+  '';
 
   programs.firejail.enable = true;
   programs.fuse.userAllowOther = true;
@@ -78,7 +78,6 @@
   services.adguardhome.openFirewall = true;
   networking.firewall.allowedTCPPorts = [ 53 ];
   networking.firewall.allowedUDPPorts = [ 53 ];
-  programs.wayvnc.enable = true;
 
   environment.systemPackages = [
     pkgs.screen

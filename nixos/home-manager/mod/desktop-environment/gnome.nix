@@ -124,14 +124,14 @@
         "<Super>Home"
         "<Super>1"
       ];
-	switch-to-workspace-2 = [ "<Super>2" ];
-        switch-to-workspace-3 = [ "<Super>3" ];
-        switch-to-workspace-4 = [ "<Super>4" ];
-        switch-to-workspace-5 = [ "<Super>5" ];
-        switch-to-workspace-6 = [ "<Super>6" ];
-        switch-to-workspace-7 = [ "<Super>7" ];
-        switch-to-workspace-8 = [ "<Super>8" ];
-        switch-to-workspace-9 = [ "<Super>9" ];
+      switch-to-workspace-2 = [ "<Super>2" ];
+      switch-to-workspace-3 = [ "<Super>3" ];
+      switch-to-workspace-4 = [ "<Super>4" ];
+      switch-to-workspace-5 = [ "<Super>5" ];
+      switch-to-workspace-6 = [ "<Super>6" ];
+      switch-to-workspace-7 = [ "<Super>7" ];
+      switch-to-workspace-8 = [ "<Super>8" ];
+      switch-to-workspace-9 = [ "<Super>9" ];
       move-to-workspace-1 = [
         "<Super><Shift>Home"
         "<Super><Shift>1"
@@ -176,7 +176,7 @@
       sort-directories-first = true;
     };
     "org/gnome/shell" = {
-      favorite-apps = [];/*[
+      favorite-apps = [
         "librewolf.desktop"
         "chromium-browser.desktop"
         "org.gnome.Ptyxis.desktop"
@@ -187,13 +187,13 @@
         "org.gnome.Fractal.desktop"
         "io.github.alainm23.planify.desktop"
         "dev.geopjr.Tuba.desktop"
-	"org.gnome.Nautilus.desktop"
+        "org.gnome.Nautilus.desktop"
         "gimp.desktop"
         "org.nicotine_plus.Nicotine.desktop"
         "org.gnome.SystemMonitor.desktop"
         "org.gnome.Settings.desktop"
         "org.octave.Octave.desktop"
-      ];*/
+      ];
       disable-user-extensions = false;
       enabled-extensions = [
         "runcat@kolesnikov.se"
@@ -204,20 +204,20 @@
         "tailscale-status@maxgallup.github.com"
         # "paperwm@paperwm.github.com"
         "Vitals@CoreCoding.com"
-        # "favourites-in-appgrid@harshadgavali.gitlab.org"
-        #"hotedge@jonathan.jdoda.ca"
+        "favourites-in-appgrid@harshadgavali.gitlab.org"
+        "hotedge@jonathan.jdoda.ca"
         #"weatherornot@somepaulo.github.io"
         "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
         # "gsconnect@andyholmes.github.io"
         #"space-bar@luchrioh"
         #"BingWallpaper@ineffable-gmail.com"
         # "dash-to-dock@micxgx.gmail.com"
-        "gtk4-ding@smedius.gitlab.com"
-        "add-to-desktop@tommimon.github.com"
-        "apps-menu@gnome-shell-extensions.gcampax.github.com"
-        "places-menu@gnome-shell-extensions.gcampax.github.com"
-        "window-list@gnome-shell-extensions.gcampax.github.com"
-	"just-perfection-desktop@just-perfection"
+        #"gtk4-ding@smedius.gitlab.com"
+        #"add-to-desktop@tommimon.github.com"
+        #"apps-menu@gnome-shell-extensions.gcampax.github.com"
+        #"places-menu@gnome-shell-extensions.gcampax.github.com"
+        #"window-list@gnome-shell-extensions.gcampax.github.com"
+        #"just-perfection-desktop@just-perfection"
       ];
       disabled-extensions = [ ];
     };

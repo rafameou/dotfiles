@@ -11,12 +11,7 @@
     ./turtwig-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/xfce.nix
-    ./mod/greetd.nix
-    ./mod/sway.nix
-    #./mod/niri.nix
-    ./mod/labwc.nix
-    ./mod/wayfire.nix
+    ./mod/desktop-environment/gnome.nix
   ];
 
   # ... changes to only this sytem
@@ -87,6 +82,14 @@
     };
     "/mnt/Extra2" = {
       device = "/dev/disk/by-uuid/44245f99-b706-4a79-85fc-e600f697f549";
+      fsType = "ext4";
+      options = [
+        "x-gvfs-show"
+        "nofail"
+        "exec"
+      ];
+    "/mnt/barracuda-old" = {
+      device = "/dev/disk/by-uuid/cc129f96-9d07-43cb-b390-40a590718138";
       fsType = "ext4";
       options = [
         "x-gvfs-show"
