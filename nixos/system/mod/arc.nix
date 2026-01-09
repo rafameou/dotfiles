@@ -23,7 +23,7 @@
 
   # May help if FFmpeg/VAAPI/QSV init fails (esp. on Arc with i915):
   hardware.enableRedistributableFirmware = true;
-  boot.kernelParams = [ "i915.enable_guc=3" "i915.force_probe=!e20b" "xe.force_probe=e20b"];
+  boot.kernelParams = [ "i915.enable_guc=3"];
 
   # May help services that have trouble accessing /dev/dri (e.g., jellyfin/plex):
   # users.users.<service>.extraGroups = [ "video" "render" ];
