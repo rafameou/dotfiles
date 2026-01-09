@@ -28,19 +28,19 @@
         - click
       ...
       ---
-      - Key: [Open Emoji Panel, pressed]
+      - Key: [Emoji, pressed]
       - KeyPress:
         - backslash
         - click
       ...
       ---
-      - Key: [Voice Dictation, pressed]
+      - Key: [Dictation, pressed]
       - KeyPress:
         - backslash
         - click
       ...
       ---
-      - Key: [Snipping Tool, pressed]
+      - Key: [Screen Capture, pressed]
       - KeyPress:
         - Print
         - click

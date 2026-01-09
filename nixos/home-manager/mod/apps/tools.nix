@@ -23,7 +23,7 @@
     zip
     xsane
     virt-viewer
-    remmina freerdp
+    freerdp
     htop
     lm_sensors
     powerstat

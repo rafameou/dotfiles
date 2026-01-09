@@ -194,6 +194,7 @@
         "org.gnome.SystemMonitor.desktop"
         "org.gnome.Settings.desktop"
         "org.octave.Octave.desktop"
+        "steam.desktop"
       ];
       disable-user-extensions = false;
       enabled-extensions = [
@@ -207,10 +208,10 @@
         "Vitals@CoreCoding.com"
         "favourites-in-appgrid@harshadgavali.gitlab.org"
         "hotedge@jonathan.jdoda.ca"
-        #"weatherornot@somepaulo.github.io"
+        "weatherornot@somepaulo.github.io"
         "status-area-horizontal-spacing@mathematical.coffee.gmail.com"
         # "gsconnect@andyholmes.github.io"
-        #"space-bar@luchrioh"
+        "space-bar@luchrioh"
         #"BingWallpaper@ineffable-gmail.com"
         # "dash-to-dock@micxgx.gmail.com"
         #"gtk4-ding@smedius.gitlab.com"

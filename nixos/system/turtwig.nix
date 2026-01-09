@@ -9,6 +9,7 @@
     ./mod/base.nix
 
     ./turtwig-hw.nix
+    ./mod/arc.nix
     ./mod/boot.nix
 
     ./mod/desktop-environment/gnome.nix
