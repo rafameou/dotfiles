@@ -9,10 +9,9 @@
     ./mod/base.nix
 
     ./turtwig-hw.nix
-    ./mod/arc.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/kde.nix
   ];
 
   # ... changes to only this sytem
@@ -63,11 +62,17 @@
     options it87 force_id=0x8628
   '';
 
+  programs.gamemode = {
+    enable = true;
+  };
+
   programs.steam = {
     enable = true;
     extraPackages = with pkgs; [
       gamescope
       steamtinkerlaunch
+      mangohud
+      gamemode
     ];
   };
 
@@ -81,7 +86,7 @@
         "exec"
       ];
     };
-    "/mnt/Extra2" = {
+/*    "/mnt/Extra2" = {
       device = "/dev/disk/by-uuid/44245f99-b706-4a79-85fc-e600f697f549";
       fsType = "ext4";
       options = [
@@ -89,7 +94,7 @@
         "nofail"
         "exec"
       ];
-    };
+    };*/
     "/mnt/barracuda-old" = {
       device = "/dev/disk/by-uuid/cc129f96-9d07-43cb-b390-40a590718138";
       fsType = "ext4";
