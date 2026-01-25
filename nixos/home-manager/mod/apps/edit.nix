@@ -43,7 +43,7 @@
     kdePackages.ghostwriter
     kdePackages.kmplot
 
-    kdePackages.kdenlive
+    #kdePackages.kdenlive
     krita
     kdePackages.kolourpaint
 
