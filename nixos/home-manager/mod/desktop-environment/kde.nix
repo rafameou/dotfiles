@@ -274,20 +274,26 @@
     };
   */
 
-  home.file = {
-    ".crystal-dock-2/KDE/panel_1.conf".text = ''
+  xdg.configFile = {
+    "crystal-dock/KDE/panel_1.conf".text = ''
       [General]
       autoHide=false
       launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;signal;element-desktop;org.kde.konsole;bitwarden;org.kde.dolphin;onlyoffice-desktopeditors;startcenter;codium;org.kde.kate;gimp;org.kde.krita;org.kde.kpat;steam;org.nicotine_plus.Nicotine;smartcode-stremio;xsane;virt-manager;protonvpn-app;org.kde.plasma-systemmonitor"
       position=1
       screen=0
       showApplicationMenu=false
+      showBatteryIndicator=false
       showClock=false
+      showKeyboardLayout=false
       showPager=false
       showTaskManager=true
+      showTrash=true
+      showVersionChecker=false
+      showVolumeControl=false
+      showWifiManager=false
       visibility=3
     '';
-    ".crystal-dock-2/KDE/appearance.conf".text = ''
+    "crystal-dock/KDE/appearance.conf".text = ''
       [General]
       activeIndicatorColor=#ff8c00
       backgroundColor=#1D2021
