@@ -278,7 +278,7 @@
     "crystal-dock/KDE/panel_1.conf".text = ''
       [General]
       autoHide=false
-      launchers="librewolf;chromium-browser;org.telegram.desktop;vesktop;signal;element-desktop;org.kde.konsole;bitwarden;org.kde.dolphin;onlyoffice-desktopeditors;startcenter;codium;org.kde.kate;gimp;org.kde.krita;org.kde.kpat;steam;org.nicotine_plus.Nicotine;smartcode-stremio;xsane;virt-manager;protonvpn-app;org.kde.plasma-systemmonitor"
+      launchers="vivaldi-stable;org.telegram.desktop;vesktop;signal;element-desktop;org.kde.konsole;bitwarden;org.kde.dolphin;onlyoffice-desktopeditors;startcenter;codium;org.kde.kate;gimp;org.kde.krita;org.kde.kpat;steam;org.nicotine_plus.Nicotine;smartcode-stremio;xsane;virt-manager;protonvpn-app;org.kde.plasma-systemmonitor"
       position=1
       screen=0
       showApplicationMenu=false
