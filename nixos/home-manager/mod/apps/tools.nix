@@ -24,6 +24,7 @@
     xsane
     virt-viewer
     freerdp
+    moonlight-qt
     htop
     lm_sensors
     powerstat
