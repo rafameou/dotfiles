@@ -16,13 +16,15 @@
 
     #gnome.seahorse
 
-    xfce.xfce4-eyes-plugin
-    xfce.xfce4-notes-plugin
-    xfce.xfce4-sensors-plugin
-    xfce.xfce4-pulseaudio-plugin
-    xfce.xfce4-weather-plugin
-    xfce.xfce4-systemload-plugin
-    xfce.xfce4-cpugraph-plugin
-    xfce.xfce4-whiskermenu-plugin
+    xfce4-eyes-plugin
+    xfce4-notes-plugin
+    xfce4-sensors-plugin
+    xfce4-pulseaudio-plugin
+    xfce4-weather-plugin
+    xfce4-systemload-plugin
+    xfce4-cpugraph-plugin
+    xfce4-whiskermenu-plugin
+    xfce4-windowck-plugin
+    xfce4-fsguard-plugin
   ];
 }

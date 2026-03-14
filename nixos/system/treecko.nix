@@ -40,7 +40,7 @@
     ];
   };
 
-  fileSystems = {
+  /*fileSystems = {
     "/mnt/Extra" = {
       device = "/dev/disk/by-uuid/976df785-2a12-4187-b420-41576584e897";
       fsType = "ext4";
@@ -50,7 +50,7 @@
         "exec"
       ];
     };
-  };
+  };*/
 
   services.ollama.enable = true;
 

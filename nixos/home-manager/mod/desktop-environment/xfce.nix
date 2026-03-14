@@ -40,7 +40,7 @@
     "crystal-dock/XFCE/panel_1.conf".text = ''
       [General]
       autoHide=false
-      launchers="vivaldi-stable;org.telegram.desktop;vesktop;signal;element-desktop;xfce4-terminal;bitwarden;thunar;onlyoffice-desktopeditors;startcenter;codium;mousepad;gimp;org.kde.krita;org.kde.kpat;steam;smartcode-stremio;xsane;virt-manager;protonvpn-app;xftask"
+      launchers="vivaldi-stable;org.telegram.desktop;vesktop;signal;element-desktop;xfce4-terminal;bitwarden;thunar;onlyoffice-desktopeditors;startcenter;codium;mousepad;gimp;org.kde.krita;org.kde.kpat;steam;smartcode-stremio;xsane;com.moonlight_stream.Moonlight;protonvpn-app;xftask"
       position=1
       screen=0
       showApplicationMenu=false
