@@ -177,8 +177,7 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
-        "librewolf.desktop"
-        "chromium-browser.desktop"
+        "vivaldi-desktop.desktop"
         "org.gnome.Ptyxis.desktop"
         "codium.desktop"
         "org.telegram.desktop.desktop"
@@ -193,6 +192,7 @@
         "io.gitlab.news_flash.NewsFlash.desktop"
         "org.gnome.SystemMonitor.desktop"
         "org.gnome.Settings.desktop"
+        "org.gnome.Connections.desktop"
         "org.octave.Octave.desktop"
         "steam.desktop"
       ];
@@ -201,7 +201,6 @@
         "runcat@kolesnikov.se"
         "appindicatorsupport@rgcjonas.gmail.com"
         "AlphabeticalAppGrid@stuarthayhurst"
-        "solaar-extension@sidevesh"
         "caffeine@patapon.info"
         "tailscale-status@maxgallup.github.com"
         # "paperwm@paperwm.github.com"

@@ -32,10 +32,10 @@
         "video/x-flic" = "mpv.desktop";
         "video/x-theora+ogg" = "mpv.desktop";
 
-        "text/html" = "librewolf.desktop";
+        "text/html" = "vivaldi-stable.desktop";
 
-        "x-scheme-handler/http" = "librewolf.desktop";
-        "x-scheme-handler/https" = "librewolf.desktop";
+        "x-scheme-handler/http" = "vivaldi-stable.desktop";
+        "x-scheme-handler/https" = "vivaldi-stable.desktop";
         "x-scheme-handler/tg" = "org.telegram.desktop.desktop";
         "x-scheme-handler/sgnl" = "signal.desktop";
         "x-scheme-handler/signalcaptcha" = "signal.desktop";
