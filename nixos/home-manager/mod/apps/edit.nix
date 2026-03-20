@@ -1,12 +1,12 @@
 { pkgs, ... }:
 {
   imports = [
-    ./separated/emacs.nix
+    #./separated/emacs.nix
     ./separated/mpv.nix
     #./separated/neovim.nix
     ./separated/vscodium.nix
-    ./separated/flameshot.nix
-    ./separated/lf.nix
+    #./separated/flameshot.nix
+    #./separated/lf.nix
   ];
 
   # programs.zed-editor = {
@@ -23,20 +23,17 @@
     gimp3
     darktable
     onlyoffice-desktopeditors
-    libreoffice-qt-fresh
-    hunspell
-    hunspellDicts.pt_BR
-    corefonts
-    vista-fonts
+    libreoffice-qt-fresh hunspell hunspellDicts.pt_BR
+    corefonts vista-fonts
     #feishin #broken 22-01-2025, electron, not needed
     strawberry # broken 18-07-2025
     #texlive.combined.scheme-full
     cherrytree
     imagemagick
     ghostscript
-    sioyek
+    #sioyek
 
-    vlc
+    #vlc
 
     #apostrophe #broken 03-11-2024, not needed
     # zettlr

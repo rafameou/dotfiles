@@ -177,7 +177,7 @@
     };
     "org/gnome/shell" = {
       favorite-apps = [
-        "vivaldi-desktop.desktop"
+        "vivaldi-stable.desktop"
         "org.gnome.Ptyxis.desktop"
         "codium.desktop"
         "org.telegram.desktop.desktop"

@@ -5,7 +5,7 @@
     #./separated/luakit.nix
     #./separated/qutebrowser.nix
   ];
-  programs = {
+  /*programs = {
     librewolf = {
       enable = true;
       package = pkgs.librewolf;
@@ -20,14 +20,13 @@
         "general.autoScroll" = true;
       };
     };
-  };
+  };*/
 
   home.packages = with pkgs; [
     vivaldi vivaldi-ffmpeg-codecs
-    ungoogled-chromium
+    #ungoogled-chromium
     telegram-desktop
-    vesktop
-    arrpc
+    vesktop arrpc
     bitwarden-desktop
     komikku
     kdePackages.tokodon

@@ -2,14 +2,14 @@
 {
   imports = [
     #./separated/dunst.nix
-    ./separated/foot.nix
-    ./separated/fuzzel.nix
+    #./separated/foot.nix
+    #./separated/fuzzel.nix
     #./separated/kitty.nix
     ./separated/rclone.nix
-    ./separated/zathura.nix
-    ./separated/solaar.nix
-    ./separated/vimiv.nix
-    ./separated/wlogout.nix
+    #./separated/zathura.nix
+    #./separated/solaar.nix
+    #./separated/vimiv.nix
+    #./separated/wlogout.nix
   ];
   home.packages = with pkgs; [
     flatpak
@@ -24,15 +24,15 @@
     xsane
     virt-viewer
     freerdp
-    moonlight-qt
+    #moonlight-qt
     htop
     lm_sensors
     powerstat
     nixos-icons
     mesa-demos
-    pavucontrol
-    android-file-transfer
+    #pavucontrol
+    #android-file-transfer
     kdePackages.filelight
-    doublecmd
+    #doublecmd
   ];
 }
