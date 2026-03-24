@@ -37,12 +37,12 @@
     };
   };
 
-  programs.niri.settings = {
+  /*programs.niri.settings = {
     input.keyboard.xkb = {
       variant = "thinkpad";
     };
     outputs."eDP-1".scale = 1.0;
-  };
+  };*/
 
   wayland.windowManager.labwc = {
     environment = [
