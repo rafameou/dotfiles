@@ -30,7 +30,6 @@
     # -- services and apps --
     ./geoclue.nix
     ./zsh.nix
-    ./solaar.nix
     ./qemu.nix
     #./distrobox.nix
     #./flatpak.nix #extremely annoying and keep breaking

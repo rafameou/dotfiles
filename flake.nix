@@ -37,50 +37,32 @@
 
     markview-nvim.url = "github:OXY2DEV/markview.nvim";
     markview-nvim.flake = false;
-
-    #nix-flatpak.url = "github:gmodena/nix-flatpak";
-
-    #chaotic.url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-
-    solaar.url = "https://flakehub.com/f/Svenum/Solaar-Flake/*.tar.gz"; # For latest stable version
-    solaar.inputs.nixpkgs.follows = "nixpkgs";
-
-    #winapps = {
-    #  url = "github:winapps-org/winapps";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
-
-    #nixos-wsl.url = "github:nix-community/NixOS-WSL/main";
   };
 
   outputs =
     {
       nixpkgs,
-      home-manager, # plasma-manager,
+      home-manager, 
+      #plasma-manager,
       #niri,
-      solaar,
-      #chaotic, # nixos-wsl,
-      #winapps,
       ...
     }@inputs:
     {
       nixosConfigurations = {
-        bulbasaur = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          modules = [
-            #niri.nixosModules.niri
-            #stylix.nixosModules.stylix
-            solaar.nixosModules.default
-            ./nixos/system/bulbasaur.nix
-          ];
-        };
         chikorita = nixpkgs.lib.nixosSystem {
           specialArgs = { inherit inputs; }; # Pass flake inputs to our config
           modules = [
             #niri.nixosModules.niri
             #stylix.nixosModules.stylix
-            solaar.nixosModules.default
             ./nixos/system/chikorita.nix
+          ];
+        };
+        nixos = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
+          modules = [
+            #niri.nixosModules.niri
+            #stylix.nixosModules.stylix
+            ./nixos/system/nixos.nix
           ];
         };
         treecko = nixpkgs.lib.nixosSystem {
@@ -88,17 +70,7 @@
           modules = [
             #niri.nixosModules.niri
             #stylix.nixosModules.stylix
-            solaar.nixosModules.default
             ./nixos/system/treecko.nix
-          ];
-        };
-        oshawott = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          modules = [
-            #niri.nixosModules.niri
-            #stylix.nixosModules.stylix
-            solaar.nixosModules.default
-            ./nixos/system/oshawott.nix
           ];
         };
 	turtwig = nixpkgs.lib.nixosSystem {
@@ -106,34 +78,7 @@
           modules = [
             #niri.nixosModules.niri
             #stylix.nixosModules.stylix
-            solaar.nixosModules.default
             ./nixos/system/turtwig.nix
-          ];
-        };
-	cyndaquil = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          modules = [
-            #niri.nixosModules.niri
-            #stylix.nixosModules.stylix
-            solaar.nixosModules.default
-            ./nixos/system/cyndaquil.nix
-          ];
-        };
-        /*
-          wsl = nixpkgs.lib.nixosSystem {
-          	specialArgs = {inherit inputs; }; # Pass flake inputs to our config
-          	modules = [
-                    nixos-wsl.nixosModules.default
-                    solaar.nixosModules.default
-                    ./nixos/system/wsl.nix
-          	];
-                };
-        */
-        oddish = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; }; # Pass flake inputs to our config
-          modules = [
-            #stylix.nixosModules.stylix
-            ./nixos/system/oddish.nix
           ];
         };
       };

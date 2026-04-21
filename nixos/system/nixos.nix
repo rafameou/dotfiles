@@ -3,14 +3,14 @@
   imports = [
     ./mod/base.nix
 
-    ./oshawott-hw.nix
+    ./nixos-hw.nix
     ./mod/boot.nix
 
-    ./mod/desktop-environment/gnome.nix
+    ./mod/desktop-environment/kde.nix
   ];
 
   # ... changes to only this sytem
-  networking.hostName = "oshawott"; # Define your hostname.
+  networking.hostName = "nixos"; # Define your hostname.
   home-manager = {
     backupFileExtension = "hm-backup";
     extraSpecialArgs = {
@@ -19,16 +19,8 @@
         ;
     };
     users = {
-      rafameou = import ../home-manager/oshawott.nix;
+      rafameou = import ../home-manager/nixos.nix;
     };
-  };
-
-  programs.steam = {
-    enable = true;
-    extraPackages = with pkgs; [
-      gamescope
-      steamtinkerlaunch
-    ];
   };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
