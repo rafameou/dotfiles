@@ -1,0 +1,60 @@
+[[block]]
+block = "sound"
+headphones_indicator = true
+
+[[block.click]]
+button = "left"
+cmd = "pavucontrol-qt"
+
+[[block]]
+block = "sound"
+device_kind = "source"
+
+#[[block]]
+#block = "vpn"
+#driver = "tailscale"
+
+[[block]]
+block = "privacy"
+[[block.driver]]
+name = "v4l"
+[[block.driver]]
+name = "pipewire"
+display = "nickname"
+
+[[block]]
+block = "backlight"
+missing_format = ""
+
+[[block]]
+block = "battery"
+format = " $icon $percentage {($time_remaining) |}"
+full_format = " $icon {($time_remaining) |}"
+missing_format = ""
+
+[[block]]
+block = "time"
+interval = 10
+
+[block.format]
+full = " $icon $timestamp.datetime(f:'%R:%S', l:pt_BR) "
+short = " $icon $timestamp.datetime(f:%R) "
+
+[[block]]
+block = "notify"
+driver = "swaync"
+format = " $icon {($notification_count.eng(w:1)) |}"
+
+[[block.click]]
+action = "show"
+button = "left"
+
+[[block.click]]
+action = "toggle_paused"
+button = "right"
+
+[icons]
+icons = "awesome6"
+
+[theme]
+theme = "native"
