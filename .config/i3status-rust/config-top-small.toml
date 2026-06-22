@@ -24,6 +24,15 @@ cmd = "wlogout"
 
 [[block]]
 block = "custom"
+command = "echo \uf030"
+interval = "once"
+
+[[block.click]]
+button = "left"
+cmd = "slurp | grim -g - - | wl-copy"
+
+[[block]]
+block = "custom"
 command = "echo \uf07b"
 interval = "once"
 

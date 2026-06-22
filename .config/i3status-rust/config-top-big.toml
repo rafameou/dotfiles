@@ -27,6 +27,15 @@ block = "custom"
 command = "echo \uf07b"
 interval = "once"
 
+[[block]]
+block = "custom"
+command = "echo \uf030"
+interval = "once"
+
+[[block.click]]
+button = "left"
+cmd = "slurp | grim -g - - | wl-copy"
+
 [[block.click]]
 button = "left"
 cmd = "thunar"
