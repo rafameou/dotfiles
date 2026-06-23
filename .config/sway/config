@@ -4,7 +4,7 @@
 #
 # Read `man 5 sway` for a complete reference.
 
-include base16-black-metal.config
+include base16-bright.config
 
 ### Variables
 #
@@ -23,7 +23,7 @@ set $menu wofi -S drun
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-#output * bg /home/rafameou/Pictures/bluebonnets_tile.png tile
+output * bg $HOME/Pictures/simplist2k.png fill
 #
 # Example configuration:
 #
@@ -221,8 +221,8 @@ bar {
   swaybar_command swaybar
   tray_output none
   colors {
-    background $base00
-    separator  $base01
+    background $base00cc
+    separator  $base05
     statusline $base04
 
     # State             Border  BG      Text
@@ -240,8 +240,8 @@ bar {
   status_command i3status-rs ~/.config/i3status-rust/config-bottom.toml
   swaybar_command swaybar
   colors {
-    background $base00
-    separator  $base01
+    background $base00cc
+    separator  $base05
     statusline $base04
 
     # State             Border  BG      Text
@@ -254,7 +254,7 @@ bar {
 }
 
 floating_modifier Mod4
-default_border pixel 2
+default_border normal 2
 default_floating_border normal 2
 hide_edge_borders none
 focus_wrapping no
@@ -266,11 +266,11 @@ workspace_auto_back_and_forth no
 #gaps inner 10
 
 font pango:monospace 12
-client.focused          $base05 $base0D $base00 $base0D $base0D
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
+client.focused          $base05 $base0Dcc $base00 $base0Dcc $base0D
+client.focused_inactive $base01 $base01cc $base05 $base03cc $base01
+client.unfocused        $base01 $base00cc $base05 $base01cc $base01
+client.urgent           $base08 $base08cc $base00 $base08cc $base08
+client.placeholder      $base00 $base00cc $base05 $base00cc $base00
 client.background       $base07
 
 exec --no-startup-id swaync
@@ -279,7 +279,7 @@ exec --no-startup-id wvkbd-deskintl
 exec --no-startup-id gammastep -l geoclue2 -m wayland
 exec --no-startup-id dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 exec --no-startup-id thunar --daemon
-#exec --no-startup-id bash /home/rafameou/.config/sway/autorotate.sh
+#exec --no-startup-id bash $HOME/.config/sway/autorotate.sh
 exec --no-startup-id nm-applet
 
 include /etc/sway/config.d/*
